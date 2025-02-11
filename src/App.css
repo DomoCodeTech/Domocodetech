@@ -40,3 +40,86 @@
 .read-the-docs {
   color: #888;
 }
+
+/* App-specific styles */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Override Material-UI styles */
+.MuiButton-root {
+  text-transform: none !important;
+}
+
+/* Custom transitions */
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.page-transition-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 300ms, transform 300ms;
+}
+
+/* Custom shadows */
+.custom-shadow {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.custom-shadow:hover {
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Custom gradients */
+.gradient-primary {
+  background: linear-gradient(45deg, #4CAF50 30%, #45a049 90%);
+}
+
+.gradient-secondary {
+  background: linear-gradient(45deg, #2196F3 30%, #1976D2 90%);
+}
+
+/* Custom animations */
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.slide-in {
+  animation: slideIn 0.5s ease-out;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .responsive-padding {
+    padding: 1rem;
+  }
+}
+
+@media (min-width: 601px) {
+  .responsive-padding {
+    padding: 2rem;
+  }
+}

@@ -1,23 +1,31 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { motion } from 'framer-motion'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { ThemeProvider } from '@mui/material';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import Home from './pages/Home';
+import Services from './pages/Services';
+import Contact from './pages/Contact';
+import theme from './theme/theme';
+import './App.css';
 
-const queryClient = new QueryClient()
-
-export default function App() {
+function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <BrowserRouter>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-        >
-          <Routes>
-          
-          </Routes>
-        </motion.div>
-      </BrowserRouter>
-    </QueryClientProvider>
-  )
+    <ThemeProvider theme={theme}>
+      <Router>
+        <div className="app">
+          <Navbar />
+          <main>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/services" element={<Services />} />
+              <Route path="/contact" element={<Contact />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
+      </Router>
+    </ThemeProvider>
+  );
 }
+
+export default App;
