@@ -1,149 +1,164 @@
 export const SITE_DATA = {
   company: {
-    name: 'ElectroTech',
-    slogan: 'Illuminating Your World with Excellence',
-    phone: '+1 (555) 123-4567',
-    email: 'info@electrotech.com',
-    address: '123 Electric Avenue, City, Country',
-    workingHours: 'Mon - Fri: 8:00 AM - 6:00 PM',
+    name: 'TechnoCore',
+    slogan: 'Innovación Tecnológica para el Futuro',
+    phone: '+34 900 123 456',
+    email: 'info@technocore.com',
+    address: 'Calle Tecnología 123, Madrid, España',
+    workingHours: 'Lun - Vie: 9:00 - 18:00',
   },
   social: {
-    facebook: 'https://facebook.com/electrotech',
-    twitter: 'https://twitter.com/electrotech',
-    instagram: 'https://instagram.com/electrotech',
-    linkedin: 'https://linkedin.com/company/electrotech',
+    facebook: 'https://facebook.com/technocore',
+    twitter: 'https://twitter.com/technocore',
+    instagram: 'https://instagram.com/technocore',
+    linkedin: 'https://linkedin.com/company/technocore',
+    github: 'https://github.com/technocore',
   },
   images: {
     logo: '/images/logo.svg',
     hero: {
-      main: '/images/hero/hero-main.jpg',
-      secondary: '/images/hero/hero-secondary.jpg',
+      main: '/images/hero/tech-hero.jpg',
+      secondary: '/images/hero/tech-hero-2.jpg',
     },
     services: {
-      residential: '/images/services/residential.jpg',
-      commercial: '/images/services/commercial.jpg',
-      emergency: '/images/services/emergency.jpg',
-      maintenance: '/images/services/maintenance.jpg',
-      installation: '/images/services/installation.jpg',
-      safety: '/images/services/safety.jpg',
+      domotics: '/images/services/smart-home.jpg',
+      electronics: '/images/services/electronics-lab.jpg',
+      robotics: '/images/services/robotics.jpg',
+      software: '/images/services/software-dev.jpg',
+      support: '/images/services/tech-support.jpg',
+      automation: '/images/services/automation.jpg',
     },
     team: {
-      member1: '/images/team/member1.jpg',
-      member2: '/images/team/member2.jpg',
-      member3: '/images/team/member3.jpg',
+      member1: '/images/team/tech-expert-1.jpg',
+      member2: '/images/team/tech-expert-2.jpg',
+      member3: '/images/team/tech-expert-3.jpg',
     },
   },
   services: [
     {
-      id: 'residential',
-      title: 'Residential Services',
-      shortDescription: 'Complete electrical solutions for your home',
-      fullDescription: 'We provide comprehensive electrical services for homeowners, from basic repairs to complete home electrical system installations.',
-      icon: 'HomeRepairService',
+      id: 'domotics',
+      title: 'Domótica Inteligente',
+      shortDescription: 'Automatización y control inteligente para tu hogar',
+      fullDescription: 'Transformamos espacios convencionales en hogares inteligentes con tecnología de última generación. Control por voz, automatización y eficiencia energética.',
+      icon: 'Smart',
       features: [
-        'Electrical repairs and maintenance',
-        'Lighting installation and upgrades',
-        'Circuit breaker installation',
-        'Home safety inspections',
-        'Outlet installation and repair'
+        'Control por voz y aplicación móvil',
+        'Iluminación inteligente',
+        'Climatización automatizada',
+        'Seguridad y videovigilancia',
+        'Gestión energética eficiente'
       ]
     },
     {
-      id: 'commercial',
-      title: 'Commercial Services',
-      shortDescription: 'Professional solutions for businesses',
-      fullDescription: 'Our commercial electrical services are designed to keep your business running smoothly with reliable electrical systems.',
-      icon: 'Business',
+      id: 'electronics',
+      title: 'Electrónica Avanzada',
+      shortDescription: 'Soluciones electrónicas personalizadas',
+      fullDescription: 'Diseño y desarrollo de sistemas electrónicos a medida para proyectos industriales y personales.',
+      icon: 'Circuit',
       features: [
-        'Commercial electrical installations',
-        'Energy efficiency solutions',
-        'Emergency lighting systems',
-        'Data and network cabling',
-        'Regular maintenance contracts'
+        'Diseño de PCB',
+        'Prototipado rápido',
+        'Sistemas embebidos',
+        'IoT y conectividad',
+        'Sensores y actuadores'
       ]
     },
     {
-      id: 'emergency',
-      title: 'Emergency Services',
-      shortDescription: '24/7 emergency electrical support',
-      fullDescription: 'We offer round-the-clock emergency electrical services to handle any urgent electrical issues that may arise.',
-      icon: 'ElectricBolt',
+      id: 'robotics',
+      title: 'Robótica e IA',
+      shortDescription: 'Automatización inteligente y robótica avanzada',
+      fullDescription: 'Desarrollo de soluciones robóticas con inteligencia artificial para automatización y optimización de procesos.',
+      icon: 'Robot',
       features: [
-        'Available 24/7',
-        'Rapid response time',
-        'Emergency repairs',
-        'Power outage solutions',
-        'Safety inspections'
+        'Robots industriales',
+        'Cobots colaborativos',
+        'Sistemas de visión artificial',
+        'Machine Learning',
+        'Automatización de procesos'
+      ]
+    },
+    {
+      id: 'software',
+      title: 'Desarrollo de Software',
+      shortDescription: 'Software personalizado y aplicaciones web',
+      fullDescription: 'Creación de aplicaciones web modernas, software empresarial y soluciones móviles adaptadas a tus necesidades.',
+      icon: 'Code',
+      features: [
+        'Aplicaciones web',
+        'Apps móviles',
+        'Software empresarial',
+        'APIs y microservicios',
+        'Bases de datos'
       ]
     }
   ],
   pricing: [
     {
-      id: 'basic',
-      title: 'Basic',
-      price: 150,
-      period: 'per service',
-      description: 'For small electrical tasks',
+      id: 'starter',
+      title: 'Starter',
+      price: 1500,
+      period: 'proyecto básico',
+      description: 'Para proyectos pequeños',
       features: [
-        'Basic electrical repairs',
-        'Single room installation',
-        'Safety inspection',
-        'Phone support',
-        '30-day warranty'
+        'Consultoría inicial',
+        'Diseño básico',
+        'Implementación',
+        'Soporte por 3 meses',
+        'Documentación'
       ]
     },
     {
-      id: 'premium',
-      title: 'Premium',
-      price: 300,
-      period: 'per service',
-      description: 'For comprehensive electrical work',
+      id: 'professional',
+      title: 'Professional',
+      price: 3500,
+      period: 'proyecto completo',
+      description: 'Para proyectos medianos',
       features: [
-        'Full house electrical service',
-        'Multiple room installations',
-        'Circuit upgrades',
-        'Priority support',
-        '90-day warranty'
+        'Consultoría avanzada',
+        'Diseño personalizado',
+        'Implementación completa',
+        'Soporte por 6 meses',
+        'Capacitación incluida'
       ]
     },
     {
-      id: 'business',
-      title: 'Business',
-      price: 500,
-      period: 'per month',
-      description: 'For commercial properties',
+      id: 'enterprise',
+      title: 'Enterprise',
+      price: 'Personalizado',
+      period: 'proyecto',
+      description: 'Para grandes proyectos',
       features: [
-        'Commercial installations',
-        'Regular maintenance',
-        'Emergency support',
-        '24/7 support',
-        '1-year warranty'
+        'Solución completa',
+        'Diseño a medida',
+        'Implementación integral',
+        'Soporte 24/7',
+        'Mantenimiento continuo'
       ]
     }
   ],
   testimonials: [
     {
       id: 1,
-      name: 'John Smith',
-      position: 'Homeowner',
-      image: '/images/testimonials/john.jpg',
-      quote: 'The team at ElectroTech did an amazing job with our home electrical renovation. Professional and efficient!',
+      name: 'Carlos Rodríguez',
+      position: 'Director de Innovación',
+      image: '/images/testimonials/tech-testimonial-1.jpg',
+      quote: 'TechnoCore transformó completamente nuestra infraestructura tecnológica. Su equipo de expertos entregó soluciones innovadoras que superaron nuestras expectativas.',
       rating: 5
     },
     {
       id: 2,
-      name: 'Sarah Johnson',
-      position: 'Business Owner',
-      image: '/images/testimonials/sarah.jpg',
-      quote: 'We rely on ElectroTech for all our commercial electrical needs. They are always responsive and reliable.',
+      name: 'Ana Martínez',
+      position: 'CEO Startup',
+      image: '/images/testimonials/tech-testimonial-2.jpg',
+      quote: 'La implementación de automatización robótica mejoró nuestra eficiencia en un 200%. El ROI superó nuestras proyecciones iniciales.',
       rating: 5
     },
     {
       id: 3,
-      name: 'Mike Brown',
-      position: 'Property Manager',
-      image: '/images/testimonials/mike.jpg',
-      quote: 'Their emergency service is outstanding. They responded quickly when we needed them most.',
+      name: 'Miguel Sánchez',
+      position: 'Propietario Smart Home',
+      image: '/images/testimonials/tech-testimonial-3.jpg',
+      quote: 'La solución domótica instalada por TechnoCore ha revolucionado la forma en que interactuamos con nuestro hogar. Tecnología del futuro, hoy.',
       rating: 5
     }
   ]
