@@ -4,9 +4,6 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import ElectricBoltIcon from '@mui/icons-material/ElectricBolt';
 import BuildIcon from '@mui/icons-material/Build';
 import HomeRepairServiceIcon from '@mui/icons-material/HomeRepairService';
-import SecurityIcon from '@mui/icons-material/Security';
-import PowerIcon from '@mui/icons-material/Power';
-import SettingsInputComponentIcon from '@mui/icons-material/SettingsInputComponent';
 import { Link } from 'react-router-dom';
 
 const Services = () => {

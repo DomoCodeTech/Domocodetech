@@ -1,25 +1,26 @@
 import { createTheme } from '@mui/material/styles';
 
-// Paleta de colores futurista
+// Nueva paleta de colores moderna
 const colors = {
-  // Color principal - Azul profundo
-  navy: {
-    dark: '#0a192f',    // Fondo principal
-    main: '#112240',    // Elementos secundarios
-    light: '#233554',   // Elementos de acento
+  // Color principal - Azul vibrante con un toque de neón
+  primary: {
+    dark: '#091F2C',    // Fondo principal más elegante
+    main: '#0D3B66',    // Elementos destacados
+    light: '#247BA0',   // Hover y acentos
   },
-  // Color de acento - Turquesa tecnológico
-  cyan: {
-    dark: '#00bcd4',    // Botones y elementos interactivos
-    main: '#64ffda',    // Acentos y highlights
-    light: '#a8fff7',   // Efectos hover
+  // Color de acento - Degradado de cian y violeta tecnológico
+  accent: {
+    dark: '#6A0572',    // Elementos interactivos oscuros
+    main: '#9D00FF',    // Efecto hover con neón
+    light: '#64E9EE',   // Resaltados y botones activos
   },
-  // Grises futuristas
-  slate: {
-    dark: '#495670',    // Texto secundario
-    main: '#8892b0',    // Texto de párrafos
-    light: '#a8b2d1',   // Texto claro
-    lightest: '#ccd6f6', // Títulos
+  // Grises equilibrados para mejor contraste
+  neutral: {
+    darkest: '#1A1A2E', // Fondo sutil para tarjetas
+    dark: '#3A3A55',    // Texto secundario
+    main: '#737B9A',    // Texto estándar
+    light: '#B0B8D1',   // Texto claro
+    lightest: '#E3E8F1', // Títulos y elementos destacados
   }
 };
 
@@ -27,138 +28,72 @@ const theme = createTheme({
   palette: {
     mode: 'dark',
     primary: {
-      main: colors.cyan.main,
-      light: colors.cyan.light,
-      dark: colors.cyan.dark,
-      contrastText: colors.navy.dark,
+      main: colors.primary.main,
+      light: colors.primary.light,
+      dark: colors.primary.dark,
+      contrastText: colors.neutral.lightest,
     },
     secondary: {
-      main: colors.slate.lightest,
-      light: colors.slate.light,
-      dark: colors.slate.dark,
-      contrastText: colors.cyan.main,
+      main: colors.accent.main,
+      light: colors.accent.light,
+      dark: colors.accent.dark,
+      contrastText: colors.primary.dark,
     },
     background: {
-      default: colors.navy.dark,
-      paper: colors.navy.main,
+      default: colors.primary.dark,
+      paper: colors.neutral.darkest,
     },
     text: {
-      primary: colors.slate.lightest,
-      secondary: colors.slate.main,
+      primary: colors.neutral.lightest,
+      secondary: colors.neutral.main,
     },
   },
   typography: {
-    fontFamily: '"Space Grotesk", "Roboto", "Helvetica", "Arial", sans-serif',
+    fontFamily: '"Inter", "Roboto", "Helvetica", "Arial", sans-serif',
     h1: {
       fontSize: '4rem',
       fontWeight: 700,
-      letterSpacing: '-0.02em',
-      lineHeight: 1.2,
+      color: colors.neutral.lightest,
     },
     h2: {
       fontSize: '3rem',
-      fontWeight: 700,
-      letterSpacing: '-0.01em',
-      lineHeight: 1.2,
-    },
-    h3: {
-      fontSize: '2.5rem',
       fontWeight: 600,
-      lineHeight: 1.2,
-    },
-    h4: {
-      fontSize: '2rem',
-      fontWeight: 600,
-      lineHeight: 1.2,
-    },
-    h5: {
-      fontSize: '1.5rem',
-      fontWeight: 500,
-      lineHeight: 1.2,
-    },
-    h6: {
-      fontSize: '1.25rem',
-      fontWeight: 500,
-      lineHeight: 1.2,
+      color: colors.neutral.lightest,
     },
     body1: {
       fontSize: '1.125rem',
       lineHeight: 1.7,
-    },
-    body2: {
-      fontSize: '0.875rem',
-      lineHeight: 1.7,
+      color: colors.neutral.main,
     },
   },
   components: {
     MuiButton: {
       styleOverrides: {
         root: {
-          borderRadius: '4px',
+          borderRadius: '8px',
           textTransform: 'none',
-          fontWeight: 500,
-          padding: '10px 25px',
-          position: 'relative',
-          overflow: 'hidden',
-          '&::before': {
-            content: '""',
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            background: 'linear-gradient(45deg, transparent 0%, rgba(100, 255, 218, 0.1) 100%)',
-            transition: 'all 0.3s ease-in-out',
-          },
-          '&:hover::before': {
-            transform: 'translateX(100%)',
+          fontWeight: 600,
+          padding: '12px 30px',
+          transition: 'all 0.3s ease-in-out',
+          '&:hover': {
+            background: `linear-gradient(45deg, ${colors.accent.main} 0%, ${colors.accent.light} 100%)`,
+            boxShadow: '0 4px 20px rgba(157, 0, 255, 0.4)',
           },
         },
         contained: {
-          background: `linear-gradient(45deg, ${colors.cyan.dark} 0%, ${colors.cyan.main} 100%)`,
-          boxShadow: '0 4px 15px rgba(100, 255, 218, 0.2)',
-          '&:hover': {
-            boxShadow: '0 6px 20px rgba(100, 255, 218, 0.3)',
-          },
-        },
-        outlined: {
-          borderColor: colors.cyan.main,
-          '&:hover': {
-            borderColor: colors.cyan.light,
-            backgroundColor: 'rgba(100, 255, 218, 0.1)',
-          },
+          background: `linear-gradient(45deg, ${colors.primary.main} 0%, ${colors.primary.light} 100%)`,
         },
       },
     },
     MuiCard: {
       styleOverrides: {
         root: {
-          backgroundColor: colors.navy.main,
+          backgroundColor: colors.neutral.darkest,
           borderRadius: '12px',
-          border: `1px solid ${colors.navy.light}`,
-          transition: 'all 0.3s ease-in-out',
+          border: `1px solid ${colors.primary.light}`,
           '&:hover': {
-            transform: 'translateY(-5px)',
-            boxShadow: `0 10px 20px rgba(100, 255, 218, 0.2)`,
-            borderColor: colors.cyan.main,
-          },
-        },
-      },
-    },
-    MuiTextField: {
-      styleOverrides: {
-        root: {
-          '& .MuiOutlinedInput-root': {
-            borderRadius: '8px',
-            '& fieldset': {
-              borderColor: colors.slate.dark,
-            },
-            '&:hover fieldset': {
-              borderColor: colors.cyan.main,
-            },
-            '&.Mui-focused fieldset': {
-              borderColor: colors.cyan.main,
-            },
+            transform: 'scale(1.02)',
+            boxShadow: `0 10px 30px rgba(100, 233, 238, 0.3)`,
           },
         },
       },
@@ -166,4 +101,4 @@ const theme = createTheme({
   },
 });
 
-export default theme; 
+export default theme;
