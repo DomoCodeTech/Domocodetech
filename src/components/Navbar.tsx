@@ -13,7 +13,8 @@ import {
   alpha,
   Stack,
   Tooltip,
-  Switch
+  Select,
+  FormControl
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link as RouterLink } from 'react-router-dom';
@@ -21,38 +22,31 @@ import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import TranslateIcon from '@mui/icons-material/Translate';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 interface NavbarProps {
   isDarkMode: boolean;
   toggleDarkMode: () => void;
-  isEnglish: boolean;
-  toggleLanguage: () => void;
 }
 
 const Navbar: React.FC<NavbarProps> = ({
   isDarkMode,
-  toggleDarkMode,
-  isEnglish,
-  toggleLanguage
+  toggleDarkMode
 }) => {
   const theme = useTheme();
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
+  const { t, i18n } = useTranslation();
 
   const content = {
     logo: 'TechnoCore',
     pages: [
-      { name: isEnglish ? 'Home' : 'Inicio', path: '/' },
-      { name: isEnglish ? 'About' : 'Nosotros', path: '/about' },
-      { name: isEnglish ? 'Services' : 'Servicios', path: '/services' },
-      { name: isEnglish ? 'Blog' : 'Blog', path: '/blog' },
-      { name: isEnglish ? 'Contact' : 'Contacto', path: '/contact' }
+      { name: t('nav.home'), path: '/' },
+      { name: t('nav.about'), path: '/about' },
+      { name: t('nav.services'), path: '/services' },
+      { name: t('nav.blog'), path: '/blog' },
+      { name: t('nav.contact'), path: '/contact' }
     ],
-    themeTooltip: isEnglish 
-      ? `Switch to ${isDarkMode ? 'light' : 'dark'} mode` 
-      : `Cambiar a modo ${isDarkMode ? 'claro' : 'oscuro'}`,
-    languageTooltip: isEnglish
-      ? 'Switch to Spanish'
-      : 'Cambiar a Inglés'
+    themeTooltip: t(isDarkMode ? 'theme.switchToLight' : 'theme.switchToDark')
   };
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
@@ -63,13 +57,24 @@ const Navbar: React.FC<NavbarProps> = ({
     setAnchorElNav(null);
   };
 
+  const handleLanguageChange = (event: any) => {
+    i18n.changeLanguage(event.target.value);
+  };
+
   return (
     <AppBar 
       position="fixed"
       sx={{
         bgcolor: alpha(theme.palette.background.default, 0.8),
-        backdropFilter: 'blur(8px)',
-        boxShadow: theme.shadows[3]
+        backdropFilter: 'blur(12px)',
+        boxShadow: theme.shadows[3],
+        top: { xs: 0, md: '20px' },
+        left: '50%',
+        transform: 'translateX(-50%)',
+        width: { xs: '100%', md: '90%' },
+        maxWidth: '1200px',
+        borderRadius: { xs: 0, md: '16px' },
+        margin: '0 auto'
       }}
     >
       <Container maxWidth="lg">
@@ -190,7 +195,7 @@ const Navbar: React.FC<NavbarProps> = ({
           </Box>
 
           {/* Theme and Language Toggles */}
-          <Stack direction="row" spacing={1} alignItems="center">
+          <Stack direction="row" spacing={2} alignItems="center">
             <Tooltip title={content.themeTooltip}>
               <IconButton onClick={toggleDarkMode} color="inherit">
                 <AnimatePresence mode="wait" initial={false}>
@@ -206,16 +211,23 @@ const Navbar: React.FC<NavbarProps> = ({
                 </AnimatePresence>
               </IconButton>
             </Tooltip>
-            <Tooltip title={content.languageTooltip}>
-              <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                <TranslateIcon sx={{ mr: 1 }} />
-                <Switch
-                  checked={isEnglish}
-                  onChange={toggleLanguage}
-                  color="primary"
-                />
-              </Box>
-            </Tooltip>
+            
+            <FormControl size="small">
+              <Select
+                value={i18n.language}
+                onChange={handleLanguageChange}
+                variant="standard"
+                sx={{
+                  minWidth: 100,
+                  '&:before': { borderColor: 'transparent' },
+                  '&:after': { borderColor: 'transparent' },
+                }}
+                IconComponent={TranslateIcon}
+              >
+                <MenuItem value="en">English</MenuItem>
+                <MenuItem value="es">Español</MenuItem>
+              </Select>
+            </FormControl>
           </Stack>
         </Toolbar>
       </Container>

@@ -1,203 +1,237 @@
-import { Container, Typography, Grid, Box, Card, CardContent, CardActions, Button, List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
+import React from 'react';
+import {
+  Box,
+  Container,
+  Typography,
+  Grid,
+  Card,
+  CardContent,
+  CardMedia,
+  Button,
+  useTheme,
+  alpha,
+  Stack
+} from '@mui/material';
 import { motion } from 'framer-motion';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import ElectricBoltIcon from '@mui/icons-material/ElectricBolt';
+import CodeIcon from '@mui/icons-material/Code';
 import BuildIcon from '@mui/icons-material/Build';
-import HomeRepairServiceIcon from '@mui/icons-material/HomeRepairService';
-import { Link } from 'react-router-dom';
+import HomeWorkIcon from '@mui/icons-material/HomeWork';
+import PrecisionManufacturingIcon from '@mui/icons-material/PrecisionManufacturing';
 
-const Services = () => {
-  const services = [
-    {
-      title: 'Residential Services',
-      icon: <HomeRepairServiceIcon sx={{ fontSize: 40, color: 'primary.main' }} />,
-      description: 'Complete electrical solutions for your home',
-      features: [
-        'Electrical repairs and maintenance',
-        'Lighting installation and upgrades',
-        'Circuit breaker installation',
-        'Home safety inspections',
-        'Outlet installation and repair'
-      ]
-    },
-    {
-      title: 'Commercial Services',
-      icon: <BuildIcon sx={{ fontSize: 40, color: 'primary.main' }} />,
-      description: 'Professional solutions for businesses',
-      features: [
-        'Commercial electrical installations',
-        'Energy efficiency solutions',
-        'Emergency lighting systems',
-        'Data and network cabling',
-        'Regular maintenance contracts'
-      ]
-    },
-    {
-      title: 'Emergency Services',
-      icon: <ElectricBoltIcon sx={{ fontSize: 40, color: 'primary.main' }} />,
-      description: '24/7 emergency electrical support',
-      features: [
-        'Available 24/7',
-        'Rapid response time',
-        'Emergency repairs',
-        'Power outage solutions',
-        'Safety inspections'
-      ]
-    }
-  ];
+interface ServicesProps {
+  isEnglish: boolean;
+}
 
-  const pricingPlans = [
-    {
-      title: 'Basic',
-      price: '$150',
-      description: 'For small electrical tasks',
-      features: [
-        'Basic electrical repairs',
-        'Single room installation',
-        'Safety inspection',
-        'Phone support',
-        '30-day warranty'
-      ]
-    },
-    {
-      title: 'Premium',
-      price: '$300',
-      description: 'For comprehensive electrical work',
-      features: [
-        'Full house electrical service',
-        'Multiple room installations',
-        'Circuit upgrades',
-        'Priority support',
-        '90-day warranty'
-      ]
-    },
-    {
-      title: 'Standard',
-      price: '$500',
-      description: 'For commercial properties',
-      features: [
-        'Commercial installations',
-        'Regular maintenance',
-        'Emergency support',
-        '24/7 support',
-        '1-year warranty'
-      ]
-    }
-  ];
+const Services: React.FC<ServicesProps> = ({ isEnglish }) => {
+  const theme = useTheme();
+
+  const content = {
+    title: isEnglish ? 'Our Services' : 'Nuestros Servicios',
+    subtitle: isEnglish 
+      ? 'Innovative solutions for your technological needs' 
+      : 'Soluciones innovadoras para tus necesidades tecnológicas',
+    description: isEnglish
+      ? 'We offer a comprehensive range of technological services to help you stay ahead in the digital era.'
+      : 'Ofrecemos una gama completa de servicios tecnológicos para ayudarte a mantenerte adelante en la era digital.',
+    services: [
+      {
+        icon: <HomeWorkIcon sx={{ fontSize: 40 }} />,
+        title: isEnglish ? 'Home Automation' : 'Domótica',
+        description: isEnglish
+          ? 'Transform your home into a smart living space with our cutting-edge automation solutions.'
+          : 'Transforma tu hogar en un espacio inteligente con nuestras soluciones de automatización de vanguardia.',
+        image: '/images/services/home-automation.jpg',
+        features: isEnglish 
+          ? [
+              'Smart lighting control',
+              'Climate automation',
+              'Security systems',
+              'Voice control integration'
+            ]
+          : [
+              'Control inteligente de iluminación',
+              'Automatización de clima',
+              'Sistemas de seguridad',
+              'Integración de control por voz'
+            ]
+      },
+      {
+        icon: <BuildIcon sx={{ fontSize: 40 }} />,
+        title: isEnglish ? 'Electronics' : 'Electrónica',
+        description: isEnglish
+          ? 'Custom electronic solutions for your specific needs and requirements.'
+          : 'Soluciones electrónicas personalizadas para tus necesidades y requerimientos específicos.',
+        image: '/images/services/electronics.jpg',
+        features: isEnglish
+          ? [
+              'Circuit design',
+              'PCB prototyping',
+              'Component repair',
+              'System optimization'
+            ]
+          : [
+              'Diseño de circuitos',
+              'Prototipado de PCB',
+              'Reparación de componentes',
+              'Optimización de sistemas'
+            ]
+      },
+      {
+        icon: <PrecisionManufacturingIcon sx={{ fontSize: 40 }} />,
+        title: isEnglish ? 'Robotics' : 'Robótica',
+        description: isEnglish
+          ? 'Advanced robotics solutions for automation and process optimization.'
+          : 'Soluciones robóticas avanzadas para automatización y optimización de procesos.',
+        image: '/images/services/robotics.jpg',
+        features: isEnglish
+          ? [
+              'Industrial automation',
+              'Robot programming',
+              'Process optimization',
+              'Maintenance services'
+            ]
+          : [
+              'Automatización industrial',
+              'Programación de robots',
+              'Optimización de procesos',
+              'Servicios de mantenimiento'
+            ]
+      },
+      {
+        icon: <CodeIcon sx={{ fontSize: 40 }} />,
+        title: isEnglish ? 'Software Development' : 'Desarrollo de Software',
+        description: isEnglish
+          ? 'Custom software solutions to streamline your business processes.'
+          : 'Soluciones de software personalizadas para optimizar tus procesos empresariales.',
+        image: '/images/services/software.jpg',
+        features: isEnglish
+          ? [
+              'Web applications',
+              'Mobile apps',
+              'Desktop software',
+              'API integration'
+            ]
+          : [
+              'Aplicaciones web',
+              'Apps móviles',
+              'Software de escritorio',
+              'Integración de APIs'
+            ]
+      }
+    ]
+  };
 
   return (
-    <Box>
-      {/* Services Header */}
-      <Box sx={{ bgcolor: 'primary.main', color: 'white', py: 8 }}>
-        <Container maxWidth="lg">
-          <Typography variant="h2" component="h1" gutterBottom textAlign="center">
-            Our Services
+    <Box sx={{ bgcolor: 'background.default', py: 8 }}>
+      <Container maxWidth="lg">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <Typography
+            variant="h2"
+            component="h1"
+            textAlign="center"
+            gutterBottom
+            className="gradient-text"
+          >
+            {content.title}
           </Typography>
-          <Typography variant="h5" textAlign="center" paragraph>
-            Professional electrical services for residential and commercial needs
+          <Typography
+            variant="h5"
+            textAlign="center"
+            color="text.secondary"
+            paragraph
+            sx={{ mb: 2 }}
+          >
+            {content.subtitle}
           </Typography>
-        </Container>
-      </Box>
-
-      {/* Main Services */}
-      <Container maxWidth="lg" sx={{ py: 8 }}>
-        <Grid container spacing={4}>
-          {services.map((service, index) => (
-            <Grid item xs={12} md={4} key={service.title}>
-              <motion.div
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.2 }}
-              >
-                <Card sx={{ height: '100%' }}>
-                  <CardContent>
-                    <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-                      {service.icon}
-                      <Typography variant="h5" sx={{ ml: 2 }}>
-                        {service.title}
-                      </Typography>
-                    </Box>
-                    <Typography color="text.secondary" paragraph>
-                      {service.description}
-                    </Typography>
-                    <List>
-                      {service.features.map((feature) => (
-                        <ListItem key={feature}>
-                          <ListItemIcon>
-                            <CheckCircleIcon color="primary" />
-                          </ListItemIcon>
-                          <ListItemText primary={feature} />
-                        </ListItem>
-                      ))}
-                    </List>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            </Grid>
-          ))}
-        </Grid>
-      </Container>
-
-      {/* Pricing Plans */}
-      <Box sx={{ bgcolor: 'grey.100', py: 8 }}>
-        <Container maxWidth="lg">
-          <Typography variant="h3" component="h2" textAlign="center" gutterBottom>
-            Pricing Plans
-          </Typography>
-          <Typography variant="h6" textAlign="center" color="text.secondary" paragraph>
-            Choose the plan that best fits your needs
+          <Typography
+            variant="body1"
+            textAlign="center"
+            color="text.secondary"
+            sx={{ maxWidth: 800, mx: 'auto', mb: 8 }}
+          >
+            {content.description}
           </Typography>
 
-          <Grid container spacing={4} sx={{ mt: 4 }}>
-            {pricingPlans.map((plan, index) => (
-              <Grid item xs={12} md={4} key={plan.title}>
+          <Grid container spacing={4}>
+            {content.services.map((service, index) => (
+              <Grid item xs={12} md={6} key={service.title}>
                 <motion.div
                   initial={{ opacity: 0, y: 50 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.2 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
-                  <Card sx={{ height: '100%' }}>
+                  <Card 
+                    className="hover-glow"
+                    sx={{ 
+                      height: '100%',
+                      bgcolor: alpha(theme.palette.background.paper, 0.1)
+                    }}
+                  >
+                    <CardMedia
+                      component="img"
+                      height="240"
+                      image={service.image}
+                      alt={service.title}
+                    />
                     <CardContent>
-                      <Typography variant="h4" component="h3" gutterBottom textAlign="center">
-                        {plan.title}
-                      </Typography>
-                      <Typography variant="h3" component="p" textAlign="center" color="primary.main">
-                        {plan.price}
-                      </Typography>
-                      <Typography textAlign="center" color="text.secondary" paragraph>
-                        {plan.description}
-                      </Typography>
-                      <List>
-                        {plan.features.map((feature) => (
-                          <ListItem key={feature}>
-                            <ListItemIcon>
-                              <CheckCircleIcon color="primary" />
-                            </ListItemIcon>
-                            <ListItemText primary={feature} />
-                          </ListItem>
-                        ))}
-                      </List>
+                      <Stack spacing={2}>
+                        <Box
+                          sx={{
+                            color: 'primary.main',
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: 2,
+                            mb: 2
+                          }}
+                        >
+                          {service.icon}
+                          <Typography variant="h5" component="h2">
+                            {service.title}
+                          </Typography>
+                        </Box>
+                        <Typography
+                          variant="body1"
+                          color="text.secondary"
+                          paragraph
+                        >
+                          {service.description}
+                        </Typography>
+                        <Box component="ul" sx={{ pl: 2 }}>
+                          {service.features.map((feature, idx) => (
+                            <Typography
+                              key={idx}
+                              component="li"
+                              variant="body2"
+                              color="text.secondary"
+                              sx={{ mb: 1 }}
+                            >
+                              {feature}
+                            </Typography>
+                          ))}
+                        </Box>
+                        <Button
+                          variant="contained"
+                          color="primary"
+                          fullWidth
+                          className="hover-glow"
+                        >
+                          {isEnglish ? 'Learn More' : 'Saber Más'}
+                        </Button>
+                      </Stack>
                     </CardContent>
-                    <CardActions sx={{ justifyContent: 'center', pb: 2 }}>
-                      <Button
-                        component={Link}
-                        to="/contact"
-                        variant="contained"
-                        color="primary"
-                        size="large"
-                      >
-                        Get Started
-                      </Button>
-                    </CardActions>
                   </Card>
                 </motion.div>
               </Grid>
             ))}
           </Grid>
-        </Container>
-      </Box>
+        </motion.div>
+      </Container>
     </Box>
   );
 };
 
-export default Services; 
+export default Services;

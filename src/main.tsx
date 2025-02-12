@@ -4,6 +4,7 @@ import { CssBaseline } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import App from './App';
 import './index.css';
+import './i18n/i18n';
 
 const theme = createTheme();
 

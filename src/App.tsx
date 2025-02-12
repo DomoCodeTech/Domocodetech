@@ -9,27 +9,17 @@ import Blog from './pages/Blog';
 import Services from './pages/Services';
 import Contact from './pages/Contact';
 import './App.css';
+import './i18n/i18n';
 
 interface NavbarProps {
   isDarkMode: boolean;
   toggleDarkMode: () => void;
-  isEnglish: boolean;
-  toggleLanguage: () => void;
-}
-
-interface PageProps {
-  isEnglish: boolean;
 }
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState<boolean>(() => {
     const savedMode = localStorage.getItem('darkMode');
     return savedMode ? JSON.parse(savedMode) : window.matchMedia('(prefers-color-scheme: dark)').matches;
-  });
-
-  const [isEnglish, setIsEnglish] = useState<boolean>(() => {
-    const savedLang = localStorage.getItem('language');
-    return savedLang ? JSON.parse(savedLang) : true;
   });
 
   const theme = useMemo(
@@ -138,14 +128,6 @@ function App() {
     });
   };
 
-  const toggleLanguage = () => {
-    setIsEnglish((prev: boolean) => {
-      const newLang = !prev;
-      localStorage.setItem('language', JSON.stringify(newLang));
-      return newLang;
-    });
-  };
-
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -154,19 +136,17 @@ function App() {
           <Navbar 
             isDarkMode={isDarkMode} 
             toggleDarkMode={toggleDarkMode}
-            isEnglish={isEnglish}
-            toggleLanguage={toggleLanguage}
           />
           <main>
             <Routes>
-              <Route path="/" element={<Home isEnglish={isEnglish} />} />
-              <Route path="/about" element={<About isEnglish={isEnglish} />} />
-              <Route path="/blog" element={<Blog isEnglish={isEnglish} />} />
-              <Route path="/services" element={<Services isEnglish={isEnglish} />} />
-              <Route path="/contact" element={<Contact isEnglish={isEnglish} />} />
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/services" element={<Services />} />
+              <Route path="/contact" element={<Contact />} />
             </Routes>
           </main>
-          <Footer isEnglish={isEnglish} />
+          <Footer />
         </div>
       </Router>
     </ThemeProvider>

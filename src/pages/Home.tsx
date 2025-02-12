@@ -5,15 +5,14 @@ import ElectricBoltIcon from '@mui/icons-material/ElectricBolt';
 import BuildIcon from '@mui/icons-material/Build';
 import HomeRepairServiceIcon from '@mui/icons-material/HomeRepairService';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import Testimonials from '../components/Testimonials';
 import Team from '../components/Team';
 import { SITE_DATA } from '../constants/siteData';
 
-interface HomeProps {
-  isEnglish: boolean;
-}
+const Home: React.FC = () => {
+  const { t } = useTranslation();
 
-const Home: React.FC<HomeProps> = ({ isEnglish }) => {
   return (
     <Box>
       {/* Hero Section */}
@@ -35,10 +34,10 @@ const Home: React.FC<HomeProps> = ({ isEnglish }) => {
                 transition={{ duration: 0.5 }}
               >
                 <Typography variant="h2" component="h1" gutterBottom>
-                  {SITE_DATA.company.slogan}
+                  {t('hero.slogan')}
                 </Typography>
                 <Typography variant="h5" paragraph>
-                  Your trusted partner for all electrical needs. Available 24/7.
+                  {t('hero.subtitle')}
                 </Typography>
                 <Button
                   component={Link}
@@ -48,7 +47,7 @@ const Home: React.FC<HomeProps> = ({ isEnglish }) => {
                   size="large"
                   sx={{ mt: 2 }}
                 >
-                  Get Free Quote
+                  {t('hero.getQuote')}
                 </Button>
               </motion.div>
             </Grid>
@@ -60,7 +59,7 @@ const Home: React.FC<HomeProps> = ({ isEnglish }) => {
               >
                 <img
                   src={SITE_DATA.images.hero.main}
-                  alt="Electrician at work"
+                  alt={t('hero.imageAlt')}
                   style={{ width: '100%', borderRadius: '8px' }}
                 />
               </motion.div>
@@ -72,10 +71,10 @@ const Home: React.FC<HomeProps> = ({ isEnglish }) => {
       {/* Services Section */}
       <Container maxWidth="lg" sx={{ py: 8 }}>
         <Typography variant="h3" component="h2" textAlign="center" gutterBottom>
-          Our Services
+          {t('services.title')}
         </Typography>
         <Typography variant="h6" textAlign="center" color="text.secondary" paragraph>
-          Professional solutions for all your electrical needs
+          {t('services.subtitle')}
         </Typography>
         
         <Grid container spacing={4} sx={{ mt: 4 }}>
@@ -91,7 +90,7 @@ const Home: React.FC<HomeProps> = ({ isEnglish }) => {
                     component="img"
                     height="200"
                     image={SITE_DATA.images.services[service.id as keyof typeof SITE_DATA.images.services]}
-                    alt={service.title}
+                    alt={t(`services.${service.id}.title`)}
                   />
                   <CardContent>
                     <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
@@ -99,11 +98,11 @@ const Home: React.FC<HomeProps> = ({ isEnglish }) => {
                       {service.icon === 'Business' && <BuildIcon sx={{ fontSize: 40 }} />}
                       {service.icon === 'ElectricBolt' && <ElectricBoltIcon sx={{ fontSize: 40 }} />}
                       <Typography variant="h6" sx={{ ml: 1 }}>
-                        {service.title}
+                        {t(`services.${service.id}.title`)}
                       </Typography>
                     </Box>
                     <Typography variant="body1" color="text.secondary">
-                      {service.shortDescription}
+                      {t(`services.${service.id}.description`)}
                     </Typography>
                   </CardContent>
                 </Card>
@@ -125,10 +124,10 @@ const Home: React.FC<HomeProps> = ({ isEnglish }) => {
           <Grid container spacing={4} alignItems="center">
             <Grid item xs={12} md={8}>
               <Typography variant="h4" gutterBottom>
-                Ready to Get Started?
+                {t('cta.title')}
               </Typography>
               <Typography variant="h6">
-                Contact us today for a free consultation and quote.
+                {t('cta.subtitle')}
               </Typography>
             </Grid>
             <Grid item xs={12} md={4} sx={{ textAlign: 'center' }}>
@@ -140,7 +139,7 @@ const Home: React.FC<HomeProps> = ({ isEnglish }) => {
                 size="large"
                 sx={{ bgcolor: 'white', color: 'secondary.main', '&:hover': { bgcolor: 'grey.100' } }}
               >
-                Contact Us Now
+                {t('common.contactUs')}
               </Button>
             </Grid>
           </Grid>
