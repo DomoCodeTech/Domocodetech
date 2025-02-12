@@ -1,143 +1,218 @@
-import { useState } from 'react';
-import {
-  Box,
-  Container,
-  Typography,
-  Card,
+/**
+ * Testimonials.tsx
+ * Componente que muestra los testimonios de clientes satisfechos
+ * 
+ * Características:
+ * - Carrusel automático de testimonios
+ * - Diseño de tarjetas con foto y cita
+ * - Animaciones suaves de transición
+ * - Controles de navegación manual
+ * - Responsive para todos los dispositivos
+ */
+import { useTranslation } from 'react-i18next';
+import { 
+  Box, 
+  Container, 
+  Typography, 
+  Card, 
   CardContent,
   Avatar,
-  IconButton,
-  Rating,
-  useTheme,
-  useMediaQuery
+  IconButton
 } from '@mui/material';
 import { motion, AnimatePresence } from 'framer-motion';
-import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import { useState, useEffect } from 'react';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
-import { useTranslation } from 'react-i18next';
 
 const Testimonials = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  // Hook de traducción
   const { t } = useTranslation();
 
+  // Estado para el índice del testimonio actual
+  const [currentIndex, setCurrentIndex] = useState(0);
+  
+  // Lista de testimonios desde las traducciones
   const testimonials = [
-    {
-      id: 1,
-      name: t('testimonials.client1.name'),
-      position: t('testimonials.client1.position'),
-      image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg',
-      quote: t('testimonials.client1.quote'),
-      rating: 5
-    },
-    {
-      id: 2,
-      name: t('testimonials.client2.name'),
-      position: t('testimonials.client2.position'),
-      image: 'https://images.pexels.com/photos/3796217/pexels-photo-3796217.jpeg',
-      quote: t('testimonials.client2.quote'),
-      rating: 5
-    },
-    {
-      id: 3,
-      name: t('testimonials.client3.name'),
-      position: t('testimonials.client3.position'),
-      image: 'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg',
-      quote: t('testimonials.client3.quote'),
-      rating: 5
-    }
+    { key: 'client1', image: '/images/testimonials/client1.jpg' },
+    { key: 'client2', image: '/images/testimonials/client2.jpg' },
+    { key: 'client3', image: '/images/testimonials/client3.jpg' }
   ];
 
+  // Efecto para el carrusel automático
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prevIndex) => 
+        prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 5000); // Cambia cada 5 segundos
+
+    return () => clearInterval(timer);
+  }, [testimonials.length]);
+
+  // Manejadores de navegación
   const handlePrevious = () => {
-    setCurrentIndex((prev) => 
-      prev === 0 ? testimonials.length - 1 : prev - 1
+    setCurrentIndex((prevIndex) => 
+      prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
     );
   };
 
   const handleNext = () => {
-    setCurrentIndex((prev) => 
-      prev === testimonials.length - 1 ? 0 : prev + 1
+    setCurrentIndex((prevIndex) => 
+      prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
     );
   };
 
+  // Variantes de animación para las tarjetas
+  const cardVariants = {
+    enter: (direction: number) => ({
+      x: direction > 0 ? 1000 : -1000,
+      opacity: 0
+    }),
+    center: {
+      zIndex: 1,
+      x: 0,
+      opacity: 1
+    },
+    exit: (direction: number) => ({
+      zIndex: 0,
+      x: direction < 0 ? 1000 : -1000,
+      opacity: 0
+    })
+  };
+
   return (
-    <Box sx={{ py: 8, bgcolor: 'background.default' }}>
+    <Box 
+      component="section" 
+      sx={{ 
+        py: { xs: 8, md: 12 },
+        backgroundColor: 'background.default'
+      }}
+    >
       <Container maxWidth="lg">
+        {/* Encabezado de la sección */}
         <Typography
-          variant="h3"
+          variant="h2"
           component="h2"
-          textAlign="center"
+          align="center"
           gutterBottom
-          sx={{ mb: 6 }}
+          sx={{ mb: 2 }}
         >
           {t('testimonials.title')}
         </Typography>
+        <Typography
+          variant="h5"
+          component="p"
+          align="center"
+          color="text.secondary"
+          sx={{ mb: 8 }}
+        >
+          {t('testimonials.subtitle')}
+        </Typography>
 
-        <Box sx={{ position: 'relative' }}>
-          <AnimatePresence mode="wait">
+        {/* Contenedor del carrusel */}
+        <Box
+          sx={{
+            position: 'relative',
+            height: { xs: 400, md: 300 },
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}
+        >
+          {/* Botones de navegación */}
+          <IconButton
+            onClick={handlePrevious}
+            sx={{
+              position: 'absolute',
+              left: { xs: 0, md: -20 },
+              zIndex: 2
+            }}
+          >
+            <ArrowBackIcon />
+          </IconButton>
+
+          {/* Carrusel de testimonios */}
+          <AnimatePresence initial={false} custom={currentIndex}>
             <motion.div
               key={currentIndex}
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -50 }}
-              transition={{ duration: 0.3 }}
+              custom={currentIndex}
+              variants={cardVariants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={{
+                x: { type: "spring", stiffness: 300, damping: 30 },
+                opacity: { duration: 0.2 }
+              }}
+              style={{
+                position: 'absolute',
+                width: '100%'
+              }}
             >
               <Card
                 sx={{
                   maxWidth: 800,
-                  margin: '0 auto',
+                  mx: 'auto',
+                  boxShadow: 3,
                   position: 'relative',
                   overflow: 'visible'
                 }}
               >
+                {/* Icono de comillas */}
+                <FormatQuoteIcon
+                  sx={{
+                    position: 'absolute',
+                    top: -20,
+                    left: 40,
+                    fontSize: 40,
+                    color: 'primary.main',
+                    transform: 'rotate(180deg)'
+                  }}
+                />
+
                 <CardContent sx={{ p: 4 }}>
+                  {/* Contenido del testimonio */}
                   <Box
                     sx={{
-                      position: 'absolute',
-                      top: -20,
-                      left: 20,
-                      color: 'primary.main',
-                      transform: 'scale(2)',
-                      opacity: 0.1
+                      display: 'flex',
+                      flexDirection: { xs: 'column', md: 'row' },
+                      alignItems: 'center',
+                      gap: 4
                     }}
                   >
-                    <FormatQuoteIcon fontSize="large" />
-                  </Box>
-
-                  <Typography
-                    variant="body1"
-                    sx={{
-                      fontSize: '1.1rem',
-                      fontStyle: 'italic',
-                      mb: 4,
-                      position: 'relative',
-                      zIndex: 1
-                    }}
-                  >
-                    "{testimonials[currentIndex].quote}"
-                  </Typography>
-
-                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                    {/* Avatar del cliente */}
                     <Avatar
                       src={testimonials[currentIndex].image}
-                      alt={testimonials[currentIndex].name}
-                      sx={{ width: 64, height: 64 }}
+                      alt={t(`testimonials.${testimonials[currentIndex].key}.name`)}
+                      sx={{
+                        width: 100,
+                        height: 100,
+                        border: 3,
+                        borderColor: 'primary.main'
+                      }}
                     />
+
+                    {/* Texto del testimonio */}
                     <Box>
-                      <Typography variant="h6">
-                        {testimonials[currentIndex].name}
+                      <Typography
+                        variant="body1"
+                        paragraph
+                        sx={{
+                          fontStyle: 'italic',
+                          mb: 2
+                        }}
+                      >
+                        {t(`testimonials.${testimonials[currentIndex].key}.quote`)}
                       </Typography>
-                      <Typography variant="body2" color="text.secondary">
-                        {testimonials[currentIndex].position}
+                      
+                      {/* Información del cliente */}
+                      <Typography variant="h6" component="p">
+                        {t(`testimonials.${testimonials[currentIndex].key}.name`)}
                       </Typography>
-                      <Rating
-                        value={testimonials[currentIndex].rating}
-                        readOnly
-                        size="small"
-                        sx={{ mt: 0.5 }}
-                      />
+                      <Typography variant="subtitle1" color="text.secondary">
+                        {t(`testimonials.${testimonials[currentIndex].key}.position`)}
+                      </Typography>
                     </Box>
                   </Box>
                 </CardContent>
@@ -145,51 +220,18 @@ const Testimonials = () => {
             </motion.div>
           </AnimatePresence>
 
-          {!isMobile && (
-            <>
-              <IconButton
-                onClick={handlePrevious}
-                sx={{
-                  position: 'absolute',
-                  left: -20,
-                  top: '50%',
-                  transform: 'translateY(-50%)',
-                  bgcolor: 'background.paper',
-                  boxShadow: theme.shadows[2],
-                  '&:hover': { bgcolor: 'background.paper' }
-                }}
-              >
-                <ArrowBackIosNewIcon />
-              </IconButton>
-
-              <IconButton
-                onClick={handleNext}
-                sx={{
-                  position: 'absolute',
-                  right: -20,
-                  top: '50%',
-                  transform: 'translateY(-50%)',
-                  bgcolor: 'background.paper',
-                  boxShadow: theme.shadows[2],
-                  '&:hover': { bgcolor: 'background.paper' }
-                }}
-              >
-                <ArrowForwardIosIcon />
-              </IconButton>
-            </>
-          )}
+          {/* Botón siguiente */}
+          <IconButton
+            onClick={handleNext}
+            sx={{
+              position: 'absolute',
+              right: { xs: 0, md: -20 },
+              zIndex: 2
+            }}
+          >
+            <ArrowForwardIcon />
+          </IconButton>
         </Box>
-
-        {isMobile && (
-          <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2, gap: 2 }}>
-            <IconButton onClick={handlePrevious} color="primary">
-              <ArrowBackIosNewIcon />
-            </IconButton>
-            <IconButton onClick={handleNext} color="primary">
-              <ArrowForwardIosIcon />
-            </IconButton>
-          </Box>
-        )}
       </Container>
     </Box>
   );

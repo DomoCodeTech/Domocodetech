@@ -1,5 +1,12 @@
+/**
+ * Spanish translations for the TechnoCore website
+ * Este archivo contiene todo el contenido de texto en español para la aplicación
+ */
 export const esTranslations = {
-  // Company Info
+  /**
+   * Información de la Empresa
+   * Detalles básicos sobre la empresa utilizados en todo el sitio
+   */
   company: {
     slogan: 'Innovación Tecnológica para el Futuro',
     address: 'Calle Tecnología 123, Madrid, España',
@@ -324,6 +331,37 @@ export const esTranslations = {
           'Mantenimiento continuo'
         ]
       }
+    }
+  },
+  projects: {
+    title: 'Nuestros Proyectos',
+    subtitle: 'Descubre nuestras soluciones innovadoras.',
+    web: {
+      title: 'Aplicación Web',
+      shortDescription: 'Una plataforma web moderna y responsiva.',
+      features: [
+        'Diseño responsivo',
+        'Integración con APIs',
+        'Frontend interactivo'
+      ]
+    },
+    mobile: {
+      title: 'Aplicación Móvil',
+      shortDescription: 'Aplicación móvil para iOS y Android.',
+      features: [
+        'Diseño intuitivo',
+        'Rendimiento óptimo',
+        'Integración nativa'
+      ]
+    },
+    software: {
+      title: 'Desarrollo de Software',
+      shortDescription: 'Soluciones integrales de software a medida.',
+      features: [
+        'Sistemas escalables',
+        'Integración continua',
+        'Soporte 24/7'
+      ]
     }
   }
 }; 

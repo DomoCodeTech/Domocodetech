@@ -1,11 +1,22 @@
+/**
+ * English translations for the TechnoCore website
+ * This file contains all text content in English for the entire application
+ */
 export const enTranslations = {
-  // Company Info
+  /**
+   * Company Information
+   * Basic details about the company used across the site
+   */
   company: {
     slogan: 'Technological Innovation for the Future',
     address: '123 Technology Street, Madrid, Spain',
     workingHours: 'Mon - Fri: 9:00 AM - 6:00 PM',
   },
-  // Navigation
+
+  /**
+   * Navigation Menu
+   * Main navigation links used in the header/navbar
+   */
   nav: {
     home: 'Home',
     about: 'About',
@@ -13,22 +24,36 @@ export const enTranslations = {
     blog: 'Blog',
     contact: 'Contact'
   },
-  // Theme
+
+  /**
+   * Theme Switcher
+   * Text for the light/dark mode toggle button
+   */
   theme: {
     switchToLight: 'Switch to light mode',
     switchToDark: 'Switch to dark mode'
   },
-  // Hero Section
+
+  /**
+   * Hero Section
+   * Main banner section on the homepage
+   */
   hero: {
     slogan: 'Your Trusted Technology Partner',
     subtitle: 'Innovative solutions for the digital age',
     getQuote: 'Get Free Quote',
     imageAlt: 'Team working on technology'
   },
-  // Services Section
+
+  /**
+   * Services Section
+   * Detailed information about our main service offerings
+   */
   services: {
     title: 'Our Services',
     subtitle: 'Professional technology solutions for your business',
+    
+    // Home Automation Service
     domotics: {
       title: 'Smart Home Automation',
       shortDescription: 'Smart automation and control for your home',
@@ -41,6 +66,8 @@ export const enTranslations = {
         'Efficient energy management'
       ]
     },
+
+    // Electronics Service
     electronics: {
       title: 'Advanced Electronics',
       shortDescription: 'Custom electronic solutions',
@@ -53,6 +80,8 @@ export const enTranslations = {
         'Sensors and actuators'
       ]
     },
+
+    // Robotics Service
     robotics: {
       title: 'Robotics & AI',
       shortDescription: 'Intelligent automation and advanced robotics',
@@ -65,6 +94,8 @@ export const enTranslations = {
         'Process automation'
       ]
     },
+
+    // Software Development Service
     software: {
       title: 'Software Development',
       shortDescription: 'Custom software and web applications',
@@ -78,10 +109,51 @@ export const enTranslations = {
       ]
     }
   },
-  // Team Section
+
+  /**
+   * Projects Section
+   * Information about our project offerings
+   */
+  projects: {
+    title: 'Our Projects',
+    subtitle: 'Discover our innovative and tailored solutions.',
+    web: {
+      title: 'Web Application',
+      shortDescription: 'Modern and responsive web platform.',
+      features: [
+        'Responsive Design',
+        'API Integration',
+        'Interactive Frontend'
+      ]
+    },
+    mobile: {
+      title: 'Mobile Application',
+      shortDescription: 'Seamless mobile integration for iOS and Android.',
+      features: [
+        'User-Friendly Design',
+        'High Performance',
+        'Native Integration'
+      ]
+    },
+    software: {
+      title: 'Software Development',
+      shortDescription: 'Custom software solutions adapted to your business needs.',
+      features: [
+        'Scalable Systems',
+        'Continuous Integration',
+        '24/7 Support'
+      ]
+    }
+  },
+
+  /**
+   * Team Section
+   * Information about key team members
+   */
   team: {
     title: 'Meet Our Expert Team',
     subtitle: 'Technology experts ready to innovate',
+    // Individual team member details
     member1: {
       name: 'Charles Rodriguez',
       position: 'Software Architect',
@@ -98,38 +170,34 @@ export const enTranslations = {
       description: 'Expert in IoT solutions and smart home automation.'
     }
   },
-  // About Section
+
+  /**
+   * About Section
+   * Company information, mission, vision, and values
+   */
   about: {
     title: 'About Us',
     subtitle: 'Building the future with technology',
+    // Key statistics
     stats: [
-      {
-        number: '10+',
-        label: 'Years Experience'
-      },
-      {
-        number: '500+',
-        label: 'Projects Completed'
-      },
-      {
-        number: '100+',
-        label: 'Happy Clients'
-      },
-      {
-        number: '50+',
-        label: 'Team Members'
-      }
+      { number: '10+', label: 'Years Experience' },
+      { number: '500+', label: 'Projects Completed' },
+      { number: '100+', label: 'Happy Clients' },
+      { number: '50+', label: 'Team Members' }
     ],
+    // Mission statement
     mission: {
       title: 'Our Mission',
       description: 'To provide innovative and sustainable technological solutions that transform lives and businesses.',
       image: 'https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg'
     },
+    // Vision statement
     vision: {
       title: 'Our Vision',
       description: 'To be the leading technology partner in creating a smarter, more connected world.',
       image: 'https://images.pexels.com/photos/3183153/pexels-photo-3183153.jpeg'
     },
+    // Company values
     values: {
       title: 'Our Values',
       items: [
@@ -151,11 +219,16 @@ export const enTranslations = {
       ]
     }
   },
-  // Blog Section
+
+  /**
+   * Blog Section
+   * News, articles, and insights
+   */
   blog: {
     title: 'Latest News & Insights',
     subtitle: 'Stay updated with our latest technological developments',
     readMore: 'Read More',
+    // Blog categories
     categories: {
       all: 'All',
       technology: 'Technology',
@@ -163,6 +236,7 @@ export const enTranslations = {
       automation: 'Automation',
       ai: 'Artificial Intelligence'
     },
+    // Featured blog posts
     featuredPosts: [
       {
         id: 1,
@@ -190,10 +264,15 @@ export const enTranslations = {
       }
     ]
   },
-  // Contact Section
+
+  /**
+   * Contact Section
+   * Contact form and company contact information
+   */
   contact: {
     title: 'Get in Touch',
     subtitle: 'We\'d love to hear from you',
+    // Contact form labels
     form: {
       name: 'Your Name',
       email: 'Your Email',
@@ -202,6 +281,7 @@ export const enTranslations = {
       message: 'Your Message',
       submit: 'Send Message'
     },
+    // Contact information
     info: {
       title: 'Contact Information',
       address: 'Address',
@@ -214,10 +294,15 @@ export const enTranslations = {
       businessHours: 'Monday - Friday: 9:00 AM - 6:00 PM'
     }
   },
-  // Testimonials Section
+
+  /**
+   * Testimonials Section
+   * Client reviews and feedback
+   */
   testimonials: {
     title: 'What Our Clients Say',
     subtitle: 'Real feedback from satisfied customers',
+    // Individual client testimonials
     client1: {
       name: 'Charles Rodriguez',
       position: 'Innovation Director',
@@ -234,13 +319,21 @@ export const enTranslations = {
       quote: 'The home automation solution installed by TechnoCore has revolutionized the way we interact with our home. Technology of the future, today.'
     }
   },
-  // Call to Action
+
+  /**
+   * Call to Action Section
+   * Prompts for user engagement
+   */
   cta: {
     title: 'Ready to Get Started?',
     subtitle: 'Contact us today for a free consultation and quote.',
     button: 'Contact Us Now'
   },
-  // Common
+
+  /**
+   * Common Text
+   * Reusable text strings used throughout the application
+   */
   common: {
     readMore: 'Read More',
     contactUs: 'Contact Us',
@@ -250,9 +343,14 @@ export const enTranslations = {
     required: 'Required field',
     invalid: 'Invalid input'
   },
-  // Footer Section
+
+  /**
+   * Footer Section
+   * Website footer content and links
+   */
   footer: {
     description: 'Innovative solutions for a smarter future',
+    // Footer sections with links
     sections: {
       company: {
         title: 'Company',
@@ -276,11 +374,14 @@ export const enTranslations = {
         terms: 'Terms of Service'
       }
     },
+    // Social media section
     social: {
       title: 'Follow Us'
     },
+    // Copyright notice with dynamic year and company name
     copyright: '© {{year}} {{company}}. All rights reserved.'
   },
+
   // Pricing Section
   pricing: {
     title: 'Our Pricing',

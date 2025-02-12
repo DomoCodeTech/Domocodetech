@@ -1,3 +1,12 @@
+/**
+ * Navbar.tsx
+ * Barra de navegación principal que incluye:
+ * - Logo de la empresa
+ * - Menú de navegación
+ * - Selector de idioma
+ * - Selector de tema (claro/oscuro)
+ * - Menú móvil para pantallas pequeñas
+ */
 import React, { useState } from 'react';
 import {
   AppBar,
@@ -11,18 +20,14 @@ import {
   MenuItem,
   useTheme,
   alpha,
-  Stack,
-  Tooltip,
-  Select,
-  FormControl
+  useMediaQuery
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink, useLocation } from 'react-router-dom';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
-import TranslateIcon from '@mui/icons-material/Translate';
-import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import LanguageIcon from '@mui/icons-material/Language';
 
 interface NavbarProps {
   isDarkMode: boolean;
@@ -34,8 +39,11 @@ const Navbar: React.FC<NavbarProps> = ({
   toggleDarkMode
 }) => {
   const theme = useTheme();
-  const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
   const { t, i18n } = useTranslation();
+  const location = useLocation();
+
+  const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
+  const [anchorElLang, setAnchorElLang] = useState<null | HTMLElement>(null);
 
   const content = {
     logo: 'TechnoCore',
@@ -53,12 +61,21 @@ const Navbar: React.FC<NavbarProps> = ({
     setAnchorElNav(event.currentTarget);
   };
 
+  const handleOpenLangMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorElLang(event.currentTarget);
+  };
+
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
 
-  const handleLanguageChange = (event: any) => {
-    i18n.changeLanguage(event.target.value);
+  const handleCloseLangMenu = () => {
+    setAnchorElLang(null);
+  };
+
+  const changeLanguage = (lng: string) => {
+    i18n.changeLanguage(lng);
+    handleCloseLangMenu();
   };
 
   return (
@@ -133,6 +150,7 @@ const Navbar: React.FC<NavbarProps> = ({
                   onClick={handleCloseNavMenu}
                   component={RouterLink}
                   to={page.path}
+                  selected={location.pathname === page.path}
                 >
                   <Typography textAlign="center">{page.name}</Typography>
                 </MenuItem>
@@ -186,7 +204,8 @@ const Navbar: React.FC<NavbarProps> = ({
                   },
                   '&:hover::after': {
                     width: '100%'
-                  }
+                  },
+                  backgroundColor: location.pathname === page.path ? 'rgba(0, 0, 0, 0.04)' : 'transparent'
                 }}
               >
                 {page.name}
@@ -194,41 +213,25 @@ const Navbar: React.FC<NavbarProps> = ({
             ))}
           </Box>
 
-          {/* Theme and Language Toggles */}
-          <Stack direction="row" spacing={2} alignItems="center">
-            <Tooltip title={content.themeTooltip}>
-              <IconButton onClick={toggleDarkMode} color="inherit">
-                <AnimatePresence mode="wait" initial={false}>
-                  <motion.div
-                    key={isDarkMode ? 'dark' : 'light'}
-                    initial={{ y: -20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    exit={{ y: 20, opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    {isDarkMode ? <Brightness7Icon /> : <Brightness4Icon />}
-                  </motion.div>
-                </AnimatePresence>
-              </IconButton>
-            </Tooltip>
-            
-            <FormControl size="small">
-              <Select
-                value={i18n.language}
-                onChange={handleLanguageChange}
-                variant="standard"
-                sx={{
-                  minWidth: 100,
-                  '&:before': { borderColor: 'transparent' },
-                  '&:after': { borderColor: 'transparent' },
-                }}
-                IconComponent={TranslateIcon}
-              >
-                <MenuItem value="en">English</MenuItem>
-                <MenuItem value="es">Español</MenuItem>
-              </Select>
-            </FormControl>
-          </Stack>
+          {/* Selector de idioma */}
+          <Box sx={{ flexGrow: 0, display: 'flex', alignItems: 'center' }}>
+            <IconButton onClick={handleOpenLangMenu} color="inherit">
+              <LanguageIcon />
+            </IconButton>
+            <Menu
+              anchorEl={anchorElLang}
+              open={Boolean(anchorElLang)}
+              onClose={handleCloseLangMenu}
+            >
+              <MenuItem onClick={() => changeLanguage('en')}>English</MenuItem>
+              <MenuItem onClick={() => changeLanguage('es')}>Español</MenuItem>
+            </Menu>
+
+            {/* Selector de tema claro/oscuro */}
+            <IconButton onClick={toggleDarkMode} color="inherit">
+              {isDarkMode ? <Brightness7Icon /> : <Brightness4Icon />}
+            </IconButton>
+          </Box>
         </Toolbar>
       </Container>
     </AppBar>

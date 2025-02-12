@@ -36,5 +36,12 @@ export const SITE_DATA = {
     electronics: 'Circuit',
     robotics: 'Robot',
     software: 'Code'
+  },
+  projects: {
+    images: {
+      web: 'https://images.pexels.com/photos/3681902/pexels-photo-3681902.jpeg',
+      mobile: 'https://images.pexels.com/photos/3861972/pexels-photo-3861972.jpeg',
+      software: 'https://images.pexels.com/photos/3184300/pexels-photo-3184300.jpeg'
+    }
   }
 }; 
