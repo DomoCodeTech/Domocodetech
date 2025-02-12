@@ -39,7 +39,7 @@ const Blog: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const { t } = useTranslation();
 
-  const handlePageChange = (event: React.ChangeEvent<unknown>, value: number) => {
+  const handlePageChange = (_event: React.ChangeEvent<unknown>, value: number) => {
     setPage(value);
   };
 

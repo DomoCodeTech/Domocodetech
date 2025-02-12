@@ -19,8 +19,7 @@ import {
   Button,
   MenuItem,
   useTheme,
-  alpha,
-  useMediaQuery
+  alpha
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
