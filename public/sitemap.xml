@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <!-- Homepage -->
+  <url>
+    <loc>https://domocodetech.com/</loc>
+    <lastmod>2024-03-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://domocodetech.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://domocodetech.com/en/"/>
+  </url>
+
+  <!-- Services -->
+  <url>
+    <loc>https://domocodetech.com/servicios</loc>
+    <lastmod>2024-03-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://domocodetech.com/servicios"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://domocodetech.com/en/services"/>
+  </url>
+
+  <!-- Projects -->
+  <url>
+    <loc>https://domocodetech.com/proyectos</loc>
+    <lastmod>2024-03-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://domocodetech.com/proyectos"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://domocodetech.com/en/projects"/>
+  </url>
+
+  <!-- Blog -->
+  <url>
+    <loc>https://domocodetech.com/blog</loc>
+    <lastmod>2024-03-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://domocodetech.com/blog"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://domocodetech.com/en/blog"/>
+  </url>
+
+  <!-- Contact -->
+  <url>
+    <loc>https://domocodetech.com/contacto</loc>
+    <lastmod>2024-03-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://domocodetech.com/contacto"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://domocodetech.com/en/contact"/>
+  </url>
+
+</urlset> 

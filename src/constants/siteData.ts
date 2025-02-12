@@ -1,16 +1,61 @@
 export const SITE_DATA = {
   company: {
-    name: 'TechnoCore',
-    email: 'info@technocore.com',
-    phone: '+34 900 123 456',
+    name: 'DomoCodeTech',
+    email: 'domocodetech@gmail.com',
+    phone: '+57 301 3117452',
+    address: 'Autopista Nte. #108-27, Bogotá, Colombia',
+    schedule: '7:00 a.m. - 5:00 p.m.',
+    serviceArea: 'Internacional'
   },
   social: {
-    facebook: 'https://facebook.com/technocore',
-    twitter: 'https://twitter.com/technocore',
-    instagram: 'https://instagram.com/technocore',
-    linkedin: 'https://linkedin.com/company/technocore',
-    github: 'https://github.com/technocore',
+    instagram: 'https://instagram.com/domocodetech',
+    tiktok: 'https://tiktok.com/@domocodetech',
+    facebook: 'https://facebook.com/domocodetech',
+    youtube: 'https://youtube.com/domocodetech'
   },
+  services: {
+    software: {
+      title: 'Desarrollo de Software',
+      description: 'Aplicaciones multiplataforma, Android nativo, sitios web, landing pages y e-commerce.',
+      icon: 'Code'
+    },
+    microcontrollers: {
+      title: 'Programación de Microcontroladores',
+      description: 'Soluciones para IoT, automatización y control de dispositivos electrónicos.',
+      icon: 'Chip'
+    },
+    domotics: {
+      title: 'Domótica y Automatización',
+      description: 'Sistemas inteligentes para hogares y oficinas.',
+      icon: 'Smart'
+    },
+    electronics: {
+      title: 'Electrónica Digital y Robótica',
+      description: 'Diseño y desarrollo de sistemas electrónicos avanzados.',
+      icon: 'Robot'
+    },
+    networks: {
+      title: 'Redes y Sistemas',
+      description: 'Instalación, configuración y mantenimiento de redes de hogar y empresariales.',
+      icon: 'Network'
+    },
+    support: {
+      title: 'Soporte Técnico',
+      description: 'Reparación y optimización de equipos de cómputo.',
+      icon: 'Support'
+    }
+  },
+  technologies: {
+    languages: ['JavaScript', 'React', 'Node.js', 'Python', 'C++', 'Java'],
+    platforms: ['Android', 'Firebase', 'AWS', 'Azure'],
+    electronics: ['Arduino', 'ESP32', 'Raspberry Pi', 'PLCs'],
+    networks: ['IoT', 'Servidores', 'Seguridad Informática']
+  },
+  targetAudience: [
+    'Empresas y emprendedores que buscan soluciones digitales',
+    'Hogares y oficinas que desean automatización inteligente',
+    'Estudiantes y entusiastas de la electrónica y robótica'
+  ],
   images: {
     logo: '/images/logo.svg',
     hero: {
