@@ -15,6 +15,7 @@ import Contact from './pages/Contact';
 import { createAppTheme } from './theme/theme';
 import './App.css';
 import './i18n/i18n';
+import Projects from './pages/Projects';
 
 function App() {
   // Estado para controlar el modo oscuro/claro
@@ -60,6 +61,7 @@ function App() {
               <Route path="/blog" element={<Blog />} />
               <Route path="/services" element={<Services />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/projects" element={<Projects />} />
             </Routes>
           </main>
           {/* Footer es persistente en todas las rutas */}

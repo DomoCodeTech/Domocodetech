@@ -1,5 +1,5 @@
 /**
- * Projects.tsx
+ * ProjectsSection.tsx
  * Componente que muestra los proyectos principales de la empresa:
  * - Proyectos destacados en diversas áreas
  * 
