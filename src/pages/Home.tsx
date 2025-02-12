@@ -10,7 +10,11 @@ import Testimonials from '../components/Testimonials';
 import Team from '../components/Team';
 import { SITE_DATA } from '../constants/siteData';
 
-const Home: React.FC = () => {
+interface HomeProps {
+  isEnglish: boolean;
+}
+
+const Home: React.FC<HomeProps> = ({ isEnglish }) => {
   const { t } = useTranslation();
 
   return (
@@ -78,8 +82,8 @@ const Home: React.FC = () => {
         </Typography>
         
         <Grid container spacing={4} sx={{ mt: 4 }}>
-          {SITE_DATA.services.map((service, index) => (
-            <Grid item xs={12} md={4} key={service.id}>
+          {['domotics', 'electronics', 'robotics', 'software'].map((serviceId, index) => (
+            <Grid item xs={12} md={4} key={serviceId}>
               <motion.div
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -89,20 +93,21 @@ const Home: React.FC = () => {
                   <CardMedia
                     component="img"
                     height="200"
-                    image={SITE_DATA.images.services[service.id as keyof typeof SITE_DATA.images.services]}
-                    alt={t(`services.${service.id}.title`)}
+                    image={SITE_DATA.images.services[serviceId as keyof typeof SITE_DATA.images.services]}
+                    alt={t(`services.${serviceId}.title`)}
                   />
                   <CardContent>
                     <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-                      {service.icon === 'HomeRepairService' && <HomeRepairServiceIcon sx={{ fontSize: 40 }} />}
-                      {service.icon === 'Business' && <BuildIcon sx={{ fontSize: 40 }} />}
-                      {service.icon === 'ElectricBolt' && <ElectricBoltIcon sx={{ fontSize: 40 }} />}
+                      {SITE_DATA.icons[serviceId as keyof typeof SITE_DATA.icons] === 'Smart' && <HomeRepairServiceIcon sx={{ fontSize: 40 }} />}
+                      {SITE_DATA.icons[serviceId as keyof typeof SITE_DATA.icons] === 'Circuit' && <BuildIcon sx={{ fontSize: 40 }} />}
+                      {SITE_DATA.icons[serviceId as keyof typeof SITE_DATA.icons] === 'Robot' && <ElectricBoltIcon sx={{ fontSize: 40 }} />}
+                      {SITE_DATA.icons[serviceId as keyof typeof SITE_DATA.icons] === 'Code' && <ElectricBoltIcon sx={{ fontSize: 40 }} />}
                       <Typography variant="h6" sx={{ ml: 1 }}>
-                        {t(`services.${service.id}.title`)}
+                        {t(`services.${serviceId}.title`)}
                       </Typography>
                     </Box>
                     <Typography variant="body1" color="text.secondary">
-                      {t(`services.${service.id}.description`)}
+                      {t(`services.${serviceId}.shortDescription`)}
                     </Typography>
                   </CardContent>
                 </Card>
@@ -113,10 +118,10 @@ const Home: React.FC = () => {
       </Container>
 
       {/* Team Section */}
-      <Team />
+      <Team isEnglish={isEnglish} />
 
       {/* Testimonials Section */}
-      <Testimonials />
+      <Testimonials isEnglish={isEnglish} />
 
       {/* Call to Action Section */}
       <Box sx={{ bgcolor: 'secondary.main', color: 'white', py: 8 }}>

@@ -15,22 +15,58 @@ import { motion, AnimatePresence } from 'framer-motion';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
-import { SITE_DATA } from '../constants/siteData';
 
-const Testimonials = () => {
+interface TestimonialsProps {
+  isEnglish: boolean;
+}
+
+const Testimonials = ({ isEnglish }: TestimonialsProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
+  const testimonials = [
+    {
+      id: 1,
+      name: isEnglish ? 'Charles Rodriguez' : 'Carlos Rodríguez',
+      position: isEnglish ? 'Innovation Director' : 'Director de Innovación',
+      image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg',
+      quote: isEnglish 
+        ? 'TechnoCore completely transformed our technological infrastructure. Their expert team delivered innovative solutions that exceeded our expectations.'
+        : 'TechnoCore transformó completamente nuestra infraestructura tecnológica. Su equipo de expertos entregó soluciones innovadoras que superaron nuestras expectativas.',
+      rating: 5
+    },
+    {
+      id: 2,
+      name: isEnglish ? 'Anna Martinez' : 'Ana Martínez',
+      position: isEnglish ? 'Startup CEO' : 'CEO Startup',
+      image: 'https://images.pexels.com/photos/3796217/pexels-photo-3796217.jpeg',
+      quote: isEnglish
+        ? 'The implementation of robotic automation improved our efficiency by 200%. The ROI exceeded our initial projections.'
+        : 'La implementación de automatización robótica mejoró nuestra eficiencia en un 200%. El ROI superó nuestras proyecciones iniciales.',
+      rating: 5
+    },
+    {
+      id: 3,
+      name: isEnglish ? 'Michael Sanchez' : 'Miguel Sánchez',
+      position: isEnglish ? 'Smart Home Owner' : 'Propietario Smart Home',
+      image: 'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg',
+      quote: isEnglish
+        ? 'The home automation solution installed by TechnoCore has revolutionized the way we interact with our home. Technology of the future, today.'
+        : 'La solución domótica instalada por TechnoCore ha revolucionado la forma en que interactuamos con nuestro hogar. Tecnología del futuro, hoy.',
+      rating: 5
+    }
+  ];
+
   const handlePrevious = () => {
     setCurrentIndex((prev) => 
-      prev === 0 ? SITE_DATA.testimonials.length - 1 : prev - 1
+      prev === 0 ? testimonials.length - 1 : prev - 1
     );
   };
 
   const handleNext = () => {
     setCurrentIndex((prev) => 
-      prev === SITE_DATA.testimonials.length - 1 ? 0 : prev + 1
+      prev === testimonials.length - 1 ? 0 : prev + 1
     );
   };
 
@@ -44,7 +80,7 @@ const Testimonials = () => {
           gutterBottom
           sx={{ mb: 6 }}
         >
-          What Our Clients Say
+          {isEnglish ? 'What Our Clients Say' : 'Lo que Dicen Nuestros Clientes'}
         </Typography>
 
         <Box sx={{ position: 'relative' }}>
@@ -88,24 +124,24 @@ const Testimonials = () => {
                       zIndex: 1
                     }}
                   >
-                    "{SITE_DATA.testimonials[currentIndex].quote}"
+                    "{testimonials[currentIndex].quote}"
                   </Typography>
 
                   <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
                     <Avatar
-                      src={SITE_DATA.testimonials[currentIndex].image}
-                      alt={SITE_DATA.testimonials[currentIndex].name}
+                      src={testimonials[currentIndex].image}
+                      alt={testimonials[currentIndex].name}
                       sx={{ width: 64, height: 64 }}
                     />
                     <Box>
                       <Typography variant="h6">
-                        {SITE_DATA.testimonials[currentIndex].name}
+                        {testimonials[currentIndex].name}
                       </Typography>
                       <Typography variant="body2" color="text.secondary">
-                        {SITE_DATA.testimonials[currentIndex].position}
+                        {testimonials[currentIndex].position}
                       </Typography>
                       <Rating
-                        value={SITE_DATA.testimonials[currentIndex].rating}
+                        value={testimonials[currentIndex].rating}
                         readOnly
                         size="small"
                         sx={{ mt: 0.5 }}

@@ -20,72 +20,28 @@ import SearchIcon from '@mui/icons-material/Search';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import PersonIcon from '@mui/icons-material/Person';
 import DateRangeIcon from '@mui/icons-material/DateRange';
+import { useTranslation } from 'react-i18next';
+
+interface BlogPost {
+  id: number;
+  title: string;
+  excerpt: string;
+  image: string;
+  category: string;
+  date: string;
+  author: string;
+  readTime: string;
+}
 
 interface BlogProps {
   isEnglish: boolean;
 }
 
-const Blog = ({ isEnglish }: BlogProps) => {
+const Blog: React.FC<BlogProps> = ({ isEnglish }) => {
   const theme = useTheme();
   const [page, setPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState('');
-
-  const content = {
-    title: isEnglish ? 'Tech Blog' : 'Blog Tecnológico',
-    subtitle: isEnglish 
-      ? 'Latest insights in technology and innovation' 
-      : 'Últimas novedades en tecnología e innovación',
-    searchPlaceholder: isEnglish ? 'Search articles...' : 'Buscar artículos...',
-    categories: [
-      { label: isEnglish ? 'Home Automation' : 'Domótica', color: 'primary' },
-      { label: isEnglish ? 'Electronics' : 'Electrónica', color: 'secondary' },
-      { label: isEnglish ? 'Robotics' : 'Robótica', color: 'info' },
-      { label: isEnglish ? 'Software' : 'Software', color: 'success' },
-      { label: isEnglish ? 'AI' : 'IA', color: 'warning' }
-    ],
-    readMore: isEnglish ? 'Read More' : 'Leer Más',
-    posts: [
-      {
-        title: isEnglish 
-          ? 'The Future of Smart Homes' 
-          : 'El Futuro de los Hogares Inteligentes',
-        excerpt: isEnglish
-          ? 'Discover how AI and IoT are transforming our homes into intelligent living spaces.'
-          : 'Descubre cómo la IA y el IoT están transformando nuestros hogares en espacios inteligentes.',
-        image: '/images/blog/smart-home.jpg',
-        author: 'Carlos Rodríguez',
-        date: '2024-03-15',
-        readTime: '5 min',
-        category: isEnglish ? 'Home Automation' : 'Domótica'
-      },
-      {
-        title: isEnglish 
-          ? 'Robotics in Modern Industry' 
-          : 'La Robótica en la Industria Moderna',
-        excerpt: isEnglish
-          ? 'How industrial robots are revolutionizing manufacturing processes.'
-          : 'Cómo los robots industriales están revolucionando los procesos de fabricación.',
-        image: '/images/blog/robotics.jpg',
-        author: 'Ana Martínez',
-        date: '2024-03-10',
-        readTime: '7 min',
-        category: isEnglish ? 'Robotics' : 'Robótica'
-      },
-      {
-        title: isEnglish 
-          ? 'AI in Daily Life' 
-          : 'La IA en la Vida Diaria',
-        excerpt: isEnglish
-          ? 'Exploring the impact of artificial intelligence in our everyday activities.'
-          : 'Explorando el impacto de la inteligencia artificial en nuestras actividades diarias.',
-        image: '/images/blog/ai.jpg',
-        author: 'David Kim',
-        date: '2024-03-05',
-        readTime: '6 min',
-        category: isEnglish ? 'AI' : 'IA'
-      }
-    ]
-  };
+  const { t } = useTranslation();
 
   const handlePageChange = (event: React.ChangeEvent<unknown>, value: number) => {
     setPage(value);
@@ -96,7 +52,9 @@ const Blog = ({ isEnglish }: BlogProps) => {
     setPage(1);
   };
 
-  const filteredPosts = content.posts.filter(post =>
+  const posts = t('blog.featuredPosts', { returnObjects: true }) as BlogPost[];
+
+  const filteredPosts = posts.filter(post =>
     post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
     post.excerpt.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -116,7 +74,7 @@ const Blog = ({ isEnglish }: BlogProps) => {
             gutterBottom
             className="gradient-text"
           >
-            {content.title}
+            {t('blog.title')}
           </Typography>
           <Typography
             variant="h5"
@@ -125,14 +83,14 @@ const Blog = ({ isEnglish }: BlogProps) => {
             paragraph
             sx={{ mb: 6 }}
           >
-            {content.subtitle}
+            {t('blog.subtitle')}
           </Typography>
 
           <Box sx={{ mb: 4 }}>
             <TextField
               fullWidth
               variant="outlined"
-              placeholder={content.searchPlaceholder}
+              placeholder={t('blog.searchPlaceholder')}
               value={searchTerm}
               onChange={handleSearchChange}
               InputProps={{
@@ -154,11 +112,11 @@ const Blog = ({ isEnglish }: BlogProps) => {
             justifyContent="center"
             sx={{ mb: 6 }}
           >
-            {content.categories.map((category) => (
+            {Object.entries(t('blog.categories', { returnObjects: true })).map(([key, value]) => (
               <Chip
-                key={category.label}
-                label={category.label}
-                color={category.color as any}
+                key={key}
+                label={value}
+                color="primary"
                 sx={{ m: 0.5 }}
                 className="hover-glow"
               />
@@ -167,7 +125,7 @@ const Blog = ({ isEnglish }: BlogProps) => {
 
           <Grid container spacing={4}>
             {filteredPosts.map((post, index) => (
-              <Grid item xs={12} md={4} key={post.title}>
+              <Grid item xs={12} md={4} key={post.id}>
                 <motion.div
                   initial={{ opacity: 0, y: 50 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -239,7 +197,7 @@ const Blog = ({ isEnglish }: BlogProps) => {
                         fullWidth
                         className="hover-glow"
                       >
-                        {content.readMore}
+                        {t('blog.readMore')}
                       </Button>
                     </CardContent>
                   </Card>
