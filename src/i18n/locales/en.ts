@@ -116,34 +116,35 @@ export const enTranslations = {
    */
   projects: {
     title: 'Our Projects',
-    subtitle: 'Discover our innovative and tailored solutions.',
+    subtitle: 'Explore our portfolio showcasing robust project solutions.',
     web: {
       title: 'Web Application',
-      shortDescription: 'Modern and responsive web platform.',
+      description: 'A modern web platform with a responsive design for seamless user experience.',
       features: [
-        'Responsive Design',
-        'API Integration',
-        'Interactive Frontend'
+        'Responsive design',
+        'Cross-browser compatibility',
+        'Modern UI/UX design'
       ]
     },
     mobile: {
       title: 'Mobile Application',
-      shortDescription: 'Seamless mobile integration for iOS and Android.',
+      description: 'Optimized mobile solutions for iOS and Android platforms.',
       features: [
-        'User-Friendly Design',
-        'High Performance',
-        'Native Integration'
+        'User-friendly interface',
+        'High performance',
+        'Seamless integration with APIs'
       ]
     },
     software: {
       title: 'Software Development',
-      shortDescription: 'Custom software solutions adapted to your business needs.',
+      description: 'Custom software solutions built with cutting-edge technology.',
       features: [
-        'Scalable Systems',
-        'Continuous Integration',
-        '24/7 Support'
+        'Custom software design',
+        'Robust architecture',
+        'Cross-platform functionality'
       ]
-    }
+    },
+    featuresTitle: 'Features'
   },
 
   /**

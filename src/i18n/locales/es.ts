@@ -335,33 +335,34 @@ export const esTranslations = {
   },
   projects: {
     title: 'Nuestros Proyectos',
-    subtitle: 'Descubre nuestras soluciones innovadoras.',
+    subtitle: 'Explora nuestro portafolio que muestra soluciones robustas en proyectos realizados.',
     web: {
       title: 'Aplicación Web',
-      shortDescription: 'Una plataforma web moderna y responsiva.',
+      description: 'Una plataforma web moderna con un diseño responsivo para una experiencia óptima.',
       features: [
         'Diseño responsivo',
-        'Integración con APIs',
-        'Frontend interactivo'
+        'Compatibilidad entre navegadores',
+        'Diseño UI/UX moderno'
       ]
     },
     mobile: {
       title: 'Aplicación Móvil',
-      shortDescription: 'Aplicación móvil para iOS y Android.',
+      description: 'Soluciones móviles optimizadas para plataformas iOS y Android.',
       features: [
-        'Diseño intuitivo',
-        'Rendimiento óptimo',
-        'Integración nativa'
+        'Interfaz amigable',
+        'Alto rendimiento',
+        'Integración fluida con APIs'
       ]
     },
     software: {
       title: 'Desarrollo de Software',
-      shortDescription: 'Soluciones integrales de software a medida.',
+      description: 'Soluciones de software a medida desarrolladas con tecnología de vanguardia.',
       features: [
-        'Sistemas escalables',
-        'Integración continua',
-        'Soporte 24/7'
+        'Diseño de software personalizado',
+        'Arquitectura robusta',
+        'Funcionalidad multiplataforma'
       ]
-    }
+    },
+    featuresTitle: 'Características'
   }
 }; 

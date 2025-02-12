@@ -13,7 +13,7 @@ import { motion } from 'framer-motion';
 import Testimonials from '../components/Testimonials';
 import Team from '../components/Team';
 import Hero from '../components/Hero';
-import Projects from '../components/Projects';
+import Projects from '../components/ProjectsSection';
 import Stats from '../components/Stats';
 import CTA from '../components/CTA';
 import ServicesSection from '../components/ServicesSection';
@@ -32,7 +32,7 @@ const Home: React.FC = () => {
       {/* Hero Section - Banner principal */}
       <Hero />
 
-      {/* Sección de Servicios */}
+      {/* Sección de Projects */}
       <Box component="section" sx={{ py: 8 }}>
         <Container maxWidth="lg">
           <motion.div {...fadeInUp}>
