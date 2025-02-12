@@ -13,44 +13,61 @@ import { motion } from 'framer-motion';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import GitHubIcon from '@mui/icons-material/GitHub';
 
-const teamMembers = [
-  {
-    name: 'John Doe',
-    position: 'Master Electrician',
-    image: '/images/team/member1.jpg',
-    description: '15+ years of experience in residential and commercial electrical services.',
-    social: {
-      facebook: '#',
-      twitter: '#',
-      linkedin: '#'
-    }
-  },
-  {
-    name: 'Jane Smith',
-    position: 'Electrical Engineer',
-    image: '/images/team/member2.jpg',
-    description: 'Specialized in smart home automation and energy efficiency solutions.',
-    social: {
-      facebook: '#',
-      twitter: '#',
-      linkedin: '#'
-    }
-  },
-  {
-    name: 'Mike Johnson',
-    position: 'Service Manager',
-    image: '/images/team/member3.jpg',
-    description: 'Ensuring top-quality service delivery and customer satisfaction.',
-    social: {
-      facebook: '#',
-      twitter: '#',
-      linkedin: '#'
-    }
-  }
-];
+interface TeamProps {
+  isEnglish: boolean;
+}
 
-const Team = () => {
+const Team = ({ isEnglish }: TeamProps) => {
+  const content = {
+    title: isEnglish ? 'Meet Our Expert Team' : 'Conoce a Nuestro Equipo',
+    subtitle: isEnglish 
+      ? 'Technology experts ready to innovate' 
+      : 'Expertos en tecnología listos para innovar',
+    teamMembers: [
+      {
+        name: 'Carlos Rodríguez',
+        position: isEnglish ? 'Software Architect' : 'Arquitecto de Software',
+        image: '/images/team/tech-expert-1.jpg',
+        description: isEnglish
+          ? '15+ years of experience in software development and system architecture.'
+          : '15+ años de experiencia en desarrollo de software y arquitectura de sistemas.',
+        social: {
+          github: 'https://github.com',
+          linkedin: 'https://linkedin.com',
+          twitter: 'https://twitter.com'
+        }
+      },
+      {
+        name: 'Ana Martínez',
+        position: isEnglish ? 'Robotics Engineer' : 'Ingeniera en Robótica',
+        image: '/images/team/tech-expert-2.jpg',
+        description: isEnglish
+          ? 'Specialized in AI and robotics automation systems.'
+          : 'Especializada en IA y sistemas de automatización robótica.',
+        social: {
+          github: 'https://github.com',
+          linkedin: 'https://linkedin.com',
+          twitter: 'https://twitter.com'
+        }
+      },
+      {
+        name: 'David Kim',
+        position: isEnglish ? 'IoT Specialist' : 'Especialista en IoT',
+        image: '/images/team/tech-expert-3.jpg',
+        description: isEnglish
+          ? 'Expert in IoT solutions and smart home automation.'
+          : 'Experto en soluciones IoT y automatización de hogares inteligentes.',
+        social: {
+          github: 'https://github.com',
+          linkedin: 'https://linkedin.com',
+          twitter: 'https://twitter.com'
+        }
+      }
+    ]
+  };
+
   return (
     <Box sx={{ py: 8, bgcolor: 'background.default' }}>
       <Container maxWidth="lg">
@@ -60,7 +77,7 @@ const Team = () => {
           textAlign="center"
           gutterBottom
         >
-          Meet Our Expert Team
+          {content.title}
         </Typography>
         <Typography
           variant="h6"
@@ -69,18 +86,18 @@ const Team = () => {
           paragraph
           sx={{ mb: 6 }}
         >
-          Professional electricians ready to serve you
+          {content.subtitle}
         </Typography>
 
         <Grid container spacing={4}>
-          {teamMembers.map((member, index) => (
+          {content.teamMembers.map((member, index) => (
             <Grid item xs={12} md={4} key={member.name}>
               <motion.div
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.2 }}
               >
-                <Card sx={{ height: '100%' }}>
+                <Card className="hover-glow">
                   <CardMedia
                     component="img"
                     height="300"
@@ -115,28 +132,31 @@ const Team = () => {
                       justifyContent="center"
                     >
                       <IconButton
-                        href={member.social.facebook}
+                        href={member.social.github}
                         target="_blank"
                         rel="noopener noreferrer"
                         size="small"
+                        className="hover-glow"
                       >
-                        <FacebookIcon />
-                      </IconButton>
-                      <IconButton
-                        href={member.social.twitter}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        size="small"
-                      >
-                        <TwitterIcon />
+                        <GitHubIcon />
                       </IconButton>
                       <IconButton
                         href={member.social.linkedin}
                         target="_blank"
                         rel="noopener noreferrer"
                         size="small"
+                        className="hover-glow"
                       >
                         <LinkedInIcon />
+                      </IconButton>
+                      <IconButton
+                        href={member.social.twitter}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        size="small"
+                        className="hover-glow"
+                      >
+                        <TwitterIcon />
                       </IconButton>
                     </Stack>
                   </CardContent>

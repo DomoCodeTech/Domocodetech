@@ -1,36 +1,91 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import {
+  Box,
   Container,
   Typography,
   Grid,
-  Box,
   TextField,
   Button,
   Card,
   CardContent,
-  Alert,
-  Snackbar
+  useTheme,
+  alpha,
+  Stack,
+  Snackbar,
+  Alert
 } from '@mui/material';
 import { motion } from 'framer-motion';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
-import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
+import PhoneIcon from '@mui/icons-material/Phone';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 
-const Contact = () => {
-  const [formData, setFormData] = useState({
+interface ContactProps {
+  isEnglish: boolean;
+}
+
+interface FormData {
+  name: string;
+  email: string;
+  phone: string;
+  message: string;
+}
+
+const Contact: React.FC<ContactProps> = ({ isEnglish }) => {
+  const theme = useTheme();
+  const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
     phone: '',
-    service: '',
     message: ''
   });
+  const [openSnackbar, setOpenSnackbar] = useState(false);
 
-  const [snackbar, setSnackbar] = useState({
-    open: false,
-    message: '',
-    severity: 'success' as 'success' | 'error'
-  });
+  const content = {
+    title: isEnglish ? 'Contact Us' : 'Contáctanos',
+    subtitle: isEnglish 
+      ? 'Get in touch with our expert team' 
+      : 'Ponte en contacto con nuestro equipo de expertos',
+    description: isEnglish
+      ? 'Have a question or need assistance? Fill out the form below and we will get back to you as soon as possible.'
+      : '¿Tienes una pregunta o necesitas ayuda? Completa el formulario a continuación y nos pondremos en contacto contigo lo antes posible.',
+    form: {
+      name: isEnglish ? 'Name' : 'Nombre',
+      email: isEnglish ? 'Email' : 'Correo electrónico',
+      phone: isEnglish ? 'Phone' : 'Teléfono',
+      message: isEnglish ? 'Message' : 'Mensaje',
+      submit: isEnglish ? 'Send Message' : 'Enviar Mensaje',
+      success: isEnglish 
+        ? 'Message sent successfully!' 
+        : '¡Mensaje enviado exitosamente!'
+    },
+    info: [
+      {
+        icon: <EmailIcon />,
+        title: isEnglish ? 'Email' : 'Correo',
+        content: 'info@technocore.com'
+      },
+      {
+        icon: <PhoneIcon />,
+        title: isEnglish ? 'Phone' : 'Teléfono',
+        content: '+1 (555) 123-4567'
+      },
+      {
+        icon: <LocationOnIcon />,
+        title: isEnglish ? 'Address' : 'Dirección',
+        content: isEnglish 
+          ? '123 Tech Street, Innovation City, TC 12345'
+          : 'Calle Tecnología 123, Ciudad Innovación, TC 12345'
+      },
+      {
+        icon: <AccessTimeIcon />,
+        title: isEnglish ? 'Hours' : 'Horario',
+        content: isEnglish
+          ? 'Monday - Friday: 9:00 AM - 6:00 PM'
+          : 'Lunes - Viernes: 9:00 AM - 6:00 PM'
+      }
+    ]
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -42,200 +97,195 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically send the form data to your backend
-    console.log('Form submitted:', formData);
-    setSnackbar({
-      open: true,
-      message: 'Thank you for your message. We will contact you soon!',
-      severity: 'success'
-    });
-    // Reset form
+    // Aquí iría la lógica para enviar el formulario
+    console.log(formData);
+    setOpenSnackbar(true);
     setFormData({
       name: '',
       email: '',
       phone: '',
-      service: '',
       message: ''
     });
   };
 
   const handleCloseSnackbar = () => {
-    setSnackbar(prev => ({ ...prev, open: false }));
+    setOpenSnackbar(false);
   };
 
-  const contactInfo = [
-    {
-      icon: <LocationOnIcon sx={{ fontSize: 40, color: 'primary.main' }} />,
-      title: 'Our Location',
-      content: '123 Electric Avenue, City, Country'
-    },
-    {
-      icon: <PhoneIcon sx={{ fontSize: 40, color: 'primary.main' }} />,
-      title: 'Phone Number',
-      content: '+1 (555) 123-4567'
-    },
-    {
-      icon: <EmailIcon sx={{ fontSize: 40, color: 'primary.main' }} />,
-      title: 'Email Address',
-      content: 'info@electrotech.com'
-    },
-    {
-      icon: <AccessTimeIcon sx={{ fontSize: 40, color: 'primary.main' }} />,
-      title: 'Working Hours',
-      content: 'Mon - Fri: 8:00 AM - 6:00 PM'
-    }
-  ];
-
   return (
-    <Box>
-      {/* Contact Header */}
-      <Box sx={{ bgcolor: 'primary.main', color: 'white', py: 8 }}>
-        <Container maxWidth="lg">
-          <Typography variant="h2" component="h1" gutterBottom textAlign="center">
-            Contact Us
+    <Box sx={{ bgcolor: 'background.default', py: 8 }}>
+      <Container maxWidth="lg">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <Typography
+            variant="h2"
+            component="h1"
+            textAlign="center"
+            gutterBottom
+            className="gradient-text"
+          >
+            {content.title}
           </Typography>
-          <Typography variant="h5" textAlign="center" paragraph>
-            Get in touch with us for all your electrical needs
+          <Typography
+            variant="h5"
+            textAlign="center"
+            color="text.secondary"
+            paragraph
+            sx={{ mb: 2 }}
+          >
+            {content.subtitle}
           </Typography>
-        </Container>
-      </Box>
+          <Typography
+            variant="body1"
+            textAlign="center"
+            color="text.secondary"
+            sx={{ maxWidth: 800, mx: 'auto', mb: 8 }}
+          >
+            {content.description}
+          </Typography>
 
-      <Container maxWidth="lg" sx={{ py: 8 }}>
-        <Grid container spacing={4}>
-          {/* Contact Information */}
-          <Grid item xs={12} md={4}>
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <Typography variant="h4" gutterBottom>
-                Contact Information
-              </Typography>
-              <Typography color="text.secondary" paragraph>
-                Feel free to contact us anytime. We're here to help!
-              </Typography>
-              
-              <Grid container spacing={3}>
-                {contactInfo.map((info) => (
-                  <Grid item xs={12} key={info.title}>
-                    <Card>
-                      <CardContent sx={{ display: 'flex', alignItems: 'center' }}>
-                        {info.icon}
-                        <Box sx={{ ml: 2 }}>
-                          <Typography variant="h6" gutterBottom>
-                            {info.title}
-                          </Typography>
-                          <Typography color="text.secondary">
-                            {info.content}
-                          </Typography>
-                        </Box>
-                      </CardContent>
-                    </Card>
-                  </Grid>
-                ))}
-              </Grid>
-            </motion.div>
-          </Grid>
-
-          {/* Contact Form */}
-          <Grid item xs={12} md={8}>
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <Card>
+          <Grid container spacing={4}>
+            <Grid item xs={12} md={6}>
+              <Card 
+                component="form"
+                onSubmit={handleSubmit}
+                className="hover-glow"
+                sx={{ 
+                  height: '100%',
+                  bgcolor: alpha(theme.palette.background.paper, 0.1)
+                }}
+              >
                 <CardContent>
-                  <Typography variant="h4" gutterBottom>
-                    Send Us a Message
-                  </Typography>
-                  <form onSubmit={handleSubmit}>
-                    <Grid container spacing={3}>
-                      <Grid item xs={12} sm={6}>
-                        <TextField
-                          required
-                          fullWidth
-                          label="Your Name"
-                          name="name"
-                          value={formData.name}
-                          onChange={handleChange}
-                        />
-                      </Grid>
-                      <Grid item xs={12} sm={6}>
-                        <TextField
-                          required
-                          fullWidth
-                          label="Email Address"
-                          name="email"
-                          type="email"
-                          value={formData.email}
-                          onChange={handleChange}
-                        />
-                      </Grid>
-                      <Grid item xs={12} sm={6}>
-                        <TextField
-                          fullWidth
-                          label="Phone Number"
-                          name="phone"
-                          value={formData.phone}
-                          onChange={handleChange}
-                        />
-                      </Grid>
-                      <Grid item xs={12} sm={6}>
-                        <TextField
-                          fullWidth
-                          label="Service Required"
-                          name="service"
-                          value={formData.service}
-                          onChange={handleChange}
-                        />
-                      </Grid>
-                      <Grid item xs={12}>
-                        <TextField
-                          required
-                          fullWidth
-                          multiline
-                          rows={4}
-                          label="Your Message"
-                          name="message"
-                          value={formData.message}
-                          onChange={handleChange}
-                        />
-                      </Grid>
-                      <Grid item xs={12}>
-                        <Button
-                          type="submit"
-                          variant="contained"
-                          color="primary"
-                          size="large"
-                          fullWidth
-                        >
-                          Send Message
-                        </Button>
-                      </Grid>
-                    </Grid>
-                  </form>
+                  <Stack spacing={3}>
+                    <TextField
+                      fullWidth
+                      label={content.form.name}
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                      variant="outlined"
+                    />
+                    <TextField
+                      fullWidth
+                      label={content.form.email}
+                      name="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      variant="outlined"
+                    />
+                    <TextField
+                      fullWidth
+                      label={content.form.phone}
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      variant="outlined"
+                    />
+                    <TextField
+                      fullWidth
+                      label={content.form.message}
+                      name="message"
+                      multiline
+                      rows={4}
+                      value={formData.message}
+                      onChange={handleChange}
+                      required
+                      variant="outlined"
+                    />
+                    <Button
+                      type="submit"
+                      variant="contained"
+                      color="primary"
+                      size="large"
+                      className="hover-glow"
+                    >
+                      {content.form.submit}
+                    </Button>
+                  </Stack>
                 </CardContent>
               </Card>
-            </motion.div>
+            </Grid>
+
+            <Grid item xs={12} md={6}>
+              <Card 
+                className="hover-glow"
+                sx={{ 
+                  height: '100%',
+                  bgcolor: alpha(theme.palette.background.paper, 0.1)
+                }}
+              >
+                <CardContent>
+                  <Stack spacing={4}>
+                    {content.info.map((item, index) => (
+                      <motion.div
+                        key={item.title}
+                        initial={{ opacity: 0, x: 50 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.5, delay: index * 0.1 }}
+                      >
+                        <Box
+                          sx={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: 2
+                          }}
+                        >
+                          <Box
+                            sx={{
+                              color: 'primary.main',
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                              p: 1,
+                              borderRadius: 1,
+                              bgcolor: alpha(theme.palette.primary.main, 0.1)
+                            }}
+                          >
+                            {item.icon}
+                          </Box>
+                          <Box>
+                            <Typography
+                              variant="h6"
+                              gutterBottom
+                            >
+                              {item.title}
+                            </Typography>
+                            <Typography
+                              variant="body1"
+                              color="text.secondary"
+                            >
+                              {item.content}
+                            </Typography>
+                          </Box>
+                        </Box>
+                      </motion.div>
+                    ))}
+                  </Stack>
+                </CardContent>
+              </Card>
+            </Grid>
           </Grid>
-        </Grid>
+        </motion.div>
       </Container>
 
-      {/* Success/Error Message */}
       <Snackbar
-        open={snackbar.open}
+        open={openSnackbar}
         autoHideDuration={6000}
         onClose={handleCloseSnackbar}
-        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
       >
         <Alert
           onClose={handleCloseSnackbar}
-          severity={snackbar.severity}
-          sx={{ width: '100%' }}
+          severity="success"
+          variant="filled"
         >
-          {snackbar.message}
+          {content.form.success}
         </Alert>
       </Snackbar>
     </Box>

@@ -1,3 +1,4 @@
+import React from 'react';
 import { Container, Typography, Button, Grid, Box, Card, CardContent, CardMedia } from '@mui/material';
 import { motion } from 'framer-motion';
 import ElectricBoltIcon from '@mui/icons-material/ElectricBolt';
@@ -8,7 +9,11 @@ import Testimonials from '../components/Testimonials';
 import Team from '../components/Team';
 import { SITE_DATA } from '../constants/siteData';
 
-const Home = () => {
+interface HomeProps {
+  isEnglish: boolean;
+}
+
+const Home: React.FC<HomeProps> = ({ isEnglish }) => {
   return (
     <Box>
       {/* Hero Section */}
