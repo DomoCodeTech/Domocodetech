@@ -17,6 +17,8 @@ import CodeIcon from '@mui/icons-material/Code';
 import BuildIcon from '@mui/icons-material/Build';
 import HomeWorkIcon from '@mui/icons-material/HomeWork';
 import PrecisionManufacturingIcon from '@mui/icons-material/PrecisionManufacturing';
+import { useTranslation } from 'react-i18next';
+import { SITE_DATA } from '../constants/siteData';
 
 interface ServicesProps {
   isEnglish: boolean;
@@ -24,102 +26,16 @@ interface ServicesProps {
 
 const Services: React.FC<ServicesProps> = ({ isEnglish }) => {
   const theme = useTheme();
+  const { t } = useTranslation();
 
-  const content = {
-    title: isEnglish ? 'Our Services' : 'Nuestros Servicios',
-    subtitle: isEnglish 
-      ? 'Innovative solutions for your technological needs' 
-      : 'Soluciones innovadoras para tus necesidades tecnológicas',
-    description: isEnglish
-      ? 'We offer a comprehensive range of technological services to help you stay ahead in the digital era.'
-      : 'Ofrecemos una gama completa de servicios tecnológicos para ayudarte a mantenerte adelante en la era digital.',
-    services: [
-      {
-        icon: <HomeWorkIcon sx={{ fontSize: 40 }} />,
-        title: isEnglish ? 'Home Automation' : 'Domótica',
-        description: isEnglish
-          ? 'Transform your home into a smart living space with our cutting-edge automation solutions.'
-          : 'Transforma tu hogar en un espacio inteligente con nuestras soluciones de automatización de vanguardia.',
-        image: '/images/services/home-automation.jpg',
-        features: isEnglish 
-          ? [
-              'Smart lighting control',
-              'Climate automation',
-              'Security systems',
-              'Voice control integration'
-            ]
-          : [
-              'Control inteligente de iluminación',
-              'Automatización de clima',
-              'Sistemas de seguridad',
-              'Integración de control por voz'
-            ]
-      },
-      {
-        icon: <BuildIcon sx={{ fontSize: 40 }} />,
-        title: isEnglish ? 'Electronics' : 'Electrónica',
-        description: isEnglish
-          ? 'Custom electronic solutions for your specific needs and requirements.'
-          : 'Soluciones electrónicas personalizadas para tus necesidades y requerimientos específicos.',
-        image: '/images/services/electronics.jpg',
-        features: isEnglish
-          ? [
-              'Circuit design',
-              'PCB prototyping',
-              'Component repair',
-              'System optimization'
-            ]
-          : [
-              'Diseño de circuitos',
-              'Prototipado de PCB',
-              'Reparación de componentes',
-              'Optimización de sistemas'
-            ]
-      },
-      {
-        icon: <PrecisionManufacturingIcon sx={{ fontSize: 40 }} />,
-        title: isEnglish ? 'Robotics' : 'Robótica',
-        description: isEnglish
-          ? 'Advanced robotics solutions for automation and process optimization.'
-          : 'Soluciones robóticas avanzadas para automatización y optimización de procesos.',
-        image: '/images/services/robotics.jpg',
-        features: isEnglish
-          ? [
-              'Industrial automation',
-              'Robot programming',
-              'Process optimization',
-              'Maintenance services'
-            ]
-          : [
-              'Automatización industrial',
-              'Programación de robots',
-              'Optimización de procesos',
-              'Servicios de mantenimiento'
-            ]
-      },
-      {
-        icon: <CodeIcon sx={{ fontSize: 40 }} />,
-        title: isEnglish ? 'Software Development' : 'Desarrollo de Software',
-        description: isEnglish
-          ? 'Custom software solutions to streamline your business processes.'
-          : 'Soluciones de software personalizadas para optimizar tus procesos empresariales.',
-        image: '/images/services/software.jpg',
-        features: isEnglish
-          ? [
-              'Web applications',
-              'Mobile apps',
-              'Desktop software',
-              'API integration'
-            ]
-          : [
-              'Aplicaciones web',
-              'Apps móviles',
-              'Software de escritorio',
-              'Integración de APIs'
-            ]
-      }
-    ]
+  const serviceIcons = {
+    domotics: <HomeWorkIcon sx={{ fontSize: 40 }} />,
+    electronics: <BuildIcon sx={{ fontSize: 40 }} />,
+    robotics: <PrecisionManufacturingIcon sx={{ fontSize: 40 }} />,
+    software: <CodeIcon sx={{ fontSize: 40 }} />
   };
+
+  const serviceIds = ['domotics', 'electronics', 'robotics', 'software'];
 
   return (
     <Box sx={{ bgcolor: 'background.default', py: 8 }}>
@@ -136,7 +52,7 @@ const Services: React.FC<ServicesProps> = ({ isEnglish }) => {
             gutterBottom
             className="gradient-text"
           >
-            {content.title}
+            {t('services.title')}
           </Typography>
           <Typography
             variant="h5"
@@ -145,20 +61,12 @@ const Services: React.FC<ServicesProps> = ({ isEnglish }) => {
             paragraph
             sx={{ mb: 2 }}
           >
-            {content.subtitle}
-          </Typography>
-          <Typography
-            variant="body1"
-            textAlign="center"
-            color="text.secondary"
-            sx={{ maxWidth: 800, mx: 'auto', mb: 8 }}
-          >
-            {content.description}
+            {t('services.subtitle')}
           </Typography>
 
           <Grid container spacing={4}>
-            {content.services.map((service, index) => (
-              <Grid item xs={12} md={6} key={service.title}>
+            {serviceIds.map((serviceId, index) => (
+              <Grid item xs={12} md={6} key={serviceId}>
                 <motion.div
                   initial={{ opacity: 0, y: 50 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -168,14 +76,25 @@ const Services: React.FC<ServicesProps> = ({ isEnglish }) => {
                     className="hover-glow"
                     sx={{ 
                       height: '100%',
-                      bgcolor: alpha(theme.palette.background.paper, 0.1)
+                      bgcolor: alpha(theme.palette.background.paper, 0.1),
+                      background: `linear-gradient(135deg, ${alpha(theme.palette.primary.main, 0.05)} 0%, ${alpha(theme.palette.background.paper, 0.1)} 100%)`,
+                      border: `1px solid ${alpha(theme.palette.primary.main, 0.1)}`,
+                      transition: 'all 0.3s ease-in-out',
+                      '&:hover': {
+                        transform: 'translateY(-10px)',
+                        border: `1px solid ${theme.palette.primary.main}`,
+                      }
                     }}
                   >
                     <CardMedia
                       component="img"
                       height="240"
-                      image={service.image}
-                      alt={service.title}
+                      image={SITE_DATA.images.services[serviceId as keyof typeof SITE_DATA.images.services]}
+                      alt={t(`services.${serviceId}.title`)}
+                      sx={{ 
+                        objectFit: 'cover',
+                        borderBottom: `1px solid ${alpha(theme.palette.primary.main, 0.1)}`
+                      }}
                     />
                     <CardContent>
                       <Stack spacing={2}>
@@ -188,26 +107,59 @@ const Services: React.FC<ServicesProps> = ({ isEnglish }) => {
                             mb: 2
                           }}
                         >
-                          {service.icon}
-                          <Typography variant="h5" component="h2">
-                            {service.title}
+                          {serviceIcons[serviceId as keyof typeof serviceIcons]}
+                          <Typography 
+                            variant="h5" 
+                            component="h2"
+                            sx={{
+                              background: `linear-gradient(45deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
+                              WebkitBackgroundClip: 'text',
+                              WebkitTextFillColor: 'transparent',
+                              fontWeight: 'bold'
+                            }}
+                          >
+                            {t(`services.${serviceId}.title`)}
                           </Typography>
                         </Box>
                         <Typography
                           variant="body1"
                           color="text.secondary"
                           paragraph
+                          sx={{ lineHeight: 1.7 }}
                         >
-                          {service.description}
+                          {t(`services.${serviceId}.fullDescription`)}
                         </Typography>
-                        <Box component="ul" sx={{ pl: 2 }}>
-                          {service.features.map((feature, idx) => (
+                        <Box 
+                          component="ul" 
+                          sx={{ 
+                            pl: 2,
+                            listStyleType: 'none',
+                            '& li': {
+                              position: 'relative',
+                              '&::before': {
+                                content: '"•"',
+                                color: theme.palette.primary.main,
+                                fontWeight: 'bold',
+                                position: 'absolute',
+                                left: '-1em'
+                              }
+                            }
+                          }}
+                        >
+                          {t(`services.${serviceId}.features`, { returnObjects: true }).map((feature: string, idx: number) => (
                             <Typography
                               key={idx}
                               component="li"
                               variant="body2"
                               color="text.secondary"
-                              sx={{ mb: 1 }}
+                              sx={{ 
+                                mb: 1,
+                                transition: 'all 0.3s ease-in-out',
+                                '&:hover': {
+                                  color: 'primary.main',
+                                  transform: 'translateX(10px)'
+                                }
+                              }}
                             >
                               {feature}
                             </Typography>
@@ -218,8 +170,12 @@ const Services: React.FC<ServicesProps> = ({ isEnglish }) => {
                           color="primary"
                           fullWidth
                           className="hover-glow"
+                          sx={{
+                            mt: 2,
+                            background: `linear-gradient(45deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
+                          }}
                         >
-                          {isEnglish ? 'Learn More' : 'Saber Más'}
+                          {t('common.readMore')}
                         </Button>
                       </Stack>
                     </CardContent>

@@ -197,7 +197,7 @@ function App() {
             isEnglish={isEnglish}
             toggleLanguage={toggleLanguage}
           />
-          <main>
+          <main style={{ marginTop: '100px' }}>
             <Routes>
               <Route path="/" element={<Home isEnglish={isEnglish} />} />
               <Route path="/about" element={<About isEnglish={isEnglish} />} />

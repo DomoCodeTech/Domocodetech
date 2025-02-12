@@ -19,6 +19,8 @@ import EmailIcon from '@mui/icons-material/Email';
 import PhoneIcon from '@mui/icons-material/Phone';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import { useTranslation } from 'react-i18next';
+import { SITE_DATA } from '../constants/siteData';
 
 interface ContactProps {
   isEnglish: boolean;
@@ -33,6 +35,7 @@ interface FormData {
 
 const Contact: React.FC<ContactProps> = ({ isEnglish }) => {
   const theme = useTheme();
+  const { t } = useTranslation();
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
@@ -41,51 +44,28 @@ const Contact: React.FC<ContactProps> = ({ isEnglish }) => {
   });
   const [openSnackbar, setOpenSnackbar] = useState(false);
 
-  const content = {
-    title: isEnglish ? 'Contact Us' : 'Contáctanos',
-    subtitle: isEnglish 
-      ? 'Get in touch with our expert team' 
-      : 'Ponte en contacto con nuestro equipo de expertos',
-    description: isEnglish
-      ? 'Have a question or need assistance? Fill out the form below and we will get back to you as soon as possible.'
-      : '¿Tienes una pregunta o necesitas ayuda? Completa el formulario a continuación y nos pondremos en contacto contigo lo antes posible.',
-    form: {
-      name: isEnglish ? 'Name' : 'Nombre',
-      email: isEnglish ? 'Email' : 'Correo electrónico',
-      phone: isEnglish ? 'Phone' : 'Teléfono',
-      message: isEnglish ? 'Message' : 'Mensaje',
-      submit: isEnglish ? 'Send Message' : 'Enviar Mensaje',
-      success: isEnglish 
-        ? 'Message sent successfully!' 
-        : '¡Mensaje enviado exitosamente!'
+  const contactInfo = [
+    {
+      icon: <EmailIcon />,
+      title: t('contact.info.email'),
+      content: SITE_DATA.company.email
     },
-    info: [
-      {
-        icon: <EmailIcon />,
-        title: isEnglish ? 'Email' : 'Correo',
-        content: 'info@technocore.com'
-      },
-      {
-        icon: <PhoneIcon />,
-        title: isEnglish ? 'Phone' : 'Teléfono',
-        content: '+1 (555) 123-4567'
-      },
-      {
-        icon: <LocationOnIcon />,
-        title: isEnglish ? 'Address' : 'Dirección',
-        content: isEnglish 
-          ? '123 Tech Street, Innovation City, TC 12345'
-          : 'Calle Tecnología 123, Ciudad Innovación, TC 12345'
-      },
-      {
-        icon: <AccessTimeIcon />,
-        title: isEnglish ? 'Hours' : 'Horario',
-        content: isEnglish
-          ? 'Monday - Friday: 9:00 AM - 6:00 PM'
-          : 'Lunes - Viernes: 9:00 AM - 6:00 PM'
-      }
-    ]
-  };
+    {
+      icon: <PhoneIcon />,
+      title: t('contact.info.phone'),
+      content: SITE_DATA.company.phone
+    },
+    {
+      icon: <LocationOnIcon />,
+      title: t('contact.info.address'),
+      content: t('contact.info.location')
+    },
+    {
+      icon: <AccessTimeIcon />,
+      title: t('contact.info.hours'),
+      content: t('contact.info.businessHours')
+    }
+  ];
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -127,7 +107,7 @@ const Contact: React.FC<ContactProps> = ({ isEnglish }) => {
             gutterBottom
             className="gradient-text"
           >
-            {content.title}
+            {t('contact.title')}
           </Typography>
           <Typography
             variant="h5"
@@ -136,15 +116,7 @@ const Contact: React.FC<ContactProps> = ({ isEnglish }) => {
             paragraph
             sx={{ mb: 2 }}
           >
-            {content.subtitle}
-          </Typography>
-          <Typography
-            variant="body1"
-            textAlign="center"
-            color="text.secondary"
-            sx={{ maxWidth: 800, mx: 'auto', mb: 8 }}
-          >
-            {content.description}
+            {t('contact.subtitle')}
           </Typography>
 
           <Grid container spacing={4}>
@@ -155,41 +127,78 @@ const Contact: React.FC<ContactProps> = ({ isEnglish }) => {
                 className="hover-glow"
                 sx={{ 
                   height: '100%',
-                  bgcolor: alpha(theme.palette.background.paper, 0.1)
+                  bgcolor: alpha(theme.palette.background.paper, 0.1),
+                  background: `linear-gradient(135deg, ${alpha(theme.palette.primary.main, 0.05)} 0%, ${alpha(theme.palette.background.paper, 0.1)} 100%)`,
+                  border: `1px solid ${alpha(theme.palette.primary.main, 0.1)}`,
+                  transition: 'all 0.3s ease-in-out',
+                  '&:hover': {
+                    transform: 'translateY(-10px)',
+                    border: `1px solid ${theme.palette.primary.main}`,
+                  }
                 }}
               >
                 <CardContent>
                   <Stack spacing={3}>
                     <TextField
                       fullWidth
-                      label={content.form.name}
+                      label={t('contact.form.name')}
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
                       required
                       variant="outlined"
+                      sx={{
+                        '& .MuiOutlinedInput-root': {
+                          '& fieldset': {
+                            borderColor: alpha(theme.palette.primary.main, 0.2),
+                          },
+                          '&:hover fieldset': {
+                            borderColor: theme.palette.primary.main,
+                          },
+                        },
+                      }}
                     />
                     <TextField
                       fullWidth
-                      label={content.form.email}
+                      label={t('contact.form.email')}
                       name="email"
                       type="email"
                       value={formData.email}
                       onChange={handleChange}
                       required
                       variant="outlined"
+                      sx={{
+                        '& .MuiOutlinedInput-root': {
+                          '& fieldset': {
+                            borderColor: alpha(theme.palette.primary.main, 0.2),
+                          },
+                          '&:hover fieldset': {
+                            borderColor: theme.palette.primary.main,
+                          },
+                        },
+                      }}
                     />
                     <TextField
                       fullWidth
-                      label={content.form.phone}
+                      label={t('contact.form.phone')}
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
                       variant="outlined"
+                      sx={{
+                        '& .MuiOutlinedInput-root': {
+                          '& fieldset': {
+                            borderColor: alpha(theme.palette.primary.main, 0.2),
+                          },
+                          '&:hover fieldset': {
+                            borderColor: theme.palette.primary.main,
+                          },
+                        },
+                      }}
                     />
                     <TextField
                       fullWidth
-                      label={content.form.message}
+                      label={t('contact.form.message')}
                       name="message"
                       multiline
                       rows={4}
@@ -197,6 +206,16 @@ const Contact: React.FC<ContactProps> = ({ isEnglish }) => {
                       onChange={handleChange}
                       required
                       variant="outlined"
+                      sx={{
+                        '& .MuiOutlinedInput-root': {
+                          '& fieldset': {
+                            borderColor: alpha(theme.palette.primary.main, 0.2),
+                          },
+                          '&:hover fieldset': {
+                            borderColor: theme.palette.primary.main,
+                          },
+                        },
+                      }}
                     />
                     <Button
                       type="submit"
@@ -204,8 +223,11 @@ const Contact: React.FC<ContactProps> = ({ isEnglish }) => {
                       color="primary"
                       size="large"
                       className="hover-glow"
+                      sx={{
+                        background: `linear-gradient(45deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
+                      }}
                     >
-                      {content.form.submit}
+                      {t('contact.form.submit')}
                     </Button>
                   </Stack>
                 </CardContent>
@@ -217,12 +239,32 @@ const Contact: React.FC<ContactProps> = ({ isEnglish }) => {
                 className="hover-glow"
                 sx={{ 
                   height: '100%',
-                  bgcolor: alpha(theme.palette.background.paper, 0.1)
+                  bgcolor: alpha(theme.palette.background.paper, 0.1),
+                  background: `linear-gradient(135deg, ${alpha(theme.palette.secondary.main, 0.05)} 0%, ${alpha(theme.palette.background.paper, 0.1)} 100%)`,
+                  border: `1px solid ${alpha(theme.palette.secondary.main, 0.1)}`,
+                  transition: 'all 0.3s ease-in-out',
+                  '&:hover': {
+                    transform: 'translateY(-10px)',
+                    border: `1px solid ${theme.palette.secondary.main}`,
+                  }
                 }}
               >
                 <CardContent>
+                  <Typography
+                    variant="h4"
+                    gutterBottom
+                    sx={{
+                      mb: 4,
+                      background: `linear-gradient(45deg, ${theme.palette.secondary.main}, ${theme.palette.primary.main})`,
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      fontWeight: 'bold'
+                    }}
+                  >
+                    {t('contact.info.title')}
+                  </Typography>
                   <Stack spacing={4}>
-                    {content.info.map((item, index) => (
+                    {contactInfo.map((item, index) => (
                       <motion.div
                         key={item.title}
                         initial={{ opacity: 0, x: 50 }}
@@ -233,7 +275,11 @@ const Contact: React.FC<ContactProps> = ({ isEnglish }) => {
                           sx={{
                             display: 'flex',
                             alignItems: 'center',
-                            gap: 2
+                            gap: 2,
+                            transition: 'all 0.3s ease-in-out',
+                            '&:hover': {
+                              transform: 'translateX(10px)',
+                            }
                           }}
                         >
                           <Box
@@ -251,15 +297,14 @@ const Contact: React.FC<ContactProps> = ({ isEnglish }) => {
                           </Box>
                           <Box>
                             <Typography
-                              variant="h6"
+                              variant="subtitle1"
+                              color="primary"
                               gutterBottom
+                              sx={{ fontWeight: 'bold' }}
                             >
                               {item.title}
                             </Typography>
-                            <Typography
-                              variant="body1"
-                              color="text.secondary"
-                            >
+                            <Typography variant="body1" color="text.secondary">
                               {item.content}
                             </Typography>
                           </Box>
@@ -284,8 +329,9 @@ const Contact: React.FC<ContactProps> = ({ isEnglish }) => {
           onClose={handleCloseSnackbar}
           severity="success"
           variant="filled"
+          sx={{ width: '100%' }}
         >
-          {content.form.success}
+          {t('common.success')}
         </Alert>
       </Snackbar>
     </Box>
