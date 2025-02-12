@@ -82,23 +82,21 @@ export const esTranslations = {
   team: {
     title: 'Conoce a Nuestro Equipo Experto',
     subtitle: 'Expertos en tecnología listos para innovar',
-    members: [
-      {
-        name: 'Carlos Rodríguez',
-        position: 'Arquitecto de Software',
-        description: 'Más de 15 años de experiencia en desarrollo de software y arquitectura de sistemas.'
-      },
-      {
-        name: 'Ana Martínez',
-        position: 'Ingeniera en Robótica',
-        description: 'Especializada en IA y sistemas de automatización robótica.'
-      },
-      {
-        name: 'David Kim',
-        position: 'Especialista en IoT',
-        description: 'Experto en soluciones IoT y automatización de hogares inteligentes.'
-      }
-    ]
+    member1: {
+      name: 'Carlos Rodríguez',
+      position: 'Arquitecto de Software',
+      description: 'Más de 15 años de experiencia en desarrollo de software y arquitectura de sistemas.'
+    },
+    member2: {
+      name: 'Ana Martínez',
+      position: 'Ingeniera en Robótica',
+      description: 'Especializada en IA y sistemas de automatización robótica.'
+    },
+    member3: {
+      name: 'David Kim',
+      position: 'Especialista en IoT',
+      description: 'Experto en soluciones IoT y automatización de hogares inteligentes.'
+    }
   },
   // About Section
   about: {
@@ -220,23 +218,21 @@ export const esTranslations = {
   testimonials: {
     title: 'Lo que Dicen Nuestros Clientes',
     subtitle: 'Opiniones reales de clientes satisfechos',
-    items: [
-      {
-        name: 'Carlos Rodríguez',
-        position: 'Director de Innovación',
-        quote: 'TechnoCore transformó completamente nuestra infraestructura tecnológica. Su equipo experto entregó soluciones innovadoras que superaron nuestras expectativas.'
-      },
-      {
-        name: 'Ana Martínez',
-        position: 'CEO de Startup',
-        quote: 'La implementación de automatización robótica mejoró nuestra eficiencia en un 200%. El ROI superó nuestras proyecciones iniciales.'
-      },
-      {
-        name: 'Miguel Sánchez',
-        position: 'Propietario de Casa Inteligente',
-        quote: 'La solución de domótica instalada por TechnoCore ha revolucionado la forma en que interactuamos con nuestro hogar. Tecnología del futuro, hoy.'
-      }
-    ]
+    client1: {
+      name: 'Carlos Rodríguez',
+      position: 'Director de Innovación',
+      quote: 'TechnoCore transformó completamente nuestra infraestructura tecnológica. Su equipo experto entregó soluciones innovadoras que superaron nuestras expectativas.'
+    },
+    client2: {
+      name: 'Ana Martínez',
+      position: 'CEO de Startup',
+      quote: 'La implementación de automatización robótica mejoró nuestra eficiencia en un 200%. El ROI superó nuestras proyecciones iniciales.'
+    },
+    client3: {
+      name: 'Miguel Sánchez',
+      position: 'Propietario de Casa Inteligente',
+      quote: 'La solución de domótica instalada por TechnoCore ha revolucionado la forma en que interactuamos con nuestro hogar. Tecnología del futuro, hoy.'
+    }
   },
   // Call to Action
   cta: {
@@ -256,33 +252,78 @@ export const esTranslations = {
   },
   // Footer Section
   footer: {
-    company: {
-      title: 'Empresa',
-      about: 'Sobre Nosotros',
-      services: 'Servicios',
-      blog: 'Blog',
-      contact: 'Contacto'
-    },
-    services: {
-      title: 'Servicios',
-      webDev: 'Desarrollo Web',
-      mobileDev: 'Desarrollo Móvil',
-      cloudServices: 'Servicios en la Nube',
-      consulting: 'Consultoría TI'
-    },
-    contact: {
-      title: 'Información de Contacto',
-      address: 'Calle Tecnología 123, Silicon Valley, CA',
-      phone: '+1 (555) 123-4567',
-      email: 'info@technocore.com'
+    description: 'Soluciones innovadoras para un futuro más inteligente',
+    sections: {
+      company: {
+        title: 'Empresa',
+        about: 'Nosotros',
+        services: 'Servicios',
+        blog: 'Blog',
+        contact: 'Contacto'
+      },
+      services: {
+        title: 'Servicios',
+        automation: 'Domótica',
+        electronics: 'Electrónica',
+        robotics: 'Robótica',
+        software: 'Software'
+      },
+      support: {
+        title: 'Soporte',
+        help: 'Centro de Ayuda',
+        docs: 'Documentación',
+        privacy: 'Política de Privacidad',
+        terms: 'Términos de Servicio'
+      }
     },
     social: {
-      title: 'Síguenos',
-      facebook: 'Facebook',
-      twitter: 'Twitter',
-      linkedin: 'LinkedIn',
-      instagram: 'Instagram'
+      title: 'Síguenos'
     },
-    copyright: '© 2024 TechnoCore. Todos los derechos reservados.'
+    copyright: '© {{year}} {{company}}. Todos los derechos reservados.'
+  },
+  // Pricing Section
+  pricing: {
+    title: 'Nuestros Precios',
+    subtitle: 'Elige el plan perfecto para tus necesidades',
+    getStarted: 'Comenzar',
+    plans: {
+      starter: {
+        title: 'Inicial',
+        period: 'proyecto básico',
+        description: 'Para proyectos pequeños',
+        features: [
+          'Consultoría inicial',
+          'Diseño básico',
+          'Implementación',
+          'Soporte por 3 meses',
+          'Documentación'
+        ]
+      },
+      professional: {
+        title: 'Profesional',
+        period: 'proyecto completo',
+        description: 'Para proyectos medianos',
+        features: [
+          'Consultoría avanzada',
+          'Diseño personalizado',
+          'Implementación completa',
+          'Soporte por 6 meses',
+          'Capacitación incluida'
+        ]
+      },
+      enterprise: {
+        title: 'Empresarial',
+        price: 'Personalizado',
+        period: 'proyecto',
+        description: 'Para grandes proyectos',
+        features: [
+          'Solución completa',
+          'Diseño a medida',
+          'Implementación integral',
+          'Soporte 24/7',
+          'Mantenimiento continuo'
+        ]
+      }
+    }
   }
 }; 

@@ -16,74 +16,36 @@ import {
 } from '@mui/material';
 import { motion } from 'framer-motion';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import { useTranslation } from 'react-i18next';
 
-interface PricingProps {
-  isEnglish: boolean;
-}
-
-const Pricing: React.FC<PricingProps> = ({ isEnglish }) => {
+const Pricing: React.FC = () => {
   const theme = useTheme();
+  const { t } = useTranslation();
 
   const plans = [
     {
       id: 'starter',
-      title: 'Starter',
+      title: t('pricing.plans.starter.title'),
       price: 1500,
-      period: isEnglish ? 'basic project' : 'proyecto básico',
-      description: isEnglish ? 'For small projects' : 'Para proyectos pequeños',
-      features: isEnglish ? [
-        'Initial consultation',
-        'Basic design',
-        'Implementation',
-        '3 months support',
-        'Documentation'
-      ] : [
-        'Consultoría inicial',
-        'Diseño básico',
-        'Implementación',
-        'Soporte por 3 meses',
-        'Documentación'
-      ]
+      period: t('pricing.plans.starter.period'),
+      description: t('pricing.plans.starter.description'),
+      features: t('pricing.plans.starter.features', { returnObjects: true }) as string[]
     },
     {
       id: 'professional',
-      title: 'Professional',
+      title: t('pricing.plans.professional.title'),
       price: 3500,
-      period: isEnglish ? 'complete project' : 'proyecto completo',
-      description: isEnglish ? 'For medium projects' : 'Para proyectos medianos',
-      features: isEnglish ? [
-        'Advanced consulting',
-        'Custom design',
-        'Complete implementation',
-        '6 months support',
-        'Training included'
-      ] : [
-        'Consultoría avanzada',
-        'Diseño personalizado',
-        'Implementación completa',
-        'Soporte por 6 meses',
-        'Capacitación incluida'
-      ]
+      period: t('pricing.plans.professional.period'),
+      description: t('pricing.plans.professional.description'),
+      features: t('pricing.plans.professional.features', { returnObjects: true }) as string[]
     },
     {
       id: 'enterprise',
-      title: 'Enterprise',
-      price: isEnglish ? 'Custom' : 'Personalizado',
-      period: isEnglish ? 'project' : 'proyecto',
-      description: isEnglish ? 'For large projects' : 'Para grandes proyectos',
-      features: isEnglish ? [
-        'Complete solution',
-        'Custom design',
-        'Full implementation',
-        '24/7 support',
-        'Continuous maintenance'
-      ] : [
-        'Solución completa',
-        'Diseño a medida',
-        'Implementación integral',
-        'Soporte 24/7',
-        'Mantenimiento continuo'
-      ]
+      title: t('pricing.plans.enterprise.title'),
+      price: t('pricing.plans.enterprise.price'),
+      period: t('pricing.plans.enterprise.period'),
+      description: t('pricing.plans.enterprise.description'),
+      features: t('pricing.plans.enterprise.features', { returnObjects: true }) as string[]
     }
   ];
 
@@ -97,7 +59,7 @@ const Pricing: React.FC<PricingProps> = ({ isEnglish }) => {
           gutterBottom
           className="gradient-text"
         >
-          {isEnglish ? 'Our Pricing' : 'Nuestros Precios'}
+          {t('pricing.title')}
         </Typography>
         <Typography
           variant="h6"
@@ -106,9 +68,7 @@ const Pricing: React.FC<PricingProps> = ({ isEnglish }) => {
           paragraph
           sx={{ mb: 6 }}
         >
-          {isEnglish 
-            ? 'Choose the perfect plan for your needs' 
-            : 'Elige el plan perfecto para tus necesidades'}
+          {t('pricing.subtitle')}
         </Typography>
 
         <Grid container spacing={4}>
@@ -173,7 +133,7 @@ const Pricing: React.FC<PricingProps> = ({ isEnglish }) => {
                       className="hover-glow"
                       sx={{ mt: 2 }}
                     >
-                      {isEnglish ? 'Get Started' : 'Comenzar'}
+                      {t('pricing.getStarted')}
                     </Button>
                   </CardContent>
                 </Card>

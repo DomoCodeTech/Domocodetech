@@ -12,11 +12,7 @@ import { SITE_DATA } from '../constants/siteData';
 import { useTheme } from '@mui/material/styles';
 import { alpha } from '@mui/material/styles';
 
-interface HomeProps {
-  isEnglish: boolean;
-}
-
-const Home: React.FC<HomeProps> = ({ isEnglish }) => {
+const Home: React.FC = () => {
   const { t } = useTranslation();
   const theme = useTheme();
 
@@ -259,92 +255,11 @@ const Home: React.FC<HomeProps> = ({ isEnglish }) => {
         </Container>
       </Box>
 
-      {/* Team Section */}
-      <Team isEnglish={isEnglish} />
-
       {/* Testimonials Section */}
-      <Testimonials isEnglish={isEnglish} />
+      <Testimonials />
 
-      {/* Call to Action Section */}
-      <Box
-        sx={{
-          position: 'relative',
-          color: 'white',
-          py: { xs: 8, md: 12 },
-          overflow: 'hidden',
-          '&::before': {
-            content: '""',
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            background: `linear-gradient(135deg, ${theme.palette.secondary.main} 0%, ${theme.palette.primary.main} 100%)`,
-            opacity: 0.9,
-            zIndex: 1
-          }
-        }}
-      >
-        <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 2 }}>
-          <Grid container spacing={4} alignItems="center">
-            <Grid item xs={12} md={8}>
-              <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5 }}
-              >
-                <Typography 
-                  variant="h3" 
-                  gutterBottom
-                  sx={{
-                    fontWeight: 'bold',
-                    textShadow: '2px 2px 4px rgba(0,0,0,0.3)'
-                  }}
-                >
-                  {t('cta.title')}
-                </Typography>
-                <Typography 
-                  variant="h5"
-                  sx={{
-                    textShadow: '1px 1px 2px rgba(0,0,0,0.3)',
-                    mb: { xs: 4, md: 0 }
-                  }}
-                >
-                  {t('cta.subtitle')}
-                </Typography>
-              </motion.div>
-            </Grid>
-            <Grid item xs={12} md={4} sx={{ textAlign: 'center' }}>
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Button
-                  component={Link}
-                  to="/contact"
-                  variant="contained"
-                  size="large"
-                  sx={{
-                    bgcolor: 'white',
-                    color: 'secondary.main',
-                    py: 2,
-                    px: 4,
-                    fontSize: '1.2rem',
-                    fontWeight: 'bold',
-                    borderRadius: '30px',
-                    boxShadow: '0 4px 14px 0 rgba(0,0,0,0.25)',
-                    '&:hover': {
-                      bgcolor: alpha(theme.palette.common.white, 0.9)
-                    }
-                  }}
-                >
-                  {t('cta.button')}
-                </Button>
-              </motion.div>
-            </Grid>
-          </Grid>
-        </Container>
-      </Box>
+      {/* Team Section */}
+      <Team />
     </Box>
   );
 };

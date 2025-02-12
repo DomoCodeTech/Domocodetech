@@ -20,11 +20,7 @@ import PrecisionManufacturingIcon from '@mui/icons-material/PrecisionManufacturi
 import { useTranslation } from 'react-i18next';
 import { SITE_DATA } from '../constants/siteData';
 
-interface ServicesProps {
-  isEnglish: boolean;
-}
-
-const Services: React.FC<ServicesProps> = ({ isEnglish }) => {
+const Services: React.FC = () => {
   const theme = useTheme();
   const { t } = useTranslation();
 
@@ -146,7 +142,7 @@ const Services: React.FC<ServicesProps> = ({ isEnglish }) => {
                             }
                           }}
                         >
-                          {t(`services.${serviceId}.features`, { returnObjects: true }).map((feature: string, idx: number) => (
+                          {(t(`services.${serviceId}.features`, { returnObjects: true }) as string[]).map((feature: string, idx: number) => (
                             <Typography
                               key={idx}
                               component="li"

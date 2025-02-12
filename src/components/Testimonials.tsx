@@ -15,45 +15,37 @@ import { motion, AnimatePresence } from 'framer-motion';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
+import { useTranslation } from 'react-i18next';
 
-interface TestimonialsProps {
-  isEnglish: boolean;
-}
-
-const Testimonials = ({ isEnglish }: TestimonialsProps) => {
+const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const { t } = useTranslation();
 
   const testimonials = [
     {
       id: 1,
-      name: isEnglish ? 'Charles Rodriguez' : 'Carlos Rodríguez',
-      position: isEnglish ? 'Innovation Director' : 'Director de Innovación',
+      name: t('testimonials.client1.name'),
+      position: t('testimonials.client1.position'),
       image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg',
-      quote: isEnglish 
-        ? 'TechnoCore completely transformed our technological infrastructure. Their expert team delivered innovative solutions that exceeded our expectations.'
-        : 'TechnoCore transformó completamente nuestra infraestructura tecnológica. Su equipo de expertos entregó soluciones innovadoras que superaron nuestras expectativas.',
+      quote: t('testimonials.client1.quote'),
       rating: 5
     },
     {
       id: 2,
-      name: isEnglish ? 'Anna Martinez' : 'Ana Martínez',
-      position: isEnglish ? 'Startup CEO' : 'CEO Startup',
+      name: t('testimonials.client2.name'),
+      position: t('testimonials.client2.position'),
       image: 'https://images.pexels.com/photos/3796217/pexels-photo-3796217.jpeg',
-      quote: isEnglish
-        ? 'The implementation of robotic automation improved our efficiency by 200%. The ROI exceeded our initial projections.'
-        : 'La implementación de automatización robótica mejoró nuestra eficiencia en un 200%. El ROI superó nuestras proyecciones iniciales.',
+      quote: t('testimonials.client2.quote'),
       rating: 5
     },
     {
       id: 3,
-      name: isEnglish ? 'Michael Sanchez' : 'Miguel Sánchez',
-      position: isEnglish ? 'Smart Home Owner' : 'Propietario Smart Home',
+      name: t('testimonials.client3.name'),
+      position: t('testimonials.client3.position'),
       image: 'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg',
-      quote: isEnglish
-        ? 'The home automation solution installed by TechnoCore has revolutionized the way we interact with our home. Technology of the future, today.'
-        : 'La solución domótica instalada por TechnoCore ha revolucionado la forma en que interactuamos con nuestro hogar. Tecnología del futuro, hoy.',
+      quote: t('testimonials.client3.quote'),
       rating: 5
     }
   ];
@@ -80,7 +72,7 @@ const Testimonials = ({ isEnglish }: TestimonialsProps) => {
           gutterBottom
           sx={{ mb: 6 }}
         >
-          {isEnglish ? 'What Our Clients Say' : 'Lo que Dicen Nuestros Clientes'}
+          {t('testimonials.title')}
         </Typography>
 
         <Box sx={{ position: 'relative' }}>

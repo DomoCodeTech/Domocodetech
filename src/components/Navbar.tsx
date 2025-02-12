@@ -27,15 +27,11 @@ import { useTranslation } from 'react-i18next';
 interface NavbarProps {
   isDarkMode: boolean;
   toggleDarkMode: () => void;
-  isEnglish: boolean;
-  toggleLanguage: () => void;
 }
 
 const Navbar: React.FC<NavbarProps> = ({
   isDarkMode,
-  toggleDarkMode,
-  isEnglish,
-  toggleLanguage
+  toggleDarkMode
 }) => {
   const theme = useTheme();
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);

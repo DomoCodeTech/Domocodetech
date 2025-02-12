@@ -14,20 +14,17 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
+import { useTranslation } from 'react-i18next';
 
-interface TeamProps {
-  isEnglish: boolean;
-}
+const Team = () => {
+  const { t } = useTranslation();
 
-const Team = ({ isEnglish }: TeamProps) => {
   const teamMembers = [
     {
-      name: isEnglish ? 'Charles Rodriguez' : 'Carlos Rodríguez',
-      position: isEnglish ? 'Software Architect' : 'Arquitecto de Software',
+      name: t('team.member1.name'),
+      position: t('team.member1.position'),
       image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg',
-      description: isEnglish
-        ? '15+ years of experience in software development and system architecture.'
-        : '15+ años de experiencia en desarrollo de software y arquitectura de sistemas.',
+      description: t('team.member1.description'),
       social: {
         github: 'https://github.com',
         linkedin: 'https://linkedin.com',
@@ -35,12 +32,10 @@ const Team = ({ isEnglish }: TeamProps) => {
       }
     },
     {
-      name: isEnglish ? 'Anna Martinez' : 'Ana Martínez',
-      position: isEnglish ? 'Robotics Engineer' : 'Ingeniera en Robótica',
+      name: t('team.member2.name'),
+      position: t('team.member2.position'),
       image: 'https://images.pexels.com/photos/3796217/pexels-photo-3796217.jpeg',
-      description: isEnglish
-        ? 'Specialized in AI and robotics automation systems.'
-        : 'Especializada en IA y sistemas de automatización robótica.',
+      description: t('team.member2.description'),
       social: {
         github: 'https://github.com',
         linkedin: 'https://linkedin.com',
@@ -48,12 +43,10 @@ const Team = ({ isEnglish }: TeamProps) => {
       }
     },
     {
-      name: isEnglish ? 'David Kim' : 'David Kim',
-      position: isEnglish ? 'IoT Specialist' : 'Especialista en IoT',
+      name: t('team.member3.name'),
+      position: t('team.member3.position'),
       image: 'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg',
-      description: isEnglish
-        ? 'Expert in IoT solutions and smart home automation.'
-        : 'Experto en soluciones IoT y automatización de hogares inteligentes.',
+      description: t('team.member3.description'),
       social: {
         github: 'https://github.com',
         linkedin: 'https://linkedin.com',
@@ -71,7 +64,7 @@ const Team = ({ isEnglish }: TeamProps) => {
           textAlign="center"
           gutterBottom
         >
-          {isEnglish ? 'Meet Our Expert Team' : 'Conoce a Nuestro Equipo'}
+          {t('team.title')}
         </Typography>
         <Typography
           variant="h6"
@@ -80,9 +73,7 @@ const Team = ({ isEnglish }: TeamProps) => {
           paragraph
           sx={{ mb: 6 }}
         >
-          {isEnglish 
-            ? 'Technology experts ready to innovate' 
-            : 'Expertos en tecnología listos para innovar'}
+          {t('team.subtitle')}
         </Typography>
 
         <Grid container spacing={4}>

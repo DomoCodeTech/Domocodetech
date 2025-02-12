@@ -16,10 +16,7 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import { motion } from 'framer-motion';
-
-interface FooterProps {
-  isEnglish: boolean;
-}
+import { useTranslation } from 'react-i18next';
 
 interface SocialLink {
   name: string;
@@ -52,47 +49,46 @@ interface FooterContent {
   copyright: string;
 }
 
-const Footer: React.FC<FooterProps> = ({ isEnglish }) => {
+const Footer: React.FC = () => {
   const theme = useTheme();
   const currentYear = new Date().getFullYear();
   const companyName = 'TechnoCore';
+  const { t } = useTranslation();
 
   const content: FooterContent = {
     company: companyName,
-    description: isEnglish
-      ? 'Innovative solutions for a smarter future'
-      : 'Soluciones innovadoras para un futuro más inteligente',
+    description: t('footer.description'),
     sections: {
       company: {
-        title: isEnglish ? 'Company' : 'Empresa',
+        title: t('footer.sections.company.title'),
         links: [
-          { name: isEnglish ? 'About Us' : 'Nosotros', path: '/about' },
-          { name: isEnglish ? 'Services' : 'Servicios', path: '/services' },
-          { name: isEnglish ? 'Blog' : 'Blog', path: '/blog' },
-          { name: isEnglish ? 'Contact' : 'Contacto', path: '/contact' }
+          { name: t('footer.sections.company.about'), path: '/about' },
+          { name: t('footer.sections.company.services'), path: '/services' },
+          { name: t('footer.sections.company.blog'), path: '/blog' },
+          { name: t('footer.sections.company.contact'), path: '/contact' }
         ]
       },
       services: {
-        title: isEnglish ? 'Services' : 'Servicios',
+        title: t('footer.sections.services.title'),
         links: [
-          { name: isEnglish ? 'Home Automation' : 'Domótica', path: '/services#automation' },
-          { name: isEnglish ? 'Electronics' : 'Electrónica', path: '/services#electronics' },
-          { name: isEnglish ? 'Robotics' : 'Robótica', path: '/services#robotics' },
-          { name: isEnglish ? 'Software' : 'Software', path: '/services#software' }
+          { name: t('footer.sections.services.automation'), path: '/services#automation' },
+          { name: t('footer.sections.services.electronics'), path: '/services#electronics' },
+          { name: t('footer.sections.services.robotics'), path: '/services#robotics' },
+          { name: t('footer.sections.services.software'), path: '/services#software' }
         ]
       },
       support: {
-        title: isEnglish ? 'Support' : 'Soporte',
+        title: t('footer.sections.support.title'),
         links: [
-          { name: isEnglish ? 'Help Center' : 'Centro de Ayuda', path: '/help' },
-          { name: isEnglish ? 'Documentation' : 'Documentación', path: '/docs' },
-          { name: isEnglish ? 'Privacy Policy' : 'Política de Privacidad', path: '/privacy' },
-          { name: isEnglish ? 'Terms of Service' : 'Términos de Servicio', path: '/terms' }
+          { name: t('footer.sections.support.help'), path: '/help' },
+          { name: t('footer.sections.support.docs'), path: '/docs' },
+          { name: t('footer.sections.support.privacy'), path: '/privacy' },
+          { name: t('footer.sections.support.terms'), path: '/terms' }
         ]
       }
     },
     social: {
-      title: isEnglish ? 'Follow Us' : 'Síguenos',
+      title: t('footer.social.title'),
       links: [
         { name: 'Facebook', icon: <FacebookIcon />, url: 'https://facebook.com' },
         { name: 'Twitter', icon: <TwitterIcon />, url: 'https://twitter.com' },
@@ -100,9 +96,7 @@ const Footer: React.FC<FooterProps> = ({ isEnglish }) => {
         { name: 'GitHub', icon: <GitHubIcon />, url: 'https://github.com' }
       ]
     },
-    copyright: isEnglish
-      ? `© ${currentYear} ${companyName}. All rights reserved.`
-      : `© ${currentYear} ${companyName}. Todos los derechos reservados.`
+    copyright: t('footer.copyright', { year: currentYear, company: companyName })
   };
 
   return (

@@ -82,23 +82,21 @@ export const enTranslations = {
   team: {
     title: 'Meet Our Expert Team',
     subtitle: 'Technology experts ready to innovate',
-    members: [
-      {
-        name: 'Charles Rodriguez',
-        position: 'Software Architect',
-        description: '15+ years of experience in software development and system architecture.'
-      },
-      {
-        name: 'Anna Martinez',
-        position: 'Robotics Engineer',
-        description: 'Specialized in AI and robotics automation systems.'
-      },
-      {
-        name: 'David Kim',
-        position: 'IoT Specialist',
-        description: 'Expert in IoT solutions and smart home automation.'
-      }
-    ]
+    member1: {
+      name: 'Charles Rodriguez',
+      position: 'Software Architect',
+      description: '15+ years of experience in software development and system architecture.'
+    },
+    member2: {
+      name: 'Anna Martinez',
+      position: 'Robotics Engineer',
+      description: 'Specialized in AI and robotics automation systems.'
+    },
+    member3: {
+      name: 'David Kim',
+      position: 'IoT Specialist',
+      description: 'Expert in IoT solutions and smart home automation.'
+    }
   },
   // About Section
   about: {
@@ -220,23 +218,21 @@ export const enTranslations = {
   testimonials: {
     title: 'What Our Clients Say',
     subtitle: 'Real feedback from satisfied customers',
-    items: [
-      {
-        name: 'Charles Rodriguez',
-        position: 'Innovation Director',
-        quote: 'TechnoCore completely transformed our technological infrastructure. Their expert team delivered innovative solutions that exceeded our expectations.'
-      },
-      {
-        name: 'Anna Martinez',
-        position: 'Startup CEO',
-        quote: 'The implementation of robotic automation improved our efficiency by 200%. The ROI exceeded our initial projections.'
-      },
-      {
-        name: 'Michael Sanchez',
-        position: 'Smart Home Owner',
-        quote: 'The home automation solution installed by TechnoCore has revolutionized the way we interact with our home. Technology of the future, today.'
-      }
-    ]
+    client1: {
+      name: 'Charles Rodriguez',
+      position: 'Innovation Director',
+      quote: 'TechnoCore completely transformed our technological infrastructure. Their expert team delivered innovative solutions that exceeded our expectations.'
+    },
+    client2: {
+      name: 'Anna Martinez',
+      position: 'Startup CEO',
+      quote: 'The implementation of robotic automation improved our efficiency by 200%. The ROI exceeded our initial projections.'
+    },
+    client3: {
+      name: 'Michael Sanchez',
+      position: 'Smart Home Owner',
+      quote: 'The home automation solution installed by TechnoCore has revolutionized the way we interact with our home. Technology of the future, today.'
+    }
   },
   // Call to Action
   cta: {
@@ -256,33 +252,78 @@ export const enTranslations = {
   },
   // Footer Section
   footer: {
-    company: {
-      title: 'Company',
-      about: 'About Us',
-      services: 'Services',
-      blog: 'Blog',
-      contact: 'Contact'
-    },
-    services: {
-      title: 'Services',
-      webDev: 'Web Development',
-      mobileDev: 'Mobile Development',
-      cloudServices: 'Cloud Services',
-      consulting: 'IT Consulting'
-    },
-    contact: {
-      title: 'Contact Info',
-      address: '123 Tech Street, Silicon Valley, CA',
-      phone: '+1 (555) 123-4567',
-      email: 'info@technocore.com'
+    description: 'Innovative solutions for a smarter future',
+    sections: {
+      company: {
+        title: 'Company',
+        about: 'About Us',
+        services: 'Services',
+        blog: 'Blog',
+        contact: 'Contact'
+      },
+      services: {
+        title: 'Services',
+        automation: 'Home Automation',
+        electronics: 'Electronics',
+        robotics: 'Robotics',
+        software: 'Software'
+      },
+      support: {
+        title: 'Support',
+        help: 'Help Center',
+        docs: 'Documentation',
+        privacy: 'Privacy Policy',
+        terms: 'Terms of Service'
+      }
     },
     social: {
-      title: 'Follow Us',
-      facebook: 'Facebook',
-      twitter: 'Twitter',
-      linkedin: 'LinkedIn',
-      instagram: 'Instagram'
+      title: 'Follow Us'
     },
-    copyright: '© 2024 TechnoCore. All rights reserved.'
+    copyright: '© {{year}} {{company}}. All rights reserved.'
+  },
+  // Pricing Section
+  pricing: {
+    title: 'Our Pricing',
+    subtitle: 'Choose the perfect plan for your needs',
+    getStarted: 'Get Started',
+    plans: {
+      starter: {
+        title: 'Starter',
+        period: 'basic project',
+        description: 'For small projects',
+        features: [
+          'Initial consultation',
+          'Basic design',
+          'Implementation',
+          '3 months support',
+          'Documentation'
+        ]
+      },
+      professional: {
+        title: 'Professional',
+        period: 'complete project',
+        description: 'For medium projects',
+        features: [
+          'Advanced consulting',
+          'Custom design',
+          'Complete implementation',
+          '6 months support',
+          'Training included'
+        ]
+      },
+      enterprise: {
+        title: 'Enterprise',
+        price: 'Custom',
+        period: 'project',
+        description: 'For large projects',
+        features: [
+          'Complete solution',
+          'Custom design',
+          'Full implementation',
+          '24/7 support',
+          'Continuous maintenance'
+        ]
+      }
+    }
   }
 }; 

@@ -22,10 +22,6 @@ import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import { useTranslation } from 'react-i18next';
 import { SITE_DATA } from '../constants/siteData';
 
-interface ContactProps {
-  isEnglish: boolean;
-}
-
 interface FormData {
   name: string;
   email: string;
@@ -33,7 +29,7 @@ interface FormData {
   message: string;
 }
 
-const Contact: React.FC<ContactProps> = ({ isEnglish }) => {
+const Contact: React.FC = () => {
   const theme = useTheme();
   const { t } = useTranslation();
   const [formData, setFormData] = useState<FormData>({

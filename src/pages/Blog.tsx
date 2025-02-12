@@ -33,11 +33,7 @@ interface BlogPost {
   readTime: string;
 }
 
-interface BlogProps {
-  isEnglish: boolean;
-}
-
-const Blog: React.FC<BlogProps> = ({ isEnglish }) => {
+const Blog: React.FC = () => {
   const theme = useTheme();
   const [page, setPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState('');

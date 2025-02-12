@@ -13,10 +13,6 @@ import {
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 
-interface AboutProps {
-  isEnglish: boolean;
-}
-
 interface StatItem {
   number: string;
   label: string;
@@ -27,7 +23,7 @@ interface ValueItem {
   description: string;
 }
 
-const About: React.FC<AboutProps> = ({ isEnglish }) => {
+const About: React.FC = () => {
   const { t } = useTranslation();
   const theme = useTheme();
 
