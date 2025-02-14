@@ -8,8 +8,7 @@
  * - Llamada a la acción (CTA)
  */
 import React from 'react';
-import { Container,  Box } from '@mui/material';
-import { motion } from 'framer-motion';
+import { Container, Box } from '@mui/material';
 import Testimonials from '../components/Testimonials';
 import Team from '../components/Team';
 import Hero from '../components/Hero';
@@ -19,14 +18,6 @@ import CTA from '../components/CTA';
 import ServicesSection from '../components/ServicesSection';
 
 const Home: React.FC = () => {
-
-  // Configuración de animaciones para elementos
-  const fadeInUp = {
-    initial: { opacity: 0, y: 60 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.6 }
-  };
-
   return (
     <Box component="div">
       {/* Hero Section - Banner principal */}
@@ -35,9 +26,7 @@ const Home: React.FC = () => {
       {/* Sección de Projects */}
       <Box component="section" sx={{ py: 8 }}>
         <Container maxWidth="lg">
-          <motion.div {...fadeInUp}>
-            <Projects />
-          </motion.div>
+          <Projects />
         </Container>
       </Box>
 
@@ -50,18 +39,14 @@ const Home: React.FC = () => {
         }}
       >
         <Container maxWidth="lg">
-          <motion.div {...fadeInUp}>
-            <Stats />
-          </motion.div>
+          <Stats />
         </Container>
       </Box>
 
       {/* Sección de Testimonios */}
       <Box component="section" sx={{ py: 8 }}>
         <Container maxWidth="lg">
-          <motion.div {...fadeInUp}>
-            <Testimonials />
-          </motion.div>
+          <Testimonials />
         </Container>
       </Box>
 
@@ -75,14 +60,11 @@ const Home: React.FC = () => {
         }}
       >
         <Container maxWidth="lg">
-          <motion.div {...fadeInUp}>
-            <CTA />
-          </motion.div>
+          <CTA />
         </Container>
       </Box>
 
       {/* Services Section */}
-      
       <ServicesSection />
 
       {/* Team Section */}

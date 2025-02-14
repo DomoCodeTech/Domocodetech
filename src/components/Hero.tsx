@@ -16,14 +16,7 @@ import { Link } from 'react-router-dom';
 import { Container, Grid, Typography, Box, Button } from '@mui/material';
 import { motion } from 'framer-motion';
 import { useTheme } from '@mui/material/styles';
-
-// Datos estáticos del componente
-const HERO_DATA = {
-  images: {
-    main: '/images/hero-bg.jpg',
-    secondary: '/images/hero-illustration.png'
-  }
-};
+import { SITE_DATA } from '../constants/siteData';
 
 const Hero = () => {
   // Hooks necesarios
@@ -72,7 +65,7 @@ const Hero = () => {
           left: 0,
           right: 0,
           bottom: 0,
-          backgroundImage: `url(${HERO_DATA.images.main})`,
+          backgroundImage: `url(${SITE_DATA.images.hero.main})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           filter: 'blur(5px)',
@@ -148,7 +141,7 @@ const Hero = () => {
             <motion.div {...imageAnimation}>
               <Box
                 component="img"
-                src={HERO_DATA.images.secondary}
+                src={SITE_DATA.images.hero.secondary}
                 alt={t('hero.imageAlt')}
                 sx={{
                   width: '100%',

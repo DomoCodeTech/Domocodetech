@@ -57,7 +57,7 @@ export const SITE_DATA = {
     'Estudiantes y entusiastas de la electrónica y robótica'
   ],
   images: {
-    logo: '/images/logo.svg',
+    logo: '/images/domocodetech.svg',
     hero: {
       main: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg',
       secondary: 'https://images.pexels.com/photos/3183132/pexels-photo-3183132.jpeg',

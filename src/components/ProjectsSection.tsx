@@ -28,16 +28,10 @@ import { SITE_DATA } from '../constants/siteData';
 const Projects = () => {
   const { t } = useTranslation();
 
-  // Definición de animaciones para los contenedores
-  const containerAnimation = {
-    initial: { opacity: 0 },
-    animate: { opacity: 1 },
-    transition: { staggerChildren: 0.1 },
-  };
-
-  const itemAnimation = {
-    initial: { opacity: 0, y: 20 },
+  const fadeInUp = {
+    initial: { opacity: 0, y: 60 },
     animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.6 }
   };
 
   // Lista de proyectos (las claves usadas en las traducciones y en SITE_DATA)
@@ -52,7 +46,7 @@ const Projects = () => {
         {t('projects.subtitle')}
       </Typography>
 
-      <motion.div {...containerAnimation}>
+      <motion.div {...fadeInUp}>
         <Grid container spacing={4}>
           {projects.map((project) => {
             // Se obtiene la imagen correspondiente desde SITE_DATA
@@ -60,7 +54,7 @@ const Projects = () => {
 
             return (
               <Grid item xs={12} md={4} key={project}>
-                <motion.div {...itemAnimation}>
+                <motion.div {...fadeInUp}>
                   <Card
                     sx={{
                       height: '100%',
