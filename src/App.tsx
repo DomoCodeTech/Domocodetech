@@ -13,7 +13,6 @@ import Blog from './pages/Blog';
 import Services from './pages/Services';
 import Contact from './pages/Contact';
 import { createAppTheme } from './theme/theme';
-import './App.css';
 import './i18n/i18n';
 import Projects from './pages/Projects';
 
