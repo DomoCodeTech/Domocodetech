@@ -8,9 +8,9 @@ export const esTranslations = {
    * Detalles básicos sobre la empresa utilizados en todo el sitio
    */
   company: {
-    slogan: 'Innovación Tecnológica para el Futuro',
-    address: 'Calle Tecnología 123, Madrid, España',
-    workingHours: 'Lun - Vie: 9:00 - 18:00',
+    slogan: 'Soluciones de IA adaptadas a las necesidades de tu negocio',
+    address: 'Autopista Nte. #108-27, Bogotá, Colombia',
+    workingHours: '7:00 a.m. - 5:00 p.m.',
   },
   // Navigation
   nav: {
@@ -27,8 +27,8 @@ export const esTranslations = {
   },
   // Hero Section
   hero: {
-    slogan: 'Tu Socio Tecnológico de Confianza',
-    subtitle: 'Soluciones innovadoras para la era digital',
+    slogan: 'Transforma tu negocio con IA',
+    subtitle: 'Proveemos soluciones innovadoras para tus necesidades tecnológicas',
     getQuote: 'Cotización Gratis',
     imageAlt: 'Equipo trabajando en tecnología'
   },
@@ -36,10 +36,10 @@ export const esTranslations = {
   services: {
     title: 'Nuestros Servicios',
     subtitle: 'Soluciones tecnológicas profesionales para tu negocio',
+    viewMore: 'Ver Más',
     domotics: {
       title: 'Domótica',
-      shortDescription: 'Automatización y control inteligente para tu hogar',
-      fullDescription: 'Transformamos espacios convencionales en hogares inteligentes con tecnología de vanguardia. Control por voz, automatización y eficiencia energética.',
+      description: 'Sistemas inteligentes para hogares y oficinas.',
       features: [
         'Control por voz y app móvil',
         'Iluminación inteligente',
@@ -49,9 +49,8 @@ export const esTranslations = {
       ]
     },
     electronics: {
-      title: 'Electrónica Avanzada',
-      shortDescription: 'Soluciones electrónicas personalizadas',
-      fullDescription: 'Diseño y desarrollo de sistemas electrónicos a medida para proyectos industriales y personales.',
+      title: 'Electrónica Digital y Robótica',
+      description: 'Diseño y desarrollo de sistemas electrónicos avanzados.',
       features: [
         'Diseño de PCB',
         'Prototipado rápido',
@@ -60,28 +59,48 @@ export const esTranslations = {
         'Sensores y actuadores'
       ]
     },
-    robotics: {
-      title: 'Robótica e IA',
-      shortDescription: 'Automatización inteligente y robótica avanzada',
-      fullDescription: 'Desarrollo de soluciones robóticas con inteligencia artificial para automatización y optimización de procesos.',
+    networks: {
+      title: 'Redes y Sistemas',
+      description: 'Instalación, configuración y mantenimiento de redes de hogar y empresariales.',
       features: [
-        'Robots industriales',
-        'Cobots colaborativos',
-        'Sistemas de visión artificial',
-        'Machine Learning',
-        'Automatización de procesos'
+        'Configuración de redes',
+        'Configuración de sistemas',
+        'Implementación de seguridad',
+        'Optimización de rendimiento',
+        'Servicios de mantenimiento'
+      ]
+    },
+    support: {
+      title: 'Soporte Técnico',
+      description: 'Reparación y optimización de equipos de cómputo.',
+      features: [
+        'Reparación de hardware',
+        'Solución de problemas de software',
+        'Optimización de sistemas',
+        'Recuperación de datos',
+        'Mantenimiento preventivo'
       ]
     },
     software: {
       title: 'Desarrollo de Software',
-      shortDescription: 'Software y aplicaciones web a medida',
-      fullDescription: 'Creación de aplicaciones web modernas, software empresarial y soluciones móviles adaptadas a tus necesidades.',
+      description: 'Aplicaciones multiplataforma, Android nativo, sitios web, landing pages y e-commerce.',
       features: [
         'Aplicaciones web',
         'Apps móviles',
         'Software empresarial',
         'APIs y microservicios',
         'Bases de datos'
+      ]
+    },
+    microcontrollers: {
+      title: 'Programación de Microcontroladores',
+      description: 'Soluciones para IoT, automatización y control de dispositivos electrónicos.',
+      features: [
+        'Soluciones IoT',
+        'Automatización de dispositivos',
+        'Control electrónico',
+        'Firmware personalizado',
+        'Sistemas embebidos'
       ]
     }
   },

@@ -9,36 +9,41 @@
  * - Controles de navegación manual
  * - Responsive para todos los dispositivos
  */
-import { Box, Container, Grid, Typography, Avatar, Card } from '@mui/material';
+import React from 'react';
+import { Box, Container, Grid, Typography, Card, Avatar } from '@mui/material';
 import { motion } from 'framer-motion';
 import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
-
-const testimonials = [
-  {
-    name: 'Sarah Johnson',
-    role: 'CTO, TechCorp',
-    image: '/testimonials/avatar1.jpg',
-    quote: 'The AI solutions provided have transformed our business operations. The results exceeded our expectations.',
-  },
-  {
-    name: 'Michael Chen',
-    role: 'CEO, DataFlow',
-    image: '/testimonials/avatar2.jpg',
-    quote: 'Incredible expertise in AI implementation. Their team delivered exactly what we needed and more.',
-  },
-  {
-    name: 'Emily Rodriguez',
-    role: 'Director of Innovation, FutureTech',
-    image: '/testimonials/avatar3.jpg',
-    quote: 'Working with them was a game-changer for our company. Their AI solutions are cutting-edge and effective.',
-  },
-];
+import { useTranslation } from 'react-i18next';
+import { useTheme } from '@mui/material/styles';
 
 const Testimonials = () => {
+  const { t } = useTranslation();
+  const theme = useTheme();
+
+  const testimonials = [
+    {
+      name: t('testimonials.client1.name'),
+      role: t('testimonials.client1.position'),
+      quote: t('testimonials.client1.quote'),
+    },
+    {
+      name: t('testimonials.client2.name'),
+      role: t('testimonials.client2.position'),
+      quote: t('testimonials.client2.quote'),
+    },
+    {
+      name: t('testimonials.client3.name'),
+      role: t('testimonials.client3.position'),
+      quote: t('testimonials.client3.quote'),
+    },
+  ];
+
   return (
     <Box
       sx={{
-        background: '#0A0A0A',
+        background: theme.palette.mode === 'dark'
+          ? 'linear-gradient(180deg, #0A0A0A 0%, #1A1A1A 100%)'
+          : 'linear-gradient(180deg, #F8FAFF 0%, #FFFFFF 100%)',
         py: { xs: 8, md: 12 },
       }}
     >
@@ -54,12 +59,10 @@ const Testimonials = () => {
             align="center"
             sx={{
               mb: 2,
-              background: 'linear-gradient(90deg, #FFFFFF 0%, #00FFA3 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
+              color: theme.palette.mode === 'dark' ? 'white' : 'text.primary',
             }}
           >
-            Some of our clients
+            {t('testimonials.title')}
           </Typography>
           <Typography
             variant="body1"
@@ -71,7 +74,7 @@ const Testimonials = () => {
               mx: 'auto',
             }}
           >
-            Hear what our clients have to say about their experience working with us
+            {t('testimonials.subtitle')}
           </Typography>
         </motion.div>
 
@@ -88,18 +91,23 @@ const Testimonials = () => {
                   sx={{
                     p: 4,
                     height: '100%',
-                    background: 'linear-gradient(145deg, #1f1f1f 0%, #151515 100%)',
-                    border: '1px solid rgba(255, 255, 255, 0.05)',
+                    background: theme.palette.mode === 'dark'
+                      ? 'linear-gradient(145deg, #1f1f1f 0%, #151515 100%)'
+                      : '#FFFFFF',
+                    boxShadow: theme.palette.mode === 'dark'
+                      ? '0 8px 32px rgba(0, 0, 0, 0.5)'
+                      : '0 8px 32px rgba(0, 0, 0, 0.08)',
                     borderRadius: 2,
                     position: 'relative',
                     overflow: 'visible',
                     transition: 'all 0.3s ease-in-out',
                     '&:hover': {
                       transform: 'translateY(-8px)',
-                      boxShadow: '0 8px 30px rgba(0, 255, 163, 0.1)',
-                      border: '1px solid rgba(0, 255, 163, 0.2)',
+                      boxShadow: theme.palette.mode === 'dark'
+                        ? '0 12px 40px rgba(0, 0, 0, 0.7)'
+                        : '0 12px 40px rgba(0, 0, 0, 0.12)',
                       '& .quote-icon': {
-                        color: '#00FFA3',
+                        color: 'primary.main',
                       },
                     },
                   }}
@@ -110,7 +118,9 @@ const Testimonials = () => {
                       position: 'absolute',
                       top: -20,
                       right: 20,
-                      color: 'rgba(255, 255, 255, 0.1)',
+                      color: theme.palette.mode === 'dark'
+                        ? 'rgba(255, 255, 255, 0.1)'
+                        : 'rgba(0, 0, 0, 0.1)',
                       transition: 'color 0.3s ease-in-out',
                     }}
                   >
@@ -129,20 +139,21 @@ const Testimonials = () => {
                   </Typography>
                   <Box sx={{ display: 'flex', alignItems: 'center' }}>
                     <Avatar
-                      src={testimonial.image}
-                      alt={testimonial.name}
                       sx={{
                         width: 56,
                         height: 56,
-                        border: '2px solid #00FFA3',
+                        bgcolor: 'primary.main',
+                        color: 'background.paper',
                       }}
-                    />
+                    >
+                      {testimonial.name.charAt(0)}
+                    </Avatar>
                     <Box sx={{ ml: 2 }}>
                       <Typography
                         variant="subtitle1"
                         sx={{
                           fontWeight: 600,
-                          color: 'white',
+                          color: theme.palette.mode === 'dark' ? 'white' : 'text.primary',
                         }}
                       >
                         {testimonial.name}
@@ -150,7 +161,7 @@ const Testimonials = () => {
                       <Typography
                         variant="body2"
                         sx={{
-                          color: '#00FFA3',
+                          color: 'primary.main',
                         }}
                       >
                         {testimonial.role}

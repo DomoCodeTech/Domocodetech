@@ -13,10 +13,10 @@
  */
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import { Container, Grid, Typography, Box, Button } from '@mui/material';
+import { Container, Grid, Typography, Box, Button, Stack } from '@mui/material';
 import { motion } from 'framer-motion';
 import { useTheme } from '@mui/material/styles';
-import { SITE_DATA } from '../constants/siteData';
+import TechIcons from './icons/TechIcons';
 
 const Hero = () => {
   // Hooks necesarios
@@ -39,7 +39,9 @@ const Hero = () => {
   return (
     <Box
       sx={{
-        background: 'linear-gradient(180deg, #0A0A0A 0%, #1A1A1A 100%)',
+        background: theme.palette.mode === 'dark' 
+          ? 'linear-gradient(180deg, #0A0A0A 0%, #1A1A1A 100%)'
+          : 'linear-gradient(180deg, #FFFFFF 0%, #F8FAFF 100%)',
         pt: { xs: 12, md: 16 },
         pb: { xs: 8, md: 12 },
         overflow: 'hidden',
@@ -54,12 +56,10 @@ const Hero = () => {
                 sx={{
                   fontSize: { xs: '2.5rem', md: '3.5rem' },
                   mb: 3,
-                  background: 'linear-gradient(90deg, #FFFFFF 0%, #00FFA3 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
+                  color: theme.palette.mode === 'dark' ? 'white' : 'text.primary',
                 }}
               >
-                AI solutions tailored to your business needs
+                {t('hero.slogan')}
               </Typography>
               <Typography
                 variant="body1"
@@ -70,10 +70,12 @@ const Hero = () => {
                   maxWidth: '600px',
                 }}
               >
-                Transform your business with cutting-edge AI solutions. We help companies leverage artificial intelligence to drive growth and innovation.
+                {t('hero.subtitle')}
               </Typography>
-              <Box sx={{ display: 'flex', gap: 2 }}>
+              <Stack direction="row" spacing={2}>
                 <Button
+                  component={Link}
+                  to="/contact"
                   variant="contained"
                   size="large"
                   sx={{
@@ -81,9 +83,11 @@ const Hero = () => {
                     fontSize: '1.1rem',
                   }}
                 >
-                  Get Started
+                  {t('hero.getQuote')}
                 </Button>
                 <Button
+                  component={Link}
+                  to="/services"
                   variant="outlined"
                   size="large"
                   sx={{
@@ -91,9 +95,9 @@ const Hero = () => {
                     fontSize: '1.1rem',
                   }}
                 >
-                  Learn More
+                  {t('nav.services')}
                 </Button>
-              </Box>
+              </Stack>
             </motion.div>
           </Grid>
           <Grid item xs={12} md={5}>
@@ -108,23 +112,15 @@ const Hero = () => {
                     right: '-20%',
                     width: '140%',
                     height: '140%',
-                    background: 'radial-gradient(circle, #00FFA333 0%, transparent 70%)',
+                    background: theme.palette.mode === 'dark'
+                      ? 'radial-gradient(circle, #00FFA333 0%, transparent 70%)'
+                      : 'radial-gradient(circle, #00FFA322 0%, transparent 70%)',
                     filter: 'blur(60px)',
                     zIndex: 0,
                   },
                 }}
               >
-                <Box
-                  component="img"
-                  src="/hero-illustration.png"
-                  alt="AI Illustration"
-                  sx={{
-                    width: '100%',
-                    height: 'auto',
-                    position: 'relative',
-                    zIndex: 1,
-                  }}
-                />
+                <TechIcons />
               </Box>
             </motion.div>
           </Grid>

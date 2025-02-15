@@ -8,9 +8,9 @@ export const enTranslations = {
    * Basic details about the company used across the site
    */
   company: {
-    slogan: 'Technological Innovation for the Future',
-    address: '123 Technology Street, Madrid, Spain',
-    workingHours: 'Mon - Fri: 9:00 AM - 6:00 PM',
+    slogan: 'AI solutions tailored to your business needs',
+    address: 'Autopista Nte. #108-27, Bogotá, Colombia',
+    workingHours: '7:00 a.m. - 5:00 p.m.',
   },
 
   /**
@@ -39,8 +39,8 @@ export const enTranslations = {
    * Main banner section on the homepage
    */
   hero: {
-    slogan: 'Your Trusted Technology Partner',
-    subtitle: 'Innovative solutions for the digital age',
+    slogan: 'Transform your business with AI',
+    subtitle: 'We provide innovative solutions for your technological needs',
     getQuote: 'Get Free Quote',
     imageAlt: 'Team working on technology'
   },
@@ -52,12 +52,35 @@ export const enTranslations = {
   services: {
     title: 'Our Services',
     subtitle: 'Professional technology solutions for your business',
+    viewMore: 'View More',
     
-    // Home Automation Service
+    software: {
+      title: 'Software Development',
+      description: 'Cross-platform applications, native Android, websites, landing pages and e-commerce.',
+      features: [
+        'Web applications',
+        'Mobile apps',
+        'Business software',
+        'APIs and microservices',
+        'Databases'
+      ]
+    },
+
+    microcontrollers: {
+      title: 'Microcontroller Programming',
+      description: 'Solutions for IoT, automation and control of electronic devices.',
+      features: [
+        'IoT solutions',
+        'Device automation',
+        'Electronic control',
+        'Custom firmware',
+        'Embedded systems'
+      ]
+    },
+
     domotics: {
-      title: 'Smart Home Automation',
-      shortDescription: 'Smart automation and control for your home',
-      fullDescription: 'We transform conventional spaces into smart homes with cutting-edge technology. Voice control, automation, and energy efficiency.',
+      title: 'Home Automation',
+      description: 'Smart systems for homes and offices.',
       features: [
         'Voice and mobile app control',
         'Smart lighting',
@@ -67,11 +90,9 @@ export const enTranslations = {
       ]
     },
 
-    // Electronics Service
     electronics: {
-      title: 'Advanced Electronics',
-      shortDescription: 'Custom electronic solutions',
-      fullDescription: 'Design and development of custom electronic systems for industrial and personal projects.',
+      title: 'Digital Electronics and Robotics',
+      description: 'Design and development of advanced electronic systems.',
       features: [
         'PCB design',
         'Rapid prototyping',
@@ -81,31 +102,27 @@ export const enTranslations = {
       ]
     },
 
-    // Robotics Service
-    robotics: {
-      title: 'Robotics & AI',
-      shortDescription: 'Intelligent automation and advanced robotics',
-      fullDescription: 'Development of robotic solutions with artificial intelligence for process automation and optimization.',
+    networks: {
+      title: 'Networks and Systems',
+      description: 'Installation, configuration and maintenance of home and business networks.',
       features: [
-        'Industrial robots',
-        'Collaborative cobots',
-        'Computer vision systems',
-        'Machine Learning',
-        'Process automation'
+        'Network setup',
+        'System configuration',
+        'Security implementation',
+        'Performance optimization',
+        'Maintenance services'
       ]
     },
 
-    // Software Development Service
-    software: {
-      title: 'Software Development',
-      shortDescription: 'Custom software and web applications',
-      fullDescription: 'Creation of modern web applications, business software, and mobile solutions tailored to your needs.',
+    support: {
+      title: 'Technical Support',
+      description: 'Computer equipment repair and optimization.',
       features: [
-        'Web applications',
-        'Mobile apps',
-        'Business software',
-        'APIs and microservices',
-        'Databases'
+        'Hardware repair',
+        'Software troubleshooting',
+        'System optimization',
+        'Data recovery',
+        'Preventive maintenance'
       ]
     }
   },

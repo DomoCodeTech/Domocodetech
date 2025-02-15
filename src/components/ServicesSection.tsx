@@ -1,52 +1,61 @@
 import React from 'react';
-import { Box, Container, Grid, Typography, Card } from '@mui/material';
+import { Box, Container, Grid, Typography, Card, Button, Stack, Chip } from '@mui/material';
 import { motion } from 'framer-motion';
-import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
-import SmartToyIcon from '@mui/icons-material/SmartToy';
-import DataObjectIcon from '@mui/icons-material/DataObject';
-import PsychologyIcon from '@mui/icons-material/Psychology';
-import BarChartIcon from '@mui/icons-material/BarChart';
-import CloudIcon from '@mui/icons-material/Cloud';
-
-const services = [
-  {
-    icon: <SmartToyIcon sx={{ fontSize: 40 }} />,
-    title: 'AI Development',
-    description: 'Custom AI solutions tailored to your specific business needs and objectives.',
-  },
-  {
-    icon: <DataObjectIcon sx={{ fontSize: 40 }} />,
-    title: 'Machine Learning',
-    description: 'Advanced ML models that learn and adapt to your data patterns.',
-  },
-  {
-    icon: <PsychologyIcon sx={{ fontSize: 40 }} />,
-    title: 'Natural Language Processing',
-    description: 'Transform how you process and understand text with our NLP solutions.',
-  },
-  {
-    icon: <AutoAwesomeIcon sx={{ fontSize: 40 }} />,
-    title: 'Computer Vision',
-    description: 'Implement cutting-edge visual recognition and processing systems.',
-  },
-  {
-    icon: <BarChartIcon sx={{ fontSize: 40 }} />,
-    title: 'Data Analytics',
-    description: 'Turn your data into actionable insights with advanced analytics.',
-  },
-  {
-    icon: <CloudIcon sx={{ fontSize: 40 }} />,
-    title: 'Cloud AI Solutions',
-    description: 'Scalable AI services deployed on leading cloud platforms.',
-  },
-];
+import { useTranslation } from 'react-i18next';
+import { Link as RouterLink } from 'react-router-dom';
+import { useTheme } from '@mui/material/styles';
+import { ServiceIcon } from './icons/ServiceIcons';
 
 const ServicesSection = () => {
+  const { t } = useTranslation();
+  const theme = useTheme();
+
+  const services = [
+    {
+      key: 'software',
+      icon: 'Code',
+      features: ['web', 'mobile', 'business', 'apis', 'databases'],
+      techStack: ['React', 'Node.js', 'Python', 'MongoDB', 'Firebase']
+    },
+    {
+      key: 'microcontrollers',
+      icon: 'Chip',
+      features: ['iot', 'automation', 'control', 'firmware', 'embedded'],
+      techStack: ['Arduino', 'Raspberry Pi', 'ESP32', 'PIC', 'STM32']
+    },
+    {
+      key: 'domotics',
+      icon: 'Smart',
+      features: ['voice', 'lighting', 'climate', 'security', 'energy'],
+      techStack: ['Home Assistant', 'Zigbee', 'Z-Wave', 'MQTT', 'KNX']
+    },
+    {
+      key: 'electronics',
+      icon: 'Robot',
+      features: ['pcb', 'prototyping', 'embedded', 'iot', 'sensors'],
+      techStack: ['Altium', 'KiCad', 'Eagle', 'Proteus', 'Fusion 360']
+    },
+    {
+      key: 'networks',
+      icon: 'Network',
+      features: ['setup', 'config', 'security', 'performance', 'maintenance'],
+      techStack: ['Cisco', 'Ubiquiti', 'pfSense', 'MikroTik', 'OpenWrt']
+    },
+    {
+      key: 'support',
+      icon: 'Support',
+      features: ['hardware', 'software', 'optimization', 'recovery', 'maintenance'],
+      techStack: ['Windows', 'Linux', 'macOS', 'Android', 'iOS']
+    }
+  ];
+
   return (
     <Box
       sx={{
-        background: '#0A0A0A',
         py: { xs: 8, md: 12 },
+        background: theme.palette.mode === 'dark'
+          ? 'linear-gradient(180deg, #0A0A0A 0%, #1A1A1A 100%)'
+          : 'linear-gradient(180deg, #FFFFFF 0%, #F8FAFF 100%)',
       }}
     >
       <Container maxWidth="lg">
@@ -61,12 +70,10 @@ const ServicesSection = () => {
             align="center"
             sx={{
               mb: 2,
-              background: 'linear-gradient(90deg, #FFFFFF 0%, #00FFA3 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
+              color: theme.palette.mode === 'dark' ? 'white' : 'text.primary',
             }}
           >
-            What we offer
+            {t('services.title')}
           </Typography>
           <Typography
             variant="body1"
@@ -78,13 +85,13 @@ const ServicesSection = () => {
               mx: 'auto',
             }}
           >
-            Discover our comprehensive range of AI services designed to transform your business
+            {t('services.subtitle')}
           </Typography>
         </motion.div>
 
         <Grid container spacing={4}>
-          {services.map((service, index) => (
-            <Grid item xs={12} sm={6} md={4} key={index}>
+          {services.map(({ key, icon, features, techStack }, index) => (
+            <Grid item xs={12} sm={6} md={4} key={key}>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -95,17 +102,24 @@ const ServicesSection = () => {
                   sx={{
                     p: 4,
                     height: '100%',
-                    background: 'linear-gradient(145deg, #1f1f1f 0%, #151515 100%)',
-                    border: '1px solid rgba(255, 255, 255, 0.05)',
                     borderRadius: 2,
                     transition: 'all 0.3s ease-in-out',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    background: theme.palette.mode === 'dark'
+                      ? 'linear-gradient(145deg, #1f1f1f 0%, #151515 100%)'
+                      : '#FFFFFF',
+                    boxShadow: theme.palette.mode === 'dark'
+                      ? '0 8px 32px rgba(0, 0, 0, 0.5)'
+                      : '0 8px 32px rgba(0, 0, 0, 0.08)',
                     '&:hover': {
                       transform: 'translateY(-8px)',
-                      boxShadow: '0 8px 30px rgba(0, 255, 163, 0.1)',
-                      border: '1px solid rgba(0, 255, 163, 0.2)',
+                      boxShadow: theme.palette.mode === 'dark'
+                        ? '0 12px 40px rgba(0, 0, 0, 0.7)'
+                        : '0 12px 40px rgba(0, 0, 0, 0.12)',
                       '& .service-icon': {
-                        color: '#00FFA3',
-                        transform: 'scale(1.1)',
+                        color: 'primary.main',
+                        transform: 'scale(1.1) rotateY(180deg)',
                       },
                     },
                   }}
@@ -113,30 +127,93 @@ const ServicesSection = () => {
                   <Box
                     className="service-icon"
                     sx={{
-                      color: 'white',
+                      color: 'text.primary',
                       mb: 2,
-                      transition: 'all 0.3s ease-in-out',
+                      transition: 'all 0.5s ease-in-out',
                     }}
                   >
-                    {service.icon}
+                    <ServiceIcon name={icon} sx={{ fontSize: 40 }} />
                   </Box>
                   <Typography
                     variant="h5"
                     sx={{
                       mb: 2,
                       fontWeight: 600,
+                      color: theme.palette.mode === 'dark' ? 'white' : 'text.primary',
                     }}
                   >
-                    {service.title}
+                    {t(`services.${key}.title`)}
                   </Typography>
                   <Typography
                     variant="body2"
                     sx={{
                       color: 'text.secondary',
+                      mb: 3,
+                      flexGrow: 1,
                     }}
                   >
-                    {service.description}
+                    {t(`services.${key}.description`)}
                   </Typography>
+
+                  <Stack spacing={2}>
+                    <Box sx={{ mb: 2 }}>
+                      {features.map((feature, idx) => (
+                        <Chip
+                          key={idx}
+                          label={t(`services.${key}.features.${idx}`)}
+                          size="small"
+                          sx={{
+                            m: 0.5,
+                            background: theme.palette.mode === 'dark'
+                              ? 'rgba(0, 255, 163, 0.1)'
+                              : 'rgba(0, 0, 0, 0.05)',
+                            color: theme.palette.mode === 'dark'
+                              ? 'white'
+                              : 'text.primary',
+                            '&:hover': {
+                              background: theme.palette.mode === 'dark'
+                                ? 'rgba(0, 255, 163, 0.2)'
+                                : 'rgba(0, 0, 0, 0.1)',
+                            },
+                          }}
+                        />
+                      ))}
+                    </Box>
+
+                    <Box sx={{ mb: 2 }}>
+                      {techStack.map((tech, idx) => (
+                        <Chip
+                          key={idx}
+                          label={tech}
+                          variant="outlined"
+                          size="small"
+                          sx={{
+                            m: 0.5,
+                            borderColor: theme.palette.mode === 'dark'
+                              ? 'rgba(255, 255, 255, 0.2)'
+                              : 'rgba(0, 0, 0, 0.2)',
+                            '&:hover': {
+                              borderColor: 'primary.main',
+                              color: 'primary.main',
+                            },
+                          }}
+                        />
+                      ))}
+                    </Box>
+
+                    <Button
+                      component={RouterLink}
+                      to="/services"
+                      variant="outlined"
+                      color="primary"
+                      sx={{
+                        alignSelf: 'flex-start',
+                        mt: 'auto',
+                      }}
+                    >
+                      {t('services.viewMore')}
+                    </Button>
+                  </Stack>
                 </Card>
               </motion.div>
             </Grid>
