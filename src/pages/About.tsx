@@ -8,9 +8,7 @@ import {
   CardContent,
   CardMedia,
   useTheme,
-  alpha,
-  Stack,
-  IconButton,
+  alpha
 } from '@mui/material';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';

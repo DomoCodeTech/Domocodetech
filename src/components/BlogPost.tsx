@@ -5,7 +5,6 @@ import {
   Typography,
   Chip,
   useTheme,
-  Divider,
   Avatar,
   Grid,
   Paper,

@@ -15,7 +15,6 @@ import {
   Button,
 } from '@mui/material';
 import { motion } from 'framer-motion';
-import { useTranslation } from 'react-i18next';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import PhoneAndroidIcon from '@mui/icons-material/PhoneAndroid';
 import SpeedIcon from '@mui/icons-material/Speed';
@@ -26,7 +25,6 @@ import { Link as RouterLink } from 'react-router-dom';
 
 const MobileApplication = () => {
   const theme = useTheme();
-  const { t } = useTranslation();
 
   const features = [
     {

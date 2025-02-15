@@ -9,13 +9,10 @@ import {
   CardMedia,
   Button,
   useTheme,
-  alpha,
   Chip,
   Stack,
-  IconButton,
   Tabs,
-  Tab,
-  useMediaQuery,
+  Tab
 } from '@mui/material';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
@@ -27,7 +24,6 @@ import { MdArrowForward, MdCheck } from 'react-icons/md';
 const Services: React.FC = () => {
   const { t } = useTranslation();
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const location = useLocation();
   const [selectedTab, setSelectedTab] = useState(0);
 
@@ -93,28 +89,7 @@ const Services: React.FC = () => {
     }
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.5
-      }
-    }
-  };
-
-  const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
+  const handleTabChange = (_: React.SyntheticEvent, newValue: number) => {
     setSelectedTab(newValue);
   };
 
@@ -241,7 +216,7 @@ const Services: React.FC = () => {
               },
             }}
           >
-            {services.map((service, index) => (
+            {services.map((service) => (
               <Tab
                 key={service.key}
                 label={t(`services.${service.key}.title`)}

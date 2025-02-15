@@ -1,4 +1,3 @@
-import React from 'react';
 import { Box, Container, Grid, Typography, Card, Button, Stack, Chip } from '@mui/material';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
@@ -169,7 +168,7 @@ const ServicesSection = () => {
                       {features.map((feature, idx) => (
                         <Chip
                           key={idx}
-                          label={t(`services.${key}.features.${idx}`)}
+                          label={feature}
                           size="small"
                           sx={{
                             m: 0.5,

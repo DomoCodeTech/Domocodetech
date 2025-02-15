@@ -10,7 +10,7 @@
  * - Lista de características (tecnologías, funcionalidades, etc.)
  * - Botón para más información
  */
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import {
@@ -315,7 +315,7 @@ const ProjectsSection = () => {
                               },
                             }}
                           >
-                            {t(`projects.${project.key}.features.${idx}`)}
+                            {t(`projects.features.${feature}`)}
                           </Typography>
                         ))}
                       </Box>
