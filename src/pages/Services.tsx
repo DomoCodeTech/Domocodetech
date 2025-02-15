@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Box,
   Container,
@@ -10,177 +10,411 @@ import {
   Button,
   useTheme,
   alpha,
-  Stack
+  Chip,
+  Stack,
+  IconButton,
+  Tabs,
+  Tab,
+  useMediaQuery,
 } from '@mui/material';
-import { motion } from 'framer-motion';
-import CodeIcon from '@mui/icons-material/Code';
-import BuildIcon from '@mui/icons-material/Build';
-import HomeWorkIcon from '@mui/icons-material/HomeWork';
-import PrecisionManufacturingIcon from '@mui/icons-material/PrecisionManufacturing';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import { ServiceIcon } from '../components/icons/ServiceIcons';
 import { SITE_DATA } from '../constants/siteData';
+import { Link as RouterLink } from 'react-router-dom';
+import { MdArrowForward, MdCheck } from 'react-icons/md';
 
 const Services: React.FC = () => {
-  const theme = useTheme();
   const { t } = useTranslation();
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const [selectedTab, setSelectedTab] = useState(0);
 
-  const serviceIcons = {
-    domotics: <HomeWorkIcon sx={{ fontSize: 40 }} />,
-    electronics: <BuildIcon sx={{ fontSize: 40 }} />,
-    robotics: <PrecisionManufacturingIcon sx={{ fontSize: 40 }} />,
-    software: <CodeIcon sx={{ fontSize: 40 }} />
+  const services = [
+    {
+      key: 'software',
+      icon: 'Code',
+      image: SITE_DATA.images.services.software,
+      features: t('services.software.features', { returnObjects: true }) as string[],
+      techStack: ['React', 'Node.js', 'Python', 'MongoDB', 'Firebase']
+    },
+    {
+      key: 'microcontrollers',
+      icon: 'Chip',
+      image: SITE_DATA.images.services.electronics,
+      features: t('services.microcontrollers.features', { returnObjects: true }) as string[],
+      techStack: ['Arduino', 'Raspberry Pi', 'ESP32', 'PIC', 'STM32']
+    },
+    {
+      key: 'domotics',
+      icon: 'Smart',
+      image: SITE_DATA.images.services.domotics,
+      features: t('services.domotics.features', { returnObjects: true }) as string[],
+      techStack: ['Home Assistant', 'Zigbee', 'Z-Wave', 'MQTT', 'KNX']
+    },
+    {
+      key: 'electronics',
+      icon: 'Robot',
+      image: SITE_DATA.images.services.robotics,
+      features: t('services.electronics.features', { returnObjects: true }) as string[],
+      techStack: ['Altium', 'KiCad', 'Eagle', 'Proteus', 'Fusion 360']
+    },
+    {
+      key: 'networks',
+      icon: 'Network',
+      image: SITE_DATA.images.services.automation,
+      features: t('services.networks.features', { returnObjects: true }) as string[],
+      techStack: ['Cisco', 'Ubiquiti', 'pfSense', 'MikroTik', 'OpenWrt']
+    },
+    {
+      key: 'support',
+      icon: 'Support',
+      image: SITE_DATA.images.services.support,
+      features: t('services.support.features', { returnObjects: true }) as string[],
+      techStack: ['Windows', 'Linux', 'macOS', 'Android', 'iOS']
+    }
+  ];
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
   };
 
-  const serviceIds = ['domotics', 'electronics', 'robotics', 'software'];
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.5
+      }
+    }
+  };
+
+  const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
+    setSelectedTab(newValue);
+  };
 
   return (
-    <Box sx={{ bgcolor: 'background.default', py: 8 }}>
+    <Box
+      sx={{
+        background: theme.palette.mode === 'dark'
+          ? 'linear-gradient(180deg, #1A1A1A 0%, #0A0A0A 100%)'
+          : 'linear-gradient(180deg, #F0F7FF 0%, #E6FFF6 100%)',
+        pt: { xs: 8, md: 12 },
+        pb: { xs: 8, md: 12 },
+        minHeight: '100vh',
+      }}
+    >
       <Container maxWidth="lg">
+        {/* Hero Section */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.8 }}
         >
-          <Typography
-            variant="h2"
-            component="h1"
-            textAlign="center"
-            gutterBottom
-            className="gradient-text"
+          <Box
+            sx={{
+              position: 'relative',
+              textAlign: 'center',
+              mb: 12,
+              '&::before': {
+                content: '""',
+                position: 'absolute',
+                top: '-50%',
+                left: '50%',
+                transform: 'translateX(-50%)',
+                width: '600px',
+                height: '600px',
+                background: theme.palette.mode === 'dark'
+                  ? 'radial-gradient(circle, rgba(0, 255, 163, 0.15) 0%, rgba(0, 255, 163, 0) 70%)'
+                  : 'radial-gradient(circle, rgba(0, 128, 94, 0.15) 0%, rgba(0, 128, 94, 0) 70%)',
+                filter: 'blur(60px)',
+                zIndex: 0,
+              }
+            }}
           >
-            {t('services.title')}
-          </Typography>
-          <Typography
-            variant="h5"
-            textAlign="center"
-            color="text.secondary"
-            paragraph
-            sx={{ mb: 2 }}
-          >
-            {t('services.subtitle')}
-          </Typography>
+            <Typography
+              variant="h1"
+              sx={{
+                mb: 3,
+                background: theme.palette.mode === 'dark'
+                  ? 'linear-gradient(90deg, #FFFFFF 0%, #00FFA3 100%)'
+                  : 'linear-gradient(90deg, #1A1A1A 0%, #00805E 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                fontWeight: 700,
+                position: 'relative',
+                zIndex: 1,
+              }}
+            >
+              {t('services.title')}
+            </Typography>
+            <Typography
+              variant="h5"
+              color="text.secondary"
+              sx={{
+                maxWidth: '800px',
+                mx: 'auto',
+                mb: 8,
+                position: 'relative',
+                zIndex: 1,
+              }}
+            >
+              {t('services.subtitle')}
+            </Typography>
+          </Box>
+        </motion.div>
 
-          <Grid container spacing={4}>
-            {serviceIds.map((serviceId, index) => (
-              <Grid item xs={12} md={6} key={serviceId}>
-                <motion.div
-                  initial={{ opacity: 0, y: 50 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
+        {/* Service Categories Tabs */}
+        <Box sx={{ mb: 6 }}>
+          <Tabs
+            value={selectedTab}
+            onChange={handleTabChange}
+            variant="scrollable"
+            scrollButtons="auto"
+            allowScrollButtonsMobile
+            sx={{
+              '& .MuiTabs-indicator': {
+                backgroundColor: 'primary.main',
+                height: 3,
+                borderRadius: '3px',
+              },
+              '& .MuiTab-root': {
+                color: 'text.secondary',
+                fontSize: { xs: '0.9rem', md: '1rem' },
+                fontWeight: 500,
+                textTransform: 'none',
+                minWidth: { xs: 'auto', md: 160 },
+                px: { xs: 2, md: 3 },
+                '&.Mui-selected': {
+                  color: 'primary.main',
+                },
+              },
+            }}
+          >
+            {services.map((service, index) => (
+              <Tab
+                key={service.key}
+                label={t(`services.${service.key}.title`)}
+                icon={<ServiceIcon name={service.icon} sx={{ fontSize: 24 }} />}
+                iconPosition="start"
+              />
+            ))}
+          </Tabs>
+        </Box>
+
+        {/* Services Grid */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={selectedTab}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.5 }}
+          >
+            <Grid container spacing={4}>
+              <Grid item xs={12} md={6}>
+                <Card
+                  sx={{
+                    height: '100%',
+                    background: theme.palette.mode === 'dark'
+                      ? 'linear-gradient(145deg, #1f1f1f 0%, #151515 100%)'
+                      : 'linear-gradient(145deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 247, 255, 0.9) 100%)',
+                    backdropFilter: 'blur(10px)',
+                    overflow: 'hidden',
+                  }}
                 >
-                  <Card 
-                    className="hover-glow"
-                    sx={{ 
-                      height: '100%',
-                      bgcolor: alpha(theme.palette.background.paper, 0.1),
-                      background: `linear-gradient(135deg, ${alpha(theme.palette.primary.main, 0.05)} 0%, ${alpha(theme.palette.background.paper, 0.1)} 100%)`,
-                      border: `1px solid ${alpha(theme.palette.primary.main, 0.1)}`,
-                      transition: 'all 0.3s ease-in-out',
-                      '&:hover': {
-                        transform: 'translateY(-10px)',
-                        border: `1px solid ${theme.palette.primary.main}`,
-                      }
-                    }}
-                  >
+                  <Box sx={{ position: 'relative', height: 300 }}>
                     <CardMedia
                       component="img"
-                      height="240"
-                      image={SITE_DATA.images.services[serviceId as keyof typeof SITE_DATA.images.services]}
-                      alt={t(`services.${serviceId}.title`)}
-                      sx={{ 
+                      image={services[selectedTab].image}
+                      alt={t(`services.${services[selectedTab].key}.title`)}
+                      sx={{
+                        height: '100%',
                         objectFit: 'cover',
-                        borderBottom: `1px solid ${alpha(theme.palette.primary.main, 0.1)}`
                       }}
                     />
-                    <CardContent>
+                    <Box
+                      sx={{
+                        position: 'absolute',
+                        bottom: 0,
+                        left: 0,
+                        right: 0,
+                        background: 'linear-gradient(to top, rgba(0,0,0,0.8), transparent)',
+                        p: 3,
+                      }}
+                    >
+                      <Typography
+                        variant="h3"
+                        sx={{
+                          color: 'white',
+                          textShadow: '0 2px 4px rgba(0,0,0,0.3)',
+                          fontWeight: 700,
+                        }}
+                      >
+                        {t(`services.${services[selectedTab].key}.title`)}
+                      </Typography>
+                    </Box>
+                  </Box>
+                  <CardContent sx={{ p: 4 }}>
+                    <Typography
+                      variant="body1"
+                      sx={{
+                        color: 'text.secondary',
+                        mb: 4,
+                        fontSize: '1.1rem',
+                        lineHeight: 1.8,
+                      }}
+                    >
+                      {t(`services.${services[selectedTab].key}.description`)}
+                    </Typography>
+                    <Button
+                      component={RouterLink}
+                      to="/contact"
+                      variant="contained"
+                      size="large"
+                      endIcon={<MdArrowForward />}
+                      sx={{
+                        width: '100%',
+                        py: 1.5,
+                        background: theme.palette.mode === 'dark'
+                          ? '#00FFA3'
+                          : 'linear-gradient(135deg, #00805E 0%, #00FFA3 100%)',
+                        color: theme.palette.mode === 'dark' ? '#0A0A0A' : '#FFFFFF',
+                        '&:hover': {
+                          background: theme.palette.mode === 'dark'
+                            ? '#00cc82'
+                            : 'linear-gradient(135deg, #006C4F 0%, #00E691 100%)',
+                        },
+                      }}
+                    >
+                      {t('common.contactUs')}
+                    </Button>
+                  </CardContent>
+                </Card>
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <Stack spacing={4}>
+                  {/* Features */}
+                  <Card
+                    sx={{
+                      background: theme.palette.mode === 'dark'
+                        ? 'linear-gradient(145deg, #1f1f1f 0%, #151515 100%)'
+                        : 'linear-gradient(145deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 247, 255, 0.9) 100%)',
+                      backdropFilter: 'blur(10px)',
+                    }}
+                  >
+                    <CardContent sx={{ p: 4 }}>
+                      <Typography
+                        variant="h5"
+                        sx={{
+                          mb: 3,
+                          fontWeight: 600,
+                          color: theme.palette.mode === 'dark' ? 'white' : 'text.primary',
+                        }}
+                      >
+                        Features
+                      </Typography>
                       <Stack spacing={2}>
-                        <Box
-                          sx={{
-                            color: 'primary.main',
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: 2,
-                            mb: 2
-                          }}
-                        >
-                          {serviceIcons[serviceId as keyof typeof serviceIcons]}
-                          <Typography 
-                            variant="h5" 
-                            component="h2"
+                        {services[selectedTab].features.map((feature, index) => (
+                          <Box
+                            key={index}
                             sx={{
-                              background: `linear-gradient(45deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
-                              WebkitBackgroundClip: 'text',
-                              WebkitTextFillColor: 'transparent',
-                              fontWeight: 'bold'
+                              display: 'flex',
+                              alignItems: 'center',
+                              gap: 2,
                             }}
                           >
-                            {t(`services.${serviceId}.title`)}
-                          </Typography>
-                        </Box>
-                        <Typography
-                          variant="body1"
-                          color="text.secondary"
-                          paragraph
-                          sx={{ lineHeight: 1.7 }}
-                        >
-                          {t(`services.${serviceId}.fullDescription`)}
-                        </Typography>
-                        <Box 
-                          component="ul" 
-                          sx={{ 
-                            pl: 2,
-                            listStyleType: 'none',
-                            '& li': {
-                              position: 'relative',
-                              '&::before': {
-                                content: '"•"',
-                                color: theme.palette.primary.main,
-                                fontWeight: 'bold',
-                                position: 'absolute',
-                                left: '-1em'
-                              }
-                            }
-                          }}
-                        >
-                          {(t(`services.${serviceId}.features`, { returnObjects: true }) as string[]).map((feature: string, idx: number) => (
+                            <Box
+                              sx={{
+                                width: 24,
+                                height: 24,
+                                borderRadius: '50%',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                background: theme.palette.mode === 'dark'
+                                  ? 'rgba(0, 255, 163, 0.1)'
+                                  : 'rgba(0, 128, 94, 0.1)',
+                                color: 'primary.main',
+                              }}
+                            >
+                              <MdCheck size={16} />
+                            </Box>
                             <Typography
-                              key={idx}
-                              component="li"
-                              variant="body2"
-                              color="text.secondary"
-                              sx={{ 
-                                mb: 1,
-                                transition: 'all 0.3s ease-in-out',
-                                '&:hover': {
-                                  color: 'primary.main',
-                                  transform: 'translateX(10px)'
-                                }
+                              variant="body1"
+                              sx={{
+                                color: 'text.secondary',
+                                fontSize: '1rem',
                               }}
                             >
                               {feature}
                             </Typography>
-                          ))}
-                        </Box>
-                        <Button
-                          variant="contained"
-                          color="primary"
-                          fullWidth
-                          className="hover-glow"
-                          sx={{
-                            mt: 2,
-                            background: `linear-gradient(45deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
-                          }}
-                        >
-                          {t('common.readMore')}
-                        </Button>
+                          </Box>
+                        ))}
                       </Stack>
                     </CardContent>
                   </Card>
-                </motion.div>
+
+                  {/* Tech Stack */}
+                  <Card
+                    sx={{
+                      background: theme.palette.mode === 'dark'
+                        ? 'linear-gradient(145deg, #1f1f1f 0%, #151515 100%)'
+                        : 'linear-gradient(145deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 247, 255, 0.9) 100%)',
+                      backdropFilter: 'blur(10px)',
+                    }}
+                  >
+                    <CardContent sx={{ p: 4 }}>
+                      <Typography
+                        variant="h5"
+                        sx={{
+                          mb: 3,
+                          fontWeight: 600,
+                          color: theme.palette.mode === 'dark' ? 'white' : 'text.primary',
+                        }}
+                      >
+                        Tech Stack
+                      </Typography>
+                      <Box
+                        sx={{
+                          display: 'flex',
+                          flexWrap: 'wrap',
+                          gap: 1,
+                        }}
+                      >
+                        {services[selectedTab].techStack.map((tech, index) => (
+                          <Chip
+                            key={index}
+                            label={tech}
+                            sx={{
+                              background: theme.palette.mode === 'dark'
+                                ? 'rgba(0, 255, 163, 0.1)'
+                                : 'rgba(0, 128, 94, 0.1)',
+                              color: theme.palette.mode === 'dark' ? 'white' : 'text.primary',
+                              borderRadius: '8px',
+                              '&:hover': {
+                                background: theme.palette.mode === 'dark'
+                                  ? 'rgba(0, 255, 163, 0.2)'
+                                  : 'rgba(0, 128, 94, 0.2)',
+                              },
+                            }}
+                          />
+                        ))}
+                      </Box>
+                    </CardContent>
+                  </Card>
+                </Stack>
               </Grid>
-            ))}
-          </Grid>
-        </motion.div>
+            </Grid>
+          </motion.div>
+        </AnimatePresence>
       </Container>
     </Box>
   );

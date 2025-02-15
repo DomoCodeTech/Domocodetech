@@ -8,19 +8,25 @@ import {
   CardContent,
   CardMedia,
   useTheme,
-  alpha
+  alpha,
+  Stack,
+  IconButton,
 } from '@mui/material';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import { 
+  MdRocketLaunch, 
+  MdLightbulb, 
+  MdSecurity,
+  MdWorkHistory,
+  MdDoneAll,
+  MdPeople,
+  MdGroups,
+} from 'react-icons/md';
 
 interface StatItem {
   number: string;
   label: string;
-}
-
-interface ValueItem {
-  title: string;
-  description: string;
 }
 
 const About: React.FC = () => {
@@ -28,116 +34,257 @@ const About: React.FC = () => {
   const theme = useTheme();
 
   const stats = t('about.stats', { returnObjects: true }) as StatItem[];
-  const values = t('about.values.items', { returnObjects: true }) as ValueItem[];
+  const values = t('about.values.items', { returnObjects: true }) as Array<{
+    icon: string;
+    title: string;
+    description: string;
+  }>;
+
+  const getIcon = (iconName: string) => {
+    const icons: { [key: string]: React.ReactElement } = {
+      innovation: <MdLightbulb size={40} />,
+      quality: <MdRocketLaunch size={40} />,
+      integrity: <MdSecurity size={40} />,
+    };
+    return icons[iconName] || null;
+  };
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.5
+      }
+    }
+  };
 
   return (
-    <Box sx={{ py: 8, bgcolor: 'background.default' }}>
+    <Box
+      sx={{
+        background: theme.palette.mode === 'dark'
+          ? 'linear-gradient(180deg, #1A1A1A 0%, #0A0A0A 100%)'
+          : 'linear-gradient(180deg, #F0F7FF 0%, #E6FFF6 100%)',
+        pt: { xs: 8, md: 12 },
+        pb: { xs: 8, md: 12 },
+      }}
+    >
       <Container maxWidth="lg">
+        {/* Hero Section */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.8 }}
         >
-          <Typography
-            variant="h2"
-            component="h1"
-            textAlign="center"
-            gutterBottom
-            className="gradient-text"
+          <Box
+            sx={{
+              position: 'relative',
+              textAlign: 'center',
+              mb: 12,
+              '&::before': {
+                content: '""',
+                position: 'absolute',
+                top: '-50%',
+                left: '50%',
+                transform: 'translateX(-50%)',
+                width: '600px',
+                height: '600px',
+                background: theme.palette.mode === 'dark'
+                  ? 'radial-gradient(circle, rgba(0, 255, 163, 0.15) 0%, rgba(0, 255, 163, 0) 70%)'
+                  : 'radial-gradient(circle, rgba(0, 128, 94, 0.15) 0%, rgba(0, 128, 94, 0) 70%)',
+                filter: 'blur(60px)',
+                zIndex: 0,
+              }
+            }}
           >
-            {t('about.title')}
-          </Typography>
-          <Typography
-            variant="h5"
-            textAlign="center"
-            color="text.secondary"
-            paragraph
-            sx={{ mb: 6 }}
-          >
-            {t('about.subtitle')}
-          </Typography>
+            <Typography
+              variant="h1"
+              sx={{
+                mb: 3,
+                background: theme.palette.mode === 'dark'
+                  ? 'linear-gradient(90deg, #FFFFFF 0%, #00FFA3 100%)'
+                  : 'linear-gradient(90deg, #1A1A1A 0%, #00805E 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                fontWeight: 700,
+                position: 'relative',
+                zIndex: 1,
+              }}
+            >
+              {t('about.title')}
+            </Typography>
+            <Typography
+              variant="h5"
+              color="text.secondary"
+              sx={{
+                maxWidth: '800px',
+                mx: 'auto',
+                mb: 8,
+                position: 'relative',
+                zIndex: 1,
+              }}
+            >
+              {t('about.subtitle')}
+            </Typography>
+          </Box>
+        </motion.div>
 
-          {/* Stats Section */}
-          <Grid container spacing={4} sx={{ mb: 8 }}>
-            {stats.map((stat, index) => (
-              <Grid item xs={6} md={3} key={index}>
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                >
-                  <Card
-                    className="hover-glow"
-                    sx={{
-                      bgcolor: alpha(theme.palette.background.paper, 0.1),
-                      border: `2px solid ${alpha(theme.palette.primary.main, 0.1)}`,
-                      transition: 'all 0.3s ease-in-out',
-                      '&:hover': {
-                        transform: 'translateY(-10px)',
-                        border: `2px solid ${theme.palette.primary.main}`,
-                      }
-                    }}
-                  >
-                    <CardContent>
-                      <Typography 
-                        variant="h3" 
-                        textAlign="center" 
-                        className="gradient-text"
-                        sx={{ fontWeight: 'bold' }}
-                      >
-                        {stat.number}
-                      </Typography>
-                      <Typography 
-                        variant="body1" 
-                        textAlign="center" 
-                        color="text.secondary"
-                        sx={{ mt: 1, fontWeight: 500 }}
-                      >
-                        {stat.label}
-                      </Typography>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              </Grid>
-            ))}
-          </Grid>
-
-          {/* Mission & Vision */}
-          <Grid container spacing={4} sx={{ mb: 8 }}>
-            <Grid item xs={12} md={6}>
-              <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5 }}
-              >
-                <Card 
-                  className="hover-glow"
-                  sx={{
-                    height: '100%',
-                    background: `linear-gradient(135deg, ${alpha(theme.palette.primary.main, 0.1)} 0%, ${alpha(theme.palette.background.paper, 0.1)} 100%)`,
-                  }}
-                >
-                  <CardMedia
-                    component="img"
-                    height="250"
-                    image={t('about.mission.image')}
-                    alt={t('about.mission.title')}
-                    sx={{ objectFit: 'cover' }}
-                  />
-                  <CardContent>
-                    <Typography 
-                      variant="h4" 
-                      gutterBottom
+        {/* Stats Section */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          <Grid container spacing={4} sx={{ mb: 12 }}>
+            {stats.map((stat, index) => {
+              const icons = [MdWorkHistory, MdDoneAll, MdPeople, MdGroups];
+              const Icon = icons[index];
+              return (
+                <Grid item xs={6} md={3} key={index}>
+                  <motion.div variants={itemVariants}>
+                    <Card
                       sx={{
-                        background: `linear-gradient(45deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
-                        WebkitBackgroundClip: 'text',
-                        WebkitTextFillColor: 'transparent',
-                        fontWeight: 'bold'
+                        height: '100%',
+                        background: theme.palette.mode === 'dark'
+                          ? 'linear-gradient(145deg, #1f1f1f 0%, #151515 100%)'
+                          : 'linear-gradient(145deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 247, 255, 0.9) 100%)',
+                        backdropFilter: 'blur(10px)',
+                        boxShadow: theme.palette.mode === 'dark'
+                          ? '0 8px 32px rgba(0, 0, 0, 0.5)'
+                          : '0 8px 32px rgba(42, 67, 101, 0.15)',
+                        transition: 'all 0.3s ease-in-out',
+                        '&:hover': {
+                          transform: 'translateY(-8px)',
+                          boxShadow: theme.palette.mode === 'dark'
+                            ? '0 12px 40px rgba(0, 0, 0, 0.7)'
+                            : '0 12px 40px rgba(42, 67, 101, 0.25)',
+                          '& .stat-icon': {
+                            transform: 'scale(1.1) rotate(10deg)',
+                            color: theme.palette.primary.main,
+                          }
+                        },
                       }}
                     >
-                      {t('about.mission.title')}
-                    </Typography>
-                    <Typography variant="body1" paragraph>
+                      <CardContent sx={{ textAlign: 'center', p: 4 }}>
+                        <Box
+                          className="stat-icon"
+                          sx={{
+                            mb: 2,
+                            transition: 'all 0.3s ease-in-out',
+                            color: theme.palette.mode === 'dark'
+                              ? alpha(theme.palette.primary.main, 0.7)
+                              : alpha(theme.palette.primary.main, 0.8),
+                          }}
+                        >
+                          <Icon size={40} />
+                        </Box>
+                        <Typography
+                          variant="h3"
+                          sx={{
+                            fontWeight: 700,
+                            mb: 1,
+                            background: theme.palette.mode === 'dark'
+                              ? 'linear-gradient(90deg, #FFFFFF 0%, #00FFA3 100%)'
+                              : 'linear-gradient(90deg, #1A1A1A 0%, #00805E 100%)',
+                            WebkitBackgroundClip: 'text',
+                            WebkitTextFillColor: 'transparent',
+                          }}
+                        >
+                          {stat.number}
+                        </Typography>
+                        <Typography
+                          variant="body1"
+                          sx={{
+                            color: theme.palette.mode === 'dark'
+                              ? alpha(theme.palette.common.white, 0.7)
+                              : alpha(theme.palette.common.black, 0.7),
+                          }}
+                        >
+                          {stat.label}
+                        </Typography>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                </Grid>
+              );
+            })}
+          </Grid>
+        </motion.div>
+
+        {/* Mission & Vision Section */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          <Grid container spacing={4} sx={{ mb: 12 }}>
+            <Grid item xs={12} md={6}>
+              <motion.div variants={itemVariants}>
+                <Card
+                  sx={{
+                    height: '100%',
+                    background: theme.palette.mode === 'dark'
+                      ? 'linear-gradient(145deg, #1f1f1f 0%, #151515 100%)'
+                      : 'linear-gradient(145deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 247, 255, 0.9) 100%)',
+                    backdropFilter: 'blur(10px)',
+                    overflow: 'hidden',
+                    transition: 'all 0.3s ease-in-out',
+                    '&:hover': {
+                      transform: 'translateY(-8px)',
+                      '& .card-image': {
+                        transform: 'scale(1.1)',
+                      }
+                    }
+                  }}
+                >
+                  <Box sx={{ position: 'relative', height: '250px', overflow: 'hidden' }}>
+                    <CardMedia
+                      component="img"
+                      image={t('about.mission.image')}
+                      alt={t('about.mission.title')}
+                      className="card-image"
+                      sx={{
+                        height: '100%',
+                        objectFit: 'cover',
+                        transition: 'transform 0.3s ease-in-out',
+                      }}
+                    />
+                    <Box
+                      sx={{
+                        position: 'absolute',
+                        bottom: 0,
+                        left: 0,
+                        right: 0,
+                        background: 'linear-gradient(to top, rgba(0,0,0,0.7), transparent)',
+                        p: 3,
+                      }}
+                    >
+                      <Typography
+                        variant="h4"
+                        sx={{
+                          color: 'white',
+                          textShadow: '0 2px 4px rgba(0,0,0,0.3)',
+                        }}
+                      >
+                        {t('about.mission.title')}
+                      </Typography>
+                    </Box>
+                  </Box>
+                  <CardContent sx={{ p: 4 }}>
+                    <Typography variant="body1" sx={{ color: 'text.secondary', lineHeight: 1.8 }}>
                       {t('about.mission.description')}
                     </Typography>
                   </CardContent>
@@ -145,39 +292,59 @@ const About: React.FC = () => {
               </motion.div>
             </Grid>
             <Grid item xs={12} md={6}>
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5 }}
-              >
-                <Card 
-                  className="hover-glow"
+              <motion.div variants={itemVariants}>
+                <Card
                   sx={{
                     height: '100%',
-                    background: `linear-gradient(135deg, ${alpha(theme.palette.secondary.main, 0.1)} 0%, ${alpha(theme.palette.background.paper, 0.1)} 100%)`,
+                    background: theme.palette.mode === 'dark'
+                      ? 'linear-gradient(145deg, #1f1f1f 0%, #151515 100%)'
+                      : 'linear-gradient(145deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 247, 255, 0.9) 100%)',
+                    backdropFilter: 'blur(10px)',
+                    overflow: 'hidden',
+                    transition: 'all 0.3s ease-in-out',
+                    '&:hover': {
+                      transform: 'translateY(-8px)',
+                      '& .card-image': {
+                        transform: 'scale(1.1)',
+                      }
+                    }
                   }}
                 >
-                  <CardMedia
-                    component="img"
-                    height="250"
-                    image={t('about.vision.image')}
-                    alt={t('about.vision.title')}
-                    sx={{ objectFit: 'cover' }}
-                  />
-                  <CardContent>
-                    <Typography 
-                      variant="h4" 
-                      gutterBottom
+                  <Box sx={{ position: 'relative', height: '250px', overflow: 'hidden' }}>
+                    <CardMedia
+                      component="img"
+                      image={t('about.vision.image')}
+                      alt={t('about.vision.title')}
+                      className="card-image"
                       sx={{
-                        background: `linear-gradient(45deg, ${theme.palette.secondary.main}, ${theme.palette.primary.main})`,
-                        WebkitBackgroundClip: 'text',
-                        WebkitTextFillColor: 'transparent',
-                        fontWeight: 'bold'
+                        height: '100%',
+                        objectFit: 'cover',
+                        transition: 'transform 0.3s ease-in-out',
+                      }}
+                    />
+                    <Box
+                      sx={{
+                        position: 'absolute',
+                        bottom: 0,
+                        left: 0,
+                        right: 0,
+                        background: 'linear-gradient(to top, rgba(0,0,0,0.7), transparent)',
+                        p: 3,
                       }}
                     >
-                      {t('about.vision.title')}
-                    </Typography>
-                    <Typography variant="body1" paragraph>
+                      <Typography
+                        variant="h4"
+                        sx={{
+                          color: 'white',
+                          textShadow: '0 2px 4px rgba(0,0,0,0.3)',
+                        }}
+                      >
+                        {t('about.vision.title')}
+                      </Typography>
+                    </Box>
+                  </Box>
+                  <CardContent sx={{ p: 4 }}>
+                    <Typography variant="body1" sx={{ color: 'text.secondary', lineHeight: 1.8 }}>
                       {t('about.vision.description')}
                     </Typography>
                   </CardContent>
@@ -185,18 +352,26 @@ const About: React.FC = () => {
               </motion.div>
             </Grid>
           </Grid>
+        </motion.div>
 
-          {/* Values */}
-          <Typography 
-            variant="h3" 
-            textAlign="center" 
-            gutterBottom
+        {/* Values Section */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          <Typography
+            variant="h2"
+            align="center"
             sx={{
-              background: `linear-gradient(45deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
+              mb: 6,
+              background: theme.palette.mode === 'dark'
+                ? 'linear-gradient(90deg, #FFFFFF 0%, #00FFA3 100%)'
+                : 'linear-gradient(90deg, #1A1A1A 0%, #00805E 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
-              fontWeight: 'bold',
-              mb: 4
+              fontWeight: 700,
             }}
           >
             {t('about.values.title')}
@@ -204,39 +379,72 @@ const About: React.FC = () => {
           <Grid container spacing={4}>
             {values.map((value, index) => (
               <Grid item xs={12} md={4} key={index}>
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.2 }}
-                >
-                  <Card 
-                    className="hover-glow"
+                <motion.div variants={itemVariants}>
+                  <Card
                     sx={{
                       height: '100%',
-                      background: `linear-gradient(135deg, ${alpha(theme.palette.primary.main, 0.05)} 0%, ${alpha(theme.palette.background.paper, 0.1)} 100%)`,
-                      border: `1px solid ${alpha(theme.palette.primary.main, 0.1)}`,
+                      background: theme.palette.mode === 'dark'
+                        ? 'linear-gradient(145deg, #1f1f1f 0%, #151515 100%)'
+                        : 'linear-gradient(145deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 247, 255, 0.9) 100%)',
+                      backdropFilter: 'blur(10px)',
                       transition: 'all 0.3s ease-in-out',
+                      position: 'relative',
+                      overflow: 'hidden',
                       '&:hover': {
-                        transform: 'translateY(-10px)',
-                        border: `1px solid ${theme.palette.primary.main}`,
+                        transform: 'translateY(-8px)',
+                        '& .value-icon': {
+                          transform: 'scale(1.1) rotate(10deg)',
+                          color: theme.palette.primary.main,
+                        },
+                        '&::before': {
+                          transform: 'scale(1.2)',
+                        }
+                      },
+                      '&::before': {
+                        content: '""',
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        bottom: 0,
+                        background: theme.palette.mode === 'dark'
+                          ? 'radial-gradient(circle at top right, rgba(0, 255, 163, 0.1), transparent 70%)'
+                          : 'radial-gradient(circle at top right, rgba(0, 128, 94, 0.1), transparent 70%)',
+                        transition: 'transform 0.3s ease-in-out',
+                        zIndex: 0,
                       }
                     }}
                   >
-                    <CardContent>
-                      <Typography 
-                        variant="h5" 
+                    <CardContent sx={{ p: 4, position: 'relative', zIndex: 1 }}>
+                      <Box
+                        className="value-icon"
+                        sx={{
+                          mb: 3,
+                          transition: 'all 0.3s ease-in-out',
+                          color: theme.palette.mode === 'dark'
+                            ? alpha(theme.palette.primary.main, 0.7)
+                            : alpha(theme.palette.primary.main, 0.8),
+                        }}
+                      >
+                        {getIcon(value.icon)}
+                      </Box>
+                      <Typography
+                        variant="h5"
                         gutterBottom
-                        sx={{ 
-                          color: 'primary.main',
-                          fontWeight: 'bold'
+                        sx={{
+                          fontWeight: 600,
+                          color: theme.palette.mode === 'dark' ? 'white' : 'text.primary',
+                          mb: 2,
                         }}
                       >
                         {value.title}
                       </Typography>
-                      <Typography 
-                        variant="body1" 
-                        color="text.secondary"
-                        sx={{ lineHeight: 1.7 }}
+                      <Typography
+                        variant="body1"
+                        sx={{
+                          color: 'text.secondary',
+                          lineHeight: 1.8,
+                        }}
                       >
                         {value.description}
                       </Typography>
