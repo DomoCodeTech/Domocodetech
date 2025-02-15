@@ -8,7 +8,7 @@ export const esTranslations = {
    * Detalles básicos sobre la empresa utilizados en todo el sitio
    */
   company: {
-    slogan: 'Soluciones de IA adaptadas a las necesidades de tu negocio',
+    slogan: 'DomoCodeTech',
     address: 'Autopista Nte. #108-27, Bogotá, Colombia',
     workingHours: '7:00 a.m. - 5:00 p.m.',
   },
@@ -27,7 +27,7 @@ export const esTranslations = {
   },
   // Hero Section
   hero: {
-    slogan: 'Transforma tu negocio con IA',
+    slogan: 'Domótica, Software y Tecnología',
     subtitle: 'Proveemos soluciones innovadoras para tus necesidades tecnológicas',
     getQuote: 'Cotización Gratis',
     imageAlt: 'Equipo trabajando en tecnología'
