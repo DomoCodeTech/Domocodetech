@@ -80,25 +80,35 @@ const Navbar: React.FC<NavbarProps> = ({
   return (
     <AppBar 
       position="fixed"
+      elevation={0}
       sx={{
-        bgcolor: alpha(theme.palette.background.default, 0.98),
-        backdropFilter: 'blur(12px)',
-        boxShadow: theme.shadows[3],
-        top: { xs: 0, md: '20px' },
+        background: theme.palette.mode === 'dark'
+          ? 'rgba(10, 10, 10, 0.5)'
+          : 'rgba(240, 247, 255, 0.5)',
+        backdropFilter: 'blur(10px)',
+        boxShadow: theme.palette.mode === 'dark'
+          ? '0 4px 30px rgba(0, 0, 0, 0.15)'
+          : '0 4px 30px rgba(42, 67, 101, 0.1)',
+        top: { xs: '16px', md: '20px' },
         left: '50%',
         transform: 'translateX(-50%)',
-        width: { xs: '100%', md: '90%' },
+        width: { xs: 'calc(100% - 32px)', md: '90%' },
         maxWidth: '1200px',
-        borderRadius: { xs: 0, md: '16px' },
-        margin: '0 auto'
+        borderRadius: '16px',
+        margin: '0 auto',
+        border: '1px solid',
+        borderColor: theme.palette.mode === 'dark'
+          ? 'rgba(255, 255, 255, 0.05)'
+          : 'rgba(255, 255, 255, 0.5)',
       }}
     >
       <Container maxWidth="lg">
         <Toolbar 
           disableGutters
           sx={{ 
-            minHeight: { xs: '56px', sm: '64px' },  // Altura fija para evitar saltos
-            transition: 'all 0.3s ease'
+            minHeight: { xs: '56px', sm: '64px' },
+            transition: 'all 0.3s ease',
+            px: { xs: 2, sm: 3 }
           }}
         >
           {/* Logo - Desktop */}

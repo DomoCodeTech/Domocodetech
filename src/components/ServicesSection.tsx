@@ -214,7 +214,7 @@ const ServicesSection = () => {
 
                     <Button
                       component={RouterLink}
-                      to="/services"
+                      to={`/services?tab=${index}`}
                       variant="outlined"
                       color="primary"
                       sx={{

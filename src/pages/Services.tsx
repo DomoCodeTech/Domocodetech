@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Box,
   Container,
@@ -21,14 +21,32 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { ServiceIcon } from '../components/icons/ServiceIcons';
 import { SITE_DATA } from '../constants/siteData';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink, useLocation } from 'react-router-dom';
 import { MdArrowForward, MdCheck } from 'react-icons/md';
 
 const Services: React.FC = () => {
   const { t } = useTranslation();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const location = useLocation();
   const [selectedTab, setSelectedTab] = useState(0);
+
+  // Read tab from URL parameter
+  useEffect(() => {
+    const searchParams = new URLSearchParams(location.search);
+    const tabParam = searchParams.get('tab');
+    if (tabParam !== null) {
+      const tabIndex = parseInt(tabParam);
+      if (!isNaN(tabIndex) && tabIndex >= 0 && tabIndex < services.length) {
+        setSelectedTab(tabIndex);
+        // Scroll to the tabs section
+        const tabsElement = document.getElementById('services-tabs');
+        if (tabsElement) {
+          tabsElement.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    }
+  }, [location.search]);
 
   const services = [
     {
@@ -193,38 +211,11 @@ const Services: React.FC = () => {
               {t('services.introduction')}
             </Typography>
 
-            <Grid container spacing={2} justifyContent="center" sx={{ mb: 4 }}>
-              {[1, 2, 3].map((num) => (
-                <Grid item xs={12} sm={4} key={num}>
-                  <Box
-                    sx={{
-                      p: 2,
-                      textAlign: 'center',
-                      color: 'text.secondary',
-                    }}
-                  >
-                    <Typography
-                      variant="h6"
-                      sx={{
-                        color: 'primary.main',
-                        mb: 1,
-                        fontWeight: 600,
-                      }}
-                    >
-                      {t(`services.highlight${num}.title`)}
-                    </Typography>
-                    <Typography variant="body2">
-                      {t(`services.highlight${num}.description`)}
-                    </Typography>
-                  </Box>
-                </Grid>
-              ))}
-            </Grid>
           </Box>
         </motion.div>
 
         {/* Service Categories Tabs */}
-        <Box sx={{ mb: 6 }}>
+        <Box sx={{ mb: 6 }} id="services-tabs">
           <Tabs
             value={selectedTab}
             onChange={handleTabChange}
@@ -351,6 +342,35 @@ const Services: React.FC = () => {
                   </CardContent>
                 </Card>
               </Grid>
+
+              <Grid container spacing={2} justifyContent="center" sx={{ mb: 4 }}>
+                    {[1, 2, 3].map((num) => (
+                      <Grid item xs={12} sm={4} key={num}>
+                        <Box
+                          sx={{
+                            p: 4,
+                            textAlign: 'center',
+                            color: 'text.secondary',
+                          }}
+                        >
+                          <Typography
+                            variant="h6"
+                            sx={{
+                              color: 'primary.main',
+                              mb: 1,
+                              fontWeight: 600,
+                            }}
+                          >
+                            {t(`services.highlight${num}.title`)}
+                          </Typography>
+                          <Typography variant="body2">
+                            {t(`services.highlight${num}.description`)}
+                          </Typography>
+                        </Box>
+                      </Grid>
+                    ))}
+                    </Grid>
+
               <Grid item xs={12} md={6}>
                 <Stack spacing={4}>
                   {/* Features */}
@@ -465,6 +485,7 @@ const Services: React.FC = () => {
                 </Stack>
               </Grid>
             </Grid>
+            
           </motion.div>
         </AnimatePresence>
       </Container>
@@ -473,3 +494,4 @@ const Services: React.FC = () => {
 };
 
 export default Services;
+
