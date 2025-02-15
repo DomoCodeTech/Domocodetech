@@ -36,6 +36,19 @@ export const esTranslations = {
   services: {
     title: 'Nuestros Servicios',
     subtitle: 'Soluciones tecnológicas profesionales para tu negocio',
+    introduction: 'Nos especializamos en ofrecer soluciones tecnológicas de vanguardia que ayudan a las empresas a prosperar en la era digital. Nuestra amplia gama de servicios está diseñada para satisfacer todas tus necesidades tecnológicas en un solo lugar.',
+    highlight1: {
+      title: 'Equipo Experto',
+      description: 'Nuestros profesionales certificados aportan años de experiencia y conocimientos a cada proyecto.'
+    },
+    highlight2: {
+      title: 'Soluciones a Medida',
+      description: 'Soluciones personalizadas diseñadas específicamente para las necesidades y objetivos de tu negocio.'
+    },
+    highlight3: {
+      title: 'Soporte 24/7',
+      description: 'Soporte técnico las 24 horas para garantizar el funcionamiento óptimo de tus sistemas.'
+    },
     viewMore: 'Ver Más',
     domotics: {
       title: 'Domótica',
@@ -128,6 +141,19 @@ export const esTranslations = {
   about: {
     title: 'Sobre Nosotros',
     subtitle: 'Construyendo el futuro con tecnología',
+    introduction: 'Desde nuestra fundación, hemos estado a la vanguardia de la innovación tecnológica, ayudando a empresas e individuos a aprovechar el poder de las soluciones más avanzadas. Nuestro camino está marcado por el crecimiento continuo, el aprendizaje y la adaptación a las tecnologías emergentes.',
+    highlight1: {
+      title: 'Innovación Primero',
+      description: 'Nos mantenemos adelante de las tendencias tecnológicas para brindarte las últimas soluciones.'
+    },
+    highlight2: {
+      title: 'Éxito del Cliente',
+      description: 'Tu éxito es nuestra prioridad, con un enfoque en entregar resultados medibles.'
+    },
+    highlight3: {
+      title: 'Alcance Global',
+      description: 'Servimos a clientes en todo el mundo con soluciones y soporte localizados.'
+    },
     stats: [
       {
         number: '10+',
@@ -182,12 +208,20 @@ export const esTranslations = {
     title: 'Últimas Noticias y Perspectivas',
     subtitle: 'Mantente actualizado con nuestros últimos desarrollos tecnológicos',
     readMore: 'Leer Más',
+    sortBy: 'Ordenar por',
+    newest: 'Más recientes',
+    oldest: 'Más antiguos',
+    aboutAuthor: 'Sobre el Autor',
+    authorRole: 'Especialista en Tecnología',
+    authorBio: 'Profesional con amplia experiencia en el sector tecnológico, dedicado a compartir conocimientos y mejores prácticas para ayudar a las empresas a alcanzar sus objetivos digitales.',
     categories: {
       all: 'Todo',
       technology: 'Tecnología',
       innovation: 'Innovación',
       automation: 'Automatización',
-      ai: 'Inteligencia Artificial'
+      ai: 'Inteligencia Artificial',
+      security: 'Seguridad',
+      iot: 'IoT'
     },
     featuredPosts: [
       {
@@ -195,24 +229,66 @@ export const esTranslations = {
         title: 'El Futuro de la IA en los Negocios',
         excerpt: 'Explorando cómo la inteligencia artificial está transformando las operaciones empresariales modernas...',
         image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg',
-        category: 'IA',
-        date: '2024-03-15'
+        category: 'ai',
+        date: '2024-03-15',
+        author: 'Carlos Rodríguez',
+        readTime: '5 min',
+        slug: 'futuro-ia-negocios'
       },
       {
         id: 2,
         title: 'Tendencias en Cloud Computing 2024',
         excerpt: 'Últimas tendencias e innovaciones en computación en la nube que están dando forma a la industria...',
         image: 'https://images.pexels.com/photos/325229/pexels-photo-325229.jpeg',
-        category: 'Tecnología',
-        date: '2024-03-10'
+        category: 'technology',
+        date: '2024-03-10',
+        author: 'Ana Martínez',
+        readTime: '4 min',
+        slug: 'tendencias-cloud-computing-2024'
       },
       {
         id: 3,
         title: 'Mejores Prácticas de Ciberseguridad',
         excerpt: 'Medidas esenciales de ciberseguridad que toda empresa debe implementar...',
         image: 'https://images.pexels.com/photos/5380642/pexels-photo-5380642.jpeg',
-        category: 'Seguridad',
-        date: '2024-03-05'
+        category: 'security',
+        date: '2024-03-05',
+        author: 'Miguel Sánchez',
+        readTime: '6 min',
+        slug: 'mejores-practicas-ciberseguridad'
+      },
+      {
+        id: 4,
+        title: 'Revolución IoT en la Industria 4.0',
+        excerpt: 'Cómo el Internet de las Cosas está transformando la manufactura y la producción industrial...',
+        image: 'https://images.pexels.com/photos/3912981/pexels-photo-3912981.jpeg',
+        category: 'iot',
+        date: '2024-03-01',
+        author: 'Laura Gómez',
+        readTime: '7 min',
+        slug: 'revolucion-iot-industria'
+      },
+      {
+        id: 5,
+        title: 'Automatización Robótica de Procesos',
+        excerpt: 'Implementación de RPA para optimizar operaciones empresariales y reducir costos...',
+        image: 'https://images.pexels.com/photos/8566472/pexels-photo-8566472.jpeg',
+        category: 'automation',
+        date: '2024-02-25',
+        author: 'David Kim',
+        readTime: '5 min',
+        slug: 'automatizacion-robotica-procesos'
+      },
+      {
+        id: 6,
+        title: 'Innovaciones en Desarrollo Web',
+        excerpt: 'Las últimas tecnologías y frameworks que están revolucionando el desarrollo web...',
+        image: 'https://images.pexels.com/photos/574071/pexels-photo-574071.jpeg',
+        category: 'technology',
+        date: '2024-02-20',
+        author: 'Sofia Torres',
+        readTime: '4 min',
+        slug: 'innovaciones-desarrollo-web'
       }
     ]
   },

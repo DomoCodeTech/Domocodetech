@@ -78,9 +78,15 @@ const About: React.FC = () => {
           : 'linear-gradient(180deg, #F0F7FF 0%, #E6FFF6 100%)',
         pt: { xs: 8, md: 12 },
         pb: { xs: 8, md: 12 },
+        overflowX: 'hidden',
       }}
     >
-      <Container maxWidth="lg">
+      <Container 
+        maxWidth="lg"
+        sx={{
+          px: { xs: 2, sm: 3, md: 4 },
+        }}
+      >
         {/* Hero Section */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -91,15 +97,15 @@ const About: React.FC = () => {
             sx={{
               position: 'relative',
               textAlign: 'center',
-              mb: 12,
+              mb: { xs: 6, md: 12 },
               '&::before': {
                 content: '""',
                 position: 'absolute',
                 top: '-50%',
                 left: '50%',
                 transform: 'translateX(-50%)',
-                width: '600px',
-                height: '600px',
+                width: { xs: '100%', md: '600px' },
+                height: { xs: '100%', md: '600px' },
                 background: theme.palette.mode === 'dark'
                   ? 'radial-gradient(circle, rgba(0, 255, 163, 0.15) 0%, rgba(0, 255, 163, 0) 70%)'
                   : 'radial-gradient(circle, rgba(0, 128, 94, 0.15) 0%, rgba(0, 128, 94, 0) 70%)',
@@ -112,6 +118,7 @@ const About: React.FC = () => {
               variant="h1"
               sx={{
                 mb: 3,
+                fontSize: { xs: '2.5rem', sm: '3rem', md: '3.5rem' },
                 background: theme.palette.mode === 'dark'
                   ? 'linear-gradient(90deg, #FFFFFF 0%, #00FFA3 100%)'
                   : 'linear-gradient(90deg, #1A1A1A 0%, #00805E 100%)',
@@ -130,13 +137,58 @@ const About: React.FC = () => {
               sx={{
                 maxWidth: '800px',
                 mx: 'auto',
-                mb: 8,
+                mb: { xs: 4, md: 8 },
+                px: { xs: 2, sm: 0 },
+                fontSize: { xs: '1rem', sm: '1.25rem' },
                 position: 'relative',
                 zIndex: 1,
               }}
             >
               {t('about.subtitle')}
             </Typography>
+
+            <Typography
+              variant="body1"
+              sx={{
+                maxWidth: '800px',
+                mx: 'auto',
+                mb: 4,
+                px: { xs: 2, sm: 0 },
+                color: 'text.secondary',
+                fontSize: { xs: '0.9rem', sm: '1rem' },
+                lineHeight: 1.8,
+              }}
+            >
+              {t('about.introduction')}
+            </Typography>
+
+            <Grid container spacing={2} justifyContent="center" sx={{ mb: 4 }}>
+              {[1, 2, 3].map((num) => (
+                <Grid item xs={12} sm={4} key={num}>
+                  <Box
+                    sx={{
+                      p: 2,
+                      textAlign: 'center',
+                      color: 'text.secondary',
+                    }}
+                  >
+                    <Typography
+                      variant="h6"
+                      sx={{
+                        color: 'primary.main',
+                        mb: 1,
+                        fontWeight: 600,
+                      }}
+                    >
+                      {t(`about.highlight${num}.title`)}
+                    </Typography>
+                    <Typography variant="body2">
+                      {t(`about.highlight${num}.description`)}
+                    </Typography>
+                  </Box>
+                </Grid>
+              ))}
+            </Grid>
           </Box>
         </motion.div>
 

@@ -52,6 +52,19 @@ export const enTranslations = {
   services: {
     title: 'Our Services',
     subtitle: 'Professional technology solutions for your business',
+    introduction: 'We specialize in delivering cutting-edge technological solutions that help businesses thrive in the digital age. Our comprehensive range of services is designed to meet all your tech needs under one roof.',
+    highlight1: {
+      title: 'Expert Team',
+      description: 'Our certified professionals bring years of experience and expertise to every project.'
+    },
+    highlight2: {
+      title: 'Custom Solutions',
+      description: 'Tailored solutions designed specifically for your business needs and goals.'
+    },
+    highlight3: {
+      title: '24/7 Support',
+      description: 'Round-the-clock technical support to ensure your systems run smoothly.'
+    },
     viewMore: 'View More',
     
     software: {
@@ -214,6 +227,19 @@ export const enTranslations = {
   about: {
     title: 'About Us',
     subtitle: 'Building the future with technology',
+    introduction: 'Since our founding, we have been at the forefront of technological innovation, helping businesses and individuals harness the power of cutting-edge solutions. Our journey is marked by continuous growth, learning, and adaptation to emerging technologies.',
+    highlight1: {
+      title: 'Innovation First',
+      description: 'We stay ahead of technological trends to bring you the latest solutions.'
+    },
+    highlight2: {
+      title: 'Client Success',
+      description: 'Your success is our priority, with a focus on delivering measurable results.'
+    },
+    highlight3: {
+      title: 'Global Reach',
+      description: 'Serving clients worldwide with localized solutions and support.'
+    },
     // Key statistics
     stats: [
       { number: '10+', label: 'Years Experience' },
@@ -261,42 +287,91 @@ export const enTranslations = {
    * News, articles, and insights
    */
   blog: {
-    title: 'Latest News & Insights',
+    title: 'Latest News and Insights',
     subtitle: 'Stay updated with our latest technological developments',
     readMore: 'Read More',
-    // Blog categories
+    sortBy: 'Sort by',
+    newest: 'Newest',
+    oldest: 'Oldest',
+    aboutAuthor: 'About the Author',
+    authorRole: 'Technology Specialist',
+    authorBio: 'Professional with extensive experience in the technology sector, dedicated to sharing knowledge and best practices to help companies achieve their digital goals.',
+    noResults: 'No results found',
     categories: {
       all: 'All',
       technology: 'Technology',
       innovation: 'Innovation',
       automation: 'Automation',
-      ai: 'Artificial Intelligence'
+      ai: 'Artificial Intelligence',
+      security: 'Security',
+      iot: 'IoT'
     },
-    // Featured blog posts
     featuredPosts: [
       {
         id: 1,
         title: 'The Future of AI in Business',
         excerpt: 'Exploring how artificial intelligence is transforming modern business operations...',
         image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg',
-        category: 'AI',
-        date: '2024-03-15'
+        category: 'ai',
+        date: '2024-03-15',
+        author: 'Carlos Rodríguez',
+        readTime: '5 min',
+        slug: 'futuro-ia-negocios'
       },
       {
         id: 2,
         title: 'Cloud Computing Trends 2024',
         excerpt: 'Latest trends and innovations in cloud computing that are shaping the industry...',
         image: 'https://images.pexels.com/photos/325229/pexels-photo-325229.jpeg',
-        category: 'Technology',
-        date: '2024-03-10'
+        category: 'technology',
+        date: '2024-03-10',
+        author: 'Ana Martínez',
+        readTime: '4 min',
+        slug: 'tendencias-cloud-computing-2024'
       },
       {
         id: 3,
         title: 'Cybersecurity Best Practices',
-        excerpt: 'Essential cybersecurity measures every business should implement...',
+        excerpt: 'Essential cybersecurity measures that every business should implement...',
         image: 'https://images.pexels.com/photos/5380642/pexels-photo-5380642.jpeg',
-        category: 'Security',
-        date: '2024-03-05'
+        category: 'security',
+        date: '2024-03-05',
+        author: 'Miguel Sánchez',
+        readTime: '6 min',
+        slug: 'mejores-practicas-ciberseguridad'
+      },
+      {
+        id: 4,
+        title: 'IoT Revolution in Industry 4.0',
+        excerpt: 'How the Internet of Things is transforming manufacturing and industrial production...',
+        image: 'https://images.pexels.com/photos/3912981/pexels-photo-3912981.jpeg',
+        category: 'iot',
+        date: '2024-03-01',
+        author: 'Laura Gómez',
+        readTime: '7 min',
+        slug: 'revolucion-iot-industria'
+      },
+      {
+        id: 5,
+        title: 'Robotic Process Automation',
+        excerpt: 'Implementing RPA to optimize business operations and reduce costs...',
+        image: 'https://images.pexels.com/photos/8566472/pexels-photo-8566472.jpeg',
+        category: 'automation',
+        date: '2024-02-25',
+        author: 'David Kim',
+        readTime: '5 min',
+        slug: 'automatizacion-robotica-procesos'
+      },
+      {
+        id: 6,
+        title: 'Web Development Innovations',
+        excerpt: 'The latest technologies and frameworks revolutionizing web development...',
+        image: 'https://images.pexels.com/photos/574071/pexels-photo-574071.jpeg',
+        category: 'technology',
+        date: '2024-02-20',
+        author: 'Sofia Torres',
+        readTime: '4 min',
+        slug: 'innovaciones-desarrollo-web'
       }
     ]
   },
