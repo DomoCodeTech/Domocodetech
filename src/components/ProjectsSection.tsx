@@ -68,7 +68,7 @@ const ProjectsSection = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       handleNext();
-    }, 6000);
+    }, 9000);
     return () => clearInterval(interval);
   }, [currentPage]);
 
@@ -122,31 +122,33 @@ const ProjectsSection = () => {
         py: { xs: 8, md: 12 },
         background: theme.palette.mode === 'dark'
           ? 'linear-gradient(180deg, #1A1A1A 0%, #0A0A0A 100%)'
-          : 'linear-gradient(180deg, #F8FAFF 0%, #FFFFFF 100%)',
+          : 'linear-gradient(180deg, #F0F7FF 0%, #E6FFF6 100%)',
         overflow: 'hidden', // Prevenir scroll horizontal durante animaciones
       }}
     >
       <Container maxWidth="lg">
-        <Typography
-          variant="h2"
-          component="h2"
-          align="center"
-          sx={{
-            mb: 2,
-            color: theme.palette.mode === 'dark' ? 'white' : 'text.primary',
-          }}
-        >
-          {t('projects.title')}
-        </Typography>
-        <Typography
-          variant="h5"
-          component="p"
-          align="center"
-          color="text.secondary"
-          sx={{ mb: 6 }}
-        >
-          {t('projects.subtitle')}
-        </Typography>
+        <Box sx={{ mb: { xs: 6, md: 12 } }}>
+          <Typography
+            variant="h2"
+            component="h2"
+            align="center"
+            sx={{
+              mb: 2,
+              color: theme.palette.mode === 'dark' ? 'white' : 'text.primary',
+            }}
+          >
+            {t('projects.title')}
+          </Typography>
+          <Typography
+            variant="h5"
+            component="p"
+            align="center"
+            color="text.secondary"
+            sx={{ mb: { xs: 4, md: 6 } }}
+          >
+            {t('projects.subtitle')}
+          </Typography>
+        </Box>
 
         <Box
           sx={{
@@ -156,6 +158,7 @@ const ProjectsSection = () => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
+            mt: { xs: 2, md: 4 }
           }}
         >
           <IconButton
@@ -209,7 +212,7 @@ const ProjectsSection = () => {
                     key={`${currentPage}-${index}`}
                     sx={{
                       width: isMobile ? '100%' : '350px',
-                      height: '100%',
+                      height: '550px',
                       display: 'flex',
                       flexDirection: 'column',
                       borderRadius: 2,
@@ -235,9 +238,18 @@ const ProjectsSection = () => {
                       alt={t(`projects.${project.key}.title`)}
                       sx={{
                         objectFit: 'cover',
+                        height: '200px',
                       }}
                     />
-                    <CardContent sx={{ flexGrow: 1, p: 3 }}>
+                    <CardContent 
+                      sx={{ 
+                        flexGrow: 1,
+                        p: 3,
+                        display: 'flex',
+                        flexDirection: 'column',
+                        height: '300px',
+                      }}
+                    >
                       <Typography
                         variant="h5"
                         gutterBottom
@@ -245,6 +257,12 @@ const ProjectsSection = () => {
                           color: theme.palette.mode === 'dark' ? 'white' : 'text.primary',
                           fontWeight: 600,
                           mb: 2,
+                          fontSize: '1.25rem',
+                          height: '40px',
+                          display: '-webkit-box',
+                          WebkitLineClamp: 2,
+                          WebkitBoxOrient: 'vertical',
+                          overflow: 'hidden',
                         }}
                       >
                         {t(`projects.${project.key}.title`)}
@@ -252,11 +270,23 @@ const ProjectsSection = () => {
                       <Typography
                         variant="body2"
                         color="text.secondary"
-                        sx={{ mb: 2 }}
+                        sx={{ 
+                          mb: 2,
+                          height: '60px',
+                          display: '-webkit-box',
+                          WebkitLineClamp: 3,
+                          WebkitBoxOrient: 'vertical',
+                          overflow: 'hidden',
+                        }}
                       >
                         {t(`projects.${project.key}.description`)}
                       </Typography>
-                      <Box sx={{ mt: 2 }}>
+                      <Box 
+                        sx={{ 
+                          mt: 'auto',
+                          height: '150px',
+                        }}
+                      >
                         <Typography
                           variant="subtitle2"
                           sx={{
@@ -290,7 +320,7 @@ const ProjectsSection = () => {
                         ))}
                       </Box>
                     </CardContent>
-                    <CardActions sx={{ p: 3, pt: 0 }}>
+                    <CardActions sx={{ p: 3, pt: 0, height: '50px' }}>
                       <Button
                         component={Link}
                         to={`/projects/${project.key}`}
