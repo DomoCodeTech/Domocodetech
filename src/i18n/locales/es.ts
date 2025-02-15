@@ -352,15 +352,16 @@ export const esTranslations = {
       }
     }
   },
+  // Projects Section
   projects: {
     title: 'Nuestros Proyectos',
-    subtitle: 'Explora nuestro portafolio que muestra soluciones robustas en proyectos realizados.',
+    subtitle: 'Explora nuestro portafolio de soluciones robustas.',
     web: {
       title: 'Aplicación Web',
-      description: 'Una plataforma web moderna con un diseño responsivo para una experiencia óptima.',
+      description: 'Una plataforma web moderna con diseño responsivo para una experiencia de usuario perfecta.',
       features: [
         'Diseño responsivo',
-        'Compatibilidad entre navegadores',
+        'Compatibilidad multiplataforma',
         'Diseño UI/UX moderno'
       ]
     },
@@ -370,16 +371,34 @@ export const esTranslations = {
       features: [
         'Interfaz amigable',
         'Alto rendimiento',
-        'Integración fluida con APIs'
+        'Integración perfecta con APIs'
       ]
     },
     software: {
       title: 'Desarrollo de Software',
-      description: 'Soluciones de software a medida desarrolladas con tecnología de vanguardia.',
+      description: 'Soluciones de software personalizadas construidas con tecnología de vanguardia.',
       features: [
         'Diseño de software personalizado',
         'Arquitectura robusta',
         'Funcionalidad multiplataforma'
+      ]
+    },
+    iot: {
+      title: 'Soluciones IoT',
+      description: 'Dispositivos y sistemas inteligentes para monitoreo y control automatizado.',
+      features: [
+        'Integración de dispositivos inteligentes',
+        'Monitoreo en tiempo real',
+        'Conectividad en la nube'
+      ]
+    },
+    ecommerce: {
+      title: 'Plataforma E-commerce',
+      description: 'Solución completa de tienda en línea con características avanzadas.',
+      features: [
+        'Pasarela de pago segura',
+        'Gestión de inventario',
+        'Panel de análisis'
       ]
     },
     featuresTitle: 'Características'

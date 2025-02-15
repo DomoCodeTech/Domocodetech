@@ -75,6 +75,11 @@ export const SITE_DATA = {
       member2: 'https://images.pexels.com/photos/3796217/pexels-photo-3796217.jpeg',
       member3: 'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg',
     },
+    testimonials: {
+      client1: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg',
+      client2: 'https://images.pexels.com/photos/3760263/pexels-photo-3760263.jpeg',
+      client3: 'https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg',
+    },
   },
   icons: {
     domotics: 'Smart',

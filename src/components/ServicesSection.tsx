@@ -89,7 +89,7 @@ const ServicesSection = () => {
           </Typography>
         </motion.div>
 
-        <Grid container spacing={4}>
+        <Grid container spacing={3} alignItems="stretch">
           {services.map(({ key, icon, features, techStack }, index) => (
             <Grid item xs={12} sm={6} md={4} key={key}>
               <motion.div
@@ -97,15 +97,16 @@ const ServicesSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
                 viewport={{ once: true }}
+                style={{ height: '100%' }}
               >
                 <Card
                   sx={{
-                    p: 4,
                     height: '100%',
-                    borderRadius: 2,
-                    transition: 'all 0.3s ease-in-out',
                     display: 'flex',
                     flexDirection: 'column',
+                    p: { xs: 2, sm: 3 },
+                    borderRadius: 2,
+                    transition: 'all 0.3s ease-in-out',
                     background: theme.palette.mode === 'dark'
                       ? 'linear-gradient(145deg, #1f1f1f 0%, #151515 100%)'
                       : '#FFFFFF',
@@ -118,9 +119,13 @@ const ServicesSection = () => {
                         ? '0 12px 40px rgba(0, 0, 0, 0.7)'
                         : '0 12px 40px rgba(0, 0, 0, 0.12)',
                       '& .service-icon': {
-                        color: 'primary.main',
                         transform: 'scale(1.1) rotateY(180deg)',
+                        color: 'primary.main',
                       },
+                      '& .tech-chip': {
+                        borderColor: 'primary.main',
+                        color: 'primary.main',
+                      }
                     },
                   }}
                 >
@@ -130,9 +135,10 @@ const ServicesSection = () => {
                       color: 'text.primary',
                       mb: 2,
                       transition: 'all 0.5s ease-in-out',
+                      textAlign: 'center',
                     }}
                   >
-                    <ServiceIcon name={icon} sx={{ fontSize: 40 }} />
+                    <ServiceIcon name={icon} sx={{ fontSize: { xs: 32, sm: 40 } }} />
                   </Box>
                   <Typography
                     variant="h5"
@@ -140,6 +146,8 @@ const ServicesSection = () => {
                       mb: 2,
                       fontWeight: 600,
                       color: theme.palette.mode === 'dark' ? 'white' : 'text.primary',
+                      fontSize: { xs: '1.25rem', sm: '1.5rem' },
+                      textAlign: 'center',
                     }}
                   >
                     {t(`services.${key}.title`)}
@@ -149,13 +157,14 @@ const ServicesSection = () => {
                     sx={{
                       color: 'text.secondary',
                       mb: 3,
-                      flexGrow: 1,
+                      textAlign: 'center',
+                      fontSize: { xs: '0.875rem', sm: '1rem' },
                     }}
                   >
                     {t(`services.${key}.description`)}
                   </Typography>
 
-                  <Stack spacing={2}>
+                  <Stack spacing={2} sx={{ flexGrow: 1 }}>
                     <Box sx={{ mb: 2 }}>
                       {features.map((feature, idx) => (
                         <Chip
@@ -170,6 +179,8 @@ const ServicesSection = () => {
                             color: theme.palette.mode === 'dark'
                               ? 'white'
                               : 'text.primary',
+                            fontSize: { xs: '0.75rem', sm: '0.875rem' },
+                            height: { xs: 24, sm: 32 },
                             '&:hover': {
                               background: theme.palette.mode === 'dark'
                                 ? 'rgba(0, 255, 163, 0.2)'
@@ -183,6 +194,7 @@ const ServicesSection = () => {
                     <Box sx={{ mb: 2 }}>
                       {techStack.map((tech, idx) => (
                         <Chip
+                          className="tech-chip"
                           key={idx}
                           label={tech}
                           variant="outlined"
@@ -192,10 +204,9 @@ const ServicesSection = () => {
                             borderColor: theme.palette.mode === 'dark'
                               ? 'rgba(255, 255, 255, 0.2)'
                               : 'rgba(0, 0, 0, 0.2)',
-                            '&:hover': {
-                              borderColor: 'primary.main',
-                              color: 'primary.main',
-                            },
+                            fontSize: { xs: '0.75rem', sm: '0.875rem' },
+                            height: { xs: 24, sm: 32 },
+                            transition: 'all 0.3s ease-in-out',
                           }}
                         />
                       ))}
@@ -207,8 +218,9 @@ const ServicesSection = () => {
                       variant="outlined"
                       color="primary"
                       sx={{
-                        alignSelf: 'flex-start',
+                        alignSelf: 'center',
                         mt: 'auto',
+                        width: 'fit-content',
                       }}
                     >
                       {t('services.viewMore')}

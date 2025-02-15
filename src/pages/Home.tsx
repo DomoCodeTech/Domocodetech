@@ -7,11 +7,10 @@
  * - Testimonios de clientes
  * - Llamada a la acción (CTA)
  */
-import React from 'react';
 import Testimonials from '../components/Testimonials';
 import Team from '../components/Team';
 import Hero from '../components/Hero';
-import Projects from '../components/Projects';
+import ProjectsSection from '../components/ProjectsSection';
 import Stats from '../components/Stats';
 import CTA from '../components/CTA';
 import ServicesSection from '../components/ServicesSection';
@@ -29,7 +28,7 @@ const Home = () => {
         <Hero />
         <Stats />
         <ServicesSection />
-        <Projects />
+        <ProjectsSection />
         <Testimonials />
         <CTA />
         <Team />

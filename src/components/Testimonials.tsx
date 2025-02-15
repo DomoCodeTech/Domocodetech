@@ -9,12 +9,12 @@
  * - Controles de navegación manual
  * - Responsive para todos los dispositivos
  */
-import React from 'react';
 import { Box, Container, Grid, Typography, Card, Avatar } from '@mui/material';
 import { motion } from 'framer-motion';
 import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '@mui/material/styles';
+import { SITE_DATA } from '../constants/siteData';
 
 const Testimonials = () => {
   const { t } = useTranslation();
@@ -25,16 +25,19 @@ const Testimonials = () => {
       name: t('testimonials.client1.name'),
       role: t('testimonials.client1.position'),
       quote: t('testimonials.client1.quote'),
+      avatar: SITE_DATA.images.testimonials.client1
     },
     {
       name: t('testimonials.client2.name'),
       role: t('testimonials.client2.position'),
       quote: t('testimonials.client2.quote'),
+      avatar: SITE_DATA.images.testimonials.client2
     },
     {
       name: t('testimonials.client3.name'),
       role: t('testimonials.client3.position'),
       quote: t('testimonials.client3.quote'),
+      avatar: SITE_DATA.images.testimonials.client3
     },
   ];
 
@@ -139,15 +142,14 @@ const Testimonials = () => {
                   </Typography>
                   <Box sx={{ display: 'flex', alignItems: 'center' }}>
                     <Avatar
+                      src={testimonial.avatar}
+                      alt={testimonial.name}
                       sx={{
-                        width: 56,
-                        height: 56,
-                        bgcolor: 'primary.main',
-                        color: 'background.paper',
+                        width: 48,
+                        height: 48,
+                        border: `2px solid ${theme.palette.primary.main}`,
                       }}
-                    >
-                      {testimonial.name.charAt(0)}
-                    </Avatar>
+                    />
                     <Box sx={{ ml: 2 }}>
                       <Typography
                         variant="subtitle1"

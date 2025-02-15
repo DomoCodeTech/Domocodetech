@@ -161,6 +161,24 @@ export const enTranslations = {
         'Cross-platform functionality'
       ]
     },
+    iot: {
+      title: 'IoT Solutions',
+      description: 'Smart devices and systems for automated monitoring and control.',
+      features: [
+        'Smart device integration',
+        'Real-time monitoring',
+        'Cloud connectivity'
+      ]
+    },
+    ecommerce: {
+      title: 'E-commerce Platform',
+      description: 'Complete online store solution with advanced features.',
+      features: [
+        'Secure payment gateway',
+        'Inventory management',
+        'Analytics dashboard'
+      ]
+    },
     featuresTitle: 'Features'
   },
 
@@ -320,7 +338,6 @@ export const enTranslations = {
   testimonials: {
     title: 'What Our Clients Say',
     subtitle: 'Real feedback from satisfied customers',
-    // Individual client testimonials
     client1: {
       name: 'Charles Rodriguez',
       position: 'Innovation Director',

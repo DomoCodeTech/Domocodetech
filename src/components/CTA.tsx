@@ -12,8 +12,12 @@
  */
 import { Box, Container, Typography, Button, Grid } from '@mui/material';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
+import { Link as RouterLink } from 'react-router-dom';
 
 const CTA = () => {
+  const { t } = useTranslation();
+
   return (
     <Box
       sx={{
@@ -70,9 +74,13 @@ const CTA = () => {
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
                     fontWeight: 700,
+                    minHeight: '3.5rem',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
                   }}
                 >
-                  Ready to transform your business?
+                  {t('cta.title')}
                 </Typography>
                 <Typography
                   variant="body1"
@@ -82,9 +90,13 @@ const CTA = () => {
                     fontSize: { xs: '1rem', md: '1.25rem' },
                     maxWidth: '600px',
                     mx: 'auto',
+                    minHeight: '3rem',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
                   }}
                 >
-                  Let's discuss how our AI solutions can help you achieve your goals
+                  {t('cta.subtitle')}
                 </Typography>
                 <Box
                   sx={{
@@ -94,24 +106,30 @@ const CTA = () => {
                   }}
                 >
                   <Button
+                    component={RouterLink}
+                    to="/contact"
                     variant="contained"
                     size="large"
                     sx={{
-                      minWidth: '160px',
+                      minWidth: '200px',
+                      height: '48px',
                       fontSize: '1.1rem',
                     }}
                   >
-                    Get Started
+                    {t('cta.button')}
                   </Button>
                   <Button
+                    component={RouterLink}
+                    to="/services"
                     variant="outlined"
                     size="large"
                     sx={{
-                      minWidth: '160px',
+                      minWidth: '200px',
+                      height: '48px',
                       fontSize: '1.1rem',
                     }}
                   >
-                    Learn More
+                    {t('services.viewMore')}
                   </Button>
                 </Box>
               </Box>
