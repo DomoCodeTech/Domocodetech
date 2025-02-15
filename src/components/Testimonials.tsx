@@ -9,229 +9,159 @@
  * - Controles de navegación manual
  * - Responsive para todos los dispositivos
  */
-import { useTranslation } from 'react-i18next';
-import { 
-  Box, 
-  Container, 
-  Typography, 
-  Card, 
-  CardContent,
-  Avatar,
-  IconButton
-} from '@mui/material';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useState, useEffect } from 'react';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import { Box, Container, Grid, Typography, Avatar, Card } from '@mui/material';
+import { motion } from 'framer-motion';
 import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
 
+const testimonials = [
+  {
+    name: 'Sarah Johnson',
+    role: 'CTO, TechCorp',
+    image: '/testimonials/avatar1.jpg',
+    quote: 'The AI solutions provided have transformed our business operations. The results exceeded our expectations.',
+  },
+  {
+    name: 'Michael Chen',
+    role: 'CEO, DataFlow',
+    image: '/testimonials/avatar2.jpg',
+    quote: 'Incredible expertise in AI implementation. Their team delivered exactly what we needed and more.',
+  },
+  {
+    name: 'Emily Rodriguez',
+    role: 'Director of Innovation, FutureTech',
+    image: '/testimonials/avatar3.jpg',
+    quote: 'Working with them was a game-changer for our company. Their AI solutions are cutting-edge and effective.',
+  },
+];
+
 const Testimonials = () => {
-  // Hook de traducción
-  const { t } = useTranslation();
-
-  // Estado para el índice del testimonio actual
-  const [currentIndex, setCurrentIndex] = useState(0);
-  
-  // Lista de testimonios desde las traducciones
-  const testimonials = [
-    { key: 'client1', image: '/images/testimonials/client1.jpg' },
-    { key: 'client2', image: '/images/testimonials/client2.jpg' },
-    { key: 'client3', image: '/images/testimonials/client3.jpg' }
-  ];
-
-  // Efecto para el carrusel automático
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentIndex((prevIndex) => 
-        prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
-      );
-    }, 5000); // Cambia cada 5 segundos
-
-    return () => clearInterval(timer);
-  }, [testimonials.length]);
-
-  // Manejadores de navegación
-  const handlePrevious = () => {
-    setCurrentIndex((prevIndex) => 
-      prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
-    );
-  };
-
-  const handleNext = () => {
-    setCurrentIndex((prevIndex) => 
-      prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
-    );
-  };
-
-  // Variantes de animación para las tarjetas
-  const cardVariants = {
-    enter: (direction: number) => ({
-      x: direction > 0 ? 1000 : -1000,
-      opacity: 0
-    }),
-    center: {
-      zIndex: 1,
-      x: 0,
-      opacity: 1
-    },
-    exit: (direction: number) => ({
-      zIndex: 0,
-      x: direction < 0 ? 1000 : -1000,
-      opacity: 0
-    })
-  };
-
   return (
-    <Box 
-      component="section" 
-      sx={{ 
+    <Box
+      sx={{
+        background: '#0A0A0A',
         py: { xs: 8, md: 12 },
-        backgroundColor: 'background.default'
       }}
     >
       <Container maxWidth="lg">
-        {/* Encabezado de la sección */}
-        <Typography
-          variant="h2"
-          component="h2"
-          align="center"
-          gutterBottom
-          sx={{ mb: 2 }}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
         >
-          {t('testimonials.title')}
-        </Typography>
-        <Typography
-          variant="h5"
-          component="p"
-          align="center"
-          color="text.secondary"
-          sx={{ mb: 8 }}
-        >
-          {t('testimonials.subtitle')}
-        </Typography>
-
-        {/* Contenedor del carrusel */}
-        <Box
-          sx={{
-            position: 'relative',
-            height: { xs: 400, md: 300 },
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center'
-          }}
-        >
-          {/* Botones de navegación */}
-          <IconButton
-            onClick={handlePrevious}
+          <Typography
+            variant="h2"
+            align="center"
             sx={{
-              position: 'absolute',
-              left: { xs: 0, md: -20 },
-              zIndex: 2
+              mb: 2,
+              background: 'linear-gradient(90deg, #FFFFFF 0%, #00FFA3 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
             }}
           >
-            <ArrowBackIcon />
-          </IconButton>
+            Some of our clients
+          </Typography>
+          <Typography
+            variant="body1"
+            align="center"
+            sx={{
+              color: 'text.secondary',
+              mb: 8,
+              maxWidth: '600px',
+              mx: 'auto',
+            }}
+          >
+            Hear what our clients have to say about their experience working with us
+          </Typography>
+        </motion.div>
 
-          {/* Carrusel de testimonios */}
-          <AnimatePresence initial={false} custom={currentIndex}>
-            <motion.div
-              key={currentIndex}
-              custom={currentIndex}
-              variants={cardVariants}
-              initial="enter"
-              animate="center"
-              exit="exit"
-              transition={{
-                x: { type: "spring", stiffness: 300, damping: 30 },
-                opacity: { duration: 0.2 }
-              }}
-              style={{
-                position: 'absolute',
-                width: '100%'
-              }}
-            >
-              <Card
-                sx={{
-                  maxWidth: 800,
-                  mx: 'auto',
-                  boxShadow: 3,
-                  position: 'relative',
-                  overflow: 'visible'
-                }}
+        <Grid container spacing={4}>
+          {testimonials.map((testimonial, index) => (
+            <Grid item xs={12} md={4} key={index}>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
+                viewport={{ once: true }}
               >
-                {/* Icono de comillas */}
-                <FormatQuoteIcon
+                <Card
                   sx={{
-                    position: 'absolute',
-                    top: -20,
-                    left: 40,
-                    fontSize: 40,
-                    color: 'primary.main',
-                    transform: 'rotate(180deg)'
+                    p: 4,
+                    height: '100%',
+                    background: 'linear-gradient(145deg, #1f1f1f 0%, #151515 100%)',
+                    border: '1px solid rgba(255, 255, 255, 0.05)',
+                    borderRadius: 2,
+                    position: 'relative',
+                    overflow: 'visible',
+                    transition: 'all 0.3s ease-in-out',
+                    '&:hover': {
+                      transform: 'translateY(-8px)',
+                      boxShadow: '0 8px 30px rgba(0, 255, 163, 0.1)',
+                      border: '1px solid rgba(0, 255, 163, 0.2)',
+                      '& .quote-icon': {
+                        color: '#00FFA3',
+                      },
+                    },
                   }}
-                />
-
-                <CardContent sx={{ p: 4 }}>
-                  {/* Contenido del testimonio */}
+                >
                   <Box
+                    className="quote-icon"
                     sx={{
-                      display: 'flex',
-                      flexDirection: { xs: 'column', md: 'row' },
-                      alignItems: 'center',
-                      gap: 4
+                      position: 'absolute',
+                      top: -20,
+                      right: 20,
+                      color: 'rgba(255, 255, 255, 0.1)',
+                      transition: 'color 0.3s ease-in-out',
                     }}
                   >
-                    {/* Avatar del cliente */}
+                    <FormatQuoteIcon sx={{ fontSize: 60 }} />
+                  </Box>
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      mb: 4,
+                      color: 'text.secondary',
+                      fontStyle: 'italic',
+                      lineHeight: 1.6,
+                    }}
+                  >
+                    "{testimonial.quote}"
+                  </Typography>
+                  <Box sx={{ display: 'flex', alignItems: 'center' }}>
                     <Avatar
-                      src={testimonials[currentIndex].image}
-                      alt={t(`testimonials.${testimonials[currentIndex].key}.name`)}
+                      src={testimonial.image}
+                      alt={testimonial.name}
                       sx={{
-                        width: 100,
-                        height: 100,
-                        border: 3,
-                        borderColor: 'primary.main'
+                        width: 56,
+                        height: 56,
+                        border: '2px solid #00FFA3',
                       }}
                     />
-
-                    {/* Texto del testimonio */}
-                    <Box>
+                    <Box sx={{ ml: 2 }}>
                       <Typography
-                        variant="body1"
-                        paragraph
+                        variant="subtitle1"
                         sx={{
-                          fontStyle: 'italic',
-                          mb: 2
+                          fontWeight: 600,
+                          color: 'white',
                         }}
                       >
-                        {t(`testimonials.${testimonials[currentIndex].key}.quote`)}
+                        {testimonial.name}
                       </Typography>
-                      
-                      {/* Información del cliente */}
-                      <Typography variant="h6" component="p">
-                        {t(`testimonials.${testimonials[currentIndex].key}.name`)}
-                      </Typography>
-                      <Typography variant="subtitle1" color="text.secondary">
-                        {t(`testimonials.${testimonials[currentIndex].key}.position`)}
+                      <Typography
+                        variant="body2"
+                        sx={{
+                          color: '#00FFA3',
+                        }}
+                      >
+                        {testimonial.role}
                       </Typography>
                     </Box>
                   </Box>
-                </CardContent>
-              </Card>
-            </motion.div>
-          </AnimatePresence>
-
-          {/* Botón siguiente */}
-          <IconButton
-            onClick={handleNext}
-            sx={{
-              position: 'absolute',
-              right: { xs: 0, md: -20 },
-              zIndex: 2
-            }}
-          >
-            <ArrowForwardIcon />
-          </IconButton>
-        </Box>
+                </Card>
+              </motion.div>
+            </Grid>
+          ))}
+        </Grid>
       </Container>
     </Box>
   );

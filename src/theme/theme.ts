@@ -4,15 +4,15 @@ import { createTheme, responsiveFontSizes } from '@mui/material';
 const colorPalette = {
   // Primary color and its variations
   primary: {
-    main: 'rgb(33, 150, 243)',      // #2196f3 - Main brand color
-    light: 'rgb(100, 181, 246)',    // #64b5f6 - Lighter version
-    dark: 'rgb(25, 118, 210)',      // #1976d2 - Darker version
+    main: '#00FFA3',      // Teal accent color
+    light: '#33ffb5',    // Lighter version
+    dark: '#00cc82',      // Darker version
   },
   // Secondary/Accent color
   secondary: {
-    main: 'rgb(245, 0, 87)',        // #f50057 - Secondary brand color
-    light: 'rgb(255, 64, 129)',     // #ff4081 - Lighter version
-    dark: 'rgb(197, 17, 98)',       // #c51162 - Darker version
+    main: '#1A1A1A',      // Dark background
+    light: '#2A2A2A',     // Lighter version
+    dark: '#0A0A0A',       // Darker version
   },
   // Status colors
   status: {
@@ -32,12 +32,12 @@ export const createAppTheme = (isDarkMode: boolean) => {
       primary: colorPalette.primary,
       secondary: colorPalette.secondary,
       background: {
-        default: isDarkMode ? 'rgb(10, 25, 47)' : 'rgb(248, 250, 255)',
-        paper: isDarkMode ? 'rgb(17, 34, 64)' : 'rgb(255, 255, 255)',
+        default: isDarkMode ? '#0A0A0A' : 'rgb(248, 250, 255)',
+        paper: isDarkMode ? '#1A1A1A' : 'rgb(255, 255, 255)',
       },
       text: {
-        primary: isDarkMode ? 'rgb(230, 241, 255)' : 'rgb(45, 55, 72)',
-        secondary: isDarkMode ? 'rgb(136, 146, 176)' : 'rgb(74, 85, 104)',
+        primary: isDarkMode ? '#FFFFFF' : 'rgb(45, 55, 72)',
+        secondary: isDarkMode ? '#AAAAAA' : 'rgb(74, 85, 104)',
       },
       error: { main: colorPalette.status.error },
       warning: { main: colorPalette.status.warning },
@@ -46,48 +46,52 @@ export const createAppTheme = (isDarkMode: boolean) => {
       divider: isDarkMode ? 'rgba(230, 241, 255, 0.12)' : 'rgba(0, 0, 0, 0.12)'
     },
     typography: {
-      fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+      fontFamily: '"Inter", "Roboto", "Helvetica", "Arial", sans-serif',
       // Responsive typography base settings
       h1: {
+        fontSize: '3.5rem',
         fontWeight: 700,
-        background: isDarkMode 
-          ? 'linear-gradient(45deg, rgb(230, 241, 255) 30%, rgb(136, 146, 176) 90%)'
-          : `linear-gradient(45deg, ${colorPalette.primary.main} 30%, ${colorPalette.secondary.main} 90%)`,
-        WebkitBackgroundClip: 'text',
-        WebkitTextFillColor: 'transparent',
+        lineHeight: 1.2,
       },
-      h2: { fontWeight: 600 },
-      h3: { fontWeight: 600 },
-      h4: { fontWeight: 500 },
-      h5: { fontWeight: 500 },
-      h6: { fontWeight: 500 },
+      h2: {
+        fontSize: '2.5rem',
+        fontWeight: 700,
+        lineHeight: 1.3,
+      },
+      h3: {
+        fontSize: '2rem',
+        fontWeight: 600,
+        lineHeight: 1.4,
+      },
+      body1: {
+        fontSize: '1rem',
+        lineHeight: 1.5,
+      },
+      button: {
+        textTransform: 'none',
+        fontWeight: 600,
+      },
     },
     components: {
       MuiButton: {
         styleOverrides: {
           root: {
-            textTransform: 'none',
             borderRadius: '8px',
-            padding: '8px 24px',
-            transition: 'all 0.3s ease-in-out',
-            '@media (max-width: 600px)': {
-              padding: '6px 16px',
-              fontSize: '0.875rem',
-            },
-            '&:hover': {
-              transform: 'translateY(-2px)',
-              boxShadow: `0 4px 20px ${colorPalette.primary.main}40`,
-            },
+            padding: '10px 24px',
           },
           contained: {
-            background: isDarkMode
-              ? 'linear-gradient(45deg, rgb(230, 241, 255) 30%, rgb(136, 146, 176) 90%)'
-              : `linear-gradient(45deg, ${colorPalette.primary.main} 30%, ${colorPalette.secondary.main} 90%)`,
-            color: isDarkMode ? 'rgb(10, 25, 47)' : 'rgb(255, 255, 255)',
+            backgroundColor: '#00FFA3',
+            color: '#0A0A0A',
             '&:hover': {
-              background: isDarkMode
-                ? 'linear-gradient(45deg, rgb(136, 146, 176) 30%, rgb(230, 241, 255) 90%)'
-                : `linear-gradient(45deg, ${colorPalette.primary.dark} 30%, ${colorPalette.secondary.dark} 90%)`,
+              backgroundColor: '#00cc82',
+            },
+          },
+          outlined: {
+            borderColor: '#00FFA3',
+            color: '#00FFA3',
+            '&:hover': {
+              borderColor: '#00cc82',
+              backgroundColor: 'rgba(0, 255, 163, 0.1)',
             },
           },
         },

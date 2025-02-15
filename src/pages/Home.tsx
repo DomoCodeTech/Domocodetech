@@ -8,67 +8,32 @@
  * - Llamada a la acción (CTA)
  */
 import React from 'react';
-import { Container, Box } from '@mui/material';
 import Testimonials from '../components/Testimonials';
 import Team from '../components/Team';
 import Hero from '../components/Hero';
-import Projects from '../components/ProjectsSection';
+import Projects from '../components/Projects';
 import Stats from '../components/Stats';
 import CTA from '../components/CTA';
 import ServicesSection from '../components/ServicesSection';
+import { Container, Box } from '@mui/material';
 
-const Home: React.FC = () => {
+const Home = () => {
   return (
-    <Box component="div">
-      {/* Hero Section - Banner principal */}
-      <Hero />
-
-      {/* Sección de Projects */}
-      <Box component="section" sx={{ py: 8 }}>
-        <Container maxWidth="lg">
-          <Projects />
-        </Container>
-      </Box>
-
-      {/* Sección de Estadísticas */}
-      <Box 
-        component="section" 
-        sx={{ 
-          py: 8, 
-          backgroundColor: 'background.paper' 
-        }}
-      >
-        <Container maxWidth="lg">
-          <Stats />
-        </Container>
-      </Box>
-
-      {/* Sección de Testimonios */}
-      <Box component="section" sx={{ py: 8 }}>
-        <Container maxWidth="lg">
-          <Testimonials />
-        </Container>
-      </Box>
-
-      {/* Sección de Llamada a la Acción (CTA) */}
-      <Box 
-        component="section" 
-        sx={{ 
-          py: 8, 
-          backgroundColor: 'primary.main',
-          color: 'primary.contrastText'
-        }}
-      >
-        <Container maxWidth="lg">
-          <CTA />
-        </Container>
-      </Box>
-
-      {/* Services Section */}
-      <ServicesSection />
-
-      {/* Team Section */}
-      <Team />
+    <Box
+      sx={{
+        background: '#0A0A0A',
+        minHeight: '100vh',
+      }}
+    >
+      <Container maxWidth="lg">
+        <Hero />
+        <Stats />
+        <ServicesSection />
+        <Projects />
+        <Testimonials />
+        <CTA />
+        <Team />
+      </Container>
     </Box>
   );
 };

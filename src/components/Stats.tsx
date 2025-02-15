@@ -12,141 +12,93 @@
  * - Iconos ilustrativos
  * - Traducciones en múltiples idiomas
  */
-import { useTranslation } from 'react-i18next';
-import { Box, Grid, Typography } from '@mui/material';
-import { motion, useAnimation } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { useEffect } from 'react';
-import WorkHistoryIcon from '@mui/icons-material/WorkHistory';
-import TaskAltIcon from '@mui/icons-material/TaskAlt';
-import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
-import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
+import { Box, Container, Grid, Typography } from '@mui/material';
+import { motion } from 'framer-motion';
+import CountUp from 'react-countup';
 
-// Configuración de los iconos para cada estadística
-const statIcons = {
-  experience: WorkHistoryIcon,
-  projects: TaskAltIcon,
-  clients: EmojiEventsIcon,
-  team: PeopleAltIcon
-};
+const stats = [
+  {
+    value: 95,
+    suffix: '%',
+    label: 'Client satisfaction rate',
+  },
+  {
+    value: 150,
+    suffix: '+',
+    label: 'Projects completed',
+  },
+  {
+    value: 10,
+    suffix: 'x',
+    label: 'ROI for clients',
+  },
+  {
+    value: 24,
+    suffix: '/7',
+    label: 'Support available',
+  },
+];
 
 const Stats = () => {
-  // Hook de traducción
-  const { t } = useTranslation();
-  
-  // Hook para detectar cuando el componente es visible
-  const [ref, inView] = useInView({
-    threshold: 0.1,
-    triggerOnce: true
-  });
-
-  // Controlador de animaciones
-  const controls = useAnimation();
-
-  // Efecto para iniciar la animación cuando el componente es visible
-  useEffect(() => {
-    if (inView) {
-      controls.start('visible');
-    }
-  }, [controls, inView]);
-
-  // Configuración de animaciones
-  const containerVariants = {
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: 'easeOut'
-      }
-    }
-  };
-
-  // Datos de las estadísticas
-  const stats = t('about.stats', { returnObjects: true }) as { number: string; label: string }[];
-
   return (
-    <Box 
-      component="section" 
-      ref={ref}
-      sx={{ 
-        py: { xs: 6, md: 10 },
-        backgroundColor: 'background.paper' 
+    <Box
+      sx={{
+        background: '#1A1A1A',
+        py: { xs: 8, md: 12 },
       }}
     >
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate={controls}
-      >
-        <Grid 
-          container 
-          spacing={4} 
-          justifyContent="center"
-          sx={{ px: { xs: 2, md: 4 } }}
-        >
-          {/* Mapeo de las estadísticas */}
-          {stats.map((stat: { number: string; label: string }, index: number) => {
-            // Obtiene el icono correspondiente a la estadística
-            const Icon = Object.values(statIcons)[index];
-
-            return (
-              <Grid item xs={6} md={3} key={stat.label}>
-                <motion.div variants={itemVariants}>
-                  <Box
+      <Container maxWidth="lg">
+        <Grid container spacing={4}>
+          {stats.map((stat, index) => (
+            <Grid item xs={6} md={3} key={index}>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <Box
+                  sx={{
+                    textAlign: 'center',
+                    p: 3,
+                    borderRadius: 2,
+                    background: 'linear-gradient(145deg, #1f1f1f 0%, #151515 100%)',
+                    boxShadow: '0 4px 30px rgba(0, 255, 163, 0.1)',
+                    '&:hover': {
+                      transform: 'translateY(-5px)',
+                      transition: 'transform 0.3s ease-in-out',
+                    },
+                  }}
+                >
+                  <Typography
+                    variant="h2"
                     sx={{
-                      display: 'flex',
-                      flexDirection: 'column',
-                      alignItems: 'center',
-                      textAlign: 'center'
+                      fontSize: { xs: '2rem', md: '2.5rem' },
+                      fontWeight: 700,
+                      mb: 1,
+                      background: 'linear-gradient(90deg, #FFFFFF 0%, #00FFA3 100%)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
                     }}
                   >
-                    {/* Icono de la estadística */}
-                    <Icon
-                      sx={{
-                        fontSize: 48,
-                        color: 'primary.main',
-                        mb: 2
-                      }}
-                    />
-                    
-                    {/* Número de la estadística */}
-                    <Typography
-                      variant="h3"
-                      component="p"
-                      sx={{
-                        fontWeight: 'bold',
-                        mb: 1
-                      }}
-                    >
-                      {stat.number}
-                    </Typography>
-                    
-                    {/* Etiqueta de la estadística */}
-                    <Typography
-                      variant="h6"
-                      component="p"
-                      color="text.secondary"
-                    >
-                      {stat.label}
-                    </Typography>
-                  </Box>
-                </motion.div>
-              </Grid>
-            );
-          })}
+                    <CountUp end={stat.value} duration={2.5} />
+                    {stat.suffix}
+                  </Typography>
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      color: 'text.secondary',
+                      fontSize: { xs: '0.875rem', md: '1rem' },
+                    }}
+                  >
+                    {stat.label}
+                  </Typography>
+                </Box>
+              </motion.div>
+            </Grid>
+          ))}
         </Grid>
-      </motion.div>
+      </Container>
     </Box>
   );
 };

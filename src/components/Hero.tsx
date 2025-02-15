@@ -25,136 +25,107 @@ const Hero = () => {
 
   // Configuración de animaciones
   const textAnimation = {
-    initial: { opacity: 0, x: -50 },
-    animate: { opacity: 1, x: 0 },
-    transition: { duration: 0.5 }
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.8 }
   };
 
   const imageAnimation = {
     initial: { opacity: 0, scale: 0.8 },
     animate: { opacity: 1, scale: 1 },
-    transition: { duration: 0.5 }
+    transition: { duration: 0.8, delay: 0.2 }
   };
 
   return (
     <Box
-      component="section"
       sx={{
-        position: 'relative',
-        color: 'white',
+        background: 'linear-gradient(180deg, #0A0A0A 0%, #1A1A1A 100%)',
+        pt: { xs: 12, md: 16 },
+        pb: { xs: 8, md: 12 },
         overflow: 'hidden',
-        // Gradiente de fondo con los colores del tema
-        '&::before': {
-          content: '""',
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          background: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${theme.palette.secondary.main} 100%)`,
-          opacity: 0.9,
-          zIndex: 1
-        }
       }}
     >
-      {/* Imagen de fondo con efecto blur */}
-      <Box
-        sx={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          backgroundImage: `url(${SITE_DATA.images.hero.main})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          filter: 'blur(5px)',
-          transform: 'scale(1.1)'
-        }}
-      />
-
-      {/* Contenido principal */}
-      <Container 
-        maxWidth="lg" 
-        sx={{ 
-          position: 'relative',
-          zIndex: 2,
-          py: { xs: 12, md: 20 } // Padding responsive
-        }}
-      >
+      <Container maxWidth="lg">
         <Grid container spacing={4} alignItems="center">
-          {/* Columna de texto */}
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} md={7}>
             <motion.div {...textAnimation}>
-              <Typography 
-                variant="h1" 
-                component="h1" 
-                gutterBottom
+              <Typography
+                variant="h1"
                 sx={{
-                  fontWeight: 'bold',
-                  textShadow: '2px 2px 4px rgba(0,0,0,0.3)',
-                  fontSize: { xs: '2.5rem', md: '3.5rem' }
+                  fontSize: { xs: '2.5rem', md: '3.5rem' },
+                  mb: 3,
+                  background: 'linear-gradient(90deg, #FFFFFF 0%, #00FFA3 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
                 }}
               >
-                {t('hero.slogan')}
+                AI solutions tailored to your business needs
               </Typography>
-              <Typography 
-                variant="h4" 
-                paragraph
+              <Typography
+                variant="body1"
                 sx={{
-                  textShadow: '1px 1px 2px rgba(0,0,0,0.3)',
+                  color: 'text.secondary',
+                  fontSize: { xs: '1rem', md: '1.25rem' },
                   mb: 4,
-                  fontSize: { xs: '1.5rem', md: '2rem' }
+                  maxWidth: '600px',
                 }}
               >
-                {t('hero.subtitle')}
+                Transform your business with cutting-edge AI solutions. We help companies leverage artificial intelligence to drive growth and innovation.
               </Typography>
-
-              {/* Botón de llamada a la acción */}
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
+              <Box sx={{ display: 'flex', gap: 2 }}>
                 <Button
-                  component={Link}
-                  to="/contact"
                   variant="contained"
-                  color="secondary"
                   size="large"
                   sx={{
-                    py: 2,
-                    px: 4,
-                    fontSize: '1.2rem',
-                    fontWeight: 'bold',
-                    borderRadius: '30px',
-                    boxShadow: '0 4px 14px 0 rgba(0,0,0,0.25)',
+                    minWidth: '160px',
+                    fontSize: '1.1rem',
                   }}
                 >
-                  {t('hero.getQuote')}
+                  Get Started
                 </Button>
-              </motion.div>
+                <Button
+                  variant="outlined"
+                  size="large"
+                  sx={{
+                    minWidth: '160px',
+                    fontSize: '1.1rem',
+                  }}
+                >
+                  Learn More
+                </Button>
+              </Box>
             </motion.div>
           </Grid>
-
-          {/* Columna de imagen */}
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} md={5}>
             <motion.div {...imageAnimation}>
               <Box
-                component="img"
-                src={SITE_DATA.images.hero.secondary}
-                alt={t('hero.imageAlt')}
                 sx={{
-                  width: '100%',
-                  borderRadius: '20px',
-                  boxShadow: '0 20px 40px rgba(0,0,0,0.3)',
-                  // Efecto 3D en hover
-                  transform: 'perspective(1000px) rotateY(-15deg)',
-                  transition: 'transform 0.3s ease-in-out',
-                  '&:hover': {
-                    transform: 'perspective(1000px) rotateY(0deg)'
-                  }
+                  position: 'relative',
+                  '&::before': {
+                    content: '""',
+                    position: 'absolute',
+                    top: '-20%',
+                    right: '-20%',
+                    width: '140%',
+                    height: '140%',
+                    background: 'radial-gradient(circle, #00FFA333 0%, transparent 70%)',
+                    filter: 'blur(60px)',
+                    zIndex: 0,
+                  },
                 }}
-              />
+              >
+                <Box
+                  component="img"
+                  src="/hero-illustration.png"
+                  alt="AI Illustration"
+                  sx={{
+                    width: '100%',
+                    height: 'auto',
+                    position: 'relative',
+                    zIndex: 1,
+                  }}
+                />
+              </Box>
             </motion.div>
           </Grid>
         </Grid>
