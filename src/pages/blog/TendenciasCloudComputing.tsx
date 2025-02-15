@@ -1,9 +1,7 @@
 import React from 'react';
 import BlogPost from '../../components/BlogPost';
-import { useTranslation } from 'react-i18next';
 
 const TendenciasCloudComputing: React.FC = () => {
-  const { t } = useTranslation();
 
   const post = {
     title: 'Tendencias en Cloud Computing 2024',

@@ -15,7 +15,6 @@ import {
   Button,
 } from '@mui/material';
 import { motion } from 'framer-motion';
-import { useTranslation } from 'react-i18next';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CodeIcon from '@mui/icons-material/Code';
 import DevicesIcon from '@mui/icons-material/Devices';
@@ -26,7 +25,6 @@ import { Link as RouterLink } from 'react-router-dom';
 
 const WebApplication = () => {
   const theme = useTheme();
-  const { t } = useTranslation();
 
   const features = [
     {

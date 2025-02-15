@@ -15,7 +15,6 @@ import {
   Button,
 } from '@mui/material';
 import { motion } from 'framer-motion';
-import { useTranslation } from 'react-i18next';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import LightbulbIcon from '@mui/icons-material/Lightbulb';
@@ -26,7 +25,6 @@ import { Link as RouterLink } from 'react-router-dom';
 
 const TechnologyConsulting = () => {
   const theme = useTheme();
-  const { t } = useTranslation();
 
   const features = [
     {

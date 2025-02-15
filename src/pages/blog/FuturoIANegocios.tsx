@@ -1,10 +1,7 @@
 import React from 'react';
 import BlogPost from '../../components/BlogPost';
-import { useTranslation } from 'react-i18next';
 
 const FuturoIANegocios: React.FC = () => {
-  const { t } = useTranslation();
-
   const post = {
     title: 'El Futuro de la IA en los Negocios',
     content: `
