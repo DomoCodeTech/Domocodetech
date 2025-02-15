@@ -12,131 +12,121 @@
  * - Iconos ilustrativos
  * - Traducciones en múltiples idiomas
  */
+import { Box, Container, Grid, Typography } from '@mui/material';
+import { motion } from 'framer-motion';
+import CountUp from 'react-countup';
 import { useTranslation } from 'react-i18next';
-import { Box, Grid, Typography } from '@mui/material';
-import { motion, useAnimation } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { useEffect } from 'react';
-import WorkHistoryIcon from '@mui/icons-material/WorkHistory';
-import TaskAltIcon from '@mui/icons-material/TaskAlt';
-import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
-import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
-
-// Configuración de los iconos para cada estadística
-const statIcons = {
-  experience: WorkHistoryIcon,
-  projects: TaskAltIcon,
-  clients: EmojiEventsIcon,
-  team: PeopleAltIcon
-};
+import { useTheme } from '@mui/material/styles';
+import {
+  MdWorkHistory,
+  MdDoneAll,
+  MdPeople,
+  MdGroups,
+} from 'react-icons/md';
 
 const Stats = () => {
-  // Hook de traducción
   const { t } = useTranslation();
-  
-  // Hook para detectar cuando el componente es visible
-  const [ref, inView] = useInView({
-    threshold: 0.1,
-    triggerOnce: true
-  });
+  const theme = useTheme();
 
-  // Controlador de animaciones
-  const controls = useAnimation();
-
-  // Efecto para iniciar la animación cuando el componente es visible
-  useEffect(() => {
-    if (inView) {
-      controls.start('visible');
-    }
-  }, [controls, inView]);
-
-  // Configuración de animaciones
-  const containerVariants = {
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
+  // Extraer el número y el sufijo del string (ejemplo: "10+" -> { value: 10, suffix: "+" })
+  const parseNumberString = (str: string) => {
+    const value = parseInt(str);
+    const suffix = str.replace(/[0-9]/g, '');
+    return { value, suffix };
   };
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: 'easeOut'
-      }
-    }
-  };
+  const stats = t('about.stats', { returnObjects: true }) as Array<{
+    number: string;
+    label: string;
+  }>;
 
-  // Datos de las estadísticas
-  const stats = t('about.stats', { returnObjects: true }) as { number: string; label: string }[];
+  // Iconos para cada estadística
+  const statIcons = [
+    { Icon: MdWorkHistory, color: '#00FFA3' },  // Años de experiencia
+    { Icon: MdDoneAll, color: '#FF6B6B' },      // Proyectos completados
+    { Icon: MdPeople, color: '#4DABF7' },       // Clientes satisfechos
+    { Icon: MdGroups, color: '#FFD93D' },       // Miembros del equipo
+  ];
 
   return (
-    <Box 
-      component="section" 
-      ref={ref}
-      sx={{ 
-        py: { xs: 6, md: 10 },
-        backgroundColor: 'background.paper' 
+    <Box
+      sx={{
+        background: theme.palette.mode === 'dark'
+          ? '#1A1A1A'
+          : '#F8FAFF',
+        py: { xs: 8, md: 12 },
       }}
     >
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate={controls}
-      >
-        <Grid 
-          container 
-          spacing={4} 
-          justifyContent="center"
-          sx={{ px: { xs: 2, md: 4 } }}
-        >
-          {/* Mapeo de las estadísticas */}
-          {stats.map((stat: { number: string; label: string }, index: number) => {
-            // Obtiene el icono correspondiente a la estadística
-            const Icon = Object.values(statIcons)[index];
+      <Container maxWidth="lg">
+        <Grid container spacing={4}>
+          {stats.map((stat, index) => {
+            const { value, suffix } = parseNumberString(stat.number);
+            const { Icon, color } = statIcons[index];
 
             return (
-              <Grid item xs={6} md={3} key={stat.label}>
-                <motion.div variants={itemVariants}>
+              <Grid item xs={6} md={3} key={index}>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                >
                   <Box
                     sx={{
-                      display: 'flex',
-                      flexDirection: 'column',
-                      alignItems: 'center',
-                      textAlign: 'center'
+                      textAlign: 'center',
+                      p: 3,
+                      borderRadius: 2,
+                      background: theme.palette.mode === 'dark'
+                        ? 'linear-gradient(145deg, #1f1f1f 0%, #151515 100%)'
+                        : 'linear-gradient(145deg, #FFFFFF 0%, #F8FAFF 100%)',
+                      boxShadow: theme.palette.mode === 'dark'
+                        ? '0 4px 30px rgba(0, 255, 163, 0.1)'
+                        : '0 4px 30px rgba(0, 0, 0, 0.1)',
+                      '&:hover': {
+                        transform: 'translateY(-5px)',
+                        transition: 'transform 0.3s ease-in-out',
+                        '& .stat-icon': {
+                          transform: 'scale(1.1)',
+                          color: color,
+                        }
+                      },
                     }}
                   >
-                    {/* Icono de la estadística */}
-                    <Icon
+                    <Box
+                      className="stat-icon"
                       sx={{
-                        fontSize: 48,
-                        color: 'primary.main',
-                        mb: 2
-                      }}
-                    />
-                    
-                    {/* Número de la estadística */}
-                    <Typography
-                      variant="h3"
-                      component="p"
-                      sx={{
-                        fontWeight: 'bold',
-                        mb: 1
+                        mb: 2,
+                        display: 'flex',
+                        justifyContent: 'center',
+                        '& > svg': {
+                          fontSize: '2.5rem',
+                          color: theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, 0.7)' : 'rgba(0, 0, 0, 0.7)',
+                          transition: 'all 0.3s ease-in-out',
+                        },
                       }}
                     >
-                      {stat.number}
-                    </Typography>
-                    
-                    {/* Etiqueta de la estadística */}
+                      <Icon />
+                    </Box>
                     <Typography
-                      variant="h6"
-                      component="p"
-                      color="text.secondary"
+                      variant="h2"
+                      sx={{
+                        fontSize: { xs: '2rem', md: '2.5rem' },
+                        fontWeight: 700,
+                        mb: 1,
+                        color: theme.palette.mode === 'dark'
+                          ? 'white'
+                          : 'text.primary',
+                      }}
+                    >
+                      <CountUp end={value} duration={2.5} />
+                      {suffix}
+                    </Typography>
+                    <Typography
+                      variant="body1"
+                      sx={{
+                        color: 'text.secondary',
+                        fontWeight: 500,
+                      }}
                     >
                       {stat.label}
                     </Typography>
@@ -146,7 +136,7 @@ const Stats = () => {
             );
           })}
         </Grid>
-      </motion.div>
+      </Container>
     </Box>
   );
 };

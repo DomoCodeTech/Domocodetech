@@ -7,22 +7,25 @@ import {
   CardContent,
   CardMedia,
   IconButton,
-  Stack
+  Stack,
+  useTheme
 } from '@mui/material';
 import { motion } from 'framer-motion';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import { useTranslation } from 'react-i18next';
+import { SITE_DATA } from '../constants/siteData';
 
 const Team = () => {
   const { t } = useTranslation();
+  const theme = useTheme();
 
   const teamMembers = [
     {
       name: t('team.member1.name'),
       position: t('team.member1.position'),
-      image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg',
+      image: SITE_DATA.images.team.member1,
       description: t('team.member1.description'),
       social: {
         github: 'https://github.com',
@@ -33,7 +36,7 @@ const Team = () => {
     {
       name: t('team.member2.name'),
       position: t('team.member2.position'),
-      image: 'https://images.pexels.com/photos/3796217/pexels-photo-3796217.jpeg',
+      image: SITE_DATA.images.team.member2,
       description: t('team.member2.description'),
       social: {
         github: 'https://github.com',
@@ -44,7 +47,7 @@ const Team = () => {
     {
       name: t('team.member3.name'),
       position: t('team.member3.position'),
-      image: 'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg',
+      image: SITE_DATA.images.team.member3,
       description: t('team.member3.description'),
       social: {
         github: 'https://github.com',
@@ -55,60 +58,127 @@ const Team = () => {
   ];
 
   return (
-    <Box sx={{ py: 8, bgcolor: 'background.default' }}>
+    <Box
+      sx={{
+        py: { xs: 8, md: 12 },
+        background: theme.palette.mode === 'dark'
+          ? 'linear-gradient(180deg, #1A1A1A 0%, #0A0A0A 100%)'
+          : 'linear-gradient(180deg, #F8FAFF 0%, #FFFFFF 100%)',
+      }}
+    >
       <Container maxWidth="lg">
-        <Typography
-          variant="h3"
-          component="h2"
-          textAlign="center"
-          gutterBottom
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
         >
-          {t('team.title')}
-        </Typography>
-        <Typography
-          variant="h6"
-          textAlign="center"
-          color="text.secondary"
-          paragraph
-          sx={{ mb: 6 }}
-        >
-          {t('team.subtitle')}
-        </Typography>
+          <Typography
+            variant="h2"
+            align="center"
+            sx={{
+              mb: 2,
+              color: theme.palette.mode === 'dark' ? 'white' : 'text.primary',
+            }}
+          >
+            {t('team.title')}
+          </Typography>
+          <Typography
+            variant="body1"
+            align="center"
+            sx={{
+              color: 'text.secondary',
+              mb: 8,
+              maxWidth: '600px',
+              mx: 'auto',
+            }}
+          >
+            {t('team.subtitle')}
+          </Typography>
+        </motion.div>
 
-        <Grid container spacing={4}>
+        <Grid container spacing={4} alignItems="stretch">
           {teamMembers.map((member, index) => (
-            <Grid item xs={12} md={4} key={member.name}>
+            <Grid item xs={12} sm={6} md={4} key={member.name}>
               <motion.div
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.2 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                style={{ height: '100%' }}
               >
-                <Card className="hover-glow">
-                  <CardMedia
-                    component="img"
-                    height="300"
-                    image={member.image}
-                    alt={member.name}
+                <Card
+                  sx={{
+                    height: '100%',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    background: theme.palette.mode === 'dark'
+                      ? 'linear-gradient(145deg, #1f1f1f 0%, #151515 100%)'
+                      : '#FFFFFF',
+                    boxShadow: theme.palette.mode === 'dark'
+                      ? '0 8px 32px rgba(0, 0, 0, 0.5)'
+                      : '0 8px 32px rgba(0, 0, 0, 0.08)',
+                    transition: 'all 0.3s ease-in-out',
+                    '&:hover': {
+                      transform: 'translateY(-8px)',
+                      boxShadow: theme.palette.mode === 'dark'
+                        ? '0 12px 40px rgba(0, 0, 0, 0.7)'
+                        : '0 12px 40px rgba(0, 0, 0, 0.12)',
+                      '& .member-image': {
+                        transform: 'scale(1.05)',
+                      },
+                    },
+                  }}
+                >
+                  <Box
                     sx={{
-                      objectFit: 'cover',
-                      objectPosition: 'center'
+                      position: 'relative',
+                      paddingTop: '75%', // 4:3 aspect ratio
+                      overflow: 'hidden',
                     }}
-                  />
-                  <CardContent>
-                    <Typography variant="h5" gutterBottom>
+                  >
+                    <CardMedia
+                      component="img"
+                      image={member.image}
+                      alt={member.name}
+                      className="member-image"
+                      sx={{
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        transition: 'transform 0.3s ease-in-out',
+                      }}
+                    />
+                  </Box>
+                  <CardContent sx={{ flexGrow: 1, p: 3 }}>
+                    <Typography
+                      variant="h5"
+                      gutterBottom
+                      sx={{
+                        fontWeight: 600,
+                        color: theme.palette.mode === 'dark' ? 'white' : 'text.primary',
+                      }}
+                    >
                       {member.name}
                     </Typography>
                     <Typography
                       variant="subtitle1"
-                      color="primary"
-                      gutterBottom
+                      sx={{
+                        color: 'primary.main',
+                        mb: 2,
+                      }}
                     >
                       {member.position}
                     </Typography>
                     <Typography
                       variant="body2"
-                      color="text.secondary"
-                      paragraph
+                      sx={{
+                        color: 'text.secondary',
+                        mb: 3,
+                      }}
                     >
                       {member.description}
                     </Typography>
@@ -122,7 +192,12 @@ const Team = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                         size="small"
-                        className="hover-glow"
+                        sx={{
+                          color: theme.palette.mode === 'dark' ? 'white' : 'text.primary',
+                          '&:hover': {
+                            color: 'primary.main',
+                          },
+                        }}
                       >
                         <GitHubIcon />
                       </IconButton>
@@ -131,7 +206,12 @@ const Team = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                         size="small"
-                        className="hover-glow"
+                        sx={{
+                          color: theme.palette.mode === 'dark' ? 'white' : 'text.primary',
+                          '&:hover': {
+                            color: 'primary.main',
+                          },
+                        }}
                       >
                         <LinkedInIcon />
                       </IconButton>
@@ -140,7 +220,12 @@ const Team = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                         size="small"
-                        className="hover-glow"
+                        sx={{
+                          color: theme.palette.mode === 'dark' ? 'white' : 'text.primary',
+                          '&:hover': {
+                            color: 'primary.main',
+                          },
+                        }}
                       >
                         <TwitterIcon />
                       </IconButton>

@@ -1,0 +1,24 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://domocodetech.com/sitemap.xml
+
+# Directories
+Disallow: /admin/
+Disallow: /private/
+Disallow: /api/
+
+# Files
+Disallow: /*.json$
+Disallow: /*.xml$
+Disallow: /*.txt$
+
+# Allow CSS, JavaScript, and Images
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.gif$
+Allow: /*.svg$
+Allow: /*.webp$ 

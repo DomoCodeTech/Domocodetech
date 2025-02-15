@@ -80,21 +80,37 @@ const Navbar: React.FC<NavbarProps> = ({
   return (
     <AppBar 
       position="fixed"
+      elevation={0}
       sx={{
-        bgcolor: alpha(theme.palette.background.default, 0.8),
-        backdropFilter: 'blur(12px)',
-        boxShadow: theme.shadows[3],
-        top: { xs: 0, md: '20px' },
+        background: theme.palette.mode === 'dark'
+          ? 'rgba(10, 10, 10, 0.5)'
+          : 'rgba(240, 247, 255, 0.5)',
+        backdropFilter: 'blur(10px)',
+        boxShadow: theme.palette.mode === 'dark'
+          ? '0 4px 30px rgba(0, 0, 0, 0.15)'
+          : '0 4px 30px rgba(42, 67, 101, 0.1)',
+        top: { xs: '16px', md: '20px' },
         left: '50%',
         transform: 'translateX(-50%)',
-        width: { xs: '100%', md: '90%' },
+        width: { xs: 'calc(100% - 32px)', md: '90%' },
         maxWidth: '1200px',
-        borderRadius: { xs: 0, md: '16px' },
-        margin: '0 auto'
+        borderRadius: '16px',
+        margin: '0 auto',
+        border: '1px solid',
+        borderColor: theme.palette.mode === 'dark'
+          ? 'rgba(255, 255, 255, 0.05)'
+          : 'rgba(255, 255, 255, 0.5)',
       }}
     >
       <Container maxWidth="lg">
-        <Toolbar disableGutters>
+        <Toolbar 
+          disableGutters
+          sx={{ 
+            minHeight: { xs: '56px', sm: '64px' },
+            transition: 'all 0.3s ease',
+            px: { xs: 2, sm: 3 }
+          }}
+        >
           {/* Logo - Desktop */}
           <Typography
             variant="h6"
@@ -105,23 +121,35 @@ const Navbar: React.FC<NavbarProps> = ({
               mr: 2,
               display: { xs: 'none', md: 'flex' },
               fontWeight: 700,
-              color: 'primary.main',
+              color: theme.palette.mode === 'dark' ? 'primary.main' : 'primary.dark',
               textDecoration: 'none',
-              letterSpacing: '.1rem'
+              letterSpacing: '.1rem',
+              transition: 'all 0.3s ease',
+              fontSize: { xs: '1.1rem', sm: '1.25rem' }
             }}
           >
             {content.logo}
           </Typography>
 
           {/* Mobile Menu */}
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+          <Box sx={{ 
+            flexGrow: 0, 
+            display: { xs: 'flex', md: 'none' },
+            mr: 1
+          }}>
             <IconButton
               size="large"
               aria-label="menu"
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
-              color="inherit"
+              sx={{ 
+                color: theme.palette.text.primary,
+                transition: 'all 0.2s ease',
+                '&:hover': {
+                  backgroundColor: alpha(theme.palette.primary.main, 0.1)
+                }
+              }}
             >
               <MenuIcon />
             </IconButton>
@@ -141,6 +169,36 @@ const Navbar: React.FC<NavbarProps> = ({
               onClose={handleCloseNavMenu}
               sx={{
                 display: { xs: 'block', md: 'none' },
+                '& .MuiPaper-root': {
+                  backgroundColor: theme.palette.mode === 'dark' 
+                    ? alpha(theme.palette.background.paper, 0.95)
+                    : theme.palette.background.paper,
+                  boxShadow: theme.shadows[8],
+                  borderRadius: '12px',
+                  mt: 1,
+                  minWidth: '200px',
+                  backdropFilter: 'blur(8px)'
+                },
+                '& .MuiMenuItem-root': {
+                  py: 1.5,
+                  px: 2.5,
+                  borderRadius: '8px',
+                  mx: 1,
+                  my: 0.5,
+                  transition: 'all 0.2s ease',
+                  '&.Mui-selected': {
+                    backgroundColor: alpha(theme.palette.primary.main, 0.15),
+                    '&:hover': {
+                      backgroundColor: alpha(theme.palette.primary.main, 0.25),
+                    }
+                  },
+                  '&:hover': {
+                    backgroundColor: alpha(theme.palette.primary.main, 0.1)
+                  }
+                },
+                '& .MuiList-root': {
+                  py: 1
+                }
               }}
             >
               {content.pages.map((page) => (
@@ -151,7 +209,16 @@ const Navbar: React.FC<NavbarProps> = ({
                   to={page.path}
                   selected={location.pathname === page.path}
                 >
-                  <Typography textAlign="center">{page.name}</Typography>
+                  <Typography 
+                    sx={{ 
+                      fontWeight: location.pathname === page.path ? 600 : 400,
+                      color: location.pathname === page.path 
+                        ? 'primary.main' 
+                        : 'text.primary'
+                    }}
+                  >
+                    {page.name}
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -164,17 +231,25 @@ const Navbar: React.FC<NavbarProps> = ({
             component={RouterLink}
             to="/"
             sx={{
-              mr: 2,
               display: { xs: 'flex', md: 'none' },
               flexGrow: 1,
               fontWeight: 700,
-              color: 'primary.main',
+              color: theme.palette.mode === 'dark' ? 'primary.main' : 'primary.dark',
               textDecoration: 'none',
-              letterSpacing: '.1rem'
+              letterSpacing: '.1rem',
+              transition: 'all 0.3s ease',
+              fontSize: { xs: '1.1rem', sm: '1.25rem' },
+              position: 'absolute',
+              left: '50%',
+              transform: 'translateX(-50%)',
+              pointerEvents: 'none' // Evita que el logo sea clickeable en mobile
             }}
           >
             {content.logo}
           </Typography>
+
+          {/* Añadir un espaciador para mantener el layout en mobile */}
+          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }} />
 
           {/* Desktop Menu */}
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
@@ -212,22 +287,42 @@ const Navbar: React.FC<NavbarProps> = ({
             ))}
           </Box>
 
-          {/* Selector de idioma */}
+          {/* Selector de idioma y tema */}
           <Box sx={{ flexGrow: 0, display: 'flex', alignItems: 'center' }}>
-            <IconButton onClick={handleOpenLangMenu} color="inherit">
+            <IconButton 
+              onClick={handleOpenLangMenu} 
+              sx={{ color: theme.palette.text.primary }}
+            >
               <LanguageIcon />
             </IconButton>
             <Menu
               anchorEl={anchorElLang}
               open={Boolean(anchorElLang)}
               onClose={handleCloseLangMenu}
+              sx={{
+                '& .MuiPaper-root': {
+                  backgroundColor: theme.palette.background.paper,
+                  boxShadow: theme.shadows[3],
+                  borderRadius: '8px',
+                  mt: 1
+                },
+                '& .MuiMenuItem-root': {
+                  py: 1,
+                  px: 2,
+                  '&:hover': {
+                    backgroundColor: alpha(theme.palette.primary.main, 0.05)
+                  }
+                }
+              }}
             >
               <MenuItem onClick={() => changeLanguage('en')}>English</MenuItem>
               <MenuItem onClick={() => changeLanguage('es')}>Español</MenuItem>
             </Menu>
 
-            {/* Selector de tema claro/oscuro */}
-            <IconButton onClick={toggleDarkMode} color="inherit">
+            <IconButton 
+              onClick={toggleDarkMode} 
+              sx={{ color: theme.palette.text.primary }}
+            >
               {isDarkMode ? <Brightness7Icon /> : <Brightness4Icon />}
             </IconButton>
           </Box>

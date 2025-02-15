@@ -8,9 +8,9 @@ export const esTranslations = {
    * Detalles básicos sobre la empresa utilizados en todo el sitio
    */
   company: {
-    slogan: 'Innovación Tecnológica para el Futuro',
-    address: 'Calle Tecnología 123, Madrid, España',
-    workingHours: 'Lun - Vie: 9:00 - 18:00',
+    slogan: 'Soluciones de IA adaptadas a las necesidades de tu negocio',
+    address: 'Autopista Nte. #108-27, Bogotá, Colombia',
+    workingHours: '7:00 a.m. - 5:00 p.m.',
   },
   // Navigation
   nav: {
@@ -27,8 +27,8 @@ export const esTranslations = {
   },
   // Hero Section
   hero: {
-    slogan: 'Tu Socio Tecnológico de Confianza',
-    subtitle: 'Soluciones innovadoras para la era digital',
+    slogan: 'Transforma tu negocio con IA',
+    subtitle: 'Proveemos soluciones innovadoras para tus necesidades tecnológicas',
     getQuote: 'Cotización Gratis',
     imageAlt: 'Equipo trabajando en tecnología'
   },
@@ -36,10 +36,23 @@ export const esTranslations = {
   services: {
     title: 'Nuestros Servicios',
     subtitle: 'Soluciones tecnológicas profesionales para tu negocio',
+    introduction: 'Nos especializamos en ofrecer soluciones tecnológicas de vanguardia que ayudan a las empresas a prosperar en la era digital. Nuestra amplia gama de servicios está diseñada para satisfacer todas tus necesidades tecnológicas en un solo lugar.',
+    highlight1: {
+      title: 'Equipo Experto',
+      description: 'Nuestros profesionales certificados aportan años de experiencia y conocimientos a cada proyecto.'
+    },
+    highlight2: {
+      title: 'Soluciones a Medida',
+      description: 'Soluciones personalizadas diseñadas específicamente para las necesidades y objetivos de tu negocio.'
+    },
+    highlight3: {
+      title: 'Soporte 24/7',
+      description: 'Soporte técnico las 24 horas para garantizar el funcionamiento óptimo de tus sistemas.'
+    },
+    viewMore: 'Ver Más',
     domotics: {
       title: 'Domótica',
-      shortDescription: 'Automatización y control inteligente para tu hogar',
-      fullDescription: 'Transformamos espacios convencionales en hogares inteligentes con tecnología de vanguardia. Control por voz, automatización y eficiencia energética.',
+      description: 'Sistemas inteligentes para hogares y oficinas.',
       features: [
         'Control por voz y app móvil',
         'Iluminación inteligente',
@@ -49,9 +62,8 @@ export const esTranslations = {
       ]
     },
     electronics: {
-      title: 'Electrónica Avanzada',
-      shortDescription: 'Soluciones electrónicas personalizadas',
-      fullDescription: 'Diseño y desarrollo de sistemas electrónicos a medida para proyectos industriales y personales.',
+      title: 'Electrónica Digital y Robótica',
+      description: 'Diseño y desarrollo de sistemas electrónicos avanzados.',
       features: [
         'Diseño de PCB',
         'Prototipado rápido',
@@ -60,28 +72,48 @@ export const esTranslations = {
         'Sensores y actuadores'
       ]
     },
-    robotics: {
-      title: 'Robótica e IA',
-      shortDescription: 'Automatización inteligente y robótica avanzada',
-      fullDescription: 'Desarrollo de soluciones robóticas con inteligencia artificial para automatización y optimización de procesos.',
+    networks: {
+      title: 'Redes y Sistemas',
+      description: 'Instalación, configuración y mantenimiento de redes de hogar y empresariales.',
       features: [
-        'Robots industriales',
-        'Cobots colaborativos',
-        'Sistemas de visión artificial',
-        'Machine Learning',
-        'Automatización de procesos'
+        'Configuración de redes',
+        'Configuración de sistemas',
+        'Implementación de seguridad',
+        'Optimización de rendimiento',
+        'Servicios de mantenimiento'
+      ]
+    },
+    support: {
+      title: 'Soporte Técnico',
+      description: 'Reparación y optimización de equipos de cómputo.',
+      features: [
+        'Reparación de hardware',
+        'Solución de problemas de software',
+        'Optimización de sistemas',
+        'Recuperación de datos',
+        'Mantenimiento preventivo'
       ]
     },
     software: {
       title: 'Desarrollo de Software',
-      shortDescription: 'Software y aplicaciones web a medida',
-      fullDescription: 'Creación de aplicaciones web modernas, software empresarial y soluciones móviles adaptadas a tus necesidades.',
+      description: 'Aplicaciones multiplataforma, Android nativo, sitios web, landing pages y e-commerce.',
       features: [
         'Aplicaciones web',
         'Apps móviles',
         'Software empresarial',
         'APIs y microservicios',
         'Bases de datos'
+      ]
+    },
+    microcontrollers: {
+      title: 'Programación de Microcontroladores',
+      description: 'Soluciones para IoT, automatización y control de dispositivos electrónicos.',
+      features: [
+        'Soluciones IoT',
+        'Automatización de dispositivos',
+        'Control electrónico',
+        'Firmware personalizado',
+        'Sistemas embebidos'
       ]
     }
   },
@@ -109,6 +141,19 @@ export const esTranslations = {
   about: {
     title: 'Sobre Nosotros',
     subtitle: 'Construyendo el futuro con tecnología',
+    introduction: 'Desde nuestra fundación, hemos estado a la vanguardia de la innovación tecnológica, ayudando a empresas e individuos a aprovechar el poder de las soluciones más avanzadas. Nuestro camino está marcado por el crecimiento continuo, el aprendizaje y la adaptación a las tecnologías emergentes.',
+    highlight1: {
+      title: 'Innovación Primero',
+      description: 'Nos mantenemos adelante de las tendencias tecnológicas para brindarte las últimas soluciones.'
+    },
+    highlight2: {
+      title: 'Éxito del Cliente',
+      description: 'Tu éxito es nuestra prioridad, con un enfoque en entregar resultados medibles.'
+    },
+    highlight3: {
+      title: 'Alcance Global',
+      description: 'Servimos a clientes en todo el mundo con soluciones y soporte localizados.'
+    },
     stats: [
       {
         number: '10+',
@@ -163,12 +208,20 @@ export const esTranslations = {
     title: 'Últimas Noticias y Perspectivas',
     subtitle: 'Mantente actualizado con nuestros últimos desarrollos tecnológicos',
     readMore: 'Leer Más',
+    sortBy: 'Ordenar por',
+    newest: 'Más recientes',
+    oldest: 'Más antiguos',
+    aboutAuthor: 'Sobre el Autor',
+    authorRole: 'Especialista en Tecnología',
+    authorBio: 'Profesional con amplia experiencia en el sector tecnológico, dedicado a compartir conocimientos y mejores prácticas para ayudar a las empresas a alcanzar sus objetivos digitales.',
     categories: {
       all: 'Todo',
       technology: 'Tecnología',
       innovation: 'Innovación',
       automation: 'Automatización',
-      ai: 'Inteligencia Artificial'
+      ai: 'Inteligencia Artificial',
+      security: 'Seguridad',
+      iot: 'IoT'
     },
     featuredPosts: [
       {
@@ -176,24 +229,66 @@ export const esTranslations = {
         title: 'El Futuro de la IA en los Negocios',
         excerpt: 'Explorando cómo la inteligencia artificial está transformando las operaciones empresariales modernas...',
         image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg',
-        category: 'IA',
-        date: '2024-03-15'
+        category: 'ai',
+        date: '2024-03-15',
+        author: 'Carlos Rodríguez',
+        readTime: '5 min',
+        slug: 'futuro-ia-negocios'
       },
       {
         id: 2,
         title: 'Tendencias en Cloud Computing 2024',
         excerpt: 'Últimas tendencias e innovaciones en computación en la nube que están dando forma a la industria...',
         image: 'https://images.pexels.com/photos/325229/pexels-photo-325229.jpeg',
-        category: 'Tecnología',
-        date: '2024-03-10'
+        category: 'technology',
+        date: '2024-03-10',
+        author: 'Ana Martínez',
+        readTime: '4 min',
+        slug: 'tendencias-cloud-computing-2024'
       },
       {
         id: 3,
         title: 'Mejores Prácticas de Ciberseguridad',
         excerpt: 'Medidas esenciales de ciberseguridad que toda empresa debe implementar...',
         image: 'https://images.pexels.com/photos/5380642/pexels-photo-5380642.jpeg',
-        category: 'Seguridad',
-        date: '2024-03-05'
+        category: 'security',
+        date: '2024-03-05',
+        author: 'Miguel Sánchez',
+        readTime: '6 min',
+        slug: 'mejores-practicas-ciberseguridad'
+      },
+      {
+        id: 4,
+        title: 'Revolución IoT en la Industria 4.0',
+        excerpt: 'Cómo el Internet de las Cosas está transformando la manufactura y la producción industrial...',
+        image: 'https://images.pexels.com/photos/3912981/pexels-photo-3912981.jpeg',
+        category: 'iot',
+        date: '2024-03-01',
+        author: 'Laura Gómez',
+        readTime: '7 min',
+        slug: 'revolucion-iot-industria'
+      },
+      {
+        id: 5,
+        title: 'Automatización Robótica de Procesos',
+        excerpt: 'Implementación de RPA para optimizar operaciones empresariales y reducir costos...',
+        image: 'https://images.pexels.com/photos/8566472/pexels-photo-8566472.jpeg',
+        category: 'automation',
+        date: '2024-02-25',
+        author: 'David Kim',
+        readTime: '5 min',
+        slug: 'automatizacion-robotica-procesos'
+      },
+      {
+        id: 6,
+        title: 'Innovaciones en Desarrollo Web',
+        excerpt: 'Las últimas tecnologías y frameworks que están revolucionando el desarrollo web...',
+        image: 'https://images.pexels.com/photos/574071/pexels-photo-574071.jpeg',
+        category: 'technology',
+        date: '2024-02-20',
+        author: 'Sofia Torres',
+        readTime: '4 min',
+        slug: 'innovaciones-desarrollo-web'
       }
     ]
   },
@@ -333,15 +428,16 @@ export const esTranslations = {
       }
     }
   },
+  // Projects Section
   projects: {
     title: 'Nuestros Proyectos',
-    subtitle: 'Explora nuestro portafolio que muestra soluciones robustas en proyectos realizados.',
+    subtitle: 'Explora nuestro portafolio de soluciones robustas.',
     web: {
       title: 'Aplicación Web',
-      description: 'Una plataforma web moderna con un diseño responsivo para una experiencia óptima.',
+      description: 'Una plataforma web moderna con diseño responsivo para una experiencia de usuario perfecta.',
       features: [
         'Diseño responsivo',
-        'Compatibilidad entre navegadores',
+        'Compatibilidad multiplataforma',
         'Diseño UI/UX moderno'
       ]
     },
@@ -351,16 +447,34 @@ export const esTranslations = {
       features: [
         'Interfaz amigable',
         'Alto rendimiento',
-        'Integración fluida con APIs'
+        'Integración perfecta con APIs'
       ]
     },
     software: {
       title: 'Desarrollo de Software',
-      description: 'Soluciones de software a medida desarrolladas con tecnología de vanguardia.',
+      description: 'Soluciones de software personalizadas construidas con tecnología de vanguardia.',
       features: [
         'Diseño de software personalizado',
         'Arquitectura robusta',
         'Funcionalidad multiplataforma'
+      ]
+    },
+    iot: {
+      title: 'Soluciones IoT',
+      description: 'Dispositivos y sistemas inteligentes para monitoreo y control automatizado.',
+      features: [
+        'Integración de dispositivos inteligentes',
+        'Monitoreo en tiempo real',
+        'Conectividad en la nube'
+      ]
+    },
+    ecommerce: {
+      title: 'Plataforma E-commerce',
+      description: 'Solución completa de tienda en línea con características avanzadas.',
+      features: [
+        'Pasarela de pago segura',
+        'Gestión de inventario',
+        'Panel de análisis'
       ]
     },
     featuresTitle: 'Características'

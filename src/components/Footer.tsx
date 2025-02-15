@@ -104,14 +104,25 @@ const Footer: React.FC = () => {
       component="footer"
       sx={{
         bgcolor: alpha(theme.palette.background.paper, 0.1),
-        py: 6,
-        position: 'relative'
+        py: { xs: 8, md: 6 },
+        position: 'relative',
+        '&::before': {
+          content: '""',
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          height: '1px',
+          background: theme.palette.mode === 'dark'
+            ? 'linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent)'
+            : 'linear-gradient(90deg, transparent, rgba(0,0,0,0.1), transparent)',
+        }
       }}
     >
       <Container maxWidth="lg">
-        <Grid container spacing={4}>
+        <Grid container spacing={{ xs: 4, md: 4 }}>
           {/* Company Info */}
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} sm={6} md={4}>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -121,7 +132,10 @@ const Footer: React.FC = () => {
                 variant="h6"
                 gutterBottom
                 className="gradient-text"
-                sx={{ fontWeight: 700 }}
+                sx={{ 
+                  fontWeight: 700,
+                  textAlign: { xs: 'center', sm: 'left' }
+                }}
               >
                 {content.company}
               </Typography>
@@ -129,11 +143,21 @@ const Footer: React.FC = () => {
                 variant="body2"
                 color="text.secondary"
                 paragraph
-                sx={{ mb: 2 }}
+                sx={{ 
+                  mb: 2,
+                  textAlign: { xs: 'center', sm: 'left' }
+                }}
               >
                 {content.description}
               </Typography>
-              <Stack direction="row" spacing={1}>
+              <Stack 
+                direction="row" 
+                spacing={1}
+                sx={{
+                  justifyContent: { xs: 'center', sm: 'flex-start' },
+                  mb: { xs: 3, sm: 0 }
+                }}
+              >
                 {content.social.links.map((social) => (
                   <IconButton
                     key={social.name}
@@ -144,8 +168,10 @@ const Footer: React.FC = () => {
                     className="hover-glow"
                     sx={{
                       color: 'text.secondary',
+                      transition: 'all 0.3s ease',
                       '&:hover': {
-                        color: 'primary.main'
+                        color: 'primary.main',
+                        transform: 'translateY(-3px)'
                       }
                     }}
                   >
@@ -157,8 +183,8 @@ const Footer: React.FC = () => {
           </Grid>
 
           {/* Links Sections */}
-          {(Object.entries(content.sections) as [keyof typeof content.sections, Section][]).map(([key, section], index) => (
-            <Grid item xs={12} sm={6} md={2} key={key}>
+          {Object.entries(content.sections).map(([key, section], index) => (
+            <Grid item xs={6} sm={6} md={2} key={key}>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -167,11 +193,15 @@ const Footer: React.FC = () => {
                 <Typography
                   variant="h6"
                   gutterBottom
-                  sx={{ fontWeight: 600 }}
+                  sx={{ 
+                    fontWeight: 600,
+                    fontSize: { xs: '1rem', sm: '1.25rem' },
+                    textAlign: { xs: 'left', sm: 'left' }
+                  }}
                 >
                   {section.title}
                 </Typography>
-                <Stack spacing={1}>
+                <Stack spacing={1.5}>
                   {section.links.map((link) => (
                     <Link
                       key={link.name}
@@ -180,8 +210,11 @@ const Footer: React.FC = () => {
                       color="text.secondary"
                       sx={{
                         textDecoration: 'none',
+                        fontSize: { xs: '0.875rem', sm: '1rem' },
+                        transition: 'all 0.3s ease',
                         '&:hover': {
-                          color: 'primary.main'
+                          color: 'primary.main',
+                          transform: 'translateX(5px)'
                         }
                       }}
                     >
@@ -197,8 +230,8 @@ const Footer: React.FC = () => {
         {/* Copyright */}
         <Box
           sx={{
-            mt: 8,
-            pt: 4,
+            mt: { xs: 6, md: 8 },
+            pt: 3,
             borderTop: 1,
             borderColor: 'divider',
             textAlign: 'center'
@@ -207,6 +240,9 @@ const Footer: React.FC = () => {
           <Typography
             variant="body2"
             color="text.secondary"
+            sx={{
+              fontSize: { xs: '0.75rem', sm: '0.875rem' }
+            }}
           >
             {content.copyright}
           </Typography>

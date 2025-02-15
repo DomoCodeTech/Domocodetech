@@ -13,9 +13,14 @@ import Blog from './pages/Blog';
 import Services from './pages/Services';
 import Contact from './pages/Contact';
 import { createAppTheme } from './theme/theme';
-import './App.css';
 import './i18n/i18n';
 import Projects from './pages/Projects';
+import FuturoIANegocios from './pages/blog/FuturoIANegocios';
+import TendenciasCloudComputing from './pages/blog/TendenciasCloudComputing';
+import MejoresPracticasCiberseguridad from './pages/blog/MejoresPracticasCiberseguridad';
+import WebApplication from './pages/projects/WebApplication';
+import MobileApplication from './pages/projects/MobileApplication';
+import TechnologyConsulting from './pages/projects/TechnologyConsulting';
 
 function App() {
   // Estado para controlar el modo oscuro/claro
@@ -58,10 +63,16 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
-              <Route path="/blog" element={<Blog />} />
               <Route path="/services" element={<Services />} />
-              <Route path="/contact" element={<Contact />} />
               <Route path="/projects" element={<Projects />} />
+              <Route path="/projects/web" element={<WebApplication />} />
+              <Route path="/projects/mobile" element={<MobileApplication />} />
+              <Route path="/projects/consulting" element={<TechnologyConsulting />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/blog/futuro-ia-negocios" element={<FuturoIANegocios />} />
+              <Route path="/blog/tendencias-cloud-computing-2024" element={<TendenciasCloudComputing />} />
+              <Route path="/blog/mejores-practicas-ciberseguridad" element={<MejoresPracticasCiberseguridad />} />
+              <Route path="/contact" element={<Contact />} />
             </Routes>
           </main>
           {/* Footer es persistente en todas las rutas */}

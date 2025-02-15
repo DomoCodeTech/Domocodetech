@@ -7,85 +7,36 @@
  * - Testimonios de clientes
  * - Llamada a la acción (CTA)
  */
-import React from 'react';
-import { Container,  Box } from '@mui/material';
-import { motion } from 'framer-motion';
 import Testimonials from '../components/Testimonials';
 import Team from '../components/Team';
 import Hero from '../components/Hero';
-import Projects from '../components/ProjectsSection';
+import ProjectsSection from '../components/ProjectsSection';
 import Stats from '../components/Stats';
 import CTA from '../components/CTA';
 import ServicesSection from '../components/ServicesSection';
+import { Container, Box, useTheme } from '@mui/material';
 
-const Home: React.FC = () => {
-
-  // Configuración de animaciones para elementos
-  const fadeInUp = {
-    initial: { opacity: 0, y: 60 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.6 }
-  };
+const Home = () => {
+  const theme = useTheme();
 
   return (
-    <Box component="div">
-      {/* Hero Section - Banner principal */}
-      <Hero />
-
-      {/* Sección de Projects */}
-      <Box component="section" sx={{ py: 8 }}>
-        <Container maxWidth="lg">
-          <motion.div {...fadeInUp}>
-            <Projects />
-          </motion.div>
-        </Container>
-      </Box>
-
-      {/* Sección de Estadísticas */}
-      <Box 
-        component="section" 
-        sx={{ 
-          py: 8, 
-          backgroundColor: 'background.paper' 
-        }}
-      >
-        <Container maxWidth="lg">
-          <motion.div {...fadeInUp}>
-            <Stats />
-          </motion.div>
-        </Container>
-      </Box>
-
-      {/* Sección de Testimonios */}
-      <Box component="section" sx={{ py: 8 }}>
-        <Container maxWidth="lg">
-          <motion.div {...fadeInUp}>
-            <Testimonials />
-          </motion.div>
-        </Container>
-      </Box>
-
-      {/* Sección de Llamada a la Acción (CTA) */}
-      <Box 
-        component="section" 
-        sx={{ 
-          py: 8, 
-          backgroundColor: 'primary.main',
-          color: 'primary.contrastText'
-        }}
-      >
-        <Container maxWidth="lg">
-          <motion.div {...fadeInUp}>
-            <CTA />
-          </motion.div>
-        </Container>
-      </Box>
-
-      {/* Services Section */}
-      <ServicesSection />
-
-      {/* Team Section */}
-      <Team />
+    <Box
+      sx={{
+        background: theme.palette.mode === 'dark'
+          ? 'linear-gradient(180deg, #0A0A0A 0%, #1A1A1A 100%)'
+          : 'linear-gradient(180deg, #F0F7FF 0%, #E6FFF6 100%)',
+        minHeight: '100vh',
+      }}
+    >
+      <Container maxWidth="lg">
+        <Hero />
+        <Stats />
+        <ServicesSection />
+        <ProjectsSection />
+        <Testimonials />
+        <CTA />
+        <Team />
+      </Container>
     </Box>
   );
 };

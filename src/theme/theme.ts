@@ -1,109 +1,104 @@
-import { createTheme } from '@mui/material';
+import { createTheme, responsiveFontSizes } from '@mui/material';
 
-export const createAppTheme = (isDarkMode: boolean) =>
-  createTheme({
+// ============= CUSTOMIZE YOUR COLOR PALETTE HERE =============
+const colorPalette = {
+  // Primary color and its variations
+  primary: {
+    main: '#00FFA3',      // Teal accent color
+    light: '#33ffb5',    // Lighter version
+    dark: '#00cc82',      // Darker version
+  },
+  // Secondary/Accent color
+  secondary: {
+    main: '#1A1A1A',      // Dark background
+    light: '#2A2A2A',     // Lighter version
+    dark: '#0A0A0A',      // Darker version
+  },
+  // Status colors
+  status: {
+    error: 'rgb(244, 67, 54)',      // #f44336
+    warning: 'rgb(255, 152, 0)',    // #ff9800
+    info: 'rgb(3, 169, 244)',       // #03a9f4
+    success: 'rgb(76, 175, 80)',    // #4caf50
+  }
+};
+
+// Theme configuration
+export const createAppTheme = (isDarkMode: boolean) => {
+  // Create base theme
+  let theme = createTheme({
     palette: {
       mode: isDarkMode ? 'dark' : 'light',
-      primary: {
-        main: '#2196f3',
-        light: '#64b5f6',
-        dark: '#1976d2'
-      },
-      secondary: {
-        main: '#f50057',
-        light: '#ff4081',
-        dark: '#c51162'
-      },
+      primary: colorPalette.primary,
+      secondary: colorPalette.secondary,
       background: {
-        default: isDarkMode ? '#0a192f' : '#f8faff',
-        paper: isDarkMode ? '#112240' : '#ffffff',
+        default: isDarkMode ? '#0A0A0A' : '#F0F7FF',
+        paper: isDarkMode ? '#1A1A1A' : '#FFFFFF',
       },
       text: {
-        primary: isDarkMode ? '#e6f1ff' : '#2d3748',
-        secondary: isDarkMode ? '#8892b0' : '#4a5568',
+        primary: isDarkMode ? '#FFFFFF' : '#1A1A1A',
+        secondary: isDarkMode ? '#AAAAAA' : '#2A4365',
       },
-      error: {
-        main: '#f44336'
-      },
-      warning: {
-        main: '#ff9800'
-      },
-      info: {
-        main: '#03a9f4'
-      },
-      success: {
-        main: '#4caf50'
-      },
-      divider: isDarkMode ? 'rgba(230, 241, 255, 0.12)' : 'rgba(0, 0, 0, 0.12)'
+      error: { main: colorPalette.status.error },
+      warning: { main: colorPalette.status.warning },
+      info: { main: colorPalette.status.info },
+      success: { main: colorPalette.status.success },
+      divider: isDarkMode ? 'rgba(230, 241, 255, 0.12)' : 'rgba(42, 67, 101, 0.08)'
     },
     typography: {
-      fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+      fontFamily: '"Inter", "Roboto", "Helvetica", "Arial", sans-serif',
       h1: {
         fontSize: '3.5rem',
         fontWeight: 700,
         lineHeight: 1.2,
-        background: isDarkMode 
-          ? 'linear-gradient(45deg, #e6f1ff 30%, #8892b0 90%)'
-          : 'linear-gradient(45deg, #2196f3 30%, #f50057 90%)',
-        WebkitBackgroundClip: 'text',
-        WebkitTextFillColor: 'transparent',
+        color: isDarkMode ? '#FFFFFF' : '#1A1A1A',
       },
       h2: {
-        fontSize: '2.75rem',
-        fontWeight: 600,
+        fontSize: '2.5rem',
+        fontWeight: 700,
         lineHeight: 1.3,
+        color: isDarkMode ? '#FFFFFF' : '#1A1A1A',
       },
       h3: {
-        fontSize: '2.25rem',
+        fontSize: '2rem',
         fontWeight: 600,
-        lineHeight: 1.3,
-      },
-      h4: {
-        fontSize: '1.75rem',
-        fontWeight: 500,
         lineHeight: 1.4,
-      },
-      h5: {
-        fontSize: '1.5rem',
-        fontWeight: 500,
-        lineHeight: 1.4,
-      },
-      h6: {
-        fontSize: '1.25rem',
-        fontWeight: 500,
-        lineHeight: 1.4,
+        color: isDarkMode ? '#FFFFFF' : '#1A1A1A',
       },
       body1: {
         fontSize: '1rem',
-        lineHeight: 1.6,
+        lineHeight: 1.5,
+        color: isDarkMode ? '#AAAAAA' : '#2A4365',
       },
-      body2: {
-        fontSize: '0.875rem',
-        lineHeight: 1.6,
+      button: {
+        textTransform: 'none',
+        fontWeight: 600,
       },
     },
     components: {
       MuiButton: {
         styleOverrides: {
           root: {
-            textTransform: 'none',
             borderRadius: '8px',
-            padding: '8px 24px',
-            transition: 'all 0.3s ease-in-out',
-            '&:hover': {
-              transform: 'translateY(-2px)',
-              boxShadow: '0 4px 20px rgba(33, 150, 243, 0.25)',
-            },
+            padding: '10px 24px',
           },
           contained: {
-            background: isDarkMode
-              ? 'linear-gradient(45deg, #e6f1ff 30%, #8892b0 90%)'
-              : 'linear-gradient(45deg, #2196f3 30%, #f50057 90%)',
-            color: isDarkMode ? '#0a192f' : '#ffffff',
+            background: isDarkMode 
+              ? '#00FFA3'
+              : 'linear-gradient(135deg, #00805E 0%, #00FFA3 100%)',
+            color: isDarkMode ? '#0A0A0A' : '#FFFFFF',
             '&:hover': {
-              background: isDarkMode
-                ? 'linear-gradient(45deg, #8892b0 30%, #e6f1ff 90%)'
-                : 'linear-gradient(45deg, #1976d2 30%, #c51162 90%)',
+              background: isDarkMode 
+                ? '#00cc82'
+                : 'linear-gradient(135deg, #006C4F 0%, #00E691 100%)',
+            },
+          },
+          outlined: {
+            borderColor: isDarkMode ? '#00FFA3' : '#00805E',
+            color: isDarkMode ? '#00FFA3' : '#00805E',
+            '&:hover': {
+              borderColor: isDarkMode ? '#00cc82' : '#006C4F',
+              backgroundColor: isDarkMode ? 'rgba(0, 255, 163, 0.1)' : 'rgba(0, 128, 94, 0.1)',
             },
           },
         },
@@ -114,13 +109,20 @@ export const createAppTheme = (isDarkMode: boolean) =>
             borderRadius: '16px',
             transition: 'all 0.3s ease-in-out',
             background: isDarkMode 
-              ? 'linear-gradient(135deg, #112240 0%, #0a192f 100%)'
-              : 'linear-gradient(135deg, #ffffff 0%, #f8faff 100%)',
+              ? 'linear-gradient(135deg, rgb(17, 34, 64) 0%, rgb(10, 25, 47) 100%)'
+              : 'linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 247, 255, 0.9) 100%)',
+            backdropFilter: 'blur(10px)',
+            boxShadow: isDarkMode 
+              ? '0 8px 32px rgba(0, 0, 0, 0.5)'
+              : '0 8px 32px rgba(42, 67, 101, 0.15)',
+            '@media (max-width: 600px)': {
+              borderRadius: '12px',
+            },
             '&:hover': {
               transform: 'translateY(-4px)',
               boxShadow: isDarkMode
-                ? '0 8px 30px rgba(230, 241, 255, 0.1)'
-                : '0 8px 30px rgba(33, 150, 243, 0.15)',
+                ? '0 12px 40px rgba(0, 0, 0, 0.7)'
+                : '0 12px 40px rgba(42, 67, 101, 0.25)',
             },
           },
         },
@@ -129,12 +131,34 @@ export const createAppTheme = (isDarkMode: boolean) =>
         styleOverrides: {
           root: {
             background: isDarkMode
-              ? 'rgba(17, 34, 64, 0.8)'
-              : 'rgba(248, 250, 255, 0.8)',
+              ? 'rgba(10, 10, 10, 0.8)'
+              : 'rgba(240, 247, 255, 0.8)',
             backdropFilter: 'blur(12px)',
+            boxShadow: isDarkMode 
+              ? '0 4px 30px rgba(0, 0, 0, 0.5)'
+              : '0 4px 30px rgba(42, 67, 101, 0.1)',
+          },
+        },
+      },
+      MuiPaper: {
+        styleOverrides: {
+          root: {
+            backgroundImage: 'none',
+            background: isDarkMode 
+              ? 'linear-gradient(135deg, #1A1A1A 0%, #0A0A0A 100%)'
+              : 'linear-gradient(135deg, #F0F7FF 0%, #E6FFF6 100%)',
           },
         },
       },
     },
   });
+
+  // Apply responsive typography
+  theme = responsiveFontSizes(theme, {
+    breakpoints: ['xs', 'sm', 'md', 'lg', 'xl'],
+    factor: 2,
+  });
+
+  return theme;
+};
 
