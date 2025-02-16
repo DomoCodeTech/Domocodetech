@@ -43,7 +43,7 @@ const Navbar: React.FC<NavbarProps> = ({ isDarkMode, toggleDarkMode }) => {
   const [anchorElLang, setAnchorElLang] = useState<null | HTMLElement>(null);
 
   const content = {
-    logo: "TechnoCore",
+    logo: "DomoCodeTech",
     pages: [
       { name: t("nav.home"), path: "/" },
       { name: t("nav.about"), path: "/about" },
