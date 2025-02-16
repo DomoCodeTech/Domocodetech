@@ -33,12 +33,18 @@ interface ServiceCardProps {
     serviceList: string[];
   };
   index: number;
+  expanded: boolean;
+  onExpand: () => void;
 }
 
-const ServiceCard: React.FC<ServiceCardProps> = ({ service, index }) => {
+const ServiceCard: React.FC<ServiceCardProps> = ({
+  service,
+  index,
+  expanded,
+  onExpand,
+}) => {
   const { t } = useTranslation();
   const theme = useTheme();
-  const [expanded, setExpanded] = useState(false);
 
   return (
     <Card
@@ -46,7 +52,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, index }) => {
         height: "100%",
         display: "flex",
         flexDirection: "column",
-        p: { xs: 2, sm: 3 },
+        p: { xs: 2.5, sm: 3.5 },
         borderRadius: 2,
         transition: "all 0.3s ease-in-out",
         background:
@@ -63,20 +69,46 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, index }) => {
             theme.palette.mode === "dark"
               ? "0 12px 40px rgba(0, 0, 0, 0.7)"
               : "0 12px 40px rgba(0, 0, 0, 0.12)",
+          background:
+            theme.palette.mode === "dark"
+              ? "linear-gradient(145deg, #1f1f1f 0%, #151515 100%), linear-gradient(to right, rgba(0, 255, 163, 0.1), transparent)"
+              : "linear-gradient(145deg, #FFFFFF 0%, #F8FAFF 100%), linear-gradient(to right, rgba(0, 128, 94, 0.1), transparent)",
+          "& .service-icon": {
+            transform: "scale(1.1) rotate(5deg)",
+            color: theme.palette.mode === "dark" ? "#00FFA3" : "#00805E",
+          },
+          "& .service-title": {
+            background:
+              theme.palette.mode === "dark"
+                ? "linear-gradient(90deg, #FFFFFF 30%, #00FFA3 100%)"
+                : "linear-gradient(90deg, #1A1A1A 30%, #00805E 100%)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+          },
         },
       }}
     >
       <Stack direction="row" spacing={2} alignItems="center" sx={{ mb: 2 }}>
-        <ServiceIcon
-          name={service.icon}
-          sx={{ fontSize: { xs: 32, sm: 40 }, color: "text.primary" }}
-        />
+        <Box
+          className="service-icon"
+          sx={{
+            transition: "all 0.3s ease-in-out",
+            color: "text.primary",
+          }}
+        >
+          <ServiceIcon
+            name={service.icon}
+            sx={{ fontSize: { xs: 36, sm: 44 } }}
+          />
+        </Box>
         <Typography
+          className="service-title"
           variant="h5"
           sx={{
             fontWeight: 600,
             color: theme.palette.mode === "dark" ? "white" : "text.primary",
             fontSize: { xs: "1.25rem", sm: "1.5rem" },
+            transition: "all 0.3s ease-in-out",
           }}
         >
           {t(`services.${service.key}.title`)}
@@ -84,24 +116,26 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, index }) => {
       </Stack>
 
       <Typography
-        variant="body2"
+        variant="body1"
         sx={{
           color: "text.secondary",
-          mb: 2,
-          fontSize: { xs: "0.875rem", sm: "1rem" },
-          flexGrow: 1,
+          mb: 0,
+          fontSize: { xs: "0.95rem", sm: "1.1rem" },
+          lineHeight: 1.7,
         }}
       >
         {t(`services.${service.key}.description`)}
       </Typography>
 
       <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <Box sx={{ mt: 2, mb: 3 }}>
-          <Typography variant="subtitle2" sx={{ mb: 1, fontWeight: 600 }}>
+        <Box sx={{ mt: 3, mb: 2 }}>
+          <Typography variant="subtitle2" sx={{ mb: 1.5, fontWeight: 600 }}>
             {t("services.servicesList")}:
           </Typography>
-          <List dense>
-            {service.serviceList.map((item, idx) => (
+          <List dense sx={{ pt: 0 }}>
+            {Object.keys(
+              t(`services.${service.key}.serviceList`, { returnObjects: true })
+            ).map((item, idx) => (
               <ListItem key={idx} sx={{ py: 0.5 }}>
                 <ListItemIcon sx={{ minWidth: 36 }}>
                   <CheckCircleOutlineIcon
@@ -113,7 +147,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, index }) => {
                   primary={t(`services.${service.key}.serviceList.${item}`)}
                   sx={{
                     "& .MuiListItemText-primary": {
-                      fontSize: "0.9rem",
+                      fontSize: "1rem",
                       color: theme.palette.text.secondary,
                     },
                   }}
@@ -124,9 +158,9 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, index }) => {
         </Box>
       </Collapse>
 
-      <Stack direction="row" spacing={1} sx={{ mt: 2 }}>
+      <Stack direction="row" spacing={1} sx={{ mt: "auto", pt: 2 }}>
         <Button
-          onClick={() => setExpanded(!expanded)}
+          onClick={onExpand}
           size="small"
           startIcon={expanded ? <ExpandLessIcon /> : <ExpandMoreIcon />}
           sx={{ flex: 1 }}
@@ -150,6 +184,40 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, index }) => {
 const ServicesSection = () => {
   const { t } = useTranslation();
   const theme = useTheme();
+  const [expandedRows, setExpandedRows] = useState<{ [key: number]: boolean }>(
+    {}
+  );
+  const [expandedCards, setExpandedCards] = useState<{
+    [key: string]: boolean;
+  }>({});
+  const isDesktop = useTheme().breakpoints.up("md");
+
+  const getRowIndex = (index: number) => Math.floor(index / 3);
+
+  const handleExpand = (index: number, key: string) => {
+    if (window.innerWidth >= theme.breakpoints.values.md) {
+      // Desktop behavior - expand row
+      const rowIndex = getRowIndex(index);
+      setExpandedRows((prev) => ({
+        ...prev,
+        [rowIndex]: !prev[rowIndex],
+      }));
+    } else {
+      // Mobile/tablet behavior - expand single card
+      setExpandedCards((prev) => ({
+        ...prev,
+        [key]: !prev[key],
+      }));
+    }
+  };
+
+  const isCardExpanded = (index: number, key: string) => {
+    if (window.innerWidth >= theme.breakpoints.values.md) {
+      const rowIndex = getRowIndex(index);
+      return expandedRows[rowIndex] || false;
+    }
+    return expandedCards[key] || false;
+  };
 
   const services = [
     {
@@ -290,7 +358,12 @@ const ServicesSection = () => {
                 viewport={{ once: true }}
                 style={{ height: "100%" }}
               >
-                <ServiceCard service={service} index={index} />
+                <ServiceCard
+                  service={service}
+                  index={index}
+                  expanded={isCardExpanded(index, service.key)}
+                  onExpand={() => handleExpand(index, service.key)}
+                />
               </motion.div>
             </Grid>
           ))}
