@@ -1,5 +1,5 @@
 /**
- * English translations for the TechnoCore website
+ * English translations for the DomoCodeTech website
  * This file contains all text content in English for the entire application
  */
 export const enTranslations = {
@@ -462,7 +462,8 @@ export const enTranslations = {
    */
   contact: {
     title: "Get in Touch",
-    subtitle: "We'd love to hear from you",
+    subtitle:
+      "On our page, we greatly value your opinion and want to stay close to you. Whether you have questions, feedback, suggestions, or just want to share your experience, we are here to listen. Your voice is important to us, and every message is an opportunity to improve and provide you with better service. Feel free to reach out to us through the available channels; we would love to know more about you and how we can assist you.",
     // Contact form labels
     form: {
       name: "Your Name",
@@ -479,9 +480,9 @@ export const enTranslations = {
       phone: "Phone",
       email: "Email",
       hours: "Business Hours",
-      location: "123 Tech Street, Silicon Valley, CA",
+      location: "Autopista Nte. #108-27, Bogotá, Colombia",
       phoneNumber: "+1 (555) 123-4567",
-      emailAddress: "info@technocore.com",
+      emailAddress: "domocodetech@gmail.com",
       businessHours: "Monday - Friday: 9:00 AM - 6:00 PM",
     },
   },
@@ -497,7 +498,7 @@ export const enTranslations = {
       name: "Charles Rodriguez",
       position: "Innovation Director",
       quote:
-        "TechnoCore completely transformed our technological infrastructure. Their expert team delivered innovative solutions that exceeded our expectations.",
+        "DomoCodeTech completely transformed our technological infrastructure. Their expert team delivered innovative solutions that exceeded our expectations.",
     },
     client2: {
       name: "Anna Martinez",
@@ -509,7 +510,7 @@ export const enTranslations = {
       name: "Michael Sanchez",
       position: "Smart Home Owner",
       quote:
-        "The home automation solution installed by TechnoCore has revolutionized the way we interact with our home. Technology of the future, today.",
+        "The home automation solution installed by DomoCodeTech has revolutionized the way we interact with our home. Technology of the future, today.",
     },
   },
 

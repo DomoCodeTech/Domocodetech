@@ -1,5 +1,5 @@
 /**
- * Spanish translations for the TechnoCore website
+ * Spanish translations for the DomoCodeTech website
  * Este archivo contiene todo el contenido de texto en español para la aplicación
  */
 export const esTranslations = {
@@ -375,7 +375,8 @@ export const esTranslations = {
   // Contact Section
   contact: {
     title: "Contáctanos",
-    subtitle: "Nos encantaría saber de ti",
+    subtitle:
+      "En nuestra página, valoramos enormemente tu opinión y queremos estar más cerca de ti. Ya sea que tengas dudas, comentarios, sugerencias o simplemente quieras compartir tu experiencia, estamos aquí para escucharte. Tu voz es importante para nosotros, y cada mensaje es una oportunidad para mejorar y ofrecerte un mejor servicio. No dudes en ponerte en contacto con nosotros a través de los medios disponibles; nos encantaría saber más sobre ti y cómo podemos ayudarte.",
     form: {
       name: "Tu Nombre",
       email: "Tu Email",
@@ -390,9 +391,9 @@ export const esTranslations = {
       phone: "Teléfono",
       email: "Correo",
       hours: "Horario de Atención",
-      location: "Calle Tecnología 123, Silicon Valley, CA",
+      location: "Autopista Nte. #108-27, Bogotá, Colombia",
       phoneNumber: "+1 (555) 123-4567",
-      emailAddress: "info@technocore.com",
+      emailAddress: "info@DomoCodeTech.com",
       businessHours: "Lunes - Viernes: 9:00 AM - 6:00 PM",
     },
   },
@@ -404,7 +405,7 @@ export const esTranslations = {
       name: "Carlos Rodríguez",
       position: "Director de Innovación",
       quote:
-        "TechnoCore transformó completamente nuestra infraestructura tecnológica. Su equipo experto entregó soluciones innovadoras que superaron nuestras expectativas.",
+        "DomoCodeTech transformó completamente nuestra infraestructura tecnológica. Su equipo experto entregó soluciones innovadoras que superaron nuestras expectativas.",
     },
     client2: {
       name: "Ana Martínez",
@@ -416,7 +417,7 @@ export const esTranslations = {
       name: "Miguel Sánchez",
       position: "Propietario de Casa Inteligente",
       quote:
-        "La solución de domótica instalada por TechnoCore ha revolucionado la forma en que interactuamos con nuestro hogar. Tecnología del futuro, hoy.",
+        "La solución de domótica instalada por DomoCodeTech ha revolucionado la forma en que interactuamos con nuestro hogar. Tecnología del futuro, hoy.",
     },
   },
   // Call to Action
