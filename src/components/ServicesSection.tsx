@@ -7,9 +7,7 @@ import {
   Card,
   Button,
   Stack,
-  Chip,
   Collapse,
-  Divider,
   List,
   ListItem,
   ListItemIcon,
@@ -190,7 +188,6 @@ const ServicesSection = () => {
   const [expandedCards, setExpandedCards] = useState<{
     [key: string]: boolean;
   }>({});
-  const isDesktop = useTheme().breakpoints.up("md");
 
   const getRowIndex = (index: number) => Math.floor(index / 3);
 
