@@ -7,14 +7,14 @@
  * - Testimonios de clientes
  * - Llamada a la acción (CTA)
  */
-import Testimonials from '../components/Testimonials';
-import Team from '../components/Team';
-import Hero from '../components/Hero';
-import ProjectsSection from '../components/ProjectsSection';
-import Stats from '../components/Stats';
-import CTA from '../components/CTA';
-import ServicesSection from '../components/ServicesSection';
-import { Container, Box, useTheme } from '@mui/material';
+import Testimonials from "../components/Testimonials";
+import Team from "../components/Team";
+import Hero from "../components/Hero";
+import ProjectsSection from "../components/ProjectsSection";
+import Stats from "../components/Stats";
+import CTA from "../components/CTA";
+import ServicesSection from "../components/ServicesSection";
+import { Container, Box, useTheme } from "@mui/material";
 
 const Home = () => {
   const theme = useTheme();
@@ -22,13 +22,14 @@ const Home = () => {
   return (
     <Box
       sx={{
-        background: theme.palette.mode === 'dark'
-          ? 'linear-gradient(180deg, #0A0A0A 0%, #1A1A1A 100%)'
-          : 'linear-gradient(180deg, #F0F7FF 0%, #E6FFF6 100%)',
-        minHeight: '100vh',
+        background:
+          theme.palette.mode === "dark"
+            ? "linear-gradient(180deg, #0A0A0A 0%, #1A1A1A 100%)"
+            : "linear-gradient(180deg, #F0F7FF 0%, #E6FFF6 100%)",
+        minHeight: "100vh",
       }}
     >
-      <Container maxWidth="lg">
+      <Container maxWidth="xl">
         <Hero />
         <Stats />
         <ServicesSection />
@@ -41,4 +42,4 @@ const Home = () => {
   );
 };
 
-export default Home; 
+export default Home;
