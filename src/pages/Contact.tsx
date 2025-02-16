@@ -13,7 +13,7 @@ import {
   Stack,
   Snackbar,
   Alert,
-  CircularProgress
+  CircularProgress,
 } from "@mui/material";
 import { motion } from "framer-motion";
 import EmailIcon from "@mui/icons-material/Email";
@@ -27,9 +27,9 @@ import ReCAPTCHA from "react-google-recaptcha";
 import emailjs from "@emailjs/browser";
 
 interface FormData {
-  name: string;
-  email: string;
-  phone: string;
+  from_name: string;
+  reply_to: string;
+  phone_number: string;
   message: string;
 }
 
@@ -64,9 +64,9 @@ const Contact: React.FC = () => {
   const theme = useTheme();
   const { t } = useTranslation();
   const [formData, setFormData] = useState<FormData>({
-    name: "",
-    email: "",
-    phone: "",
+    from_name: "",
+    reply_to: "",
+    phone_number: "",
     message: "",
   });
   const [openSnackbar, setOpenSnackbar] = useState(false);
@@ -141,9 +141,9 @@ const Contact: React.FC = () => {
       if (result.text === "OK") {
         showNotification(t("common.success"), "success");
         setFormData({
-          name: "",
-          email: "",
-          phone: "",
+          from_name: "",
+          reply_to: "",
+          phone_number: "",
           message: "",
         });
         recaptchaRef.current?.reset();
@@ -305,8 +305,8 @@ const Contact: React.FC = () => {
                     <TextField
                       fullWidth
                       label={t("contact.form.name")}
-                      name="name"
-                      value={formData.name}
+                      name="from_name"
+                      value={formData.from_name}
                       onChange={handleChange}
                       required
                       variant="outlined"
@@ -324,9 +324,9 @@ const Contact: React.FC = () => {
                     <TextField
                       fullWidth
                       label={t("contact.form.email")}
-                      name="email"
+                      name="reply_to"
                       type="email"
-                      value={formData.email}
+                      value={formData.reply_to}
                       onChange={handleChange}
                       required
                       variant="outlined"
@@ -344,8 +344,8 @@ const Contact: React.FC = () => {
                     <TextField
                       fullWidth
                       label={t("contact.form.phone")}
-                      name="phone"
-                      value={formData.phone}
+                      name="phone_number"
+                      value={formData.phone_number}
                       onChange={handleChange}
                       variant="outlined"
                       sx={{
@@ -380,6 +380,7 @@ const Contact: React.FC = () => {
                         },
                       }}
                     />
+                    <input type="hidden" name="to_name" value="DomoCodeTech" />
                     <Box
                       sx={{
                         width: "100%",
@@ -389,7 +390,7 @@ const Contact: React.FC = () => {
                     >
                       <ReCAPTCHA
                         ref={recaptchaRef}
-                        sitekey="6LeukNgqAAAAAAAYHiANVHcRSRHaZi4CJ6o8skV8" // reCAPTCHA site key
+                        sitekey="6LfZltgqAAAAAHbdAAFIkDlHrMb2NeLV3nVMz_oM"
                         onChange={(value) => setCaptchaValue(value)}
                         theme={theme.palette.mode}
                       />

@@ -2,9 +2,19 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <!-- Redirige inmediatamente a index.html -->
-    <meta http-equiv="refresh" content="0; URL=./index.html" />
     <title>Redirigiendo...</title>
+    <script>
+      // Obtiene la ruta actual
+      const path = window.location.pathname;
+      // Obtiene el segmento del repositorio si existe
+      const repo = /\/[^/]+\//.exec(path);
+      // Construye la URL base
+      const base = repo ? repo[0] : "/";
+      // Redirige a index.html manteniendo la ruta actual
+      window.location.replace(
+        base + "index.html" + window.location.search + window.location.hash
+      );
+    </script>
   </head>
   <body>
     <p>

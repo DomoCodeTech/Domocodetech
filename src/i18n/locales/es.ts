@@ -221,7 +221,7 @@ export const esTranslations = {
         label: "Años de Experiencia",
       },
       {
-        number: "500+",
+        number: "50+",
         label: "Proyectos Completados",
       },
       {
@@ -229,7 +229,7 @@ export const esTranslations = {
         label: "Clientes Satisfechos",
       },
       {
-        number: "50+",
+        number: "3+",
         label: "Miembros del Equipo",
       },
     ],

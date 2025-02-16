@@ -305,9 +305,9 @@ export const enTranslations = {
     // Key statistics
     stats: [
       { number: "10+", label: "Years Experience" },
-      { number: "500+", label: "Projects Completed" },
+      { number: "50+", label: "Projects Completed" },
       { number: "100+", label: "Happy Clients" },
-      { number: "50+", label: "Team Members" },
+      { number: "3+", label: "Team Members" },
     ],
     // Mission statement
     mission: {
