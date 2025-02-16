@@ -260,7 +260,7 @@ const Contact: React.FC = () => {
             paragraph
             sx={{
               mb: 4,
-              maxWidth: "800px",
+              maxWidth: "1000px",
               mx: "auto",
               lineHeight: 1.8,
               fontSize: { xs: "1rem", sm: "1.2rem" },
