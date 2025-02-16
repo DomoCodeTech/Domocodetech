@@ -8,7 +8,7 @@ export const enTranslations = {
    * Basic details about the company used across the site
    */
   company: {
-    slogan: 'AI solutions tailored to your business needs',
+    slogan: 'DomoCodeTech',
     address: 'Autopista Nte. #108-27, Bogotá, Colombia',
     workingHours: '7:00 a.m. - 5:00 p.m.',
   },
@@ -39,7 +39,7 @@ export const enTranslations = {
    * Main banner section on the homepage
    */
   hero: {
-    slogan: 'Transform your business with AI',
+    slogan: 'Home Automation, Software, and Technology',
     subtitle: 'We provide innovative solutions for your technological needs',
     getQuote: 'Get Free Quote',
     imageAlt: 'Team working on technology'
