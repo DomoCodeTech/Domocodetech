@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import {
   Box,
   Container,
@@ -14,12 +14,14 @@ import {
   Snackbar,
   Alert,
   CircularProgress,
+  IconButton,
 } from "@mui/material";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import EmailIcon from "@mui/icons-material/Email";
 import PhoneIcon from "@mui/icons-material/Phone";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
+import SendIcon from "@mui/icons-material/Send";
 import { useTranslation } from "react-i18next";
 import { SITE_DATA } from "../constants/siteData";
 import ReCAPTCHA from "react-google-recaptcha";
@@ -31,6 +33,33 @@ interface FormData {
   phone: string;
   message: string;
 }
+
+const FloatingParticle = ({ delay }: { delay: number }) => {
+  return (
+    <motion.div
+      style={{
+        position: "absolute",
+        width: "10px",
+        height: "10px",
+        borderRadius: "50%",
+        background: "linear-gradient(45deg, #00FFA3, #00805E)",
+      }}
+      initial={{ opacity: 0, scale: 0 }}
+      animate={{
+        opacity: [0, 1, 0],
+        scale: [0, 1.5, 0],
+        y: [-20, -60],
+        x: Math.random() * 40 - 20,
+      }}
+      transition={{
+        duration: 2,
+        delay,
+        repeat: Infinity,
+        ease: "easeOut",
+      }}
+    />
+  );
+};
 
 const Contact: React.FC = () => {
   const theme = useTheme();
@@ -50,6 +79,8 @@ const Contact: React.FC = () => {
   const [captchaValue, setCaptchaValue] = useState<string | null>(null);
   const formRef = useRef<HTMLFormElement>(null);
   const recaptchaRef = useRef<ReCAPTCHA>(null);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isHovering, setIsHovering] = useState(false);
 
   const contactInfo = [
     {
@@ -132,9 +163,75 @@ const Contact: React.FC = () => {
     setOpenSnackbar(false);
   };
 
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
   return (
-    <Box sx={{ bgcolor: "background.default", py: 8 }}>
-      <Container maxWidth="lg">
+    <Box
+      sx={{
+        bgcolor: "background.default",
+        py: 8,
+        position: "relative",
+        overflow: "hidden",
+        "&::before": {
+          content: '""',
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background:
+            theme.palette.mode === "dark"
+              ? "radial-gradient(circle at 50% 50%, rgba(0, 255, 163, 0.1) 0%, rgba(0, 0, 0, 0) 50%)"
+              : "radial-gradient(circle at 50% 50%, rgba(0, 128, 94, 0.1) 0%, rgba(255, 255, 255, 0) 50%)",
+          zIndex: 0,
+        },
+      }}
+    >
+      {[...Array(8)].map((_, i) => (
+        <Box
+          key={i}
+          sx={{
+            position: "absolute",
+            top: `${Math.random() * 100}%`,
+            left: `${Math.random() * 100}%`,
+          }}
+        >
+          <FloatingParticle delay={i * 0.5} />
+        </Box>
+      ))}
+
+      <motion.div
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          width: "40px",
+          height: "40px",
+          borderRadius: "50%",
+          background:
+            theme.palette.mode === "dark"
+              ? "rgba(0, 255, 163, 0.15)"
+              : "rgba(0, 128, 94, 0.15)",
+          pointerEvents: "none",
+          zIndex: 9999,
+          mixBlendMode: "screen",
+        }}
+        animate={{
+          x: mousePosition.x - 20,
+          y: mousePosition.y - 20,
+          scale: isHovering ? 1.5 : 1,
+        }}
+        transition={{ type: "spring", damping: 30, stiffness: 200 }}
+      />
+
+      <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -183,6 +280,8 @@ const Contact: React.FC = () => {
                 ref={formRef}
                 onSubmit={handleSubmit}
                 className="hover-glow"
+                onMouseEnter={() => setIsHovering(true)}
+                onMouseLeave={() => setIsHovering(false)}
                 sx={{
                   height: "100%",
                   bgcolor: alpha(theme.palette.background.paper, 0.1),
@@ -192,9 +291,13 @@ const Contact: React.FC = () => {
                   )} 0%, ${alpha(theme.palette.background.paper, 0.1)} 100%)`,
                   border: `1px solid ${alpha(theme.palette.primary.main, 0.1)}`,
                   transition: "all 0.3s ease-in-out",
+                  backdropFilter: "blur(10px)",
                   "&:hover": {
                     transform: "translateY(-10px)",
                     border: `1px solid ${theme.palette.primary.main}`,
+                    "& .send-icon": {
+                      transform: "translateX(10px)",
+                    },
                   },
                 }}
               >
@@ -299,16 +402,45 @@ const Contact: React.FC = () => {
                       size="large"
                       disabled={loading || !captchaValue}
                       className="hover-glow"
+                      endIcon={
+                        <motion.div
+                          className="send-icon"
+                          style={{ display: "inline-flex" }}
+                          animate={{ x: loading ? 0 : 10 }}
+                          transition={{
+                            type: "spring",
+                            stiffness: 300,
+                            damping: 20,
+                          }}
+                        >
+                          {loading ? (
+                            <CircularProgress size={24} color="inherit" />
+                          ) : (
+                            <SendIcon />
+                          )}
+                        </motion.div>
+                      }
                       sx={{
                         background: `linear-gradient(45deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
                         position: "relative",
+                        overflow: "hidden",
+                        "&::before": {
+                          content: '""',
+                          position: "absolute",
+                          top: 0,
+                          left: "-100%",
+                          width: "100%",
+                          height: "100%",
+                          background:
+                            "linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent)",
+                          transition: "0.5s",
+                        },
+                        "&:hover::before": {
+                          left: "100%",
+                        },
                       }}
                     >
-                      {loading ? (
-                        <CircularProgress size={24} color="inherit" />
-                      ) : (
-                        t("contact.form.submit")
-                      )}
+                      {t("contact.form.submit")}
                     </Button>
                   </Stack>
                 </CardContent>
@@ -318,6 +450,8 @@ const Contact: React.FC = () => {
             <Grid item xs={12} md={6}>
               <Card
                 className="hover-glow"
+                onMouseEnter={() => setIsHovering(true)}
+                onMouseLeave={() => setIsHovering(false)}
                 sx={{
                   height: "100%",
                   bgcolor: alpha(theme.palette.background.paper, 0.1),
@@ -325,6 +459,7 @@ const Contact: React.FC = () => {
                     theme.palette.secondary.main,
                     0.05
                   )} 0%, ${alpha(theme.palette.background.paper, 0.1)} 100%)`,
+                  backdropFilter: "blur(10px)",
                   border: `1px solid ${alpha(
                     theme.palette.secondary.main,
                     0.1
@@ -357,6 +492,7 @@ const Contact: React.FC = () => {
                         initial={{ opacity: 0, x: 50 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.5, delay: index * 0.1 }}
+                        whileHover={{ scale: 1.05 }}
                       >
                         <Box
                           sx={{
@@ -366,10 +502,14 @@ const Contact: React.FC = () => {
                             transition: "all 0.3s ease-in-out",
                             "&:hover": {
                               transform: "translateX(10px)",
+                              "& .contact-icon": {
+                                transform: "scale(1.2) rotate(10deg)",
+                              },
                             },
                           }}
                         >
                           <Box
+                            className="contact-icon"
                             sx={{
                               color: "primary.main",
                               display: "flex",
@@ -378,6 +518,7 @@ const Contact: React.FC = () => {
                               p: 1,
                               borderRadius: 1,
                               bgcolor: alpha(theme.palette.primary.main, 0.1),
+                              transition: "transform 0.3s ease-in-out",
                             }}
                           >
                             {item.icon}
@@ -387,7 +528,12 @@ const Contact: React.FC = () => {
                               variant="subtitle1"
                               color="primary"
                               gutterBottom
-                              sx={{ fontWeight: "bold" }}
+                              sx={{
+                                fontWeight: "bold",
+                                background: `linear-gradient(45deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
+                                WebkitBackgroundClip: "text",
+                                WebkitTextFillColor: "transparent",
+                              }}
                             >
                               {item.title}
                             </Typography>
@@ -416,7 +562,14 @@ const Contact: React.FC = () => {
           onClose={handleCloseSnackbar}
           severity={snackbarSeverity}
           variant="filled"
-          sx={{ width: "100%" }}
+          sx={{
+            width: "100%",
+            backdropFilter: "blur(10px)",
+            background:
+              snackbarSeverity === "success"
+                ? "linear-gradient(45deg, #00805E, #00FFA3)"
+                : "linear-gradient(45deg, #FF3D00, #FF8A65)",
+          }}
         >
           {snackbarMessage}
         </Alert>
