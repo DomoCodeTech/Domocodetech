@@ -71,9 +71,10 @@ export const SITE_DATA = {
       automation: 'https://images.pexels.com/photos/3912524/pexels-photo-3912524.jpeg',
     },
     team: {
-      member1: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg',
-      member2: 'https://images.pexels.com/photos/3796217/pexels-photo-3796217.jpeg',
-      member3: 'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg',
+      member1: '/images/team/member1.png',
+      member2: '/images/team/member2.png',
+      member3: '/images/team/member3.png',
+      names: ['Juan Collantes', 'Alejandro Acevedo', 'Daniel Caro']
     },
     testimonials: {
       client1: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg',

@@ -5,13 +5,13 @@ import {
   Grid,
   Card,
   CardContent,
-  CardMedia,
   IconButton,
   Stack,
-  useTheme
+  useTheme,
+  Avatar
 } from '@mui/material';
 import { motion } from 'framer-motion';
-import TwitterIcon from '@mui/icons-material/Twitter';
+import FacebookIcon from '@mui/icons-material/Facebook';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import { useTranslation } from 'react-i18next';
@@ -23,36 +23,36 @@ const Team = () => {
 
   const teamMembers = [
     {
-      name: t('team.member1.name'),
+      name: SITE_DATA.images.team.names[0],
       position: t('team.member1.position'),
       image: SITE_DATA.images.team.member1,
       description: t('team.member1.description'),
       social: {
         github: 'https://github.com',
-        linkedin: 'https://linkedin.com',
-        twitter: 'https://twitter.com'
+        linkedin: 'https://www.linkedin.com/in/juan-camilo-collantes-tovar-461797216/',
+        facebook: 'https://www.facebook.com/juancamilo.collantestovar'
       }
     },
     {
-      name: t('team.member2.name'),
+      name: SITE_DATA.images.team.names[1],      
       position: t('team.member2.position'),
       image: SITE_DATA.images.team.member2,
       description: t('team.member2.description'),
       social: {
-        github: 'https://github.com',
-        linkedin: 'https://linkedin.com',
-        twitter: 'https://twitter.com'
+        github: 'https://github.com/Alejandr0Aceved0',
+        linkedin: 'https://www.linkedin.com/in/alejandro-acevedo-904518184/',
+        facebook: 'https://www.facebook.com/alejo.acevedo.5811'
       }
     },
     {
-      name: t('team.member3.name'),
+      name: SITE_DATA.images.team.names[2],   
       position: t('team.member3.position'),
       image: SITE_DATA.images.team.member3,
       description: t('team.member3.description'),
       social: {
-        github: 'https://github.com',
-        linkedin: 'https://linkedin.com',
-        twitter: 'https://twitter.com'
+        github: 'https://github.com/Deco2449584',
+        linkedin: 'https://www.linkedin.com/in/danielcaro2449584/',
+        facebook: 'https://www.facebook.com/DECOCARO/'
       }
     }
   ];
@@ -119,6 +119,8 @@ const Team = () => {
                       ? '0 8px 32px rgba(0, 0, 0, 0.5)'
                       : '0 8px 32px rgba(0, 0, 0, 0.08)',
                     transition: 'all 0.3s ease-in-out',
+                    borderRadius: '16px',
+                    position: 'relative',
                     '&:hover': {
                       transform: 'translateY(-8px)',
                       boxShadow: theme.palette.mode === 'dark'
@@ -126,40 +128,51 @@ const Team = () => {
                         : '0 12px 40px rgba(0, 0, 0, 0.12)',
                       '& .member-image': {
                         transform: 'scale(1.05)',
+                        borderColor: 'primary.main',
                       },
                     },
                   }}
                 >
                   <Box
                     sx={{
-                      position: 'relative',
-                      paddingTop: '75%', // 4:3 aspect ratio
-                      overflow: 'hidden',
+                      display: 'flex',
+                      justifyContent: 'center',
+                      mt: 3,
+                      mb: 2,
                     }}
                   >
-                    <CardMedia
-                      component="img"
-                      image={member.image}
+                    <Avatar
+                      src={member.image}
                       alt={member.name}
                       className="member-image"
                       sx={{
-                        position: 'absolute',
-                        top: 0,
-                        left: 0,
-                        width: '100%',
-                        height: '100%',
-                        objectFit: 'cover',
-                        transition: 'transform 0.3s ease-in-out',
+                        width: 180,
+                        height: 180,
+                        border: '4px solid',
+                        borderColor: 'background.paper',
+                        boxShadow: `0 8px 24px ${theme.palette.mode === 'dark' ? 'rgba(0,0,0,0.5)' : 'rgba(0,0,0,0.15)'}`,
+                        transition: 'all 0.3s ease-in-out',
+                        background: theme.palette.background.paper,
                       }}
                     />
                   </Box>
-                  <CardContent sx={{ flexGrow: 1, p: 3 }}>
+                  <CardContent 
+                    sx={{ 
+                      flexGrow: 1, 
+                      p: 3,
+                      textAlign: 'center',
+                      '&:last-child': {
+                        pb: 3
+                      }
+                    }}
+                  >
                     <Typography
                       variant="h5"
                       gutterBottom
                       sx={{
                         fontWeight: 600,
                         color: theme.palette.mode === 'dark' ? 'white' : 'text.primary',
+                        mb: 0.5,
                       }}
                     >
                       {member.name}
@@ -169,6 +182,7 @@ const Team = () => {
                       sx={{
                         color: 'primary.main',
                         mb: 2,
+                        fontWeight: 500,
                       }}
                     >
                       {member.position}
@@ -178,13 +192,14 @@ const Team = () => {
                       sx={{
                         color: 'text.secondary',
                         mb: 3,
+                        px: 2,
                       }}
                     >
                       {member.description}
                     </Typography>
                     <Stack
                       direction="row"
-                      spacing={1}
+                      spacing={1.5}
                       justifyContent="center"
                     >
                       <IconButton
@@ -196,7 +211,9 @@ const Team = () => {
                           color: theme.palette.mode === 'dark' ? 'white' : 'text.primary',
                           '&:hover': {
                             color: 'primary.main',
+                            transform: 'translateY(-3px)',
                           },
+                          transition: 'all 0.2s ease-in-out',
                         }}
                       >
                         <GitHubIcon />
@@ -210,13 +227,15 @@ const Team = () => {
                           color: theme.palette.mode === 'dark' ? 'white' : 'text.primary',
                           '&:hover': {
                             color: 'primary.main',
+                            transform: 'translateY(-3px)',
                           },
+                          transition: 'all 0.2s ease-in-out',
                         }}
                       >
                         <LinkedInIcon />
                       </IconButton>
                       <IconButton
-                        href={member.social.twitter}
+                        href={member.social.facebook}
                         target="_blank"
                         rel="noopener noreferrer"
                         size="small"
@@ -224,10 +243,12 @@ const Team = () => {
                           color: theme.palette.mode === 'dark' ? 'white' : 'text.primary',
                           '&:hover': {
                             color: 'primary.main',
+                            transform: 'translateY(-3px)',
                           },
+                          transition: 'all 0.2s ease-in-out',
                         }}
                       >
-                        <TwitterIcon />
+                        <FacebookIcon />
                       </IconButton>
                     </Stack>
                   </CardContent>
