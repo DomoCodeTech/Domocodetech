@@ -12,9 +12,11 @@ import {
 } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 import FacebookIcon from "@mui/icons-material/Facebook";
-import TwitterIcon from "@mui/icons-material/Twitter";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import YouTubeIcon from "@mui/icons-material/YouTube";
 import GitHubIcon from "@mui/icons-material/GitHub";
+// Importing a custom TikTok icon using SvgIcon
+import { SvgIcon } from "@mui/material";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 
@@ -48,6 +50,12 @@ interface FooterContent {
   };
   copyright: string;
 }
+
+const TikTokIconCustom = (props: any) => (
+  <SvgIcon {...props}>
+    <path d="M16.822 3.846a4 4 0 00-6.593-.3L9.334 5.33a4 4 0 104 4v6a4 4 0 006.593.3l1.885-1.885a4 4 0 00-.3-6.593l-.497-.497a1 1 0 00-1.414 0z" />
+  </SvgIcon>
+);
 
 const Footer: React.FC = () => {
   const theme = useTheme();
@@ -105,15 +113,28 @@ const Footer: React.FC = () => {
         {
           name: "Facebook",
           icon: <FacebookIcon />,
-          url: "https://facebook.com",
+          url: "https://www.facebook.com/profile.php?id=61555679703137&locale=es_LA",
         },
-        { name: "Twitter", icon: <TwitterIcon />, url: "https://twitter.com" },
         {
-          name: "LinkedIn",
-          icon: <LinkedInIcon />,
-          url: "https://linkedin.com",
+          name: "Instagram",
+          icon: <InstagramIcon />,
+          url: "https://www.instagram.com/domocodetech/",
         },
-        { name: "GitHub", icon: <GitHubIcon />, url: "https://github.com" },
+        {
+          name: "YouTube",
+          icon: <YouTubeIcon />,
+          url: "https://www.youtube.com/@DomoCodeTech",
+        },
+        {
+          name: "TikTok",
+          icon: <TikTokIconCustom />,
+          url: "https://www.tiktok.com/@domocodetech",
+        },
+        {
+          name: "GitHub",
+          icon: <GitHubIcon />,
+          url: "https://github.com/DomoCodeTech",
+        },
       ],
     },
     copyright: t("footer.copyright", {
