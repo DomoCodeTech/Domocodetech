@@ -20,7 +20,9 @@ import TendenciasCloudComputing from './pages/blog/TendenciasCloudComputing';
 import MejoresPracticasCiberseguridad from './pages/blog/MejoresPracticasCiberseguridad';
 import WebApplication from './pages/projects/WebApplication';
 import MobileApplication from './pages/projects/MobileApplication';
-import TechnologyConsulting from './pages/projects/TechnologyConsulting';
+import IoTSolutions from './pages/projects/IoTSolutions';
+import EcommercePlatform from './pages/projects/EcommercePlatform';
+import SoftwareConsulting from './pages/projects/SoftwareConsulting';
 
 function App() {
   // Estado para controlar el modo oscuro/claro
@@ -67,7 +69,9 @@ function App() {
               <Route path="/projects" element={<Projects />} />
               <Route path="/projects/web" element={<WebApplication />} />
               <Route path="/projects/mobile" element={<MobileApplication />} />
-              <Route path="/projects/consulting" element={<TechnologyConsulting />} />
+              <Route path="/projects/iot" element={<IoTSolutions />} />
+              <Route path="/projects/ecommerce" element={<EcommercePlatform />} />
+              <Route path="/projects/consulting" element={<SoftwareConsulting />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/futuro-ia-negocios" element={<FuturoIANegocios />} />
               <Route path="/blog/tendencias-cloud-computing-2024" element={<TendenciasCloudComputing />} />

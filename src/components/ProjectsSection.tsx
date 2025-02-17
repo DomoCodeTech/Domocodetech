@@ -55,20 +55,25 @@ const ProjectsSection = () => {
     },
     {
       key: 'iot',
-      image: SITE_DATA.projects.images.software, // Usar una imagen apropiada
+      image: SITE_DATA.projects.images.iot, // Usar una imagen apropiada
       features: ['smart-devices', 'real-time', 'cloud-integration']
     },
     {
       key: 'ecommerce',
-      image: SITE_DATA.projects.images.web, // Usar una imagen apropiada
+      image: SITE_DATA.projects.images.ecommerce, // Usar una imagen apropiada
       features: ['payment-gateway', 'inventory', 'analytics']
+    },
+    {
+      key: 'consulting',
+      image: SITE_DATA.projects.images.consulting, // Usar una imagen apropiada
+      features: ['consulting', 'analysis', 'solution']
     }
   ];
 
   useEffect(() => {
     const interval = setInterval(() => {
       handleNext();
-    }, 9000);
+    }, 6000);
     return () => clearInterval(interval);
   }, [currentPage]);
 
@@ -100,7 +105,7 @@ const ProjectsSection = () => {
 
   const slideVariants = {
     enter: (direction: number) => ({
-      x: direction > 0 ? 1000 : -1000,
+      x: direction > 0 ? 500 : -500,
       opacity: 0
     }),
     center: {
@@ -110,7 +115,7 @@ const ProjectsSection = () => {
     },
     exit: (direction: number) => ({
       zIndex: 0,
-      x: direction < 0 ? 1000 : -1000,
+      x: direction < 0 ? 500 : -500,
       opacity: 0
     })
   };
@@ -196,8 +201,8 @@ const ProjectsSection = () => {
                 animate="center"
                 exit="exit"
                 transition={{
-                  x: { type: "spring", stiffness: 300, damping: 30 },
-                  opacity: { duration: 0.2 }
+                  x: { type: "spring", stiffness: 200, damping: 25 },
+                  opacity: { duration: 0.3 }
                 }}
                 style={{
                   position: 'absolute',
@@ -205,6 +210,7 @@ const ProjectsSection = () => {
                   gap: '24px',
                   width: '100%',
                   justifyContent: 'center',
+                  willChange: 'transform',
                 }}
               >
                 {getVisibleProjects().map((project, index) => (

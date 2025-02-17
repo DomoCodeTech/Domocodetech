@@ -28,7 +28,7 @@ const Team = () => {
       image: SITE_DATA.images.team.member1,
       description: t('team.member1.description'),
       social: {
-        github: 'https://github.com',
+        github: 'https://github.com/juancamilo96code',
         linkedin: 'https://www.linkedin.com/in/juan-camilo-collantes-tovar-461797216/',
         facebook: 'https://www.facebook.com/juancamilo.collantestovar'
       }

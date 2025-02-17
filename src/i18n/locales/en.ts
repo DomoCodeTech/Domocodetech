@@ -201,15 +201,50 @@ export const enTranslations = {
   projects: {
     title: "Our Projects",
     subtitle: "Explore our portfolio showcasing robust project solutions.",
+    features: {
+      'responsive': 'Responsive design',
+      'cross-browser': 'Cross-browser compatibility',
+      'modern-ui': 'Modern UI/UX design',
+      'user-friendly': 'User-friendly interface',
+      'performance': 'High performance',
+      'api-integration': 'Seamless API integration',
+      'custom-design': 'Custom design',
+      'architecture': 'Robust architecture',
+      'cross-platform': 'Cross-platform functionality',
+      'smart-devices': 'Smart device integration',
+      'real-time': 'Real-time monitoring',
+      'cloud-integration': 'Cloud connectivity',
+      'payment-gateway': 'Secure payment gateway',
+      'inventory': 'Inventory management',
+      'analytics': 'Analytics dashboard',
+      'security': 'Advanced security',
+      'scalability': 'Scalability',
+      'automation': 'Automation',
+      'monitoring': 'Continuous monitoring',
+      'optimization': 'Resource optimization',
+      'innovation': 'Innovation',
+      'consulting': 'Software Consulting',
+      'analysis': 'Analysis',
+      'solution': 'Solution',
+    },
+    consulting: {
+      title: "Software Consulting",
+      description: "Strategic advice and customized technology solutions.",
+      overview: "Our consulting service helps businesses navigate the complex digital landscape and make informed decisions about their technology investments.",
+      techStack: "Areas of Expertise",
+      process: "Consulting Process"
+    },
     web: {
       title: "Web Application",
-      description:
-        "A modern web platform with a responsive design for seamless user experience.",
+      description: "A modern web platform with responsive design for seamless user experience.",
       features: [
         "Responsive design",
         "Cross-browser compatibility",
-        "Modern UI/UX design",
+        "Modern UI/UX design"
       ],
+      overview: "Our web development service focuses on creating modern, scalable, and efficient solutions that help businesses thrive in the digital age.",
+      techStack: "Technology Stack",
+      process: "Development Process"
     },
     mobile: {
       title: "Mobile Application",
@@ -217,28 +252,35 @@ export const enTranslations = {
       features: [
         "User-friendly interface",
         "High performance",
-        "Seamless integration with APIs",
+        "Seamless API integration"
       ],
+      overview: "Our mobile development service delivers high-quality native applications for both iOS and Android platforms.",
+      techStack: "Technology Stack",
+      process: "Development Process"
     },
     software: {
       title: "Software Development",
-      description:
-        "Custom software solutions built with cutting-edge technology.",
+      description: "Custom software solutions built with cutting-edge technology.",
       features: [
         "Custom software design",
         "Robust architecture",
-        "Cross-platform functionality",
+        "Cross-platform functionality"
       ],
+      overview: "We create custom software solutions that perfectly fit your specific business needs.",
+      techStack: "Technology Stack",
+      process: "Development Process"
     },
     iot: {
       title: "IoT Solutions",
-      description:
-        "Smart devices and systems for automated monitoring and control.",
+      description: "Smart devices and systems for automated monitoring and control.",
       features: [
         "Smart device integration",
         "Real-time monitoring",
-        "Cloud connectivity",
+        "Cloud connectivity"
       ],
+      overview: "We develop innovative IoT solutions that connect and automate devices to create intelligent systems.",
+      techStack: "Technology Stack",
+      process: "Development Process"
     },
     ecommerce: {
       title: "E-commerce Platform",
@@ -246,10 +288,18 @@ export const enTranslations = {
       features: [
         "Secure payment gateway",
         "Inventory management",
-        "Analytics dashboard",
+        "Analytics dashboard"
       ],
+      overview: "We implement complete and customized e-commerce platforms to drive your online business.",
+      techStack: "Technology Stack",
+      process: "Development Process"
     },
     featuresTitle: "Features",
+    startProject: "Start Project",
+    scheduleConsultation: "Schedule Consultation",
+    projectOverview: "Project Overview",
+    keyFeatures: "Key Features",
+    developmentProcess: "Development Process"
   },
 
   /**

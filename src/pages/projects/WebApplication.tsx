@@ -21,9 +21,12 @@ import SpeedIcon from '@mui/icons-material/Speed';
 import StorageIcon from '@mui/icons-material/Storage';
 import SecurityIcon from '@mui/icons-material/Security';
 import { Link as RouterLink } from 'react-router-dom';
+import { SITE_DATA } from '../../constants/siteData';
+import { useTranslation } from 'react-i18next';
 
 const WebApplication = () => {
   const theme = useTheme();
+  const { t } = useTranslation();
 
   const features = [
     {
@@ -75,28 +78,64 @@ const WebApplication = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <Typography
-            variant="h1"
+          {/* Hero Section */}
+          <Box
             sx={{
-              fontSize: { xs: '2.5rem', md: '3.5rem' },
-              mb: 2,
-              background: theme.palette.mode === 'dark'
-                ? 'linear-gradient(90deg, #FFFFFF 0%, #00FFA3 100%)'
-                : 'linear-gradient(90deg, #1A1A1A 0%, #00805E 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
+              position: 'relative',
+              height: { xs: '200px', md: '400px' },
+              mb: 6,
+              borderRadius: 2,
+              overflow: 'hidden',
             }}
           >
-            Web Application Development
-          </Typography>
-
-          <Typography
-            variant="h5"
-            color="text.secondary"
-            sx={{ mb: 6 }}
-          >
-            Creating powerful, scalable, and user-friendly web applications
-          </Typography>
+            <Box
+              component="img"
+              src={SITE_DATA.projects.images.web}
+              alt={t('projects.web.title')}
+              sx={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+              }}
+            />
+            <Box
+              sx={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                background: 'linear-gradient(180deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 100%)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                flexDirection: 'column',
+                p: 4,
+              }}
+            >
+              <Typography
+                variant="h1"
+                sx={{
+                  fontSize: { xs: '2.5rem', md: '3.5rem' },
+                  mb: 2,
+                  color: 'white',
+                  textAlign: 'center',
+                }}
+              >
+                {t('projects.web.title')}
+              </Typography>
+              <Typography
+                variant="h5"
+                sx={{
+                  color: 'rgba(255,255,255,0.9)',
+                  textAlign: 'center',
+                  maxWidth: '800px',
+                }}
+              >
+                {t('projects.web.description')}
+              </Typography>
+            </Box>
+          </Box>
 
           <Grid container spacing={4}>
             <Grid item xs={12} md={8}>

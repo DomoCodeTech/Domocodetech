@@ -517,56 +517,104 @@ export const esTranslations = {
   projects: {
     title: "Nuestros Proyectos",
     subtitle: "Explora nuestro portafolio de soluciones robustas.",
+    features: {
+      'responsive': 'Diseño responsivo',
+      'cross-browser': 'Compatibilidad multiplataforma',
+      'modern-ui': 'Diseño UI/UX moderno',
+      'user-friendly': 'Interfaz amigable',
+      'performance': 'Alto rendimiento',
+      'api-integration': 'Integración perfecta con APIs',
+      'custom-design': 'Diseño personalizado',
+      'architecture': 'Arquitectura robusta',
+      'cross-platform': 'Funcionalidad multiplataforma',
+      'smart-devices': 'Integración de dispositivos inteligentes',
+      'real-time': 'Monitoreo en tiempo real',
+      'cloud-integration': 'Conectividad en la nube',
+      'payment-gateway': 'Pasarela de pago segura',
+      'inventory': 'Gestión de inventario',
+      'analytics': 'Panel de análisis',
+      'security': 'Seguridad avanzada',
+      'scalability': 'Escalabilidad',
+      'automation': 'Automatización',
+      'monitoring': 'Monitoreo continuo',
+      'optimization': 'Optimización de recursos',
+      'innovation': 'Innovación',
+      'consulting': 'Consultoría de Software',
+      'analysis': 'Análisis',
+      'solution': 'Solución',
+    },
+    consulting: {
+      title: "Consultoría de Software",
+      description: "Asesoramiento estratégico y soluciones tecnológicas personalizadas.",
+      overview: "Nuestro servicio de consultoría ayuda a las empresas a navegar el complejo panorama digital y tomar decisiones informadas sobre sus inversiones tecnológicas.",
+      techStack: "Áreas de Experiencia",
+      process: "Proceso de Consultoría"
+    },
     web: {
       title: "Aplicación Web",
-      description:
-        "Una plataforma web moderna con diseño responsivo para una experiencia de usuario perfecta.",
+      description: "Una plataforma web moderna con diseño responsivo para una experiencia de usuario perfecta.",
       features: [
         "Diseño responsivo",
         "Compatibilidad multiplataforma",
-        "Diseño UI/UX moderno",
+        "Diseño UI/UX moderno"
       ],
+      overview: "Nuestro servicio de desarrollo web se centra en crear soluciones modernas, escalables y eficientes que ayudan a las empresas a prosperar en la era digital.",
+      techStack: "Stack Tecnológico",
+      process: "Proceso de Desarrollo"
     },
     mobile: {
       title: "Aplicación Móvil",
-      description:
-        "Soluciones móviles optimizadas para plataformas iOS y Android.",
+      description: "Soluciones móviles optimizadas para plataformas iOS y Android.",
       features: [
         "Interfaz amigable",
         "Alto rendimiento",
-        "Integración perfecta con APIs",
+        "Integración perfecta con APIs"
       ],
+      overview: "Nuestro servicio de desarrollo móvil entrega aplicaciones nativas de alta calidad para plataformas iOS y Android.",
+      techStack: "Stack Tecnológico",
+      process: "Proceso de Desarrollo"
     },
     software: {
       title: "Desarrollo de Software",
-      description:
-        "Soluciones de software personalizadas construidas con tecnología de vanguardia.",
+      description: "Soluciones de software personalizadas construidas con tecnología de vanguardia.",
       features: [
         "Diseño de software personalizado",
         "Arquitectura robusta",
-        "Funcionalidad multiplataforma",
+        "Funcionalidad multiplataforma"
       ],
+      overview: "Creamos soluciones de software personalizadas que se adaptan perfectamente a las necesidades específicas de tu negocio.",
+      techStack: "Stack Tecnológico",
+      process: "Proceso de Desarrollo"
     },
     iot: {
       title: "Soluciones IoT",
-      description:
-        "Dispositivos y sistemas inteligentes para monitoreo y control automatizado.",
+      description: "Dispositivos y sistemas inteligentes para monitoreo y control automatizado.",
       features: [
         "Integración de dispositivos inteligentes",
         "Monitoreo en tiempo real",
-        "Conectividad en la nube",
+        "Conectividad en la nube"
       ],
+      overview: "Desarrollamos soluciones IoT innovadoras que conectan y automatizan dispositivos para crear sistemas inteligentes.",
+      techStack: "Stack Tecnológico",
+      process: "Proceso de Desarrollo"
     },
     ecommerce: {
       title: "Plataforma E-commerce",
-      description:
-        "Solución completa de tienda en línea con características avanzadas.",
+      description: "Solución completa de tienda en línea con características avanzadas.",
       features: [
         "Pasarela de pago segura",
         "Gestión de inventario",
-        "Panel de análisis",
+        "Panel de análisis"
       ],
+      overview: "Implementamos plataformas de comercio electrónico completas y personalizadas para impulsar tu negocio en línea.",
+      techStack: "Stack Tecnológico",
+      process: "Proceso de Desarrollo"
     },
     featuresTitle: "Características",
+    startProject: "Iniciar Proyecto",
+    scheduleConsultation: "Agendar Consulta",
+    projectOverview: "Descripción del Proyecto",
+    keyFeatures: "Características Principales",
+    developmentProcess: "Proceso de Desarrollo"
   },
 };

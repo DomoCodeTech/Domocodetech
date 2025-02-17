@@ -90,9 +90,12 @@ export const SITE_DATA = {
   },
   projects: {
     images: {
-      web: 'https://images.pexels.com/photos/3681902/pexels-photo-3681902.jpeg',
-      mobile: 'https://images.pexels.com/photos/3861972/pexels-photo-3861972.jpeg',
-      software: 'https://images.pexels.com/photos/3184300/pexels-photo-3184300.jpeg'
+      web: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuRlQeTYlhOuyQXMrKDsC9ndDZzCjidTJUkw&s',
+      mobile: 'https://images.pexels.com/photos/147413/twitter-facebook-together-exchange-of-information-147413.jpeg',
+      software: 'https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg',
+      iot: 'https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg',
+      ecommerce: 'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg',
+      consulting: 'https://images.pexels.com/photos/7681091/pexels-photo-7681091.jpeg'
     }
   }
 }; 

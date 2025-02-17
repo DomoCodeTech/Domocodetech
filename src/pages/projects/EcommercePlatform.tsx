@@ -14,51 +14,51 @@ import {
   Button,
 } from '@mui/material';
 import { motion } from 'framer-motion';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import PhoneAndroidIcon from '@mui/icons-material/PhoneAndroid';
-import SpeedIcon from '@mui/icons-material/Speed';
-import CloudIcon from '@mui/icons-material/Cloud';
-import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
-import SecurityIcon from '@mui/icons-material/Security';
-import { Link as RouterLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { Link as RouterLink } from 'react-router-dom';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import InventoryIcon from '@mui/icons-material/Inventory';
+import PaymentIcon from '@mui/icons-material/Payment';
+import AnalyticsIcon from '@mui/icons-material/Analytics';
+import SecurityIcon from '@mui/icons-material/Security';
 import { SITE_DATA } from '../../constants/siteData';
 
-const MobileApplication = () => {
+const EcommercePlatform = () => {
   const theme = useTheme();
   const { t } = useTranslation();
 
   const features = [
     {
-      icon: <PhoneAndroidIcon />,
-      title: 'Native Performance',
-      description: 'High-performance native applications for iOS and Android platforms'
+      icon: <PaymentIcon />,
+      title: t('projects.features.payment-gateway'),
+      description: 'Multiple payment methods with secure transaction processing'
     },
     {
-      icon: <SpeedIcon />,
-      title: 'Smooth UX',
-      description: 'Fluid animations and responsive interactions for the best user experience'
+      icon: <InventoryIcon />,
+      title: t('projects.features.inventory'),
+      description: 'Real-time inventory tracking and management'
     },
     {
-      icon: <CloudIcon />,
-      title: 'Cloud Integration',
-      description: 'Seamless integration with cloud services and backend systems'
+      icon: <AnalyticsIcon />,
+      title: t('projects.features.analytics'),
+      description: 'Comprehensive analytics and reporting dashboard'
     },
     {
-      icon: <NotificationsActiveIcon />,
-      title: 'Push Notifications',
-      description: 'Real-time updates and engagement through push notifications'
+      icon: <ShoppingCartIcon />,
+      title: t('projects.features.user-friendly'),
+      description: 'Intuitive shopping experience and cart management'
     },
     {
       icon: <SecurityIcon />,
-      title: 'Secure Data',
-      description: 'Advanced security measures to protect user data and privacy'
+      title: t('projects.features.security'),
+      description: 'Advanced security measures for customer data protection'
     }
   ];
 
   const techStack = [
-    'React Native', 'Flutter', 'Swift', 'Kotlin', 'Firebase',
-    'AWS Amplify', 'GraphQL', 'Redux', 'SQLite', 'Jest'
+    'React', 'Node.js', 'MongoDB', 'Stripe', 'AWS',
+    'Redis', 'ElasticSearch', 'Docker', 'Next.js', 'GraphQL'
   ];
 
   return (
@@ -90,8 +90,8 @@ const MobileApplication = () => {
           >
             <Box
               component="img"
-              src={SITE_DATA.projects.images.mobile}
-              alt={t('projects.mobile.title')}
+              src={SITE_DATA.projects.images.ecommerce}
+              alt={t('projects.ecommerce.title')}
               sx={{
                 width: '100%',
                 height: '100%',
@@ -122,7 +122,7 @@ const MobileApplication = () => {
                   textAlign: 'center',
                 }}
               >
-                {t('projects.mobile.title')}
+                {t('projects.ecommerce.title')}
               </Typography>
               <Typography
                 variant="h5"
@@ -132,7 +132,7 @@ const MobileApplication = () => {
                   maxWidth: '800px',
                 }}
               >
-                {t('projects.mobile.description')}
+                {t('projects.ecommerce.description')}
               </Typography>
             </Box>
           </Box>
@@ -149,19 +149,16 @@ const MobileApplication = () => {
               >
                 <CardContent>
                   <Typography variant="h6" gutterBottom>
-                    Project Overview
+                    {t('projects.projectOverview')}
                   </Typography>
                   <Typography variant="body1" paragraph>
-                    Our mobile application development service delivers high-quality, native mobile applications for both iOS and Android platforms. We focus on creating engaging user experiences while ensuring optimal performance and reliability.
-                  </Typography>
-                  <Typography variant="body1" paragraph>
-                    From concept to deployment, we handle every aspect of mobile app development, including UI/UX design, development, testing, and ongoing maintenance.
+                    {t('projects.ecommerce.overview')}
                   </Typography>
                 </CardContent>
               </Card>
 
               <Typography variant="h6" gutterBottom>
-                Key Features
+                {t('projects.keyFeatures')}
               </Typography>
               <Grid container spacing={3}>
                 {features.map((feature, index) => (
@@ -202,7 +199,7 @@ const MobileApplication = () => {
               >
                 <CardContent>
                   <Typography variant="h6" gutterBottom>
-                    Technology Stack
+                    {t('projects.ecommerce.techStack')}
                   </Typography>
                   <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
                     {techStack.map((tech, index) => (
@@ -232,16 +229,16 @@ const MobileApplication = () => {
               >
                 <CardContent>
                   <Typography variant="h6" gutterBottom>
-                    Development Process
+                    {t('projects.developmentProcess')}
                   </Typography>
                   <List>
                     {[
-                      'Market Research',
+                      'Requirements Analysis',
                       'UI/UX Design',
-                      'Native Development',
+                      'Development',
+                      'Payment Integration',
                       'Testing & QA',
-                      'App Store Submission',
-                      'Maintenance & Updates'
+                      'Launch & Support'
                     ].map((step, index) => (
                       <ListItem key={index}>
                         <ListItemIcon>
@@ -275,7 +272,7 @@ const MobileApplication = () => {
                 },
               }}
             >
-              Start Your Project
+              {t('projects.startProject')}
             </Button>
           </Box>
         </motion.div>
@@ -284,4 +281,4 @@ const MobileApplication = () => {
   );
 };
 
-export default MobileApplication; 
+export default EcommercePlatform; 

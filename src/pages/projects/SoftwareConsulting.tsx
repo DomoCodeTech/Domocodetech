@@ -14,51 +14,53 @@ import {
   Button,
 } from '@mui/material';
 import { motion } from 'framer-motion';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import PhoneAndroidIcon from '@mui/icons-material/PhoneAndroid';
-import SpeedIcon from '@mui/icons-material/Speed';
-import CloudIcon from '@mui/icons-material/Cloud';
-import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
-import SecurityIcon from '@mui/icons-material/Security';
-import { Link as RouterLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { Link as RouterLink } from 'react-router-dom';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import TrendingUpIcon from '@mui/icons-material/TrendingUp';
+import LightbulbIcon from '@mui/icons-material/Lightbulb';
+import BarChartIcon from '@mui/icons-material/BarChart';
+import GroupsIcon from '@mui/icons-material/Groups';
+import SecurityIcon from '@mui/icons-material/Security';
 import { SITE_DATA } from '../../constants/siteData';
 
-const MobileApplication = () => {
+const SoftwareConsulting = () => {
   const theme = useTheme();
   const { t } = useTranslation();
 
   const features = [
     {
-      icon: <PhoneAndroidIcon />,
-      title: 'Native Performance',
-      description: 'High-performance native applications for iOS and Android platforms'
+      icon: <TrendingUpIcon />,
+      title: t('projects.features.optimization'),
+      description: 'Strategic planning and optimization of technology infrastructure'
     },
     {
-      icon: <SpeedIcon />,
-      title: 'Smooth UX',
-      description: 'Fluid animations and responsive interactions for the best user experience'
+      icon: <LightbulbIcon />,
+      title: t('projects.features.innovation'),
+      description: 'Innovative solutions for complex business challenges'
     },
     {
-      icon: <CloudIcon />,
-      title: 'Cloud Integration',
-      description: 'Seamless integration with cloud services and backend systems'
+      icon: <BarChartIcon />,
+      title: t('projects.features.analytics'),
+      description: 'Data-driven insights and performance analysis'
     },
     {
-      icon: <NotificationsActiveIcon />,
-      title: 'Push Notifications',
-      description: 'Real-time updates and engagement through push notifications'
+      icon: <GroupsIcon />,
+      title: t('projects.features.scalability'),
+      description: 'Scalable solutions for growing businesses'
     },
     {
       icon: <SecurityIcon />,
-      title: 'Secure Data',
-      description: 'Advanced security measures to protect user data and privacy'
+      title: t('projects.features.security'),
+      description: 'Comprehensive security and risk assessment'
     }
   ];
 
-  const techStack = [
-    'React Native', 'Flutter', 'Swift', 'Kotlin', 'Firebase',
-    'AWS Amplify', 'GraphQL', 'Redux', 'SQLite', 'Jest'
+  const expertise = [
+    'Digital Transformation', 'Cloud Strategy', 'IT Infrastructure',
+    'Cybersecurity', 'Data Analytics', 'Agile Methodologies',
+    'DevOps', 'Enterprise Architecture', 'Project Management',
+    'Technology Assessment'
   ];
 
   return (
@@ -90,8 +92,8 @@ const MobileApplication = () => {
           >
             <Box
               component="img"
-              src={SITE_DATA.projects.images.mobile}
-              alt={t('projects.mobile.title')}
+              src={SITE_DATA.projects.images.consulting}
+              alt={t('projects.consulting.title')}
               sx={{
                 width: '100%',
                 height: '100%',
@@ -122,7 +124,7 @@ const MobileApplication = () => {
                   textAlign: 'center',
                 }}
               >
-                {t('projects.mobile.title')}
+                {t('projects.consulting.title')}
               </Typography>
               <Typography
                 variant="h5"
@@ -132,7 +134,7 @@ const MobileApplication = () => {
                   maxWidth: '800px',
                 }}
               >
-                {t('projects.mobile.description')}
+                {t('projects.consulting.description')}
               </Typography>
             </Box>
           </Box>
@@ -149,19 +151,16 @@ const MobileApplication = () => {
               >
                 <CardContent>
                   <Typography variant="h6" gutterBottom>
-                    Project Overview
+                    {t('projects.projectOverview')}
                   </Typography>
                   <Typography variant="body1" paragraph>
-                    Our mobile application development service delivers high-quality, native mobile applications for both iOS and Android platforms. We focus on creating engaging user experiences while ensuring optimal performance and reliability.
-                  </Typography>
-                  <Typography variant="body1" paragraph>
-                    From concept to deployment, we handle every aspect of mobile app development, including UI/UX design, development, testing, and ongoing maintenance.
+                    {t('projects.consulting.overview')}
                   </Typography>
                 </CardContent>
               </Card>
 
               <Typography variant="h6" gutterBottom>
-                Key Features
+                {t('projects.keyFeatures')}
               </Typography>
               <Grid container spacing={3}>
                 {features.map((feature, index) => (
@@ -202,10 +201,10 @@ const MobileApplication = () => {
               >
                 <CardContent>
                   <Typography variant="h6" gutterBottom>
-                    Technology Stack
+                    {t('projects.consulting.techStack')}
                   </Typography>
                   <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
-                    {techStack.map((tech, index) => (
+                    {expertise.map((tech, index) => (
                       <Chip
                         key={index}
                         label={tech}
@@ -232,16 +231,16 @@ const MobileApplication = () => {
               >
                 <CardContent>
                   <Typography variant="h6" gutterBottom>
-                    Development Process
+                    {t('projects.developmentProcess')}
                   </Typography>
                   <List>
                     {[
-                      'Market Research',
-                      'UI/UX Design',
-                      'Native Development',
-                      'Testing & QA',
-                      'App Store Submission',
-                      'Maintenance & Updates'
+                      'Initial Assessment',
+                      'Strategy Development',
+                      'Solution Design',
+                      'Implementation Support',
+                      'Performance Monitoring',
+                      'Continuous Improvement'
                     ].map((step, index) => (
                       <ListItem key={index}>
                         <ListItemIcon>
@@ -275,7 +274,7 @@ const MobileApplication = () => {
                 },
               }}
             >
-              Start Your Project
+              {t('projects.scheduleConsultation')}
             </Button>
           </Box>
         </motion.div>
@@ -284,4 +283,4 @@ const MobileApplication = () => {
   );
 };
 
-export default MobileApplication; 
+export default SoftwareConsulting; 
