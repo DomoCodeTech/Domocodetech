@@ -1,64 +1,92 @@
 import { Box, Container, Typography, useTheme } from '@mui/material';
-import { motion } from 'framer-motion';
+import { SITE_DATA } from '../constants/siteData';
+import { useTranslation } from 'react-i18next';
 
 const Partners = () => {
   const theme = useTheme();
-  
-  const partners = [
-    { name: 'Google', logo: '/images/logos/google.svg' },
-    { name: 'Amazon', logo: '/images/logos/amazon.svg' },
-    { name: 'Home Assistant', logo: '/images/logos/home-assistant.svg' },
-    { name: 'Arduino', logo: '/images/logos/arduino.svg' },
-    { name: 'Raspberry Pi', logo: '/images/logos/raspberry-pi.svg' },
-    { name: 'Microsoft', logo: '/images/logos/microsoft.svg' },
-  ];
+  const { t } = useTranslation();
 
   return (
     <Container maxWidth="lg">
-      <Typography variant="h4" align="center" sx={{ mb: 6 }}>
-        Nuestros Aliados Tecnológicos
+      <Typography
+        variant="h3"
+        align="center"
+        gutterBottom
+        sx={{
+          fontWeight: 800,
+          mb: 3,
+          background: theme.palette.mode === 'dark'
+            ? 'linear-gradient(90deg, #FFFFFF 0%, #00FFA3 100%)'
+            : 'linear-gradient(90deg, #1A1A1A 0%, #00805E 100%)',
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+        }}
+      >
+        {t('partners.title')}
       </Typography>
+
+      <Typography
+        variant="subtitle1"
+        align="center"
+        sx={{
+          mb: 2,
+          color: 'text.secondary',
+          maxWidth: '800px',
+          mx: 'auto'
+        }}
+      >
+        {t('partners.subtitle')}
+      </Typography>
+
+      <Typography
+        variant="body1"
+        align="center"
+        sx={{
+          mb: 6,
+          color: 'text.secondary',
+          maxWidth: '800px',
+          mx: 'auto'
+        }}
+      >
+        {t('partners.description')}
+      </Typography>
+
       <Box
         sx={{
           display: 'grid',
           gridTemplateColumns: {
             xs: 'repeat(2, 1fr)',
             sm: 'repeat(3, 1fr)',
-            md: 'repeat(6, 1fr)',
+            md: 'repeat(4, 1fr)',
+            lg: 'repeat(6, 1fr)',
           },
           gap: 4,
           alignItems: 'center',
+          justifyItems: 'center',
+          py: 8,
         }}
       >
-        {partners.map((partner, index) => (
-          <motion.div
+        {Object.values(SITE_DATA.images.services.partners).map((logo, index) => (
+          <Box
             key={index}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            viewport={{ once: true }}
-          >
-            <Box
-              component="img"
-              src={partner.logo}
-              alt={partner.name}
-              sx={{
-                width: '100%',
-                maxWidth: 120,
-                height: 'auto',
-                filter: theme.palette.mode === 'dark' 
-                  ? 'brightness(0) invert(1) opacity(0.7)'
-                  : 'opacity(0.7)',
-                transition: 'all 0.3s ease',
-                '&:hover': {
-                  filter: theme.palette.mode === 'dark'
-                    ? 'brightness(0) invert(1) opacity(1)'
-                    : 'opacity(1)',
-                  transform: 'scale(1.05)',
-                },
-              }}
-            />
-          </motion.div>
+            component="img"
+            src={logo}
+            alt={`Partner ${index + 1}`}
+            sx={{
+              height: '40px',
+              maxWidth: '120px',
+              objectFit: 'contain',
+              filter: theme.palette.mode === 'dark' 
+                ? 'brightness(0) invert(1) opacity(0.8)'
+                : 'none',
+              transition: 'all 0.3s ease',
+              opacity: 0.7,
+              '&:hover': {
+                opacity: 1,
+                transform: 'scale(1.1)',
+              }
+            }}
+          />
         ))}
       </Box>
     </Container>

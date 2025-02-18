@@ -1,3 +1,5 @@
+import { title } from "process";
+
 /**
  * English translations for the DomoCodeTech website
  * This file contains all text content in English for the entire application
@@ -777,5 +779,10 @@ export const enTranslations = {
         ],
       },
     },
+  },
+  partners: {
+    title: "Technology Partners",
+    subtitle: "We work with the best technologies and brands in the market",
+    description: "Our strategic partnerships allow us to deliver cutting-edge solutions and ensure maximum quality in every project."
   },
 };

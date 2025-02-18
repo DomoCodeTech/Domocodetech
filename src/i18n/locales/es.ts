@@ -857,4 +857,9 @@ export const esTranslations = {
     keyFeatures: "Características Principales",
     developmentProcess: "Proceso de Desarrollo"
   },
+  partners: {
+    title: "Aliados Tecnológicos",
+    subtitle: "Trabajamos con las mejores tecnologías y marcas del mercado",
+    description: "Nuestras alianzas estratégicas nos permiten ofrecer soluciones de vanguardia y garantizar la máxima calidad en cada proyecto."
+  },
 };

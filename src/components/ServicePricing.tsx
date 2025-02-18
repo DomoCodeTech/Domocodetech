@@ -73,13 +73,13 @@ const ServicePricing: React.FC<ServicePricingProps> = ({ serviceKey }) => {
                   flexDirection: 'column',
                   position: 'relative',
                   transition: 'transform 0.3s ease-in-out',
+                  minHeight: '600px', // Añadir altura mínima fija
                   '&:hover': {
                     transform: 'translateY(-8px)',
                   },
                   ...(tier.recommended && {
                     border: '2px solid',
                     borderColor: 'primary.main',
-                    transform: 'scale(1.05)',
                   }),
                 }}
               >
@@ -97,7 +97,13 @@ const ServicePricing: React.FC<ServicePricingProps> = ({ serviceKey }) => {
                   />
                 )}
 
-                <CardContent sx={{ flexGrow: 1, p: 4 }}>
+                <CardContent sx={{ 
+                  flexGrow: 1, 
+                  p: 4,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between'
+                }}>
                   <Typography variant="h5" gutterBottom fontWeight="bold">
                     {tier.name}
                   </Typography>
