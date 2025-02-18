@@ -268,18 +268,153 @@ export const enTranslations = {
           ]
         }
       ],
-      // Add similar translations for other services...
       microcontrollers: [
-        // ...similar structure for microcontrollers pricing
+        {
+          name: 'Basic Firmware',
+          price: 'From $200',
+          description: 'For simple devices',
+          features: [
+            'Basic programming',
+            'Single microcontroller',
+            'Basic functions',
+            'Unit testing',
+            'Basic documentation'
+          ]
+        },
+        {
+          name: 'IoT Advanced',
+          price: 'From $800',
+          recommended: true,
+          features: [
+            'WiFi/BT connectivity',
+            'Web dashboard',
+            'REST APIs',
+            'OTA updates',
+            'Remote monitoring'
+          ]
+        },
+        {
+          name: 'Industrial System',
+          price: 'From $2,000',
+          features: [
+            'Industrial protocol',
+            'Redundant system',
+            'SCADA interface',
+            'High availability',
+            '24/7 Support'
+          ]
+        }
       ],
       electronics: [
-        // ...similar structure for electronics pricing
+        {
+          name: 'PCB Design',
+          price: 'From $300',
+          description: 'Perfect for small projects',
+          features: [
+            'Schematic design',
+            'Basic PCB layout',
+            'Bill of materials',
+            'Manufacturing files',
+            'Design review'
+          ]
+        },
+        {
+          name: 'Prototyping',
+          price: 'From $1,000',
+          recommended: true,
+          features: [
+            'Complete PCB design',
+            'Functional prototype',
+            'Testing & validation',
+            'Technical documentation',
+            'Development support'
+          ]
+        },
+        {
+          name: 'Production',
+          price: 'From $2,500',
+          features: [
+            'Manufacturing optimization',
+            'Quality control',
+            'Certifications',
+            'Production support',
+            'Complete documentation'
+          ]
+        }
       ],
       networks: [
-        // ...similar structure for networks pricing
+        {
+          name: 'Basic Network',
+          price: 'From $400',
+          description: 'For small offices',
+          features: [
+            'Router setup',
+            'Business WiFi',
+            'Basic firewall',
+            'Remote support',
+            'Basic monitoring'
+          ]
+        },
+        {
+          name: 'Enterprise Network',
+          price: 'From $1,200',
+          recommended: true,
+          features: [
+            'Advanced security',
+            'VLANs & QoS',
+            'Corporate VPN',
+            '24/7 monitoring',
+            'Priority support'
+          ]
+        },
+        {
+          name: 'Infrastructure',
+          price: 'From $3,500',
+          features: [
+            'Network design',
+            'High availability',
+            'Redundant system',
+            'Centralized management',
+            'Guaranteed SLA'
+          ]
+        }
       ],
       support: [
-        // ...similar structure for support pricing
+        {
+          name: 'Basic',
+          price: '$50/hour',
+          description: 'On-demand support',
+          features: [
+            'Remote support',
+            'Business hours',
+            'Basic diagnostics',
+            'Preventive maintenance',
+            '24h response time'
+          ]
+        },
+        {
+          name: 'Business',
+          price: '$500/month',
+          recommended: true,
+          features: [
+            'On-site support',
+            '4h response time',
+            'Preventive maintenance',
+            'Scheduled backups',
+            'Extended hours'
+          ]
+        },
+        {
+          name: 'Premium',
+          price: '$1,200/month',
+          features: [
+            '24/7 support',
+            'Immediate response',
+            'Dedicated technician',
+            'Complete maintenance',
+            'Full warranty'
+          ]
+        }
       ]
     }
   },

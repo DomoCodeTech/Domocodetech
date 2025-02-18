@@ -70,14 +70,13 @@ export const SITE_DATA = {
       robotics: 'https://images.pexels.com/photos/8566472/pexels-photo-8566472.jpeg',
       software: 'https://images.pexels.com/photos/574071/pexels-photo-574071.jpeg',
       support: 'https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg',
-      automation: 'https://images.pexels.com/photos/3912524/pexels-photo-3912524.jpeg',
-      hero: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg',
+      automation: 'https://images.pexels.com/photos/1624895/pexels-photo-1624895.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+
       showcase: [
         'https://images.pexels.com/photos/8566472/pexels-photo-8566472.jpeg', // Electronics/IoT
         'https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg' ,  // Software Dev
         'https://images.pexels.com/photos/574071/pexels-photo-574071.jpeg',
         'https://images.pexels.com/photos/3912981/pexels-photo-3912981.jpeg',
-        'https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg',
         'https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg', // Smart Home
       ],
       process: {
