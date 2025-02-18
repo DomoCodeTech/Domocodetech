@@ -1,3 +1,5 @@
+import Hero from "@/components/Hero";
+
 export const SITE_DATA = {
   company: {
     name: 'DomoCodeTech',
@@ -69,6 +71,29 @@ export const SITE_DATA = {
       software: 'https://images.pexels.com/photos/574071/pexels-photo-574071.jpeg',
       support: 'https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg',
       automation: 'https://images.pexels.com/photos/3912524/pexels-photo-3912524.jpeg',
+      hero: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg',
+      showcase: [
+        'https://images.pexels.com/photos/8566472/pexels-photo-8566472.jpeg', // Electronics/IoT
+        'https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg' ,  // Software Dev
+        'https://images.pexels.com/photos/574071/pexels-photo-574071.jpeg',
+        'https://images.pexels.com/photos/3912981/pexels-photo-3912981.jpeg',
+        'https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg',
+        'https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg', // Smart Home
+      ],
+      process: {
+        consultation: '/images/services/process/consultation.svg',
+        planning: '/images/services/process/planning.svg',
+        development: '/images/services/process/development.svg',
+        delivery: '/images/services/process/delivery.svg',
+      },
+      partners: {
+        google: '/logos/partners/google.svg',
+        amazon: '/logos/partners/amazon.svg',
+        homeAssistant: '/logos/partners/home-assistant.svg',
+        arduino: '/logos/partners/arduino.svg',
+        raspberry: '/logos/partners/raspberry-pi.svg',
+        microsoft: '/logos/partners/microsoft.svg'
+      }
     },
     team: {
       member1: '/images/team/member1.png',
@@ -101,5 +126,39 @@ export const SITE_DATA = {
       ecommerce: 'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg',
       consulting: 'https://images.pexels.com/photos/7681091/pexels-photo-7681091.jpeg'
     }
+  },
+  pricing: {
+    images: {
+      software: {
+        landing: '/images/pricing/software-landing.jpg',
+        webapp: '/images/pricing/software-webapp.jpg',
+        mobile: '/images/pricing/software-mobile.jpg'
+      },
+      domotics: {
+        basic: '/images/pricing/domotics-basic.jpg',
+        smart: '/images/pricing/domotics-smart.jpg',
+        enterprise: '/images/pricing/domotics-enterprise.jpg'
+      },
+      electronics: {
+        prototype: '/images/pricing/electronics-prototype.jpg',
+        development: '/images/pricing/electronics-development.jpg',
+        production: '/images/pricing/electronics-production.jpg'
+      },
+      networks: {
+        basic: '/images/pricing/networks-basic.jpg',
+        enterprise: '/images/pricing/networks-enterprise.jpg',
+        datacenter: '/images/pricing/networks-datacenter.jpg'
+      },
+      microcontrollers: {
+        basic: '/images/pricing/micro-basic.jpg',
+        advanced: '/images/pricing/micro-advanced.jpg',
+        industrial: '/images/pricing/micro-industrial.jpg'
+      },
+      support: {
+        basic: '/images/pricing/support-basic.jpg',
+        business: '/images/pricing/support-business.jpg',
+        premium: '/images/pricing/support-premium.jpg'
+      }
+    }
   }
-}; 
+};

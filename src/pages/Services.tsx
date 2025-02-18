@@ -7,19 +7,23 @@ import {
   Card,
   CardContent,
   CardMedia,
-  Button,
   useTheme,
   Chip,
   Stack,
   Tabs,
-  Tab
+  Tab,
 } from '@mui/material';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { ServiceIcon } from '../components/icons/ServiceIcons';
 import { SITE_DATA } from '../constants/siteData';
-import { Link as RouterLink, useLocation } from 'react-router-dom';
-import { MdArrowForward, MdCheck } from 'react-icons/md';
+import { MdCheck } from 'react-icons/md';
+import ServicesHero from '../components/ServicesHero';
+import ProcessFlow from '../components/ProcessFlow';
+import Partners from '../components/Partners';
+import ServicePricing from '../components/ServicePricing';
+import { useLocation } from 'react-router-dom';
+
 
 const Services: React.FC = () => {
   const { t } = useTranslation();
@@ -111,84 +115,9 @@ const Services: React.FC = () => {
           px: { xs: 2, sm: 3, md: 4 },
         }}
       >
-        {/* Hero Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <Box
-            sx={{
-              position: 'relative',
-              textAlign: 'center',
-              mb: { xs: 6, md: 12 },
-              '&::before': {
-                content: '""',
-                position: 'absolute',
-                top: '-50%',
-                left: '50%',
-                transform: 'translateX(-50%)',
-                width: { xs: '100%', md: '600px' },
-                height: { xs: '100%', md: '600px' },
-                background: theme.palette.mode === 'dark'
-                  ? 'radial-gradient(circle, rgba(0, 255, 163, 0.15) 0%, rgba(0, 255, 163, 0) 70%)'
-                  : 'radial-gradient(circle, rgba(0, 128, 94, 0.15) 0%, rgba(0, 128, 94, 0) 70%)',
-                filter: 'blur(60px)',
-                zIndex: 0,
-              }
-            }}
-          >
-            <Typography
-              variant="h1"
-              sx={{
-                mb: 3,
-                fontSize: { xs: '2.5rem', sm: '3rem', md: '3.5rem' },
-                background: theme.palette.mode === 'dark'
-                  ? 'linear-gradient(90deg, #FFFFFF 0%, #00FFA3 100%)'
-                  : 'linear-gradient(90deg, #1A1A1A 0%, #00805E 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                fontWeight: 700,
-                position: 'relative',
-                zIndex: 1,
-              }}
-            >
-              {t('services.title')}
-            </Typography>
-            <Typography
-              variant="h5"
-              color="text.secondary"
-              sx={{
-                maxWidth: '800px',
-                mx: 'auto',
-                mb: { xs: 4, md: 8 },
-                px: { xs: 2, sm: 0 },
-                fontSize: { xs: '1rem', sm: '1.25rem' },
-                position: 'relative',
-                zIndex: 1,
-              }}
-            >
-              {t('services.subtitle')}
-            </Typography>
-
-            <Typography
-              variant="body1"
-              sx={{
-                maxWidth: '800px',
-                mx: 'auto',
-                mb: 4,
-                px: { xs: 2, sm: 0 },
-                color: 'text.secondary',
-                fontSize: { xs: '0.9rem', sm: '1rem' },
-                lineHeight: 1.8,
-              }}
-            >
-              {t('services.introduction')}
-            </Typography>
-
-          </Box>
-        </motion.div>
-
+        <ServicesHero />
+        <ProcessFlow />
+        
         {/* Service Categories Tabs */}
         <Box sx={{ mb: 6 }} id="services-tabs">
           <Tabs
@@ -227,7 +156,7 @@ const Services: React.FC = () => {
           </Tabs>
         </Box>
 
-        {/* Services Grid */}
+        {/* Services Content */}
         <AnimatePresence mode="wait">
           <motion.div
             key={selectedTab}
@@ -237,26 +166,15 @@ const Services: React.FC = () => {
             transition={{ duration: 0.5 }}
           >
             <Grid container spacing={4}>
-              <Grid item xs={12} md={6}>
-                <Card
-                  sx={{
-                    height: '100%',
-                    background: theme.palette.mode === 'dark'
-                      ? 'linear-gradient(145deg, #1f1f1f 0%, #151515 100%)'
-                      : 'linear-gradient(145deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 247, 255, 0.9) 100%)',
-                    backdropFilter: 'blur(10px)',
-                    overflow: 'hidden',
-                  }}
-                >
-                  <Box sx={{ position: 'relative', height: 300 }}>
+              {/* Service Description Card */}
+              <Grid item xs={12} md={8}>
+                <Card sx={{ mb: 4, p: 3 }}>
+                  <Box sx={{ position: 'relative', height: 300, mb: 3 }}>
                     <CardMedia
                       component="img"
                       image={services[selectedTab].image}
                       alt={t(`services.${services[selectedTab].key}.title`)}
-                      sx={{
-                        height: '100%',
-                        objectFit: 'cover',
-                      }}
+                      sx={{ height: '100%', objectFit: 'cover', borderRadius: 2 }}
                     />
                     <Box
                       sx={{
@@ -268,87 +186,45 @@ const Services: React.FC = () => {
                         p: 3,
                       }}
                     >
-                      <Typography
-                        variant="h3"
-                        sx={{
-                          color: 'white',
-                          textShadow: '0 2px 4px rgba(0,0,0,0.3)',
-                          fontWeight: 700,
-                        }}
-                      >
+                      <Typography variant="h3" sx={{ color: 'white', fontWeight: 700 }}>
                         {t(`services.${services[selectedTab].key}.title`)}
                       </Typography>
                     </Box>
                   </Box>
-                  <CardContent sx={{ p: 4 }}>
-                    <Typography
-                      variant="body1"
-                      sx={{
-                        color: 'text.secondary',
-                        mb: 4,
-                        fontSize: '1.1rem',
-                        lineHeight: 1.8,
-                      }}
-                    >
-                      {t(`services.${services[selectedTab].key}.description`)}
-                    </Typography>
-                    <Button
-                      component={RouterLink}
-                      to="/contact"
-                      variant="contained"
-                      size="large"
-                      endIcon={<MdArrowForward />}
-                      sx={{
-                        width: '100%',
-                        py: 1.5,
-                        background: theme.palette.mode === 'dark'
-                          ? '#00FFA3'
-                          : 'linear-gradient(135deg, #00805E 0%, #00FFA3 100%)',
-                        color: theme.palette.mode === 'dark' ? '#0A0A0A' : '#FFFFFF',
-                        '&:hover': {
-                          background: theme.palette.mode === 'dark'
-                            ? '#00cc82'
-                            : 'linear-gradient(135deg, #006C4F 0%, #00E691 100%)',
-                        },
-                      }}
-                    >
-                      {t('common.contactUs')}
-                    </Button>
-                  </CardContent>
-                </Card>
-              </Grid>
 
-              <Grid container spacing={2} justifyContent="center" sx={{ mb: 4 }}>
-                    {[1, 2, 3].map((num) => (
-                      <Grid item xs={12} sm={4} key={num}>
-                        <Box
-                          sx={{
-                            p: 4,
-                            textAlign: 'center',
-                            color: 'text.secondary',
-                          }}
-                        >
-                          <Typography
-                            variant="h6"
+                  <Typography variant="h5" gutterBottom>
+                    ¿Qué incluye este servicio?
+                  </Typography>
+                  <Grid container spacing={2} sx={{ mb: 4 }}>
+                    {services[selectedTab].features.map((feature, index) => (
+                      <Grid item xs={12} sm={6} key={index}>
+                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                          <Box
                             sx={{
-                              color: 'primary.main',
-                              mb: 1,
-                              fontWeight: 600,
+                              width: 32,
+                              height: 32,
+                              borderRadius: '50%',
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                              bgcolor: 'primary.main',
+                              color: 'white',
                             }}
                           >
-                            {t(`services.highlight${num}.title`)}
-                          </Typography>
-                          <Typography variant="body2">
-                            {t(`services.highlight${num}.description`)}
-                          </Typography>
+                            <MdCheck size={20} />
+                          </Box>
+                          <Typography>{feature}</Typography>
                         </Box>
                       </Grid>
                     ))}
-                    </Grid>
+                  </Grid>
+                </Card>
+              </Grid>
 
-              <Grid item xs={12} md={6}>
+              {/* Sidebar */}
+              <Grid item xs={12} md={4}>
                 <Stack spacing={4}>
-                  {/* Features */}
+                  {/* Features Card */}
                   <Card
                     sx={{
                       background: theme.palette.mode === 'dark'
@@ -409,7 +285,7 @@ const Services: React.FC = () => {
                     </CardContent>
                   </Card>
 
-                  {/* Tech Stack */}
+                  {/* Tech Stack Card */}
                   <Card
                     sx={{
                       background: theme.palette.mode === 'dark'
@@ -460,7 +336,12 @@ const Services: React.FC = () => {
                 </Stack>
               </Grid>
             </Grid>
-            
+
+            {/* Service Pricing Section */}
+            <ServicePricing serviceKey={services[selectedTab].key} />
+
+            {/* Partners Section */}
+            <Partners />
           </motion.div>
         </AnimatePresence>
       </Container>

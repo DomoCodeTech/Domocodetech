@@ -11,7 +11,6 @@
  */
 import { Box, Container, Grid, Typography, Card, Avatar, IconButton } from '@mui/material';
 import { motion, AnimatePresence } from 'framer-motion';
-import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import { useTranslation } from 'react-i18next';

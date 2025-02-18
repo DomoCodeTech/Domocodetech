@@ -192,6 +192,94 @@ export const enTranslations = {
         training: "Training and education",
       },
     },
+    pricingPlans: {
+      software: [
+        {
+          name: 'Landing Page',
+          price: 'From $800',
+          description: 'Ideal for basic web presence',
+          features: [
+            'Responsive Design',
+            'Basic SEO',
+            'Up to 5 sections',
+            'Contact form',
+            'Hosting included (1 year)'
+          ]
+        },
+        {
+          name: 'Web Application',
+          price: 'From $2,500',
+          recommended: true,
+          features: [
+            'Admin Panel',
+            'Database',
+            'RESTful APIs',
+            'User authentication',
+            'Technical support (6 months)'
+          ]
+        },
+        {
+          name: 'Mobile App',
+          price: 'From $5,000',
+          features: [
+            'Android/iOS Development',
+            'Backend included',
+            'Custom APIs',
+            'Admin panel',
+            'Store publication'
+          ]
+        }
+      ],
+      domotics: [
+        {
+          name: 'Basic',
+          price: 'From $500',
+          features: [
+            'Lighting control',
+            '2 motion sensors',
+            'App control',
+            'Installation included',
+            'Basic support'
+          ]
+        },
+        {
+          name: 'Smart Home',
+          price: 'From $1,500',
+          recommended: true,
+          features: [
+            'Complete home control',
+            'Smart security',
+            'Smart thermostat',
+            'Voice control',
+            '24/7 Support'
+          ]
+        },
+        {
+          name: 'Enterprise',
+          price: 'From $3,000',
+          features: [
+            'Complete automation',
+            'Security system',
+            'Access control',
+            'Energy monitoring',
+            'Monthly maintenance'
+          ]
+        }
+      ],
+      // Add similar translations for other services...
+      microcontrollers: [
+        // ...similar structure for microcontrollers pricing
+      ],
+      electronics: [
+        // ...similar structure for electronics pricing
+      ],
+      networks: [
+        // ...similar structure for networks pricing
+      ],
+      support: [
+        // ...similar structure for support pricing
+      ]
+    }
   },
 
   /**

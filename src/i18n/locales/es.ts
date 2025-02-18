@@ -171,6 +171,229 @@ export const esTranslations = {
         iotDevices: "Dispositivos IoT conectados",
       },
     },
+    pricingPlans: {
+      software: [
+        {
+          name: 'Landing Page',
+          price: 'Desde $800',
+          description: 'Ideal para presencia web básica',
+          features: [
+            'Diseño Responsive',
+            'SEO Básico',
+            'Hasta 5 secciones',
+            'Formulario de contacto',
+            'Hosting incluido (1 año)'
+          ]
+        },
+        {
+          name: 'Aplicación Web',
+          price: 'Desde $2,500',
+          recommended: true,
+          features: [
+            'Panel Administrativo',
+            'Base de datos',
+            'APIs RESTful',
+            'Autenticación de usuarios',
+            'Soporte técnico (6 meses)'
+          ]
+        },
+        {
+          name: 'App Móvil',
+          price: 'Desde $5,000',
+          features: [
+            'Desarrollo Android/iOS',
+            'Backend incluido',
+            'APIs personalizadas',
+            'Panel de administración',
+            'Publicación en stores'
+          ]
+        }
+      ],
+      domotics: [
+        {
+          name: 'Básico',
+          price: 'Desde $500',
+          features: [
+            'Control de iluminación',
+            '2 sensores de movimiento',
+            'Control por app',
+            'Instalación incluida',
+            'Soporte básico'
+          ]
+        },
+        {
+          name: 'Hogar Inteligente',
+          price: 'Desde $1,500',
+          recommended: true,
+          features: [
+            'Control completo de hogar',
+            'Seguridad inteligente',
+            'Termostato inteligente',
+            'Control por voz',
+            'Soporte 24/7'
+          ]
+        },
+        {
+          name: 'Empresarial',
+          price: 'Desde $3,000',
+          features: [
+            'Automatización completa',
+            'Sistema de seguridad',
+            'Control de acceso',
+            'Monitoreo energético',
+            'Mantenimiento mensual'
+          ]
+        }
+      ],
+      electronics: [
+        {
+          name: 'Diseño PCB',
+          price: 'Desde $300',
+          description: 'Perfecto para proyectos pequeños',
+          features: [
+            'Diseño esquemático',
+            'Layout de PCB básico',
+            'Lista de materiales',
+            'Archivos de fabricación',
+            'Revisión de diseño'
+          ]
+        },
+        {
+          name: 'Prototipado',
+          price: 'Desde $1,000',
+          recommended: true,
+          features: [
+            'Diseño PCB completo',
+            'Prototipo funcional',
+            'Pruebas y validación',
+            'Documentación técnica',
+            'Soporte de desarrollo'
+          ]
+        },
+        {
+          name: 'Producción',
+          price: 'Desde $2,500',
+          features: [
+            'Optimización para manufactura',
+            'Control de calidad',
+            'Certificaciones',
+            'Soporte de producción',
+            'Documentación completa'
+          ]
+        }
+      ],
+      networks: [
+        {
+          name: 'Red Básica',
+          price: 'Desde $400',
+          description: 'Para pequeñas oficinas',
+          features: [
+            'Configuración router',
+            'WiFi empresarial',
+            'Firewall básico',
+            'Soporte remoto',
+            'Monitoreo básico'
+          ]
+        },
+        {
+          name: 'Red Empresarial',
+          price: 'Desde $1,200',
+          recommended: true,
+          features: [
+            'Seguridad avanzada',
+            'VLANs y QoS',
+            'VPN corporativa',
+            'Monitoreo 24/7',
+            'Soporte prioritario'
+          ]
+        },
+        {
+          name: 'Infraestructura',
+          price: 'Desde $3,500',
+          features: [
+            'Diseño de red',
+            'Alta disponibilidad',
+            'Sistema redundante',
+            'Gestión centralizada',
+            'SLA garantizado'
+          ]
+        }
+      ],
+      microcontrollers: [
+        {
+          name: 'Firmware Básico',
+          price: 'Desde $200',
+          description: 'Para dispositivos simples',
+          features: [
+            'Programación básica',
+            'Un microcontrolador',
+            'Funciones básicas',
+            'Pruebas unitarias',
+            'Documentación básica'
+          ]
+        },
+        {
+          name: 'IoT Avanzado',
+          price: 'Desde $800',
+          recommended: true,
+          features: [
+            'Conectividad WiFi/BT',
+            'Dashboard web',
+            'APIs REST',
+            'Actualización OTA',
+            'Monitoreo remoto'
+          ]
+        },
+        {
+          name: 'Sistema Industrial',
+          price: 'Desde $2,000',
+          features: [
+            'Protocolo industrial',
+            'Sistema redundante',
+            'Interfaz SCADA',
+            'Alta disponibilidad',
+            'Soporte 24/7'
+          ]
+        }
+      ],
+      support: [
+        {
+          name: 'Básico',
+          price: '$50/hora',
+          description: 'Soporte bajo demanda',
+          features: [
+            'Soporte remoto',
+            'Horario laboral',
+            'Diagnóstico básico',
+            'Mantenimiento preventivo',
+            'Respuesta en 24h'
+          ]
+        },
+        {
+          name: 'Empresarial',
+          price: '$500/mes',
+          recommended: true,
+          features: [
+            'Soporte presencial',
+            'Respuesta en 4h',
+            'Mantenimiento preventivo',
+            'Backups programados',
+            'Horario extendido'
+          ]
+        },
+        {
+          name: 'Premium',
+          price: '$1,200/mes',
+          features: [
+            'Soporte 24/7',
+            'Respuesta inmediata',
+            'Técnico dedicado',
+            'Mantenimiento completo',
+            'Garantía total'
+          ]
+        }
+      ]
+    }
   },
   // Team Section
   team: {
