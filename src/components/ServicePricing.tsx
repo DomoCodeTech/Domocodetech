@@ -35,7 +35,7 @@ const ServicePricing: React.FC<ServicePricingProps> = ({ serviceKey }) => {
   const theme = useTheme();
 
   const getPricingTiers = (): PricingTier[] => {
-    return t(`services.pricingPlans.${serviceKey}`, { returnObjects: true }) || [];
+    return (t(`services.pricingPlans.${serviceKey}`, { returnObjects: true }) as PricingTier[]) || [];
   };
 
   return (

@@ -94,10 +94,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
             color: "text.primary",
           }}
         >
-          <ServiceIcon
-            name={service.icon}
-            sx={{ fontSize: { xs: 36, sm: 44 } }}
-          />
+         
         </Box>
         <Typography
           className="service-title"

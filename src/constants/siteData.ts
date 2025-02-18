@@ -1,4 +1,3 @@
-import Hero from "@/components/Hero";
 
 export const SITE_DATA = {
   company: {

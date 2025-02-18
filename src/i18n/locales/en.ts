@@ -1,4 +1,3 @@
-import { title } from "process";
 
 /**
  * English translations for the DomoCodeTech website
