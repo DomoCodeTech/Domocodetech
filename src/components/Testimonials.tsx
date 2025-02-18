@@ -133,7 +133,7 @@ const Testimonials = () => {
 
         <Box sx={{ position: 'relative' }}>
           <AnimatePresence mode="wait">
-            <Grid container spacing={4} key={currentPage}>
+            <Grid container spacing={{ xs: 1.5, md: 4 }} key={currentPage}>
               {currentTestimonials.map((testimonial, index) => (
                 <Grid item xs={12} md={4} key={index}>
                   <motion.div
@@ -144,112 +144,96 @@ const Testimonials = () => {
                   >
                     <Card
                       sx={{
-                        p: 4,
+                        p: { xs: 2, md: 4 },
                         height: '100%',
-                        minHeight: '380px',
+                        minHeight: { xs: '180px', md: '380px' },
                         display: 'flex',
-                        flexDirection: 'column',
-                        justifyContent: 'space-between',
+                        flexDirection: { xs: 'row', md: 'column' },
                         background: theme.palette.mode === 'dark'
                           ? 'linear-gradient(145deg, #1f1f1f 0%, #151515 100%)'
                           : '#FFFFFF',
                         boxShadow: theme.palette.mode === 'dark'
-                          ? '0 8px 32px rgba(0, 0, 0, 0.5)'
-                          : '0 8px 32px rgba(0, 0, 0, 0.08)',
+                          ? '0 4px 16px rgba(0, 0, 0, 0.4)'
+                          : '0 4px 16px rgba(0, 0, 0, 0.06)',
                         borderRadius: 2,
                         position: 'relative',
-                        overflow: 'visible',
+                        overflow: 'hidden',
                         transition: 'all 0.3s ease-in-out',
-                        border: '1px solid',
-                        borderColor: theme.palette.mode === 'dark'
-                          ? 'rgba(255, 255, 255, 0.05)'
-                          : 'rgba(0, 0, 0, 0.05)',
-                        '&:hover': {
-                          transform: 'translateY(-8px)',
-                          boxShadow: theme.palette.mode === 'dark'
-                            ? '0 12px 40px rgba(0, 0, 0, 0.7)'
-                            : '0 12px 40px rgba(0, 0, 0, 0.12)',
-                          '& .quote-icon': {
-                            color: 'primary.main',
-                            transform: 'rotate(10deg)',
-                          },
-                        },
                       }}
                     >
-                      <Box
-                        className="quote-icon"
-                        sx={{
-                          position: 'absolute',
-                          top: -20,
-                          right: 20,
-                          color: theme.palette.mode === 'dark'
-                            ? 'rgba(255, 255, 255, 0.1)'
-                            : 'rgba(0, 0, 0, 0.1)',
-                          transition: 'all 0.3s ease-in-out',
+                      {/* Cliente info - Izquierda en móvil */}
+                      <Box 
+                        sx={{ 
+                          display: 'flex',
+                          flexDirection: 'column',
+                          alignItems: { xs: 'center', md: 'flex-start' },
+                          borderRight: { xs: '1px solid', md: 'none' },
+                          borderBottom: { xs: 'none', md: '1px solid' },
+                          borderColor: 'divider',
+                          pr: { xs: 2, md: 0 },
+                          pb: { xs: 0, md: 2 },
+                          minWidth: { xs: '100px', md: 'auto' },
                         }}
                       >
-                        <FormatQuoteIcon sx={{ fontSize: 60 }} />
-                      </Box>
-                      <Box sx={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
-                        <Typography
-                          variant="body1"
+                        <Avatar
+                          src={testimonial.avatar}
+                          alt={testimonial.name}
                           sx={{
-                            mb: 4,
+                            width: { xs: 56, md: 48 },
+                            height: { xs: 56, md: 48 },
+                            border: `2px solid ${theme.palette.primary.main}`,
+                            mb: 1
+                          }}
+                        />
+                        <Typography
+                          variant="subtitle2"
+                          sx={{
+                            fontWeight: 600,
+                            fontSize: { xs: '0.75rem', md: '1rem' },
+                            textAlign: { xs: 'center', md: 'left' },
+                            color: theme.palette.mode === 'dark' ? 'white' : 'text.primary',
+                          }}
+                        >
+                          {testimonial.name}
+                        </Typography>
+                        <Typography
+                          variant="caption"
+                          sx={{
+                            color: 'primary.main',
+                            fontSize: { xs: '0.7rem', md: '0.875rem' },
+                            textAlign: { xs: 'center', md: 'left' },
+                          }}
+                        >
+                          {testimonial.role}
+                        </Typography>
+                      </Box>
+
+                      {/* Contenido del testimonio - Derecha en móvil */}
+                      <Box 
+                        sx={{ 
+                          flex: 1,
+                          pl: { xs: 2, md: 0 },
+                          pt: { xs: 0, md: 2 },
+                          display: 'flex',
+                          flexDirection: 'column',
+                          justifyContent: 'center'
+                        }}
+                      >
+                        <Typography
+                          variant="body2"
+                          sx={{
                             color: 'text.secondary',
-                            fontStyle: 'italic',
-                            lineHeight: 1.6,
-                            fontFamily: "'Roboto', sans-serif",
-                            minHeight: '160px',
+                            fontSize: { xs: '0.813rem', md: '1rem' },
+                            lineHeight: { xs: 1.4, md: 1.6 },
                             overflow: 'hidden',
                             display: '-webkit-box',
-                            WebkitLineClamp: 6,
+                            WebkitLineClamp: { xs: 4, md: 6 },
                             WebkitBoxOrient: 'vertical',
                             textOverflow: 'ellipsis',
                           }}
                         >
                           "{testimonial.quote}"
                         </Typography>
-                      </Box>
-                      <Box sx={{ 
-                        display: 'flex', 
-                        alignItems: 'center',
-                        mt: 'auto',
-                        pt: 2,
-                        borderTop: '1px solid',
-                        borderColor: theme.palette.mode === 'dark'
-                          ? 'rgba(255, 255, 255, 0.05)'
-                          : 'rgba(0, 0, 0, 0.05)',
-                      }}>
-                        <Avatar
-                          src={testimonial.avatar}
-                          alt={testimonial.name}
-                          sx={{
-                            width: 48,
-                            height: 48,
-                            border: `2px solid ${theme.palette.primary.main}`,
-                          }}
-                        />
-                        <Box sx={{ ml: 2 }}>
-                          <Typography
-                            variant="subtitle1"
-                            sx={{
-                              fontWeight: 600,
-                              color: theme.palette.mode === 'dark' ? 'white' : 'text.primary',
-                              fontFamily: "'Playfair Display', serif",
-                            }}
-                          >
-                            {testimonial.name}
-                          </Typography>
-                          <Typography
-                            variant="body2"
-                            sx={{
-                              color: 'primary.main',
-                              fontFamily: "'Roboto', sans-serif",
-                            }}
-                          >
-                            {testimonial.role}
-                          </Typography>
-                        </Box>
                       </Box>
                     </Card>
                   </motion.div>
@@ -310,4 +294,4 @@ const Testimonials = () => {
   );
 };
 
-export default Testimonials; 
+export default Testimonials;

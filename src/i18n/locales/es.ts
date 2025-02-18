@@ -189,7 +189,7 @@ export const esTranslations = {
         "description": "Especialista en diseño 3D y desarrollo Android."
       },
       "member4": {
-        "position": "Experto en Soporte Técnico",
+        "position": "Experto en Soporte y Soluciones IT",
         "description": "Ingeniero de sistemas especializado en soporte técnico y soluciones IT."
       }
   },
@@ -441,7 +441,7 @@ export const esTranslations = {
   cta: {
     title: "¿Listo para Empezar?",
     subtitle: "Contáctanos hoy para una consulta y presupuesto gratis.",
-    button: "Contáctanos Ahora",
+    button: "Contáctanos",
   },
   // Common
   common: {

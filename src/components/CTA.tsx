@@ -24,7 +24,8 @@ const CTA = () => {
     <Box
       sx={{
         position: 'relative',
-        py: { xs: 8, md: 12 },
+        py: { xs: 6, md: 12 }, // Reducido el padding vertical en móvil
+        px: { xs: 2, md: 0 }, // Añadido padding horizontal en móvil
         overflow: 'hidden',
         '&::before': {
           content: '""',
@@ -41,7 +42,7 @@ const CTA = () => {
       }}
     >
       <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
-        <Grid container spacing={4} alignItems="center" justifyContent="center">
+        <Grid container spacing={2} alignItems="center" justifyContent="center">
           <Grid item xs={12} md={8}>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -59,11 +60,11 @@ const CTA = () => {
                 <Box
                   sx={{
                     position: 'absolute',
-                    top: '-100%',
+                    top: { xs: '-50%', md: '-100%' }, // Ajustado para móvil
                     left: '50%',
                     transform: 'translateX(-50%)',
-                    width: '600px',
-                    height: '600px',
+                    width: { xs: '300px', md: '600px' }, // Reducido para móvil
+                    height: { xs: '300px', md: '600px' }, // Reducido para móvil
                     background: theme.palette.mode === 'dark'
                       ? 'radial-gradient(circle, rgba(0, 255, 163, 0.15) 0%, rgba(0, 255, 163, 0) 70%)'
                       : 'radial-gradient(circle, rgba(0, 128, 94, 0.15) 0%, rgba(0, 128, 94, 0) 70%)',
@@ -75,7 +76,9 @@ const CTA = () => {
                 <Typography
                   variant="h2"
                   sx={{
-                    mb: 2,
+                    mb: { xs: 1.5, md: 2 },
+                    fontSize: { xs: '1.75rem', md: '2.75rem' },
+                    lineHeight: { xs: 1.2, md: 1.3 },
                     background: theme.palette.mode === 'dark'
                       ? 'linear-gradient(90deg, #FFFFFF 0%, #00FFA3 100%)'
                       : 'linear-gradient(90deg, #1A1A1A 0%, #00805E 100%)',
@@ -93,9 +96,11 @@ const CTA = () => {
                 <Typography
                   variant="body1"
                   sx={{
-                    mb: 4,
+                    mb: { xs: 3, md: 4 },
+                    px: { xs: 2, md: 0 },
                     color: theme.palette.mode === 'dark' ? 'text.secondary' : '#2A4365',
-                    fontSize: { xs: '1rem', md: '1.25rem' },
+                    fontSize: { xs: '0.875rem', md: '1.25rem' },
+                    lineHeight: { xs: 1.5, md: 1.6 },
                     maxWidth: '600px',
                     mx: 'auto',
                     minHeight: '3rem',
@@ -109,8 +114,10 @@ const CTA = () => {
                 <Box
                   sx={{
                     display: 'flex',
-                    gap: 2,
+                    flexDirection: { xs: 'column', md: 'row' }, // Apilado en móvil
+                    gap: { xs: 1.5, md: 2 }, // Reducido el espacio en móvil
                     justifyContent: 'center',
+                    width: '100%',
                   }}
                 >
                   <Button
@@ -119,9 +126,9 @@ const CTA = () => {
                     variant="contained"
                     size="large"
                     sx={{
-                      minWidth: '200px',
-                      height: '48px',
-                      fontSize: '1.1rem',
+                      width: { xs: '100%', md: '200px' }, // Full width en móvil
+                      height: { xs: '44px', md: '48px' }, // Altura reducida en móvil
+                      fontSize: { xs: '1rem', md: '1.1rem' },
                       background: theme.palette.mode === 'dark'
                         ? '#00FFA3'
                         : 'linear-gradient(135deg, #00805E 0%, #00FFA3 100%)',
@@ -141,9 +148,9 @@ const CTA = () => {
                     variant="outlined"
                     size="large"
                     sx={{
-                      minWidth: '200px',
-                      height: '48px',
-                      fontSize: '1.1rem',
+                      width: { xs: '100%', md: '200px' }, // Full width en móvil
+                      height: { xs: '44px', md: '48px' }, // Altura reducida en móvil
+                      fontSize: { xs: '1rem', md: '1.1rem' },
                       borderColor: theme.palette.mode === 'dark' ? '#00FFA3' : '#00805E',
                       color: theme.palette.mode === 'dark' ? '#00FFA3' : '#00805E',
                       '&:hover': {
@@ -166,4 +173,4 @@ const CTA = () => {
   );
 };
 
-export default CTA; 
+export default CTA;

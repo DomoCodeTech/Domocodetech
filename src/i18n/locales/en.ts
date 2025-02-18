@@ -323,7 +323,7 @@ export const enTranslations = {
       "description": "Specialist in 3D design and Android development."
     },
     "member4": {
-      "position": "Technical Support Expert",
+      "position": "Systems engineer & Support Expert",
       "description": "Systems engineer specialized in technical support and IT solutions."
     }
   },
