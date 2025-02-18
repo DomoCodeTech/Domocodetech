@@ -310,22 +310,22 @@ export const enTranslations = {
     title: "Meet Our Expert Team",
     subtitle: "Technology experts ready to innovate",
     // Individual team member details
-    member1: {
-      name: "Charles Rodriguez",
-      position: "Software Architect",
-      description:
-        "15+ years of experience in software development and system architecture.",
+    "member1": {
+      "position": "CEO & Founder",
+      "description": "Expert in home automation, web, and mobile development."
     },
-    member2: {
-      name: "Anna Martinez",
-      position: "Robotics Engineer",
-      description: "Specialized in AI and robotics automation systems.",
+    "member2": {
+      "position": "Senior Android Developer",
+      "description": "Native Android developer with over 10 years of experience."
     },
-    member3: {
-      name: "David Kim",
-      position: "IoT Specialist",
-      description: "Expert in IoT solutions and smart home automation.",
+    "member3": {
+      "position": "3D Designer & Android Developer",
+      "description": "Specialist in 3D design and Android development."
     },
+    "member4": {
+      "position": "Technical Support Expert",
+      "description": "Systems engineer specialized in technical support and IT solutions."
+    }
   },
 
   /**

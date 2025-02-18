@@ -74,7 +74,8 @@ export const SITE_DATA = {
       member1: '/images/team/member1.png',
       member2: '/images/team/member2.png',
       member3: '/images/team/member3.png',
-      names: ['Juan Collantes', 'Alejandro Acevedo', 'Daniel Caro']
+      member4: '/images/team/member4.png',
+      names: ['Daniel Caro' , 'Juan Collantes', 'Alejandro Acevedo' , 'Ivan Tapia']
     },
     testimonials: {
       client1: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg',

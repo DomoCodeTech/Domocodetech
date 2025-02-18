@@ -176,23 +176,22 @@ export const esTranslations = {
   team: {
     title: "Conoce a Nuestro Equipo Experto",
     subtitle: "Expertos en tecnología listos para innovar",
-    member1: {
-      name: "Carlos Rodríguez",
-      position: "Arquitecto de Software",
-      description:
-        "Más de 15 años de experiencia en desarrollo de software y arquitectura de sistemas.",
-    },
-    member2: {
-      name: "Ana Martínez",
-      position: "Ingeniera en Robótica",
-      description: "Especializada en IA y sistemas de automatización robótica.",
-    },
-    member3: {
-      name: "David Kim",
-      position: "Especialista en IoT",
-      description:
-        "Experto en soluciones IoT y automatización de hogares inteligentes.",
-    },
+      "member1": {
+        "position": "CEO & Fundador",
+        "description": "Experto en domótica, desarrollo web y móvil."
+      },
+      "member2": {
+        "position": "Desarrollador Android Senior",
+        "description": "Desarrollador nativo de Android con más de 10 años de experiencia."
+      },
+      "member3": {
+        "position": "Diseñador 3D & Desarrollador Android",
+        "description": "Especialista en diseño 3D y desarrollo Android."
+      },
+      "member4": {
+        "position": "Experto en Soporte Técnico",
+        "description": "Ingeniero de sistemas especializado en soporte técnico y soluciones IT."
+      }
   },
   // About Section
   about: {

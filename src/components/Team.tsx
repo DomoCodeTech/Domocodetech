@@ -54,6 +54,17 @@ const Team = () => {
         linkedin: 'https://www.linkedin.com/in/danielcaro2449584/',
         facebook: 'https://www.facebook.com/DECOCARO/'
       }
+    },
+    {
+      name: SITE_DATA.images.team.names[3],   
+      position: t('team.member4.position'),
+      image: SITE_DATA.images.team.member4,
+      description: t('team.member4.description'),
+      social: {
+        github: 'https://github.com/',
+        linkedin: 'https://www.linkedin.com/in//',
+        facebook: 'https://www.facebook.com//'
+      }
     }
   ];
 
@@ -99,7 +110,7 @@ const Team = () => {
 
         <Grid container spacing={4} alignItems="stretch">
           {teamMembers.map((member, index) => (
-            <Grid item xs={12} sm={6} md={4} key={member.name}>
+            <Grid item xs={12} sm={6} md={3} key={member.name}>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
