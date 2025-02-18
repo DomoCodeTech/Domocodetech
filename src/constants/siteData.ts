@@ -78,9 +78,12 @@ export const SITE_DATA = {
       names: ['Daniel Caro' , 'Juan Collantes', 'Alejandro Acevedo' , 'Ivan Tapia']
     },
     testimonials: {
-      client1: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg',
-      client2: 'https://images.pexels.com/photos/3760263/pexels-photo-3760263.jpeg',
-      client3: 'https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg',
+      client1: '/images/testimonials/testimonial-1.png',
+      client2: '/images/testimonials/testimonial-2.png',
+      client3: '/images/testimonials/testimonial-3.png',
+      client4: '/images/testimonials/testimonial-4.png',
+      client5: '/images/testimonials/testimonial-5.png',
+      client6: '/images/testimonials/testimonial-6.png' 
     },
   },
   icons: {

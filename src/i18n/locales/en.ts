@@ -545,22 +545,40 @@ export const enTranslations = {
     title: "What Our Clients Say",
     subtitle: "Real feedback from satisfied customers",
     client1: {
-      name: "Charles Rodriguez",
+      name: "Flor Lilia",
       position: "Innovation Director",
       quote:
         "DomoCodeTech completely transformed our technological infrastructure. Their expert team delivered innovative solutions that exceeded our expectations.",
     },
     client2: {
-      name: "Anna Martinez",
+      name: "Juan Carlos",
       position: "Startup CEO",
       quote:
         "The implementation of robotic automation improved our efficiency by 200%. The ROI exceeded our initial projections.",
     },
     client3: {
-      name: "Michael Sanchez",
+      name: "Miguel Toro",
       position: "Smart Home Owner",
       quote:
         "The home automation solution installed by DomoCodeTech has revolutionized the way we interact with our home. Technology of the future, today.",
+    },
+    client4: {
+      name: "David Torres",
+      position: "AI Research Director",
+      quote:
+        "Their expertise in artificial intelligence implementation has given us a competitive edge in the market. Truly outstanding work!",
+    },
+    client5: {
+      name: "Felipe Quintero",
+      position: "Cloud Solutions Architect",
+      quote:
+        "The cloud migration project was seamless. Their team's technical knowledge and professional approach made all the difference.",
+    },
+    client6: {
+      name: "Edward Pacheco",
+      position: "Security Systems Manager",
+      quote:
+        "DomoCodeTech's cybersecurity solutions have significantly enhanced our system's protection. Their proactive approach is commendable.",
     },
   },
 

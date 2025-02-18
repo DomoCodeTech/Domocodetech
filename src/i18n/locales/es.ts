@@ -401,22 +401,40 @@ export const esTranslations = {
     title: "Lo que Dicen Nuestros Clientes",
     subtitle: "Opiniones reales de clientes satisfechos",
     client1: {
-      name: "Carlos Rodríguez",
-      position: "Director de Innovación",
+      name: "Flor Lilia",
+      position: "Contadora Pública",
       quote:
         "DomoCodeTech transformó completamente nuestra infraestructura tecnológica. Su equipo experto entregó soluciones innovadoras que superaron nuestras expectativas.",
     },
     client2: {
-      name: "Ana Martínez",
-      position: "CEO de Startup",
+      name: "Juan Carlos",
+      position: "Ingeniero Civil",
       quote:
         "La implementación de automatización robótica mejoró nuestra eficiencia en un 200%. El ROI superó nuestras proyecciones iniciales.",
     },
     client3: {
-      name: "Miguel Sánchez",
+      name: "Miguel Toro",
       position: "Propietario de Casa Inteligente",
       quote:
         "La solución de domótica instalada por DomoCodeTech ha revolucionado la forma en que interactuamos con nuestro hogar. Tecnología del futuro, hoy.",
+    },
+    client4: {
+      name: "David Torres",
+      position: "Director de Investigación en IA",
+      quote:
+        "Su experiencia en la implementación de inteligencia artificial nos ha dado una ventaja competitiva en el mercado. ¡Un trabajo verdaderamente sobresaliente!",
+    },
+    client5: {
+      name: "Felipe Quintero",
+      position: "Arquitecta de Soluciones Cloud",
+      quote:
+        "El proyecto de migración a la nube fue perfecto. El conocimiento técnico y el enfoque profesional de su equipo marcaron la diferencia.",
+    },
+    client6: {
+      name: "Edward Pacheco",
+      position: "Gerente de Sistemas de Seguridad",
+      quote:
+        "Las soluciones de ciberseguridad de DomoCodeTech han mejorado significativamente la protección de nuestro sistema. Su enfoque proactivo es admirable.",
     },
   },
   // Call to Action
