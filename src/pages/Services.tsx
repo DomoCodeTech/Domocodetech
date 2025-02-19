@@ -18,10 +18,10 @@ import { useTranslation } from "react-i18next";
 import { ServiceIcon } from "../components/icons/ServiceIcons";
 import { SITE_DATA } from "../constants/siteData";
 import { MdCheck } from "react-icons/md";
-import ServicesHero from "../components/ServicesHero";
-import ProcessFlow from "../components/ProcessFlow";
-import Partners from "../components/Partners";
-import ServicePricing from "../components/ServicePricing";
+import ServicesHero from "../components/services/ServicesHero";
+import ProcessFlow from "../components/services/ProcessFlow";
+import Partners from "../components/services/Partners";
+import ServicePricing from "../components/services/ServicePricing";
 import { useLocation } from "react-router-dom";
 
 const Services: React.FC = () => {

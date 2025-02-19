@@ -1,7 +1,7 @@
 import { Box, Container, Grid, Typography, useTheme } from "@mui/material";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import { SITE_DATA } from "../constants/siteData";
+import { SITE_DATA } from "../../constants/siteData";
 
 const ServicesHero = () => {
   const { t } = useTranslation();

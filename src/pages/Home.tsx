@@ -7,13 +7,13 @@
  * - Testimonios de clientes
  * - Llamada a la acción (CTA)
  */
-import Testimonials from "../components/Testimonials";
-import Team from "../components/Team";
-import Hero from "../components/Hero";
-import ProjectsSection from "../components/ProjectsSection";
-import Stats from "../components/Stats";
-import CTA from "../components/CTA";
-import ServicesSection from "../components/ServicesSection";
+import Testimonials from "../components/home/Testimonials";
+import Team from "../components/home/Team";
+import Hero from "../components/home/Hero";
+import ProjectsSection from "../components/home/ProjectsSection";
+import Stats from "../components/home/Stats";
+import CTA from "../components/home/CTA";
+import ServicesSection from "../components/home/ServicesSection";
 
 const Home = () => {
   return (

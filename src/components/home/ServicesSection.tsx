@@ -20,7 +20,7 @@ import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { Link as RouterLink } from "react-router-dom";
 import { useTheme } from "@mui/material/styles";
-import { ServiceIcon } from "./icons/ServiceIcons";
+import { ServiceIcon } from "../icons/ServiceIcons";
 
 interface ServiceCardProps {
   service: {
