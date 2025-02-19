@@ -178,8 +178,8 @@ const Testimonials = () => {
                           backdropFilter: "blur(10px)",
                           boxShadow:
                             theme.palette.mode === "dark"
-                              ? "0 8px 32px rgba(0,0,0,0.4)"
-                              : "0 8px 32px rgba(0,0,0,0.1)",
+                              ? "0 4px 30px rgba(0, 255, 163, 0.1)"
+                              : "0 4px 30px rgba(0, 0, 0, 0.1)",
                           borderRadius: 4,
                           p: { xs: 4, md: 4 },
                           height: "100%",
@@ -187,7 +187,9 @@ const Testimonials = () => {
                           flexDirection: "column",
                           alignItems: "center",
                           position: "relative",
-                          minHeight: { xs: "auto", md: "400px" },
+                          minHeight: "400px",
+                          maxHeight: "400px",
+                          overflow: "hidden",
                         }}
                       >
                         <Box
@@ -215,6 +217,10 @@ const Testimonials = () => {
                               position: "relative",
                               width: "100%",
                               mb: 3,
+                              flex: 1,
+                              display: "flex",
+                              flexDirection: "column",
+                              justifyContent: "center",
                               "&::before": {
                                 content: '"\\201C"',
                                 position: "absolute",
@@ -230,8 +236,8 @@ const Testimonials = () => {
                             <Typography
                               variant="body1"
                               sx={{
-                                fontSize: { xs: "1rem", md: "1.1rem" },
-                                lineHeight: 1.6,
+                                fontSize: { xs: "0.95rem", md: "1rem" },
+                                lineHeight: 1.5,
                                 color:
                                   theme.palette.mode === "dark"
                                     ? "white"
@@ -239,6 +245,11 @@ const Testimonials = () => {
                                 fontStyle: "italic",
                                 textAlign: "center",
                                 px: 2,
+                                maxHeight: "150px",
+                                overflow: "hidden",
+                                display: "-webkit-box",
+                                WebkitLineClamp: 4,
+                                WebkitBoxOrient: "vertical",
                               }}
                             >
                               "{testimonial.quote}"

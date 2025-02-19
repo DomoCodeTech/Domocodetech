@@ -2,7 +2,7 @@
  * ProjectsSection.tsx
  * Componente que muestra los proyectos principales de la empresa:
  * - Proyectos destacados en diversas áreas
- * 
+ *
  * Cada proyecto incluye:
  * - Icono representativo
  * - Título
@@ -10,9 +10,9 @@
  * - Lista de características (tecnologías, funcionalidades, etc.)
  * - Botón para más información
  */
-import  { useState, useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
+import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 import {
   Box,
   Typography,
@@ -24,50 +24,50 @@ import {
   Container,
   IconButton,
   useMediaQuery,
-} from '@mui/material';
-import { motion, AnimatePresence } from 'framer-motion';
-import { SITE_DATA } from '../constants/siteData';
-import { useTheme } from '@mui/material/styles';
-import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
+} from "@mui/material";
+import { motion, AnimatePresence } from "framer-motion";
+import { SITE_DATA } from "../constants/siteData";
+import { useTheme } from "@mui/material/styles";
+import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 
 const ProjectsSection = () => {
   const { t } = useTranslation();
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const [currentPage, setCurrentPage] = useState(0);
   const [direction, setDirection] = useState(0);
 
   const projects = [
     {
-      key: 'web',
+      key: "web",
       image: SITE_DATA.projects.images.web,
-      features: ['responsive', 'cross-browser', 'modern-ui']
+      features: ["responsive", "cross-browser", "modern-ui"],
     },
     {
-      key: 'mobile',
+      key: "mobile",
       image: SITE_DATA.projects.images.mobile,
-      features: ['user-friendly', 'performance', 'api-integration']
+      features: ["user-friendly", "performance", "api-integration"],
     },
     {
-      key: 'software',
+      key: "software",
       image: SITE_DATA.projects.images.software,
-      features: ['custom-design', 'architecture', 'cross-platform']
+      features: ["custom-design", "architecture", "cross-platform"],
     },
     {
-      key: 'iot',
+      key: "iot",
       image: SITE_DATA.projects.images.iot, // Usar una imagen apropiada
-      features: ['smart-devices', 'real-time', 'cloud-integration']
+      features: ["smart-devices", "real-time", "cloud-integration"],
     },
     {
-      key: 'ecommerce',
+      key: "ecommerce",
       image: SITE_DATA.projects.images.ecommerce, // Usar una imagen apropiada
-      features: ['payment-gateway', 'inventory', 'analytics']
+      features: ["payment-gateway", "inventory", "analytics"],
     },
     {
-      key: 'consulting',
+      key: "consulting",
       image: SITE_DATA.projects.images.consulting, // Usar una imagen apropiada
-      features: ['consulting', 'analysis', 'solution']
-    }
+      features: ["consulting", "analysis", "solution"],
+    },
   ];
 
   useEffect(() => {
@@ -93,31 +93,31 @@ const ProjectsSection = () => {
   const getVisibleProjects = () => {
     const start = currentPage * projectsPerPage;
     const end = start + projectsPerPage;
-    
+
     // Crear un array circular para transición suave
     const wrappedProjects = [...projects];
     if (end > projects.length) {
       wrappedProjects.push(...projects.slice(0, end - projects.length));
     }
-    
+
     return wrappedProjects.slice(start, end);
   };
 
   const slideVariants = {
     enter: (direction: number) => ({
       x: direction > 0 ? 500 : -500,
-      opacity: 0
+      opacity: 0,
     }),
     center: {
       zIndex: 1,
       x: 0,
-      opacity: 1
+      opacity: 1,
     },
     exit: (direction: number) => ({
       zIndex: 0,
       x: direction < 0 ? 500 : -500,
-      opacity: 0
-    })
+      opacity: 0,
+    }),
   };
 
   return (
@@ -125,10 +125,11 @@ const ProjectsSection = () => {
       component="section"
       sx={{
         py: { xs: 8, md: 12 },
-        background: theme.palette.mode === 'dark'
-          ? 'linear-gradient(180deg, #1A1A1A 0%, #0A0A0A 100%)'
-          : 'linear-gradient(180deg, #F0F7FF 0%, #E6FFF6 100%)',
-        overflow: 'hidden', // Prevenir scroll horizontal durante animaciones
+        background:
+          theme.palette.mode === "dark"
+            ? "linear-gradient(180deg, #1A1A1A 0%, #0A0A0A 100%)"
+            : "linear-gradient(180deg, #F0F7FF 0%, #E6FFF6 100%)",
+        overflow: "hidden", // Prevenir scroll horizontal durante animaciones
       }}
     >
       <Container maxWidth="lg">
@@ -139,44 +140,50 @@ const ProjectsSection = () => {
             align="center"
             sx={{
               mb: 2,
-              color: theme.palette.mode === 'dark' ? 'white' : 'text.primary',
+              color: theme.palette.mode === "dark" ? "white" : "text.primary",
             }}
           >
-            {t('projects.title')}
+            {t("projects.title")}
           </Typography>
           <Typography
             variant="h5"
             component="p"
             align="center"
             color="text.secondary"
-            sx={{ mb: { xs: 4, md: 6 } }}
+            sx={{ mb: { xs: 8, md: 6 } }}
           >
-            {t('projects.subtitle')}
+            {t("projects.subtitle")}
           </Typography>
         </Box>
 
         <Box
           sx={{
-            position: 'relative',
-            width: '100%',
-            height: { xs: '450px', md: '400px' },
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            mt: { xs: 2, md: 4 }
+            position: "relative",
+            width: "100%",
+            height: { xs: "450px", md: "400px" },
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            mt: { xs: 2, md: 4 },
           }}
         >
           <IconButton
             onClick={handlePrev}
             sx={{
-              position: 'absolute',
+              position: "absolute",
               left: { xs: -20, md: -40 },
               zIndex: 2,
-              color: 'primary.main',
-              bgcolor: theme.palette.mode === 'dark' ? 'rgba(0,0,0,0.3)' : 'rgba(255,255,255,0.3)',
-              backdropFilter: 'blur(4px)',
-              '&:hover': {
-                bgcolor: theme.palette.mode === 'dark' ? 'rgba(0,0,0,0.5)' : 'rgba(255,255,255,0.5)',
+              color: "primary.main",
+              bgcolor:
+                theme.palette.mode === "dark"
+                  ? "rgba(0,0,0,0.3)"
+                  : "rgba(255,255,255,0.3)",
+              backdropFilter: "blur(4px)",
+              "&:hover": {
+                bgcolor:
+                  theme.palette.mode === "dark"
+                    ? "rgba(0,0,0,0.5)"
+                    : "rgba(255,255,255,0.5)",
               },
             }}
           >
@@ -185,11 +192,11 @@ const ProjectsSection = () => {
 
           <Box
             sx={{
-              position: 'relative',
-              width: '100%',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
+              position: "relative",
+              width: "100%",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
             }}
           >
             <AnimatePresence initial={false} custom={direction} mode="wait">
@@ -202,38 +209,41 @@ const ProjectsSection = () => {
                 exit="exit"
                 transition={{
                   x: { type: "spring", stiffness: 200, damping: 25 },
-                  opacity: { duration: 0.3 }
+                  opacity: { duration: 0.3 },
                 }}
                 style={{
-                  position: 'absolute',
-                  display: 'flex',
-                  gap: '24px',
-                  width: '100%',
-                  justifyContent: 'center',
-                  willChange: 'transform',
+                  position: "absolute",
+                  display: "flex",
+                  gap: "24px",
+                  width: "100%",
+                  justifyContent: "center",
+                  willChange: "transform",
                 }}
               >
                 {getVisibleProjects().map((project, index) => (
                   <Card
                     key={`${currentPage}-${index}`}
                     sx={{
-                      width: isMobile ? '100%' : '350px',
-                      height: '550px',
-                      display: 'flex',
-                      flexDirection: 'column',
+                      width: isMobile ? "100%" : "350px",
+                      height: "550px",
+                      display: "flex",
+                      flexDirection: "column",
                       borderRadius: 2,
-                      background: theme.palette.mode === 'dark'
-                        ? 'linear-gradient(145deg, #1f1f1f 0%, #151515 100%)'
-                        : '#FFFFFF',
-                      boxShadow: theme.palette.mode === 'dark'
-                        ? '0 8px 32px rgba(0, 0, 0, 0.5)'
-                        : '0 8px 32px rgba(0, 0, 0, 0.08)',
-                      transition: 'all 0.3s ease-in-out',
-                      '&:hover': {
-                        transform: 'translateY(-8px)',
-                        boxShadow: theme.palette.mode === 'dark'
-                          ? '0 12px 40px rgba(0, 0, 0, 0.7)'
-                          : '0 12px 40px rgba(0, 0, 0, 0.12)',
+                      background:
+                        theme.palette.mode === "dark"
+                          ? "linear-gradient(145deg, #1f1f1f 0%, #151515 100%)"
+                          : "#FFFFFF",
+                      boxShadow:
+                        theme.palette.mode === "dark"
+                          ? "0 4px 30px rgba(0, 255, 163, 0.1)"
+                          : "0 4px 30px rgba(0, 0, 0, 0.1)",
+                      transition: "all 0.3s ease-in-out",
+                      "&:hover": {
+                        transform: "translateY(-8px)",
+                        boxShadow:
+                          theme.palette.mode === "dark"
+                            ? "0 12px 40px rgba(0, 0, 0, 0.7)"
+                            : "0 12px 40px rgba(0, 0, 0, 0.12)",
                       },
                     }}
                   >
@@ -243,32 +253,35 @@ const ProjectsSection = () => {
                       image={project.image}
                       alt={t(`projects.${project.key}.title`)}
                       sx={{
-                        objectFit: 'cover',
-                        height: '200px',
+                        objectFit: "cover",
+                        height: "200px",
                       }}
                     />
-                    <CardContent 
-                      sx={{ 
+                    <CardContent
+                      sx={{
                         flexGrow: 1,
                         p: 3,
-                        display: 'flex',
-                        flexDirection: 'column',
-                        height: '300px',
+                        display: "flex",
+                        flexDirection: "column",
+                        height: "300px",
                       }}
                     >
                       <Typography
                         variant="h5"
                         gutterBottom
                         sx={{
-                          color: theme.palette.mode === 'dark' ? 'white' : 'text.primary',
+                          color:
+                            theme.palette.mode === "dark"
+                              ? "white"
+                              : "text.primary",
                           fontWeight: 600,
                           mb: 2,
-                          fontSize: '1.25rem',
-                          height: '40px',
-                          display: '-webkit-box',
+                          fontSize: "1.25rem",
+                          height: "40px",
+                          display: "-webkit-box",
                           WebkitLineClamp: 2,
-                          WebkitBoxOrient: 'vertical',
-                          overflow: 'hidden',
+                          WebkitBoxOrient: "vertical",
+                          overflow: "hidden",
                         }}
                       >
                         {t(`projects.${project.key}.title`)}
@@ -276,31 +289,34 @@ const ProjectsSection = () => {
                       <Typography
                         variant="body2"
                         color="text.secondary"
-                        sx={{ 
+                        sx={{
                           mb: 2,
-                          height: '60px',
-                          display: '-webkit-box',
+                          height: "60px",
+                          display: "-webkit-box",
                           WebkitLineClamp: 3,
-                          WebkitBoxOrient: 'vertical',
-                          overflow: 'hidden',
+                          WebkitBoxOrient: "vertical",
+                          overflow: "hidden",
                         }}
                       >
                         {t(`projects.${project.key}.description`)}
                       </Typography>
-                      <Box 
-                        sx={{ 
-                          mt: 'auto',
-                          height: '150px',
+                      <Box
+                        sx={{
+                          mt: "auto",
+                          height: "150px",
                         }}
                       >
                         <Typography
                           variant="subtitle2"
                           sx={{
-                            color: theme.palette.mode === 'dark' ? 'white' : 'text.primary',
+                            color:
+                              theme.palette.mode === "dark"
+                                ? "white"
+                                : "text.primary",
                             mb: 1,
                           }}
                         >
-                          {t('projects.featuresTitle')}:
+                          {t("projects.featuresTitle")}:
                         </Typography>
                         {project.features.map((feature, idx) => (
                           <Typography
@@ -308,16 +324,16 @@ const ProjectsSection = () => {
                             variant="body2"
                             color="text.secondary"
                             sx={{
-                              display: 'flex',
-                              alignItems: 'center',
-                              '&:before': {
+                              display: "flex",
+                              alignItems: "center",
+                              "&:before": {
                                 content: '""',
                                 width: 6,
                                 height: 6,
-                                borderRadius: '50%',
-                                bgcolor: 'primary.main',
+                                borderRadius: "50%",
+                                bgcolor: "primary.main",
                                 mr: 1,
-                                display: 'inline-block',
+                                display: "inline-block",
                               },
                             }}
                           >
@@ -326,7 +342,7 @@ const ProjectsSection = () => {
                         ))}
                       </Box>
                     </CardContent>
-                    <CardActions sx={{ p: 3, pt: 0, height: '50px' }}>
+                    <CardActions sx={{ p: 3, pt: 0, height: "50px" }}>
                       <Button
                         component={Link}
                         to={`/projects/${project.key}`}
@@ -334,7 +350,7 @@ const ProjectsSection = () => {
                         color="primary"
                         fullWidth
                       >
-                        {t('common.readMore')}
+                        {t("common.readMore")}
                       </Button>
                     </CardActions>
                   </Card>
@@ -346,14 +362,20 @@ const ProjectsSection = () => {
           <IconButton
             onClick={handleNext}
             sx={{
-              position: 'absolute',
+              position: "absolute",
               right: { xs: -20, md: -40 },
               zIndex: 2,
-              color: 'primary.main',
-              bgcolor: theme.palette.mode === 'dark' ? 'rgba(0,0,0,0.3)' : 'rgba(255,255,255,0.3)',
-              backdropFilter: 'blur(4px)',
-              '&:hover': {
-                bgcolor: theme.palette.mode === 'dark' ? 'rgba(0,0,0,0.5)' : 'rgba(255,255,255,0.5)',
+              color: "primary.main",
+              bgcolor:
+                theme.palette.mode === "dark"
+                  ? "rgba(0,0,0,0.3)"
+                  : "rgba(255,255,255,0.3)",
+              backdropFilter: "blur(4px)",
+              "&:hover": {
+                bgcolor:
+                  theme.palette.mode === "dark"
+                    ? "rgba(0,0,0,0.5)"
+                    : "rgba(255,255,255,0.5)",
               },
             }}
           >
@@ -365,4 +387,4 @@ const ProjectsSection = () => {
   );
 };
 
-export default ProjectsSection; 
+export default ProjectsSection;

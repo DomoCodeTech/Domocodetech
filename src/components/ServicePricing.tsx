@@ -9,12 +9,11 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
-  Chip,
   useTheme,
   Grid,
 } from "@mui/material";
 import { motion } from "framer-motion";
-import { MdCheck, MdStar } from "react-icons/md";
+import { MdCheck } from "react-icons/md";
 import { useTranslation } from "react-i18next";
 import { Link as RouterLink } from "react-router-dom";
 
