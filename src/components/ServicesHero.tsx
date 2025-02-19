@@ -15,8 +15,8 @@ const ServicesHero = () => {
         overflow: "hidden",
         background:
           theme.palette.mode === "dark"
-            ? "linear-gradient(to bottom, rgba(0, 0, 0, 0.9), rgba(0, 32, 8, 0.7))"
-            : "linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(255,255,255,0.7))",
+            ? "linear-gradient(180deg, #0A0A0A 0%, #1A1A1A 100%)"
+            : "linear-gradient(180deg, #FFFFFF 0%, #F8FAFF 100%)",
         display: "flex",
         alignItems: "center",
         borderRadius: { xs: "24px", md: "32px" },
@@ -42,7 +42,7 @@ const ServicesHero = () => {
         sx={{
           position: "relative",
           zIndex: 2,
-          py: { xs: 4, md: 6 },
+          py: { xs: 8, md: 8 },
         }}
       >
         <Grid container spacing={4} alignItems="center">

@@ -124,7 +124,7 @@ const Services: React.FC = () => {
       <Container
         maxWidth="lg"
         sx={{
-          px: { xs: 1, sm: 2, md: 4 },
+          px: { xs: 1, sm: 1, md: 1 },
         }}
       >
         <ServicesHero />
