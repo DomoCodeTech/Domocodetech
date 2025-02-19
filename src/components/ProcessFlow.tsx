@@ -38,17 +38,17 @@ const ProcessFlow = () => {
       <Box sx={{ position: "relative" }}>
         <Grid container spacing={4}>
           {steps.map((step, index) => (
-            <Grid item xs={12} md={3} key={index}>
+            <Grid item xs={6} sm={6} md={3} key={index}>
               <motion.div
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.3 }}
+                transition={{ duration: 0.5, delay: index * 0.2 }}
                 viewport={{ once: true, margin: "-100px" }}
                 whileHover={{ scale: 1.05 }}
               >
                 <motion.div
                   whileHover={{
-                    y: -10,
+                    y: -5,
                     transition: {
                       type: "spring",
                       stiffness: 300,
@@ -60,7 +60,7 @@ const ProcessFlow = () => {
                     sx={{
                       textAlign: "center",
                       position: "relative",
-                      p: 3,
+                      p: { xs: 1, md: 3 },
                       borderRadius: 2,
                       transition: "all 0.3s ease",
                       "&:hover": {
@@ -73,21 +73,26 @@ const ProcessFlow = () => {
                       "&::after": {
                         content: index < steps.length - 1 ? '""' : "none",
                         position: "absolute",
-                        top: "40%",
-                        right: "-25%",
-                        width: "50%",
-                        height: "2px",
+                        top: { xs: "85%", md: "40%" },
+                        right: { xs: "50%", md: "-25%" },
+                        width: { xs: "2px", md: "50%" },
+                        height: { xs: "50%", md: "2px" },
                         background:
                           theme.palette.mode === "dark"
                             ? "rgba(255,255,255,0.1)"
                             : "rgba(0,0,0,0.1)",
                         zIndex: 0,
                         transition: "all 0.3s ease",
+                        transform: { xs: "translateX(50%)", md: "none" },
                       },
                       "&:hover::after": {
                         background: step.color,
-                        height: "3px",
-                        transform: "scaleX(1.1)",
+                        height: { xs: "50%", md: "3px" },
+                        width: { xs: "3px", md: "50%" },
+                        transform: {
+                          xs: "translateX(50%) scaleY(1.1)",
+                          md: "scaleX(1.1)",
+                        },
                       },
                     }}
                   >
@@ -102,15 +107,15 @@ const ProcessFlow = () => {
                     >
                       <Box
                         sx={{
-                          width: 80,
-                          height: 80,
+                          width: { xs: 60, sm: 70, md: 80 },
+                          height: { xs: 60, sm: 70, md: 80 },
                           borderRadius: "50%",
                           mx: "auto",
-                          mb: 2,
+                          mb: { xs: 1, md: 2 },
                           display: "flex",
                           alignItems: "center",
                           justifyContent: "center",
-                          fontSize: "2rem",
+                          fontSize: { xs: "1.5rem", sm: "1.75rem", md: "2rem" },
                           background: `linear-gradient(135deg, ${step.color}, ${step.color}88)`,
                           boxShadow: `0 8px 32px ${step.color}33`,
                           position: "relative",
@@ -130,6 +135,7 @@ const ProcessFlow = () => {
                       gutterBottom
                       fontWeight="bold"
                       sx={{
+                        fontSize: { xs: "0.9rem", sm: "1rem", md: "1.25rem" },
                         transition: "all 0.3s ease",
                         "&:hover": {
                           color: step.color,
@@ -138,7 +144,14 @@ const ProcessFlow = () => {
                     >
                       {step.title}
                     </Typography>
-                    <Typography color="text.secondary">
+                    <Typography
+                      variant="body2"
+                      sx={{
+                        color: "text.secondary",
+                        fontSize: { xs: "0.75rem", sm: "0.85rem", md: "1rem" },
+                        display: { xs: "none", sm: "block" },
+                      }}
+                    >
                       {step.description}
                     </Typography>
                   </Box>
