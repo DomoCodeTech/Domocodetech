@@ -26,7 +26,7 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import { motion, AnimatePresence } from "framer-motion";
-import { SITE_DATA } from "../constants/siteData";
+import { SITE_DATA } from "../../constants/siteData";
 import { useTheme } from "@mui/material/styles";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 

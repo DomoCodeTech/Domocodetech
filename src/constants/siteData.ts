@@ -196,3 +196,49 @@ export const SITE_DATA = {
     },
   },
 };
+
+export interface Service {
+  key: string;
+  icon: string;
+  image: string;
+  techStack: string[];
+}
+
+export const SERVICES_DATA: Service[] = [
+  {
+    key: "software",
+    icon: "Code",
+    image: SITE_DATA.images.services.software,
+    techStack: ["React", "Node.js", "Python", "MongoDB", "Firebase"],
+  },
+  {
+    key: "microcontrollers",
+    icon: "Chip",
+    image: SITE_DATA.images.services.electronics,
+    techStack: ["Arduino", "Raspberry Pi", "ESP32", "PIC", "STM32"],
+  },
+  {
+    key: "domotics",
+    icon: "Smart",
+    image: SITE_DATA.images.services.domotics,
+    techStack: ["Home Assistant", "Zigbee", "Z-Wave", "MQTT", "KNX"],
+  },
+  {
+    key: "electronics",
+    icon: "Robot",
+    image: SITE_DATA.images.services.robotics,
+    techStack: ["Altium", "KiCad", "Eagle", "Proteus", "Fusion 360"],
+  },
+  {
+    key: "networks",
+    icon: "Network",
+    image: SITE_DATA.images.services.automation,
+    techStack: ["Cisco", "Ubiquiti", "pfSense", "MikroTik", "OpenWrt"],
+  },
+  {
+    key: "support",
+    icon: "Support",
+    image: SITE_DATA.images.services.support,
+    techStack: ["Windows", "Linux", "macOS", "Android", "iOS"],
+  },
+];

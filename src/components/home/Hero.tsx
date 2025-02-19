@@ -16,7 +16,7 @@ import { Link } from "react-router-dom";
 import { Container, Grid, Typography, Box, Button, Stack } from "@mui/material";
 import { motion } from "framer-motion";
 import { useTheme } from "@mui/material/styles";
-import TechIcons from "./icons/TechIcons";
+import TechIcons from "../icons/TechIcons";
 
 const Hero = () => {
   // Hooks necesarios

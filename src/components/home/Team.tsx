@@ -15,7 +15,7 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import { useTranslation } from "react-i18next";
-import { SITE_DATA } from "../constants/siteData";
+import { SITE_DATA } from "../../constants/siteData";
 import { useState, useEffect } from "react";
 
 const Team = () => {

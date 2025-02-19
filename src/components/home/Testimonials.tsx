@@ -13,7 +13,7 @@ import { Box, Container, Typography, Card, Avatar, Grid } from "@mui/material";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { useTheme } from "@mui/material/styles";
-import { SITE_DATA } from "../constants/siteData";
+import { SITE_DATA } from "../../constants/siteData";
 import { useState, useEffect } from "react";
 
 const Testimonials = () => {

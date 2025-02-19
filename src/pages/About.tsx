@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   Box,
   Container,
@@ -8,19 +8,19 @@ import {
   CardContent,
   CardMedia,
   useTheme,
-  alpha
-} from '@mui/material';
-import { motion } from 'framer-motion';
-import { useTranslation } from 'react-i18next';
-import { 
-  MdRocketLaunch, 
-  MdLightbulb, 
+  alpha,
+} from "@mui/material";
+import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
+import {
+  MdRocketLaunch,
+  MdLightbulb,
   MdSecurity,
   MdWorkHistory,
   MdDoneAll,
   MdPeople,
   MdGroups,
-} from 'react-icons/md';
+} from "react-icons/md";
 
 interface StatItem {
   number: string;
@@ -31,8 +31,8 @@ const About: React.FC = () => {
   const { t } = useTranslation();
   const theme = useTheme();
 
-  const stats = t('about.stats', { returnObjects: true }) as StatItem[];
-  const values = t('about.values.items', { returnObjects: true }) as Array<{
+  const stats = t("about.stats", { returnObjects: true }) as StatItem[];
+  const values = t("about.values.items", { returnObjects: true }) as Array<{
     icon: string;
     title: string;
     description: string;
@@ -52,9 +52,9 @@ const About: React.FC = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2
-      }
-    }
+        staggerChildren: 0.2,
+      },
+    },
   };
 
   const itemVariants = {
@@ -63,23 +63,24 @@ const About: React.FC = () => {
       y: 0,
       opacity: 1,
       transition: {
-        duration: 0.5
-      }
-    }
+        duration: 0.5,
+      },
+    },
   };
 
   return (
     <Box
       sx={{
-        background: theme.palette.mode === 'dark'
-          ? 'linear-gradient(180deg, #1A1A1A 0%, #0A0A0A 100%)'
-          : 'linear-gradient(180deg, #F0F7FF 0%, #E6FFF6 100%)',
+        background:
+          theme.palette.mode === "dark"
+            ? "linear-gradient(180deg, #1A1A1A 0%, #0A0A0A 100%)"
+            : "linear-gradient(180deg, #F0F7FF 0%, #E6FFF6 100%)",
         pt: { xs: 8, md: 12 },
         pb: { xs: 8, md: 12 },
-        overflowX: 'hidden',
+        overflowX: "hidden",
       }}
     >
-      <Container 
+      <Container
         maxWidth="lg"
         sx={{
           px: { xs: 2, sm: 3, md: 4 },
@@ -93,71 +94,73 @@ const About: React.FC = () => {
         >
           <Box
             sx={{
-              position: 'relative',
-              textAlign: 'center',
+              position: "relative",
+              textAlign: "center",
               mb: { xs: 6, md: 12 },
-              '&::before': {
+              "&::before": {
                 content: '""',
-                position: 'absolute',
-                top: '-50%',
-                left: '50%',
-                transform: 'translateX(-50%)',
-                width: { xs: '100%', md: '600px' },
-                height: { xs: '100%', md: '600px' },
-                background: theme.palette.mode === 'dark'
-                  ? 'radial-gradient(circle, rgba(0, 255, 163, 0.15) 0%, rgba(0, 255, 163, 0) 70%)'
-                  : 'radial-gradient(circle, rgba(0, 128, 94, 0.15) 0%, rgba(0, 128, 94, 0) 70%)',
-                filter: 'blur(60px)',
+                position: "absolute",
+                top: "-50%",
+                left: "50%",
+                transform: "translateX(-50%)",
+                width: { xs: "100%", md: "600px" },
+                height: { xs: "100%", md: "600px" },
+                background:
+                  theme.palette.mode === "dark"
+                    ? "radial-gradient(circle, rgba(0, 255, 163, 0.15) 0%, rgba(0, 255, 163, 0) 70%)"
+                    : "radial-gradient(circle, rgba(0, 128, 94, 0.15) 0%, rgba(0, 128, 94, 0) 70%)",
+                filter: "blur(60px)",
                 zIndex: 0,
-              }
+              },
             }}
           >
             <Typography
               variant="h1"
               sx={{
                 mb: 3,
-                fontSize: { xs: '2.5rem', sm: '3rem', md: '3.5rem' },
-                background: theme.palette.mode === 'dark'
-                  ? 'linear-gradient(90deg, #FFFFFF 0%, #00FFA3 100%)'
-                  : 'linear-gradient(90deg, #1A1A1A 0%, #00805E 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
+                fontSize: { xs: "2.5rem", sm: "3rem", md: "3.5rem" },
+                background:
+                  theme.palette.mode === "dark"
+                    ? "linear-gradient(90deg, #FFFFFF 0%, #00FFA3 100%)"
+                    : "linear-gradient(90deg, #1A1A1A 0%, #00805E 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
                 fontWeight: 700,
-                position: 'relative',
+                position: "relative",
                 zIndex: 1,
               }}
             >
-              {t('about.title')}
+              {t("about.title")}
             </Typography>
             <Typography
               variant="h5"
               color="text.secondary"
               sx={{
-                maxWidth: '800px',
-                mx: 'auto',
+                maxWidth: "800px",
+                mx: "auto",
                 mb: { xs: 4, md: 8 },
                 px: { xs: 2, sm: 0 },
-                fontSize: { xs: '1rem', sm: '1.25rem' },
-                position: 'relative',
+                fontSize: { xs: "1rem", sm: "1.25rem" },
+                position: "relative",
                 zIndex: 1,
               }}
             >
-              {t('about.subtitle')}
+              {t("about.subtitle")}
             </Typography>
 
             <Typography
               variant="body1"
               sx={{
-                maxWidth: '800px',
-                mx: 'auto',
+                maxWidth: "800px",
+                mx: "auto",
                 mb: 4,
                 px: { xs: 2, sm: 0 },
-                color: 'text.secondary',
-                fontSize: { xs: '0.9rem', sm: '1rem' },
+                color: "text.secondary",
+                fontSize: { xs: "0.9rem", sm: "1rem" },
                 lineHeight: 1.8,
               }}
             >
-              {t('about.introduction')}
+              {t("about.introduction")}
             </Typography>
 
             <Grid container spacing={2} justifyContent="center" sx={{ mb: 4 }}>
@@ -166,14 +169,14 @@ const About: React.FC = () => {
                   <Box
                     sx={{
                       p: 2,
-                      textAlign: 'center',
-                      color: 'text.secondary',
+                      textAlign: "center",
+                      color: "text.secondary",
                     }}
                   >
                     <Typography
                       variant="h6"
                       sx={{
-                        color: 'primary.main',
+                        color: "primary.main",
                         mb: 1,
                         fontWeight: 600,
                       }}
@@ -206,36 +209,40 @@ const About: React.FC = () => {
                   <motion.div variants={itemVariants}>
                     <Card
                       sx={{
-                        height: '100%',
-                        background: theme.palette.mode === 'dark'
-                          ? 'linear-gradient(145deg, #1f1f1f 0%, #151515 100%)'
-                          : 'linear-gradient(145deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 247, 255, 0.9) 100%)',
-                        backdropFilter: 'blur(10px)',
-                        boxShadow: theme.palette.mode === 'dark'
-                          ? '0 8px 32px rgba(0, 0, 0, 0.5)'
-                          : '0 8px 32px rgba(42, 67, 101, 0.15)',
-                        transition: 'all 0.3s ease-in-out',
-                        '&:hover': {
-                          transform: 'translateY(-8px)',
-                          boxShadow: theme.palette.mode === 'dark'
-                            ? '0 12px 40px rgba(0, 0, 0, 0.7)'
-                            : '0 12px 40px rgba(42, 67, 101, 0.25)',
-                          '& .stat-icon': {
-                            transform: 'scale(1.1) rotate(10deg)',
+                        height: "100%",
+                        background:
+                          theme.palette.mode === "dark"
+                            ? "linear-gradient(145deg, #1f1f1f 0%, #151515 100%)"
+                            : "linear-gradient(145deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 247, 255, 0.9) 100%)",
+                        backdropFilter: "blur(10px)",
+                        boxShadow:
+                          theme.palette.mode === "dark"
+                            ? "0 8px 32px rgba(0, 0, 0, 0.5)"
+                            : "0 8px 32px rgba(42, 67, 101, 0.15)",
+                        transition: "all 0.3s ease-in-out",
+                        "&:hover": {
+                          transform: "translateY(-8px)",
+                          boxShadow:
+                            theme.palette.mode === "dark"
+                              ? "0 12px 40px rgba(0, 0, 0, 0.7)"
+                              : "0 12px 40px rgba(42, 67, 101, 0.25)",
+                          "& .stat-icon": {
+                            transform: "scale(1.1) rotate(10deg)",
                             color: theme.palette.primary.main,
-                          }
+                          },
                         },
                       }}
                     >
-                      <CardContent sx={{ textAlign: 'center', p: 4 }}>
+                      <CardContent sx={{ textAlign: "center", p: 4 }}>
                         <Box
                           className="stat-icon"
                           sx={{
                             mb: 2,
-                            transition: 'all 0.3s ease-in-out',
-                            color: theme.palette.mode === 'dark'
-                              ? alpha(theme.palette.primary.main, 0.7)
-                              : alpha(theme.palette.primary.main, 0.8),
+                            transition: "all 0.3s ease-in-out",
+                            color:
+                              theme.palette.mode === "dark"
+                                ? alpha(theme.palette.primary.main, 0.7)
+                                : alpha(theme.palette.primary.main, 0.8),
                           }}
                         >
                           <Icon size={40} />
@@ -245,11 +252,12 @@ const About: React.FC = () => {
                           sx={{
                             fontWeight: 700,
                             mb: 1,
-                            background: theme.palette.mode === 'dark'
-                              ? 'linear-gradient(90deg, #FFFFFF 0%, #00FFA3 100%)'
-                              : 'linear-gradient(90deg, #1A1A1A 0%, #00805E 100%)',
-                            WebkitBackgroundClip: 'text',
-                            WebkitTextFillColor: 'transparent',
+                            background:
+                              theme.palette.mode === "dark"
+                                ? "linear-gradient(90deg, #FFFFFF 0%, #00FFA3 100%)"
+                                : "linear-gradient(90deg, #1A1A1A 0%, #00805E 100%)",
+                            WebkitBackgroundClip: "text",
+                            WebkitTextFillColor: "transparent",
                           }}
                         >
                           {stat.number}
@@ -257,9 +265,10 @@ const About: React.FC = () => {
                         <Typography
                           variant="body1"
                           sx={{
-                            color: theme.palette.mode === 'dark'
-                              ? alpha(theme.palette.common.white, 0.7)
-                              : alpha(theme.palette.common.black, 0.7),
+                            color:
+                              theme.palette.mode === "dark"
+                                ? alpha(theme.palette.common.white, 0.7)
+                                : alpha(theme.palette.common.black, 0.7),
                           }}
                         >
                           {stat.label}
@@ -285,57 +294,68 @@ const About: React.FC = () => {
               <motion.div variants={itemVariants}>
                 <Card
                   sx={{
-                    height: '100%',
-                    background: theme.palette.mode === 'dark'
-                      ? 'linear-gradient(145deg, #1f1f1f 0%, #151515 100%)'
-                      : 'linear-gradient(145deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 247, 255, 0.9) 100%)',
-                    backdropFilter: 'blur(10px)',
-                    overflow: 'hidden',
-                    transition: 'all 0.3s ease-in-out',
-                    '&:hover': {
-                      transform: 'translateY(-8px)',
-                      '& .card-image': {
-                        transform: 'scale(1.1)',
-                      }
-                    }
+                    height: "100%",
+                    background:
+                      theme.palette.mode === "dark"
+                        ? "linear-gradient(145deg, #1f1f1f 0%, #151515 100%)"
+                        : "linear-gradient(145deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 247, 255, 0.9) 100%)",
+                    backdropFilter: "blur(10px)",
+                    overflow: "hidden",
+                    transition: "all 0.3s ease-in-out",
+                    "&:hover": {
+                      transform: "translateY(-8px)",
+                      "& .card-image": {
+                        transform: "scale(1.1)",
+                      },
+                    },
                   }}
                 >
-                  <Box sx={{ position: 'relative', height: '250px', overflow: 'hidden' }}>
+                  <Box
+                    sx={{
+                      position: "relative",
+                      height: "250px",
+                      overflow: "hidden",
+                    }}
+                  >
                     <CardMedia
                       component="img"
-                      image={t('about.mission.image')}
-                      alt={t('about.mission.title')}
+                      image={t("about.mission.image")}
+                      alt={t("about.mission.title")}
                       className="card-image"
                       sx={{
-                        height: '100%',
-                        objectFit: 'cover',
-                        transition: 'transform 0.3s ease-in-out',
+                        height: "100%",
+                        objectFit: "cover",
+                        transition: "transform 0.3s ease-in-out",
                       }}
                     />
                     <Box
                       sx={{
-                        position: 'absolute',
+                        position: "absolute",
                         bottom: 0,
                         left: 0,
                         right: 0,
-                        background: 'linear-gradient(to top, rgba(0,0,0,0.7), transparent)',
+                        background:
+                          "linear-gradient(to top, rgba(0,0,0,0.7), transparent)",
                         p: 3,
                       }}
                     >
                       <Typography
                         variant="h4"
                         sx={{
-                          color: 'white',
-                          textShadow: '0 2px 4px rgba(0,0,0,0.3)',
+                          color: "white",
+                          textShadow: "0 2px 4px rgba(0,0,0,0.3)",
                         }}
                       >
-                        {t('about.mission.title')}
+                        {t("about.mission.title")}
                       </Typography>
                     </Box>
                   </Box>
                   <CardContent sx={{ p: 4 }}>
-                    <Typography variant="body1" sx={{ color: 'text.secondary', lineHeight: 1.8 }}>
-                      {t('about.mission.description')}
+                    <Typography
+                      variant="body1"
+                      sx={{ color: "text.secondary", lineHeight: 1.8 }}
+                    >
+                      {t("about.mission.description")}
                     </Typography>
                   </CardContent>
                 </Card>
@@ -345,57 +365,68 @@ const About: React.FC = () => {
               <motion.div variants={itemVariants}>
                 <Card
                   sx={{
-                    height: '100%',
-                    background: theme.palette.mode === 'dark'
-                      ? 'linear-gradient(145deg, #1f1f1f 0%, #151515 100%)'
-                      : 'linear-gradient(145deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 247, 255, 0.9) 100%)',
-                    backdropFilter: 'blur(10px)',
-                    overflow: 'hidden',
-                    transition: 'all 0.3s ease-in-out',
-                    '&:hover': {
-                      transform: 'translateY(-8px)',
-                      '& .card-image': {
-                        transform: 'scale(1.1)',
-                      }
-                    }
+                    height: "100%",
+                    background:
+                      theme.palette.mode === "dark"
+                        ? "linear-gradient(145deg, #1f1f1f 0%, #151515 100%)"
+                        : "linear-gradient(145deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 247, 255, 0.9) 100%)",
+                    backdropFilter: "blur(10px)",
+                    overflow: "hidden",
+                    transition: "all 0.3s ease-in-out",
+                    "&:hover": {
+                      transform: "translateY(-8px)",
+                      "& .card-image": {
+                        transform: "scale(1.1)",
+                      },
+                    },
                   }}
                 >
-                  <Box sx={{ position: 'relative', height: '250px', overflow: 'hidden' }}>
+                  <Box
+                    sx={{
+                      position: "relative",
+                      height: "250px",
+                      overflow: "hidden",
+                    }}
+                  >
                     <CardMedia
                       component="img"
-                      image={t('about.vision.image')}
-                      alt={t('about.vision.title')}
+                      image={t("about.vision.image")}
+                      alt={t("about.vision.title")}
                       className="card-image"
                       sx={{
-                        height: '100%',
-                        objectFit: 'cover',
-                        transition: 'transform 0.3s ease-in-out',
+                        height: "100%",
+                        objectFit: "cover",
+                        transition: "transform 0.3s ease-in-out",
                       }}
                     />
                     <Box
                       sx={{
-                        position: 'absolute',
+                        position: "absolute",
                         bottom: 0,
                         left: 0,
                         right: 0,
-                        background: 'linear-gradient(to top, rgba(0,0,0,0.7), transparent)',
+                        background:
+                          "linear-gradient(to top, rgba(0,0,0,0.7), transparent)",
                         p: 3,
                       }}
                     >
                       <Typography
                         variant="h4"
                         sx={{
-                          color: 'white',
-                          textShadow: '0 2px 4px rgba(0,0,0,0.3)',
+                          color: "white",
+                          textShadow: "0 2px 4px rgba(0,0,0,0.3)",
                         }}
                       >
-                        {t('about.vision.title')}
+                        {t("about.vision.title")}
                       </Typography>
                     </Box>
                   </Box>
                   <CardContent sx={{ p: 4 }}>
-                    <Typography variant="body1" sx={{ color: 'text.secondary', lineHeight: 1.8 }}>
-                      {t('about.vision.description')}
+                    <Typography
+                      variant="body1"
+                      sx={{ color: "text.secondary", lineHeight: 1.8 }}
+                    >
+                      {t("about.vision.description")}
                     </Typography>
                   </CardContent>
                 </Card>
@@ -416,15 +447,16 @@ const About: React.FC = () => {
             align="center"
             sx={{
               mb: 6,
-              background: theme.palette.mode === 'dark'
-                ? 'linear-gradient(90deg, #FFFFFF 0%, #00FFA3 100%)'
-                : 'linear-gradient(90deg, #1A1A1A 0%, #00805E 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
+              background:
+                theme.palette.mode === "dark"
+                  ? "linear-gradient(90deg, #FFFFFF 0%, #00FFA3 100%)"
+                  : "linear-gradient(90deg, #1A1A1A 0%, #00805E 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
               fontWeight: 700,
             }}
           >
-            {t('about.values.title')}
+            {t("about.values.title")}
           </Typography>
           <Grid container spacing={4}>
             {values.map((value, index) => (
@@ -432,48 +464,51 @@ const About: React.FC = () => {
                 <motion.div variants={itemVariants}>
                   <Card
                     sx={{
-                      height: '100%',
-                      background: theme.palette.mode === 'dark'
-                        ? 'linear-gradient(145deg, #1f1f1f 0%, #151515 100%)'
-                        : 'linear-gradient(145deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 247, 255, 0.9) 100%)',
-                      backdropFilter: 'blur(10px)',
-                      transition: 'all 0.3s ease-in-out',
-                      position: 'relative',
-                      overflow: 'hidden',
-                      '&:hover': {
-                        transform: 'translateY(-8px)',
-                        '& .value-icon': {
-                          transform: 'scale(1.1) rotate(10deg)',
+                      height: "100%",
+                      background:
+                        theme.palette.mode === "dark"
+                          ? "linear-gradient(145deg, #1f1f1f 0%, #151515 100%)"
+                          : "linear-gradient(145deg, rgba(255, 255, 255, 0.9) 0%, rgba(240, 247, 255, 0.9) 100%)",
+                      backdropFilter: "blur(10px)",
+                      transition: "all 0.3s ease-in-out",
+                      position: "relative",
+                      overflow: "hidden",
+                      "&:hover": {
+                        transform: "translateY(-8px)",
+                        "& .value-icon": {
+                          transform: "scale(1.1) rotate(10deg)",
                           color: theme.palette.primary.main,
                         },
-                        '&::before': {
-                          transform: 'scale(1.2)',
-                        }
+                        "&::before": {
+                          transform: "scale(1.2)",
+                        },
                       },
-                      '&::before': {
+                      "&::before": {
                         content: '""',
-                        position: 'absolute',
+                        position: "absolute",
                         top: 0,
                         left: 0,
                         right: 0,
                         bottom: 0,
-                        background: theme.palette.mode === 'dark'
-                          ? 'radial-gradient(circle at top right, rgba(0, 255, 163, 0.1), transparent 70%)'
-                          : 'radial-gradient(circle at top right, rgba(0, 128, 94, 0.1), transparent 70%)',
-                        transition: 'transform 0.3s ease-in-out',
+                        background:
+                          theme.palette.mode === "dark"
+                            ? "radial-gradient(circle at top right, rgba(0, 255, 163, 0.1), transparent 70%)"
+                            : "radial-gradient(circle at top right, rgba(0, 128, 94, 0.1), transparent 70%)",
+                        transition: "transform 0.3s ease-in-out",
                         zIndex: 0,
-                      }
+                      },
                     }}
                   >
-                    <CardContent sx={{ p: 4, position: 'relative', zIndex: 1 }}>
+                    <CardContent sx={{ p: 4, position: "relative", zIndex: 1 }}>
                       <Box
                         className="value-icon"
                         sx={{
                           mb: 3,
-                          transition: 'all 0.3s ease-in-out',
-                          color: theme.palette.mode === 'dark'
-                            ? alpha(theme.palette.primary.main, 0.7)
-                            : alpha(theme.palette.primary.main, 0.8),
+                          transition: "all 0.3s ease-in-out",
+                          color:
+                            theme.palette.mode === "dark"
+                              ? alpha(theme.palette.primary.main, 0.7)
+                              : alpha(theme.palette.primary.main, 0.8),
                         }}
                       >
                         {getIcon(value.icon)}
@@ -483,7 +518,10 @@ const About: React.FC = () => {
                         gutterBottom
                         sx={{
                           fontWeight: 600,
-                          color: theme.palette.mode === 'dark' ? 'white' : 'text.primary',
+                          color:
+                            theme.palette.mode === "dark"
+                              ? "white"
+                              : "text.primary",
                           mb: 2,
                         }}
                       >
@@ -492,7 +530,7 @@ const About: React.FC = () => {
                       <Typography
                         variant="body1"
                         sx={{
-                          color: 'text.secondary',
+                          color: "text.secondary",
                           lineHeight: 1.8,
                         }}
                       >
@@ -510,4 +548,4 @@ const About: React.FC = () => {
   );
 };
 
-export default About; 
+export default About;
