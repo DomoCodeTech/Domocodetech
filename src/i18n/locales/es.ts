@@ -174,247 +174,249 @@ export const esTranslations = {
     pricingPlans: {
       software: [
         {
-          name: 'Landing Page',
-          price: 'Desde $800',
-          description: 'Ideal para presencia web básica',
+          name: "Landing Page",
+          price: "Desde $800",
+          description: "Ideal para presencia web básica",
           features: [
-            'Diseño Responsive',
-            'SEO Básico',
-            'Hasta 5 secciones',
-            'Formulario de contacto',
-            'Hosting incluido (1 año)'
-          ]
+            "Diseño Responsive",
+            "SEO Básico",
+            "Hasta 5 secciones",
+            "Formulario de contacto",
+            "Hosting incluido (1 año)",
+          ],
         },
         {
-          name: 'Aplicación Web',
-          price: 'Desde $2,500',
+          name: "Aplicación Web",
+          price: "Desde $2,500",
           recommended: true,
           features: [
-            'Panel Administrativo',
-            'Base de datos',
-            'APIs RESTful',
-            'Autenticación de usuarios',
-            'Soporte técnico (6 meses)'
-          ]
+            "Panel Administrativo",
+            "Base de datos",
+            "APIs RESTful",
+            "Autenticación de usuarios",
+            "Soporte técnico (6 meses)",
+          ],
         },
         {
-          name: 'App Móvil',
-          price: 'Desde $5,000',
+          name: "App Móvil",
+          price: "Desde $5,000",
           features: [
-            'Desarrollo Android/iOS',
-            'Backend incluido',
-            'APIs personalizadas',
-            'Panel de administración',
-            'Publicación en stores'
-          ]
-        }
+            "Desarrollo Android/iOS",
+            "Backend incluido",
+            "APIs personalizadas",
+            "Panel de administración",
+            "Publicación en stores",
+          ],
+        },
       ],
       domotics: [
         {
-          name: 'Básico',
-          price: 'Desde $500',
+          name: "Básico",
+          price: "Desde $500",
           features: [
-            'Control de iluminación',
-            '2 sensores de movimiento',
-            'Control por app',
-            'Instalación incluida',
-            'Soporte básico'
-          ]
+            "Control de iluminación",
+            "2 sensores de movimiento",
+            "Control por app",
+            "Instalación incluida",
+            "Soporte básico",
+          ],
         },
         {
-          name: 'Hogar Inteligente',
-          price: 'Desde $1,500',
+          name: "Hogar Inteligente",
+          price: "Desde $1,500",
           recommended: true,
           features: [
-            'Control completo de hogar',
-            'Seguridad inteligente',
-            'Termostato inteligente',
-            'Control por voz',
-            'Soporte 24/7'
-          ]
+            "Control completo de hogar",
+            "Seguridad inteligente",
+            "Termostato inteligente",
+            "Control por voz",
+            "Soporte 24/7",
+          ],
         },
         {
-          name: 'Empresarial',
-          price: 'Desde $3,000',
+          name: "Empresarial",
+          price: "Desde $3,000",
           features: [
-            'Automatización completa',
-            'Sistema de seguridad',
-            'Control de acceso',
-            'Monitoreo energético',
-            'Mantenimiento mensual'
-          ]
-        }
+            "Automatización completa",
+            "Sistema de seguridad",
+            "Control de acceso",
+            "Monitoreo energético",
+            "Mantenimiento mensual",
+          ],
+        },
       ],
       electronics: [
         {
-          name: 'Diseño PCB',
-          price: 'Desde $300',
-          description: 'Perfecto para proyectos pequeños',
+          name: "Diseño PCB",
+          price: "Desde $300",
+          description: "Perfecto para proyectos pequeños",
           features: [
-            'Diseño esquemático',
-            'Layout de PCB básico',
-            'Lista de materiales',
-            'Archivos de fabricación',
-            'Revisión de diseño'
-          ]
+            "Diseño esquemático",
+            "Layout de PCB básico",
+            "Lista de materiales",
+            "Archivos de fabricación",
+            "Revisión de diseño",
+          ],
         },
         {
-          name: 'Prototipado',
-          price: 'Desde $1,000',
+          name: "Prototipado",
+          price: "Desde $1,000",
           recommended: true,
           features: [
-            'Diseño PCB completo',
-            'Prototipo funcional',
-            'Pruebas y validación',
-            'Documentación técnica',
-            'Soporte de desarrollo'
-          ]
+            "Diseño PCB completo",
+            "Prototipo funcional",
+            "Pruebas y validación",
+            "Documentación técnica",
+            "Soporte de desarrollo",
+          ],
         },
         {
-          name: 'Producción',
-          price: 'Desde $2,500',
+          name: "Producción",
+          price: "Desde $2,500",
           features: [
-            'Optimización para manufactura',
-            'Control de calidad',
-            'Certificaciones',
-            'Soporte de producción',
-            'Documentación completa'
-          ]
-        }
+            "Optimización para manufactura",
+            "Control de calidad",
+            "Certificaciones",
+            "Soporte de producción",
+            "Documentación completa",
+          ],
+        },
       ],
       networks: [
         {
-          name: 'Red Básica',
-          price: 'Desde $400',
-          description: 'Para pequeñas oficinas',
+          name: "Red Básica",
+          price: "Desde $400",
+          description: "Para pequeñas oficinas",
           features: [
-            'Configuración router',
-            'WiFi empresarial',
-            'Firewall básico',
-            'Soporte remoto',
-            'Monitoreo básico'
-          ]
+            "Configuración router",
+            "WiFi empresarial",
+            "Firewall básico",
+            "Soporte remoto",
+            "Monitoreo básico",
+          ],
         },
         {
-          name: 'Red Empresarial',
-          price: 'Desde $1,200',
+          name: "Red Empresarial",
+          price: "Desde $1,200",
           recommended: true,
           features: [
-            'Seguridad avanzada',
-            'VLANs y QoS',
-            'VPN corporativa',
-            'Monitoreo 24/7',
-            'Soporte prioritario'
-          ]
+            "Seguridad avanzada",
+            "VLANs y QoS",
+            "VPN corporativa",
+            "Monitoreo 24/7",
+            "Soporte prioritario",
+          ],
         },
         {
-          name: 'Infraestructura',
-          price: 'Desde $3,500',
+          name: "Infraestructura",
+          price: "Desde $3,500",
           features: [
-            'Diseño de red',
-            'Alta disponibilidad',
-            'Sistema redundante',
-            'Gestión centralizada',
-            'SLA garantizado'
-          ]
-        }
+            "Diseño de red",
+            "Alta disponibilidad",
+            "Sistema redundante",
+            "Gestión centralizada",
+            "SLA garantizado",
+          ],
+        },
       ],
       microcontrollers: [
         {
-          name: 'Firmware Básico',
-          price: 'Desde $200',
-          description: 'Para dispositivos simples',
+          name: "Firmware Básico",
+          price: "Desde $200",
+          description: "Para dispositivos simples",
           features: [
-            'Programación básica',
-            'Un microcontrolador',
-            'Funciones básicas',
-            'Pruebas unitarias',
-            'Documentación básica'
-          ]
+            "Programación básica",
+            "Un microcontrolador",
+            "Funciones básicas",
+            "Pruebas unitarias",
+            "Documentación básica",
+          ],
         },
         {
-          name: 'IoT Avanzado',
-          price: 'Desde $800',
+          name: "IoT Avanzado",
+          price: "Desde $800",
           recommended: true,
           features: [
-            'Conectividad WiFi/BT',
-            'Dashboard web',
-            'APIs REST',
-            'Actualización OTA',
-            'Monitoreo remoto'
-          ]
+            "Conectividad WiFi/BT",
+            "Dashboard web",
+            "APIs REST",
+            "Actualización OTA",
+            "Monitoreo remoto",
+          ],
         },
         {
-          name: 'Sistema Industrial',
-          price: 'Desde $2,000',
+          name: "Sistema Industrial",
+          price: "Desde $2,000",
           features: [
-            'Protocolo industrial',
-            'Sistema redundante',
-            'Interfaz SCADA',
-            'Alta disponibilidad',
-            'Soporte 24/7'
-          ]
-        }
+            "Protocolo industrial",
+            "Sistema redundante",
+            "Interfaz SCADA",
+            "Alta disponibilidad",
+            "Soporte 24/7",
+          ],
+        },
       ],
       support: [
         {
-          name: 'Básico',
-          price: '$50/hora',
-          description: 'Soporte bajo demanda',
+          name: "Básico",
+          price: "$50/hora",
+          description: "Soporte bajo demanda",
           features: [
-            'Soporte remoto',
-            'Horario laboral',
-            'Diagnóstico básico',
-            'Mantenimiento preventivo',
-            'Respuesta en 24h'
-          ]
+            "Soporte remoto",
+            "Horario laboral",
+            "Diagnóstico básico",
+            "Mantenimiento preventivo",
+            "Respuesta en 24h",
+          ],
         },
         {
-          name: 'Empresarial',
-          price: '$500/mes',
+          name: "Empresarial",
+          price: "$500/mes",
           recommended: true,
           features: [
-            'Soporte presencial',
-            'Respuesta en 4h',
-            'Mantenimiento preventivo',
-            'Backups programados',
-            'Horario extendido'
-          ]
+            "Soporte presencial",
+            "Respuesta en 4h",
+            "Mantenimiento preventivo",
+            "Backups programados",
+            "Horario extendido",
+          ],
         },
         {
-          name: 'Premium',
-          price: '$1,200/mes',
+          name: "Premium",
+          price: "$1,200/mes",
           features: [
-            'Soporte 24/7',
-            'Respuesta inmediata',
-            'Técnico dedicado',
-            'Mantenimiento completo',
-            'Garantía total'
-          ]
-        }
-      ]
-    }
+            "Soporte 24/7",
+            "Respuesta inmediata",
+            "Técnico dedicado",
+            "Mantenimiento completo",
+            "Garantía total",
+          ],
+        },
+      ],
+    },
   },
   // Team Section
   team: {
     title: "Conoce a Nuestro Equipo Experto",
     subtitle: "Expertos en tecnología listos para innovar",
-      "member1": {
-        "position": "CEO & Fundador",
-        "description": "Experto en domótica, desarrollo web y móvil."
-      },
-      "member2": {
-        "position": "Desarrollador Android Senior",
-        "description": "Desarrollador nativo de Android con más de 10 años de experiencia."
-      },
-      "member3": {
-        "position": "Diseñador 3D & Desarrollador Android",
-        "description": "Especialista en diseño 3D y desarrollo Android."
-      },
-      "member4": {
-        "position": "Experto en Soporte y Soluciones IT",
-        "description": "Ingeniero de sistemas especializado en soporte técnico y soluciones IT."
-      }
+    member1: {
+      position: "CEO & Fundador",
+      description: "Experto en domótica, desarrollo web y móvil.",
+    },
+    member2: {
+      position: "Desarrollador Android Senior",
+      description:
+        "Desarrollador nativo de Android con más de 10 años de experiencia.",
+    },
+    member3: {
+      position: "Diseñador 3D & Desarrollador Android",
+      description: "Especialista en diseño 3D y desarrollo Android.",
+    },
+    member4: {
+      position: "Experto en Soporte y Soluciones IT",
+      description:
+        "Ingeniero de sistemas especializado en soporte técnico y soluciones IT.",
+    },
   },
   // About Section
   about: {
@@ -758,108 +760,145 @@ export const esTranslations = {
     title: "Nuestros Proyectos",
     subtitle: "Explora nuestro portafolio de soluciones robustas.",
     features: {
-      'responsive': 'Diseño responsivo',
-      'cross-browser': 'Compatibilidad multiplataforma',
-      'modern-ui': 'Diseño UI/UX moderno',
-      'user-friendly': 'Interfaz amigable',
-      'performance': 'Alto rendimiento',
-      'api-integration': 'Integración perfecta con APIs',
-      'custom-design': 'Diseño personalizado',
-      'architecture': 'Arquitectura robusta',
-      'cross-platform': 'Funcionalidad multiplataforma',
-      'smart-devices': 'Integración de dispositivos inteligentes',
-      'real-time': 'Monitoreo en tiempo real',
-      'cloud-integration': 'Conectividad en la nube',
-      'payment-gateway': 'Pasarela de pago segura',
-      'inventory': 'Gestión de inventario',
-      'analytics': 'Panel de análisis',
-      'security': 'Seguridad avanzada',
-      'scalability': 'Escalabilidad',
-      'automation': 'Automatización',
-      'monitoring': 'Monitoreo continuo',
-      'optimization': 'Optimización de recursos',
-      'innovation': 'Innovación',
-      'consulting': 'Consultoría de Software',
-      'analysis': 'Análisis',
-      'solution': 'Solución',
+      responsive: "Diseño responsivo",
+      "cross-browser": "Compatibilidad multiplataforma",
+      "modern-ui": "Diseño UI/UX moderno",
+      "user-friendly": "Interfaz amigable",
+      performance: "Alto rendimiento",
+      "api-integration": "Integración perfecta con APIs",
+      "custom-design": "Diseño personalizado",
+      architecture: "Arquitectura robusta",
+      "cross-platform": "Funcionalidad multiplataforma",
+      "smart-devices": "Integración de dispositivos inteligentes",
+      "real-time": "Monitoreo en tiempo real",
+      "cloud-integration": "Conectividad en la nube",
+      "payment-gateway": "Pasarela de pago segura",
+      inventory: "Gestión de inventario",
+      analytics: "Panel de análisis",
+      security: "Seguridad avanzada",
+      scalability: "Escalabilidad",
+      automation: "Automatización",
+      monitoring: "Monitoreo continuo",
+      optimization: "Optimización de recursos",
+      innovation: "Innovación",
+      consulting: "Consultoría de Software",
+      analysis: "Análisis",
+      solution: "Solución",
     },
     consulting: {
       title: "Consultoría de Software",
-      description: "Asesoramiento estratégico y soluciones tecnológicas personalizadas.",
-      overview: "Nuestro servicio de consultoría ayuda a las empresas a navegar el complejo panorama digital y tomar decisiones informadas sobre sus inversiones tecnológicas.",
+      description:
+        "Asesoramiento estratégico y soluciones tecnológicas personalizadas.",
+      overview:
+        "Nuestro servicio de consultoría ayuda a las empresas a navegar el complejo panorama digital y tomar decisiones informadas sobre sus inversiones tecnológicas.",
       techStack: "Áreas de Experiencia",
-      process: "Proceso de Consultoría"
+      process: "Proceso de Consultoría",
     },
     web: {
       title: "Aplicación Web",
-      description: "Una plataforma web moderna con diseño responsivo para una experiencia de usuario perfecta.",
+      description:
+        "Una plataforma web moderna con diseño responsivo para una experiencia de usuario perfecta.",
       features: [
         "Diseño responsivo",
         "Compatibilidad multiplataforma",
-        "Diseño UI/UX moderno"
+        "Diseño UI/UX moderno",
       ],
-      overview: "Nuestro servicio de desarrollo web se centra en crear soluciones modernas, escalables y eficientes que ayudan a las empresas a prosperar en la era digital.",
+      overview:
+        "Nuestro servicio de desarrollo web se centra en crear soluciones modernas, escalables y eficientes que ayudan a las empresas a prosperar en la era digital.",
       techStack: "Stack Tecnológico",
-      process: "Proceso de Desarrollo"
+      process: "Proceso de Desarrollo",
     },
     mobile: {
       title: "Aplicación Móvil",
-      description: "Soluciones móviles optimizadas para plataformas iOS y Android.",
+      description:
+        "Soluciones móviles optimizadas para plataformas iOS y Android.",
       features: [
         "Interfaz amigable",
         "Alto rendimiento",
-        "Integración perfecta con APIs"
+        "Integración perfecta con APIs",
       ],
-      overview: "Nuestro servicio de desarrollo móvil entrega aplicaciones nativas de alta calidad para plataformas iOS y Android.",
+      overview:
+        "Nuestro servicio de desarrollo móvil entrega aplicaciones nativas de alta calidad para plataformas iOS y Android.",
       techStack: "Stack Tecnológico",
-      process: "Proceso de Desarrollo"
+      process: "Proceso de Desarrollo",
     },
     software: {
       title: "Desarrollo de Software",
-      description: "Soluciones de software personalizadas construidas con tecnología de vanguardia.",
+      description:
+        "Soluciones de software personalizadas construidas con tecnología de vanguardia.",
       features: [
         "Diseño de software personalizado",
         "Arquitectura robusta",
-        "Funcionalidad multiplataforma"
+        "Funcionalidad multiplataforma",
       ],
-      overview: "Creamos soluciones de software personalizadas que se adaptan perfectamente a las necesidades específicas de tu negocio.",
+      overview:
+        "Creamos soluciones de software personalizadas que se adaptan perfectamente a las necesidades específicas de tu negocio.",
       techStack: "Stack Tecnológico",
-      process: "Proceso de Desarrollo"
+      process: "Proceso de Desarrollo",
     },
     iot: {
       title: "Soluciones IoT",
-      description: "Dispositivos y sistemas inteligentes para monitoreo y control automatizado.",
+      description:
+        "Dispositivos y sistemas inteligentes para monitoreo y control automatizado.",
       features: [
         "Integración de dispositivos inteligentes",
         "Monitoreo en tiempo real",
-        "Conectividad en la nube"
+        "Conectividad en la nube",
       ],
-      overview: "Desarrollamos soluciones IoT innovadoras que conectan y automatizan dispositivos para crear sistemas inteligentes.",
+      overview:
+        "Desarrollamos soluciones IoT innovadoras que conectan y automatizan dispositivos para crear sistemas inteligentes.",
       techStack: "Stack Tecnológico",
-      process: "Proceso de Desarrollo"
+      process: "Proceso de Desarrollo",
     },
     ecommerce: {
       title: "Plataforma E-commerce",
-      description: "Solución completa de tienda en línea con características avanzadas.",
+      description:
+        "Solución completa de tienda en línea con características avanzadas.",
       features: [
         "Pasarela de pago segura",
         "Gestión de inventario",
-        "Panel de análisis"
+        "Panel de análisis",
       ],
-      overview: "Implementamos plataformas de comercio electrónico completas y personalizadas para impulsar tu negocio en línea.",
+      overview:
+        "Implementamos plataformas de comercio electrónico completas y personalizadas para impulsar tu negocio en línea.",
       techStack: "Stack Tecnológico",
-      process: "Proceso de Desarrollo"
+      process: "Proceso de Desarrollo",
     },
     featuresTitle: "Características",
     startProject: "Iniciar Proyecto",
     scheduleConsultation: "Agendar Consulta",
     projectOverview: "Descripción del Proyecto",
     keyFeatures: "Características Principales",
-    developmentProcess: "Proceso de Desarrollo"
+    developmentProcess: "Proceso de Desarrollo",
   },
   partners: {
     title: "Aliados Tecnológicos",
     subtitle: "Trabajamos con las mejores tecnologías y marcas del mercado",
-    description: "Nuestras alianzas estratégicas nos permiten ofrecer soluciones de vanguardia y garantizar la máxima calidad en cada proyecto."
+    description:
+      "Nuestras alianzas estratégicas nos permiten ofrecer soluciones de vanguardia y garantizar la máxima calidad en cada proyecto.",
+  },
+  /**
+   * Process Flow Section
+   * Muestra el flujo de trabajo y proceso de la empresa
+   */
+  processFlow: {
+    steps: {
+      consultation: {
+        title: "Consulta",
+        description: "Evaluamos tus necesidades",
+      },
+      planning: {
+        title: "Planificación",
+        description: "Diseñamos la solución",
+      },
+      development: {
+        title: "Desarrollo",
+        description: "Implementamos el proyecto",
+      },
+      delivery: {
+        title: "Entrega",
+        description: "Desplegamos y optimizamos",
+      },
+    },
   },
 };
