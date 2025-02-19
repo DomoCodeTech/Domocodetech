@@ -27,6 +27,7 @@ code {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: #b61010;
 }
 
 main {
@@ -66,6 +67,7 @@ html {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
