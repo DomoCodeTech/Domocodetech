@@ -91,6 +91,20 @@ export const enTranslations = {
         systemIntegration: "System and application integration",
         cloudMigration: "Cloud migration and services",
       },
+      serviceDescriptions: {
+        webApps:
+          "We develop modern and responsive web applications using the latest technologies and frameworks. Our solutions are scalable, secure, and optimized for exceptional performance.",
+        mobileApps:
+          "We create native and cross-platform mobile applications that deliver an exceptional user experience. We use technologies like React Native and Flutter to ensure the best quality.",
+        apiDevelopment:
+          "We design and develop RESTful APIs and microservices that enable seamless integration between systems. We implement security best practices and comprehensive documentation.",
+        databaseDesign:
+          "We optimize database design to ensure optimal performance and efficient data management. We work with both SQL and NoSQL databases.",
+        systemIntegration:
+          "We facilitate seamless integration between different systems and applications, ensuring smooth and efficient communication between all parts.",
+        cloudMigration:
+          "We assist in migrating systems to the cloud, optimizing costs and improving scalability. We work with major cloud service providers.",
+      },
     },
 
     microcontrollers: {
@@ -110,6 +124,18 @@ export const enTranslations = {
         sensorIntegration: "Sensor and actuator integration",
         embeddedSystems: "Custom embedded systems",
         iotDevices: "Connected IoT devices",
+      },
+      serviceDescriptions: {
+        firmwareDevelopment:
+          "We develop custom firmware for microcontrollers, optimized for efficient performance and low power consumption. We implement secure and reliable communication protocols.",
+        prototypeDevelopment:
+          "We create functional electronic prototypes that allow concept validation and design refinement before production. We use rapid prototyping techniques and quality components.",
+        sensorIntegration:
+          "We integrate sensors and actuators into embedded systems, enabling precise data collection and device control. We work with a wide range of industrial and commercial sensors.",
+        embeddedSystems:
+          "We design custom embedded systems that meet specific requirements for performance, size, and power consumption. We implement robust and reliable solutions.",
+        iotDevices:
+          "We develop IoT devices that securely connect to the cloud, enabling remote monitoring and control. We implement standard IoT protocols and advanced security measures.",
       },
     },
 
@@ -131,6 +157,18 @@ export const enTranslations = {
         energyOptimization: "Energy consumption optimization",
         deviceIntegration: "Smart device integration",
       },
+      serviceDescriptions: {
+        smartHomeSetup:
+          "We install complete home automation systems that transform your home into a smart space. We use leading market technologies and ensure perfect integration.",
+        automationConfig:
+          "We configure custom automations that adapt to your lifestyle. We create scenes and routines that maximize comfort and efficiency.",
+        securityIntegration:
+          "We implement smart security systems with cameras, sensors, and access control. We provide real-time monitoring and instant notifications.",
+        energyOptimization:
+          "We optimize energy consumption through smart control and monitoring systems. We implement solutions that reduce costs and improve sustainability.",
+        deviceIntegration:
+          "We integrate smart devices from different manufacturers into a unified system. We ensure compatibility and harmonious operation of all components.",
+      },
     },
 
     electronics: {
@@ -150,6 +188,18 @@ export const enTranslations = {
         componentSelection: "Electronic component selection",
         hardwareTesting: "Hardware testing and validation",
         productDevelopment: "Electronic product development",
+      },
+      serviceDescriptions: {
+        pcbDesign:
+          "We design professional PCBs optimized for production and performance. We use advanced CAD software and follow electronic design best practices.",
+        circuitPrototyping:
+          "We develop electronic circuit prototypes to validate designs and concepts. We conduct thorough testing and refine designs based on results.",
+        componentSelection:
+          "We select optimal electronic components considering performance, cost, and availability. We work with reliable suppliers and quality components.",
+        hardwareTesting:
+          "We conduct rigorous hardware testing to ensure reliability and performance. We use professional test equipment and standardized methodologies.",
+        productDevelopment:
+          "We develop electronic products from concept to production. We manage the entire development cycle, including certifications and documentation.",
       },
     },
 
@@ -171,6 +221,18 @@ export const enTranslations = {
         maintenance: "Preventive network maintenance",
         monitoring: "Network monitoring and diagnostics",
       },
+      serviceDescriptions: {
+        networkSetup:
+          "We implement robust and scalable enterprise networks. We design network architectures that optimize performance and security.",
+        securityConfig:
+          "We configure advanced security systems to protect your network. We implement firewalls, VPNs, and custom security policies.",
+        performanceOptimization:
+          "We optimize network performance through precise analysis and adjustments. We implement QoS and load balancing for maximum efficiency.",
+        maintenance:
+          "We perform regular preventive maintenance to ensure optimal operation. We identify and resolve issues before they affect operations.",
+        monitoring:
+          "We provide continuous network monitoring and real-time diagnostics. We use advanced tools to quickly detect and resolve issues.",
+      },
     },
 
     support: {
@@ -190,6 +252,18 @@ export const enTranslations = {
         dataRecovery: "Data recovery",
         optimization: "Performance optimization",
         training: "Training and education",
+      },
+      serviceDescriptions: {
+        techSupport:
+          "We provide specialized technical support to resolve hardware and software issues. We offer remote and on-site assistance according to needs.",
+        systemMaintenance:
+          "We perform regular system maintenance to prevent issues and optimize performance. We implement updates and security patches.",
+        dataRecovery:
+          "We recover lost or damaged data using specialized tools and techniques. We implement backup solutions to prevent future losses.",
+        optimization:
+          "We optimize system and equipment performance through advanced adjustments and configurations. We improve system speed and efficiency.",
+        training:
+          "We offer personalized training for system users and administrators. We develop training programs adapted to different experience levels.",
       },
     },
     pricingPlans: {
