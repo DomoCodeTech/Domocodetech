@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base:'https://domocodetech.online',
+  base: '/', // Cambiado de https://domocodetech.online a /
   server: {
     port: 3000,       // Puerto en el que se ejecuta el servidor
     open: true,       // Abre el navegador automáticamente al iniciar el servidor
