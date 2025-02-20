@@ -14,11 +14,11 @@ import ProjectsSection from "../components/home/ProjectsSection";
 import Stats from "../components/home/Stats";
 import CTA from "../components/home/CTA";
 import ServicesSection from "../components/home/ServicesSection";
-import { Container } from "@mui/material";
 
 const Home = () => {
   return (
-    <Container maxWidth="lg" sx={{ px: { xs: 1, sm: 1, md: 1 } }}>
+    //<Container maxWidth="lg" sx={{ px: { xs: 1, sm: 1, md: 1 } }}>
+    <>
       <Hero />
       <Stats />
       <ServicesSection />
@@ -26,7 +26,8 @@ const Home = () => {
       <Testimonials />
       <CTA />
       <Team />
-    </Container>
+      </>
+   // </Container>
   );
 };
 

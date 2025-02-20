@@ -109,7 +109,7 @@ const Hero = () => {
                   position: "relative",
                   width: "100%",
                   height: "100%",
-                  minHeight: { xs: "300px", md: "400px" },
+                  minHeight: { xs: "200px", md: "400px" },
                   "&::before": {
                     content: '""',
                     position: "absolute",

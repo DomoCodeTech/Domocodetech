@@ -1,5 +1,4 @@
 import React from "react";
-import { Container } from "@mui/material";
 import { AnimatePresence } from "framer-motion";
 import ServicesHero from "../components/services/ServicesHero";
 import ProcessFlow from "../components/services/ProcessFlow";
@@ -13,7 +12,8 @@ import { useServiceTab } from "../hooks/useServiceTab";
 const Services: React.FC = () => {
   const { selectedTab, handleTabChange } = useServiceTab();
   return (
-    <Container maxWidth="lg" sx={{ px: { xs: 1, sm: 1, md: 1 } }}>
+    //<Container maxWidth="lg" sx={{ px: { xs: 1, sm: 1, md: 1 } }}>
+    <>
       <ServicesHero />
       <ProcessFlow />
       <ServiceTabs selectedTab={selectedTab} onTabChange={handleTabChange} />
@@ -22,7 +22,8 @@ const Services: React.FC = () => {
       </AnimatePresence>
       <ServicePricing serviceKey={SERVICES_DATA[selectedTab].key} />
       <Partners />
-    </Container>
+    </>
+  //  </Container>
   );
 };
 
