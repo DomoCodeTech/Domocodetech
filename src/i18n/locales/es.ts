@@ -249,7 +249,7 @@ export const esTranslations = {
       software: [
         {
           name: "Landing Page",
-          price: "Desde $800",
+          price: "Desde $800 USD",
           description: "Ideal para presencia web básica",
           features: [
             "Diseño Responsive",
@@ -261,7 +261,7 @@ export const esTranslations = {
         },
         {
           name: "Aplicación Web",
-          price: "Desde $2,500",
+          price: "Desde $2,500 USD",
           recommended: true,
           features: [
             "Panel Administrativo",
@@ -273,7 +273,7 @@ export const esTranslations = {
         },
         {
           name: "App Móvil",
-          price: "Desde $5,000",
+          price: "Desde $5,000 USD",
           features: [
             "Desarrollo Android/iOS",
             "Backend incluido",
@@ -286,7 +286,7 @@ export const esTranslations = {
       domotics: [
         {
           name: "Básico",
-          price: "Desde $500",
+          price: "Desde $500 USD",
           features: [
             "Control de iluminación",
             "2 sensores de movimiento",
@@ -297,7 +297,7 @@ export const esTranslations = {
         },
         {
           name: "Hogar Inteligente",
-          price: "Desde $1,500",
+          price: "Desde $1,500 USD",
           recommended: true,
           features: [
             "Control completo de hogar",
@@ -309,7 +309,7 @@ export const esTranslations = {
         },
         {
           name: "Empresarial",
-          price: "Desde $3,000",
+          price: "Desde $3,000 USD ",
           features: [
             "Automatización completa",
             "Sistema de seguridad",
@@ -322,7 +322,7 @@ export const esTranslations = {
       electronics: [
         {
           name: "Diseño PCB",
-          price: "Desde $300",
+          price: "Desde $300 USD",
           description: "Perfecto para proyectos pequeños",
           features: [
             "Diseño esquemático",
@@ -334,7 +334,7 @@ export const esTranslations = {
         },
         {
           name: "Prototipado",
-          price: "Desde $1,000",
+          price: "Desde $1,000 USD",
           recommended: true,
           features: [
             "Diseño PCB completo",
@@ -346,7 +346,7 @@ export const esTranslations = {
         },
         {
           name: "Producción",
-          price: "Desde $2,500",
+          price: "Desde $2,500 USD",
           features: [
             "Optimización para manufactura",
             "Control de calidad",
@@ -359,7 +359,7 @@ export const esTranslations = {
       networks: [
         {
           name: "Red Básica",
-          price: "Desde $400",
+          price: "Desde $400 USD",
           description: "Para pequeñas oficinas",
           features: [
             "Configuración router",
@@ -371,7 +371,7 @@ export const esTranslations = {
         },
         {
           name: "Red Empresarial",
-          price: "Desde $1,200",
+          price: "Desde $1,200 USD",
           recommended: true,
           features: [
             "Seguridad avanzada",
@@ -383,7 +383,7 @@ export const esTranslations = {
         },
         {
           name: "Infraestructura",
-          price: "Desde $3,500",
+          price: "Desde $3,500 USD",
           features: [
             "Diseño de red",
             "Alta disponibilidad",
@@ -396,7 +396,7 @@ export const esTranslations = {
       microcontrollers: [
         {
           name: "Firmware Básico",
-          price: "Desde $200",
+          price: "Desde $200 USD",
           description: "Para dispositivos simples",
           features: [
             "Programación básica",
@@ -408,7 +408,7 @@ export const esTranslations = {
         },
         {
           name: "IoT Avanzado",
-          price: "Desde $800",
+          price: "Desde $800 USD",
           recommended: true,
           features: [
             "Conectividad WiFi/BT",
@@ -420,7 +420,7 @@ export const esTranslations = {
         },
         {
           name: "Sistema Industrial",
-          price: "Desde $2,000",
+          price: "Desde $2,000 USD",
           features: [
             "Protocolo industrial",
             "Sistema redundante",
@@ -433,7 +433,7 @@ export const esTranslations = {
       support: [
         {
           name: "Básico",
-          price: "$50/hora",
+          price: "$50 USD/hora",
           description: "Soporte bajo demanda",
           features: [
             "Soporte remoto",
@@ -445,7 +445,7 @@ export const esTranslations = {
         },
         {
           name: "Empresarial",
-          price: "$500/mes",
+          price: "$500 USD/mes",
           recommended: true,
           features: [
             "Soporte presencial",
@@ -457,7 +457,7 @@ export const esTranslations = {
         },
         {
           name: "Premium",
-          price: "$1,200/mes",
+          price: "$1,200 USD/mes",
           features: [
             "Soporte 24/7",
             "Respuesta inmediata",
