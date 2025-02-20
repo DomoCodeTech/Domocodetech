@@ -302,8 +302,7 @@ const ServiceContent: React.FC<ServiceContentProps> = ({ selectedService }) => {
 // Tech Stack Card Component
 const TechStackCard = ({
   selectedService,
-  theme,
-  t,
+  theme
 }: {
   selectedService: Service;
   theme: any;

@@ -23,6 +23,9 @@ import MobileApplication from "./pages/projects/MobileApplication";
 import IoTSolutions from "./pages/projects/IoTSolutions";
 import EcommercePlatform from "./pages/projects/EcommercePlatform";
 import SoftwareConsulting from "./pages/projects/SoftwareConsulting";
+import RevolucionIoTIndustria from "./pages/blog/RevolucionIoTIndustria";
+import AutomatizacionRoboticaProcesos from "./pages/blog/AutomatizacionRoboticaProcesos";
+import InnovacionesDesarrolloWeb from "./pages/blog/InnovacionesDesarrolloWeb";
 
 function App() {
   // Estado para controlar el modo oscuro/claro
@@ -86,6 +89,9 @@ function App() {
               path="/blog/mejores-practicas-ciberseguridad"
               element={<MejoresPracticasCiberseguridad />}
             />
+            <Route path="/blog/revolucion-iot-industria" element={<RevolucionIoTIndustria />} />
+            <Route path="/blog/automatizacion-robotica-procesos" element={<AutomatizacionRoboticaProcesos />} />
+            <Route path="/blog/innovaciones-desarrollo-web" element={<InnovacionesDesarrolloWeb />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>
