@@ -1,4 +1,3 @@
-
 /**
  * English translations for the DomoCodeTech website
  * This file contains all text content in English for the entire application
@@ -40,7 +39,7 @@ export const enTranslations = {
    * Main banner section on the homepage
    */
   hero: {
-    slogan: "Home Automation, Software, and Technology",
+    slogan: "Home Automation, Software, & Technology",
     subtitle: "We provide innovative solutions for your technological needs",
     getQuote: "Get Free Quote",
     imageAlt: "Team working on technology",
@@ -92,6 +91,20 @@ export const enTranslations = {
         systemIntegration: "System and application integration",
         cloudMigration: "Cloud migration and services",
       },
+      serviceDescriptions: {
+        webApps:
+          "We develop modern and responsive web applications using the latest technologies and frameworks. Our solutions are scalable, secure, and optimized for exceptional performance.",
+        mobileApps:
+          "We create native and cross-platform mobile applications that deliver an exceptional user experience. We use technologies like React Native and Flutter to ensure the best quality.",
+        apiDevelopment:
+          "We design and develop RESTful APIs and microservices that enable seamless integration between systems. We implement security best practices and comprehensive documentation.",
+        databaseDesign:
+          "We optimize database design to ensure optimal performance and efficient data management. We work with both SQL and NoSQL databases.",
+        systemIntegration:
+          "We facilitate seamless integration between different systems and applications, ensuring smooth and efficient communication between all parts.",
+        cloudMigration:
+          "We assist in migrating systems to the cloud, optimizing costs and improving scalability. We work with major cloud service providers.",
+      },
     },
 
     microcontrollers: {
@@ -111,6 +124,18 @@ export const enTranslations = {
         sensorIntegration: "Sensor and actuator integration",
         embeddedSystems: "Custom embedded systems",
         iotDevices: "Connected IoT devices",
+      },
+      serviceDescriptions: {
+        firmwareDevelopment:
+          "We develop custom firmware for microcontrollers, optimized for efficient performance and low power consumption. We implement secure and reliable communication protocols.",
+        prototypeDevelopment:
+          "We create functional electronic prototypes that allow concept validation and design refinement before production. We use rapid prototyping techniques and quality components.",
+        sensorIntegration:
+          "We integrate sensors and actuators into embedded systems, enabling precise data collection and device control. We work with a wide range of industrial and commercial sensors.",
+        embeddedSystems:
+          "We design custom embedded systems that meet specific requirements for performance, size, and power consumption. We implement robust and reliable solutions.",
+        iotDevices:
+          "We develop IoT devices that securely connect to the cloud, enabling remote monitoring and control. We implement standard IoT protocols and advanced security measures.",
       },
     },
 
@@ -132,6 +157,18 @@ export const enTranslations = {
         energyOptimization: "Energy consumption optimization",
         deviceIntegration: "Smart device integration",
       },
+      serviceDescriptions: {
+        smartHomeSetup:
+          "We install complete home automation systems that transform your home into a smart space. We use leading market technologies and ensure perfect integration.",
+        automationConfig:
+          "We configure custom automations that adapt to your lifestyle. We create scenes and routines that maximize comfort and efficiency.",
+        securityIntegration:
+          "We implement smart security systems with cameras, sensors, and access control. We provide real-time monitoring and instant notifications.",
+        energyOptimization:
+          "We optimize energy consumption through smart control and monitoring systems. We implement solutions that reduce costs and improve sustainability.",
+        deviceIntegration:
+          "We integrate smart devices from different manufacturers into a unified system. We ensure compatibility and harmonious operation of all components.",
+      },
     },
 
     electronics: {
@@ -151,6 +188,18 @@ export const enTranslations = {
         componentSelection: "Electronic component selection",
         hardwareTesting: "Hardware testing and validation",
         productDevelopment: "Electronic product development",
+      },
+      serviceDescriptions: {
+        pcbDesign:
+          "We design professional PCBs optimized for production and performance. We use advanced CAD software and follow electronic design best practices.",
+        circuitPrototyping:
+          "We develop electronic circuit prototypes to validate designs and concepts. We conduct thorough testing and refine designs based on results.",
+        componentSelection:
+          "We select optimal electronic components considering performance, cost, and availability. We work with reliable suppliers and quality components.",
+        hardwareTesting:
+          "We conduct rigorous hardware testing to ensure reliability and performance. We use professional test equipment and standardized methodologies.",
+        productDevelopment:
+          "We develop electronic products from concept to production. We manage the entire development cycle, including certifications and documentation.",
       },
     },
 
@@ -172,6 +221,18 @@ export const enTranslations = {
         maintenance: "Preventive network maintenance",
         monitoring: "Network monitoring and diagnostics",
       },
+      serviceDescriptions: {
+        networkSetup:
+          "We implement robust and scalable enterprise networks. We design network architectures that optimize performance and security.",
+        securityConfig:
+          "We configure advanced security systems to protect your network. We implement firewalls, VPNs, and custom security policies.",
+        performanceOptimization:
+          "We optimize network performance through precise analysis and adjustments. We implement QoS and load balancing for maximum efficiency.",
+        maintenance:
+          "We perform regular preventive maintenance to ensure optimal operation. We identify and resolve issues before they affect operations.",
+        monitoring:
+          "We provide continuous network monitoring and real-time diagnostics. We use advanced tools to quickly detect and resolve issues.",
+      },
     },
 
     support: {
@@ -192,230 +253,242 @@ export const enTranslations = {
         optimization: "Performance optimization",
         training: "Training and education",
       },
+      serviceDescriptions: {
+        techSupport:
+          "We provide specialized technical support to resolve hardware and software issues. We offer remote and on-site assistance according to needs.",
+        systemMaintenance:
+          "We perform regular system maintenance to prevent issues and optimize performance. We implement updates and security patches.",
+        dataRecovery:
+          "We recover lost or damaged data using specialized tools and techniques. We implement backup solutions to prevent future losses.",
+        optimization:
+          "We optimize system and equipment performance through advanced adjustments and configurations. We improve system speed and efficiency.",
+        training:
+          "We offer personalized training for system users and administrators. We develop training programs adapted to different experience levels.",
+      },
     },
     pricingPlans: {
       software: [
         {
-          name: 'Landing Page',
-          price: 'From $800',
-          description: 'Ideal for basic web presence',
+          name: "Landing Page",
+          price: "From $800",
+          description: "Ideal for basic web presence",
           features: [
-            'Responsive Design',
-            'Basic SEO',
-            'Up to 5 sections',
-            'Contact form',
-            'Hosting included (1 year)'
-          ]
+            "Responsive Design",
+            "Basic SEO",
+            "Up to 5 sections",
+            "Contact form",
+            "Hosting included (1 year)",
+          ],
         },
         {
-          name: 'Web Application',
-          price: 'From $2,500',
+          name: "Web Application",
+          price: "From $2,500",
           recommended: true,
           features: [
-            'Admin Panel',
-            'Database',
-            'RESTful APIs',
-            'User authentication',
-            'Technical support (6 months)'
-          ]
+            "Admin Panel",
+            "Database",
+            "RESTful APIs",
+            "User authentication",
+            "Technical support (6 months)",
+          ],
         },
         {
-          name: 'Mobile App',
-          price: 'From $5,000',
+          name: "Mobile App",
+          price: "From $5,000",
           features: [
-            'Android/iOS Development',
-            'Backend included',
-            'Custom APIs',
-            'Admin panel',
-            'Store publication'
-          ]
-        }
+            "Android/iOS Development",
+            "Backend included",
+            "Custom APIs",
+            "Admin panel",
+            "Store publication",
+          ],
+        },
       ],
       domotics: [
         {
-          name: 'Basic',
-          price: 'From $500',
+          name: "Basic",
+          price: "From $500",
           features: [
-            'Lighting control',
-            '2 motion sensors',
-            'App control',
-            'Installation included',
-            'Basic support'
-          ]
+            "Lighting control",
+            "2 motion sensors",
+            "App control",
+            "Installation included",
+            "Basic support",
+          ],
         },
         {
-          name: 'Smart Home',
-          price: 'From $1,500',
+          name: "Smart Home",
+          price: "From $1,500",
           recommended: true,
           features: [
-            'Complete home control',
-            'Smart security',
-            'Smart thermostat',
-            'Voice control',
-            '24/7 Support'
-          ]
+            "Complete home control",
+            "Smart security",
+            "Smart thermostat",
+            "Voice control",
+            "24/7 Support",
+          ],
         },
         {
-          name: 'Enterprise',
-          price: 'From $3,000',
+          name: "Enterprise",
+          price: "From $3,000",
           features: [
-            'Complete automation',
-            'Security system',
-            'Access control',
-            'Energy monitoring',
-            'Monthly maintenance'
-          ]
-        }
+            "Complete automation",
+            "Security system",
+            "Access control",
+            "Energy monitoring",
+            "Monthly maintenance",
+          ],
+        },
       ],
       microcontrollers: [
         {
-          name: 'Basic Firmware',
-          price: 'From $200',
-          description: 'For simple devices',
+          name: "Basic Firmware",
+          price: "From $200",
+          description: "For simple devices",
           features: [
-            'Basic programming',
-            'Single microcontroller',
-            'Basic functions',
-            'Unit testing',
-            'Basic documentation'
-          ]
+            "Basic programming",
+            "Single microcontroller",
+            "Basic functions",
+            "Unit testing",
+            "Basic documentation",
+          ],
         },
         {
-          name: 'IoT Advanced',
-          price: 'From $800',
+          name: "IoT Advanced",
+          price: "From $800",
           recommended: true,
           features: [
-            'WiFi/BT connectivity',
-            'Web dashboard',
-            'REST APIs',
-            'OTA updates',
-            'Remote monitoring'
-          ]
+            "WiFi/BT connectivity",
+            "Web dashboard",
+            "REST APIs",
+            "OTA updates",
+            "Remote monitoring",
+          ],
         },
         {
-          name: 'Industrial System',
-          price: 'From $2,000',
+          name: "Industrial System",
+          price: "From $2,000",
           features: [
-            'Industrial protocol',
-            'Redundant system',
-            'SCADA interface',
-            'High availability',
-            '24/7 Support'
-          ]
-        }
+            "Industrial protocol",
+            "Redundant system",
+            "SCADA interface",
+            "High availability",
+            "24/7 Support",
+          ],
+        },
       ],
       electronics: [
         {
-          name: 'PCB Design',
-          price: 'From $300',
-          description: 'Perfect for small projects',
+          name: "PCB Design",
+          price: "From $300",
+          description: "Perfect for small projects",
           features: [
-            'Schematic design',
-            'Basic PCB layout',
-            'Bill of materials',
-            'Manufacturing files',
-            'Design review'
-          ]
+            "Schematic design",
+            "Basic PCB layout",
+            "Bill of materials",
+            "Manufacturing files",
+            "Design review",
+          ],
         },
         {
-          name: 'Prototyping',
-          price: 'From $1,000',
+          name: "Prototyping",
+          price: "From $1,000",
           recommended: true,
           features: [
-            'Complete PCB design',
-            'Functional prototype',
-            'Testing & validation',
-            'Technical documentation',
-            'Development support'
-          ]
+            "Complete PCB design",
+            "Functional prototype",
+            "Testing & validation",
+            "Technical documentation",
+            "Development support",
+          ],
         },
         {
-          name: 'Production',
-          price: 'From $2,500',
+          name: "Production",
+          price: "From $2,500",
           features: [
-            'Manufacturing optimization',
-            'Quality control',
-            'Certifications',
-            'Production support',
-            'Complete documentation'
-          ]
-        }
+            "Manufacturing optimization",
+            "Quality control",
+            "Certifications",
+            "Production support",
+            "Complete documentation",
+          ],
+        },
       ],
       networks: [
         {
-          name: 'Basic Network',
-          price: 'From $400',
-          description: 'For small offices',
+          name: "Basic Network",
+          price: "From $400",
+          description: "For small offices",
           features: [
-            'Router setup',
-            'Business WiFi',
-            'Basic firewall',
-            'Remote support',
-            'Basic monitoring'
-          ]
+            "Router setup",
+            "Business WiFi",
+            "Basic firewall",
+            "Remote support",
+            "Basic monitoring",
+          ],
         },
         {
-          name: 'Enterprise Network',
-          price: 'From $1,200',
+          name: "Enterprise Network",
+          price: "From $1,200",
           recommended: true,
           features: [
-            'Advanced security',
-            'VLANs & QoS',
-            'Corporate VPN',
-            '24/7 monitoring',
-            'Priority support'
-          ]
+            "Advanced security",
+            "VLANs & QoS",
+            "Corporate VPN",
+            "24/7 monitoring",
+            "Priority support",
+          ],
         },
         {
-          name: 'Infrastructure',
-          price: 'From $3,500',
+          name: "Infrastructure",
+          price: "From $3,500",
           features: [
-            'Network design',
-            'High availability',
-            'Redundant system',
-            'Centralized management',
-            'Guaranteed SLA'
-          ]
-        }
+            "Network design",
+            "High availability",
+            "Redundant system",
+            "Centralized management",
+            "Guaranteed SLA",
+          ],
+        },
       ],
       support: [
         {
-          name: 'Basic',
-          price: '$50/hour',
-          description: 'On-demand support',
+          name: "Basic",
+          price: "$50/hour",
+          description: "On-demand support",
           features: [
-            'Remote support',
-            'Business hours',
-            'Basic diagnostics',
-            'Preventive maintenance',
-            '24h response time'
-          ]
+            "Remote support",
+            "Business hours",
+            "Basic diagnostics",
+            "Preventive maintenance",
+            "24h response time",
+          ],
         },
         {
-          name: 'Business',
-          price: '$500/month',
+          name: "Business",
+          price: "$500/month",
           recommended: true,
           features: [
-            'On-site support',
-            '4h response time',
-            'Preventive maintenance',
-            'Scheduled backups',
-            'Extended hours'
-          ]
+            "On-site support",
+            "4h response time",
+            "Preventive maintenance",
+            "Scheduled backups",
+            "Extended hours",
+          ],
         },
         {
-          name: 'Premium',
-          price: '$1,200/month',
+          name: "Premium",
+          price: "$1,200/month",
           features: [
-            '24/7 support',
-            'Immediate response',
-            'Dedicated technician',
-            'Complete maintenance',
-            'Full warranty'
-          ]
-        }
-      ]
-    }
+            "24/7 support",
+            "Immediate response",
+            "Dedicated technician",
+            "Complete maintenance",
+            "Full warranty",
+          ],
+        },
+      ],
+    },
   },
 
   /**
@@ -426,85 +499,93 @@ export const enTranslations = {
     title: "Our Projects",
     subtitle: "Explore our portfolio showcasing robust project solutions.",
     features: {
-      'responsive': 'Responsive design',
-      'cross-browser': 'Cross-browser compatibility',
-      'modern-ui': 'Modern UI/UX design',
-      'user-friendly': 'User-friendly interface',
-      'performance': 'High performance',
-      'api-integration': 'Seamless API integration',
-      'custom-design': 'Custom design',
-      'architecture': 'Robust architecture',
-      'cross-platform': 'Cross-platform functionality',
-      'smart-devices': 'Smart device integration',
-      'real-time': 'Real-time monitoring',
-      'cloud-integration': 'Cloud connectivity',
-      'payment-gateway': 'Secure payment gateway',
-      'inventory': 'Inventory management',
-      'analytics': 'Analytics dashboard',
-      'security': 'Advanced security',
-      'scalability': 'Scalability',
-      'automation': 'Automation',
-      'monitoring': 'Continuous monitoring',
-      'optimization': 'Resource optimization',
-      'innovation': 'Innovation',
-      'consulting': 'Software Consulting',
-      'analysis': 'Analysis',
-      'solution': 'Solution',
+      responsive: "Responsive design",
+      "cross-browser": "Cross-browser compatibility",
+      "modern-ui": "Modern UI/UX design",
+      "user-friendly": "User-friendly interface",
+      performance: "High performance",
+      "api-integration": "Seamless API integration",
+      "custom-design": "Custom design",
+      architecture: "Robust architecture",
+      "cross-platform": "Cross-platform functionality",
+      "smart-devices": "Smart device integration",
+      "real-time": "Real-time monitoring",
+      "cloud-integration": "Cloud connectivity",
+      "payment-gateway": "Secure payment gateway",
+      inventory: "Inventory management",
+      analytics: "Analytics dashboard",
+      security: "Advanced security",
+      scalability: "Scalability",
+      automation: "Automation",
+      monitoring: "Continuous monitoring",
+      optimization: "Resource optimization",
+      innovation: "Innovation",
+      consulting: "Software Consulting",
+      analysis: "Analysis",
+      solution: "Solution",
     },
     consulting: {
       title: "Software Consulting",
       description: "Strategic advice and customized technology solutions.",
-      overview: "Our consulting service helps businesses navigate the complex digital landscape and make informed decisions about their technology investments.",
+      overview:
+        "Our consulting service helps businesses navigate the complex digital landscape and make informed decisions about their technology investments.",
       techStack: "Areas of Expertise",
-      process: "Consulting Process"
+      process: "Consulting Process",
     },
     web: {
-      title: "Web Application",
-      description: "A modern web platform with responsive design for seamless user experience.",
+      title: "Modern Website",
+      description:
+        "A modern and responsive website was developed for a restaurant in Bogotá.",
       features: [
         "Responsive design",
         "Cross-browser compatibility",
-        "Modern UI/UX design"
+        "Modern UI/UX design",
       ],
-      overview: "Our web development service focuses on creating modern, scalable, and efficient solutions that help businesses thrive in the digital age.",
+      overview:
+        "Our web development service focuses on creating modern, scalable, and efficient solutions that help businesses thrive in the digital age.",
       techStack: "Technology Stack",
-      process: "Development Process"
+      process: "Development Process",
     },
     mobile: {
       title: "Mobile Application",
-      description: "Optimized mobile solutions for iOS and Android platforms.",
+      description: "A cross-platform mobile application was developed for a construction company in the U.S.",
       features: [
         "User-friendly interface",
         "High performance",
-        "Seamless API integration"
+        "Seamless API integration",
       ],
-      overview: "Our mobile development service delivers high-quality native applications for both iOS and Android platforms.",
+      overview:
+        "Our mobile development service delivers high-quality native applications for both iOS and Android platforms.",
       techStack: "Technology Stack",
-      process: "Development Process"
+      process: "Development Process",
     },
     software: {
-      title: "Software Development",
-      description: "Custom software solutions built with cutting-edge technology.",
+      title: "Home Automation",
+      description:
+        "We integrated a home automation system with a custom design for a luxurious apartment in Bogotá.",
       features: [
         "Custom software design",
         "Robust architecture",
-        "Cross-platform functionality"
+        "Cross-platform functionality",
       ],
-      overview: "We create custom software solutions that perfectly fit your specific business needs.",
+      overview:
+        "We create custom software solutions that perfectly fit your specific business needs.",
       techStack: "Technology Stack",
-      process: "Development Process"
+      process: "Development Process",
     },
     iot: {
       title: "IoT Solutions",
-      description: "Smart devices and systems for automated monitoring and control.",
+      description:
+        "Smart devices and systems for automated monitoring and control.",
       features: [
         "Smart device integration",
         "Real-time monitoring",
-        "Cloud connectivity"
+        "Cloud connectivity",
       ],
-      overview: "We develop innovative IoT solutions that connect and automate devices to create intelligent systems.",
+      overview:
+        "We develop innovative IoT solutions that connect and automate devices to create intelligent systems.",
       techStack: "Technology Stack",
-      process: "Development Process"
+      process: "Development Process",
     },
     ecommerce: {
       title: "E-commerce Platform",
@@ -512,18 +593,19 @@ export const enTranslations = {
       features: [
         "Secure payment gateway",
         "Inventory management",
-        "Analytics dashboard"
+        "Analytics dashboard",
       ],
-      overview: "We implement complete and customized e-commerce platforms to drive your online business.",
+      overview:
+        "We implement complete and customized e-commerce platforms to drive your online business.",
       techStack: "Technology Stack",
-      process: "Development Process"
+      process: "Development Process",
     },
     featuresTitle: "Features",
     startProject: "Start Project",
     scheduleConsultation: "Schedule Consultation",
     projectOverview: "Project Overview",
     keyFeatures: "Key Features",
-    developmentProcess: "Development Process"
+    developmentProcess: "Development Process",
   },
 
   /**
@@ -534,22 +616,23 @@ export const enTranslations = {
     title: "Meet Our Expert Team",
     subtitle: "Technology experts ready to innovate",
     // Individual team member details
-    "member1": {
-      "position": "CEO & Founder",
-      "description": "Expert in home automation, web, and mobile development."
+    member1: {
+      position: "CEO & Founder",
+      description: "Expert in home automation, web, and mobile development.",
     },
-    "member2": {
-      "position": "Senior Android Developer",
-      "description": "Native Android developer with over 10 years of experience."
+    member2: {
+      position: "Senior Android Developer",
+      description: "Native Android developer with over 10 years of experience.",
     },
-    "member3": {
-      "position": "3D Designer & Android Developer",
-      "description": "Specialist in 3D design and Android development."
+    member3: {
+      position: "3D Designer & Android Developer",
+      description: "Specialist in 3D design and Android development.",
     },
-    "member4": {
-      "position": "Systems engineer & Support Expert",
-      "description": "Systems engineer specialized in technical support and IT solutions."
-    }
+    member4: {
+      position: "Systems engineer & Support Expert",
+      description:
+        "Systems engineer specialized in technical support and IT solutions.",
+    },
   },
 
   /**
@@ -562,19 +645,19 @@ export const enTranslations = {
     introduction:
       "Since our founding, we have been at the forefront of technological innovation, helping businesses and individuals harness the power of cutting-edge solutions. Our journey is marked by continuous growth, learning, and adaptation to emerging technologies.",
     highlight1: {
-      title: "Innovation First",
+      title: "Innovación Continua",
       description:
-        "We stay ahead of technological trends to bring you the latest solutions.",
+        "Nos mantenemos a la vanguardia de las tendencias tecnológicas para brindarte las últimas soluciones.",
     },
     highlight2: {
-      title: "Client Success",
+      title: "Éxito del Cliente",
       description:
-        "Your success is our priority, with a focus on delivering measurable results.",
+        "Tu éxito es nuestra prioridad, con un enfoque en entregar resultados medibles.",
     },
     highlight3: {
-      title: "Global Reach",
+      title: "Alcance Global",
       description:
-        "Serving clients worldwide with localized solutions and support.",
+        "Servimos a clientes en todo el mundo con soluciones y soporte localizados.",
     },
     // Key statistics
     stats: [
@@ -586,16 +669,20 @@ export const enTranslations = {
     // Mission statement
     mission: {
       title: "Our Mission",
-      description:
-        "To provide innovative and sustainable technological solutions that transform lives and businesses.",
+      description: `To promote the integration of advanced technologies in homes and businesses, 
+      from home automation systems to software and network solutions. We strive to transform 
+      conventional spaces into intelligent environments, develop innovative software, implement 
+      robust networks, and provide exceptional technical support.`,
       image:
         "https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg",
     },
     // Vision statement
     vision: {
       title: "Our Vision",
-      description:
-        "To be the leading technology partner in creating a smarter, more connected world.",
+      description: `To position ourselves as global leaders in comprehensive technology, setting 
+      standards of excellence in home automation, software development, electronics and networks. 
+      We seek to democratize access to smart systems and advanced technological solutions, 
+      maintaining a balance between innovation, quality and accessibility.`,
       image:
         "https://images.pexels.com/photos/3183153/pexels-photo-3183153.jpeg",
     },
@@ -917,6 +1004,89 @@ export const enTranslations = {
   partners: {
     title: "Technology Partners",
     subtitle: "We work with the best technologies and brands in the market",
-    description: "Our strategic partnerships allow us to deliver cutting-edge solutions and ensure maximum quality in every project."
+    description:
+      "Our strategic partnerships allow us to deliver cutting-edge solutions and ensure maximum quality in every project.",
   },
+
+  /**
+   * Process Flow Section
+   * Shows the company's workflow and process
+   */
+  processFlow: {
+    steps: {
+      consultation: {
+        title: "Consultation",
+        description: "We evaluate your needs",
+      },
+      planning: {
+        title: "Planning",
+        description: "We design the solution",
+      },
+      development: {
+        title: "Development",
+        description: "We implement the project",
+      },
+      delivery: {
+        title: "Delivery",
+        description: "We deploy and optimize",
+      },
+    },
+  },
+
+  /**
+   * Timeline Section
+   * Company milestones and achievements
+   */
+  timeline: {
+    milestones: [
+      {
+        year: '2018',
+        title: 'First Steps',
+        description: 'Beginning of independent projects in home automation',
+        icon: '🌱'
+      },
+      {
+        year: '2019',
+        title: 'Technical Specialization',
+        description: 'Certifications in IoT technologies and embedded systems',
+        icon: '📚'
+      },
+      {
+        year: '2020',
+        title: 'Remote Projects',
+        description: 'Adaptation to digital services and remote support',
+        icon: '🌐'
+      },
+      {
+        year: '2021',
+        title: 'Digital Expansion',
+        description: 'Development of first mobile apps and web platforms',
+        icon: '📱'
+      },
+      {
+        year: '2022',
+        title: 'Official Foundation',
+        description: 'Formal establishment of DomoCodeTech as a company',
+        icon: '🚀'
+      },
+      {
+        year: '2023',
+        title: 'Integral Growth',
+        description: 'Integration of networking and software development services',
+        icon: '💻'
+      },
+      {
+        year: '2024',
+        title: 'Technological Innovation',
+        description: 'Implementation of advanced IoT and automation solutions',
+        icon: '⚡'
+      },
+      {
+        year: '2025',
+        title: 'Innovation Center',
+        description: 'Inauguration of research and development center',
+        icon: '🔬'
+      }
+    ]
+  }
 };

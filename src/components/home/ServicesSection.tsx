@@ -20,7 +20,7 @@ import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { Link as RouterLink } from "react-router-dom";
 import { useTheme } from "@mui/material/styles";
-import { ServiceIcon } from "./icons/ServiceIcons";
+import { ServiceIcon } from "../icons/ServiceIcons";
 
 interface ServiceCardProps {
   service: {
@@ -59,8 +59,8 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
             : "#FFFFFF",
         boxShadow:
           theme.palette.mode === "dark"
-            ? "0 8px 32px rgba(0, 0, 0, 0.5)"
-            : "0 8px 32px rgba(0, 0, 0, 0.08)",
+            ? "0 4px 30px rgba(0, 255, 163, 0.1)"
+            : "0 4px 30px rgba(0, 0, 0, 0.1)",
         "&:hover": {
           transform: "translateY(-8px)",
           boxShadow:
@@ -94,7 +94,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
             color: "text.primary",
           }}
         >
-           <ServiceIcon
+          <ServiceIcon
             name={service.icon}
             sx={{ fontSize: { xs: 36, sm: 44 } }}
           />
@@ -310,7 +310,7 @@ const ServicesSection = () => {
         py: { xs: 8, md: 12 },
         background:
           theme.palette.mode === "dark"
-            ? "linear-gradient(180deg, #0A0A0A 0%, #1A1A1A 100%)"
+            ? "linear-gradient(180deg,rgb(10, 10, 10) 0%,rgb(26, 26, 26) 100%)"
             : "linear-gradient(180deg, #FFFFFF 0%, #F8FAFF 100%)",
       }}
     >
@@ -322,24 +322,22 @@ const ServicesSection = () => {
           viewport={{ once: true }}
         >
           <Typography
-            variant="h2"
-            align="center"
-            sx={{
-              mb: 2,
-              color: theme.palette.mode === "dark" ? "white" : "text.primary",
-            }}
+             variant="h2"
+             component="h2"
+             align="center"
+             sx={{
+               mb: 2,
+               color: theme.palette.mode === "dark" ? "white" : "text.primary",
+             }}
           >
             {t("services.title")}
           </Typography>
           <Typography
-            variant="body1"
+            variant="h5"
+            component="p"
             align="center"
-            sx={{
-              color: "text.secondary",
-              mb: 8,
-              maxWidth: "600px",
-              mx: "auto",
-            }}
+            color="text.secondary"
+            sx={{ mb: { xs: 8, md: 6 } }}
           >
             {t("services.subtitle")}
           </Typography>

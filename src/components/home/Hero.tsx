@@ -16,7 +16,7 @@ import { Link } from "react-router-dom";
 import { Container, Grid, Typography, Box, Button, Stack } from "@mui/material";
 import { motion } from "framer-motion";
 import { useTheme } from "@mui/material/styles";
-import TechIcons from "./icons/TechIcons";
+import TechIcons from "../icons/TechIcons";
 
 const Hero = () => {
   // Hooks necesarios
@@ -44,8 +44,8 @@ const Hero = () => {
             ? "linear-gradient(180deg, #0A0A0A 0%, #1A1A1A 100%)"
             : "linear-gradient(180deg, #FFFFFF 0%, #F8FAFF 100%)",
         pt: { xs: 12, md: 16 },
-        pb: { xs: 8, md: 12 },
-        overflow: "hidden",
+  //      overflow: "hidden",
+
       }}
     >
       <Container maxWidth="lg">
@@ -109,7 +109,7 @@ const Hero = () => {
                   position: "relative",
                   width: "100%",
                   height: "100%",
-                  minHeight: { xs: "300px", md: "400px" },
+                  minHeight: { xs: "100px", md: "350px" },
                   "&::before": {
                     content: '""',
                     position: "absolute",

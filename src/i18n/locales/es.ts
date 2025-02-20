@@ -27,7 +27,7 @@ export const esTranslations = {
   },
   // Hero Section
   hero: {
-    slogan: "Domótica, Software y Tecnología",
+    slogan: "Domótica, Software & Tecnología",
     subtitle:
       "Proveemos soluciones innovadoras para tus necesidades tecnológicas",
     getQuote: "Cotización Gratis",
@@ -74,6 +74,18 @@ export const esTranslations = {
         energyOptimization: "Optimización del consumo energético",
         deviceIntegration: "Integración de dispositivos inteligentes",
       },
+      serviceDescriptions: {
+        smartHomeSetup:
+          "Instalamos sistemas domóticos completos que transforman tu hogar en un espacio inteligente. Utilizamos tecnologías líderes en el mercado y aseguramos una integración perfecta.",
+        automationConfig:
+          "Configuramos automatizaciones personalizadas que se adaptan a tu estilo de vida. Creamos escenas y rutinas que maximizan la comodidad y eficiencia.",
+        securityIntegration:
+          "Implementamos sistemas de seguridad inteligentes con cámaras, sensores y control de acceso. Proporcionamos monitoreo en tiempo real y notificaciones instantáneas.",
+        energyOptimization:
+          "Optimizamos el consumo de energía mediante sistemas inteligentes de control y monitoreo. Implementamos soluciones que reducen costos y mejoran la sostenibilidad.",
+        deviceIntegration:
+          "Integramos dispositivos inteligentes de diferentes fabricantes en un sistema unificado. Aseguramos la compatibilidad y el funcionamiento armónico de todos los componentes.",
+      },
     },
     electronics: {
       title: "Electrónica Digital y Robótica",
@@ -92,6 +104,18 @@ export const esTranslations = {
         componentSelection: "Selección de componentes electrónicos",
         hardwareTesting: "Pruebas y validación de hardware",
         productDevelopment: "Desarrollo de productos electrónicos",
+      },
+      serviceDescriptions: {
+        pcbDesign:
+          "Diseñamos PCBs profesionales optimizados para producción y rendimiento. Utilizamos software CAD avanzado y seguimos las mejores prácticas de diseño electrónico.",
+        circuitPrototyping:
+          "Desarrollamos prototipos de circuitos electrónicos para validar diseños y conceptos. Realizamos pruebas exhaustivas y refinamos los diseños según los resultados.",
+        componentSelection:
+          "Seleccionamos componentes electrónicos óptimos considerando rendimiento, costo y disponibilidad. Trabajamos con proveedores confiables y componentes de calidad.",
+        hardwareTesting:
+          "Realizamos pruebas rigurosas de hardware para garantizar fiabilidad y rendimiento. Utilizamos equipos de prueba profesionales y metodologías estandarizadas.",
+        productDevelopment:
+          "Desarrollamos productos electrónicos desde el concepto hasta la producción. Gestionamos todo el ciclo de desarrollo, incluyendo certificaciones y documentación.",
       },
     },
     networks: {
@@ -112,6 +136,18 @@ export const esTranslations = {
         maintenance: "Mantenimiento preventivo de redes",
         monitoring: "Monitoreo y diagnóstico de red",
       },
+      serviceDescriptions: {
+        networkSetup:
+          "Implementamos redes empresariales robustas y escalables. Diseñamos arquitecturas de red que optimizan el rendimiento y la seguridad.",
+        securityConfig:
+          "Configuramos sistemas de seguridad avanzados para proteger tu red. Implementamos firewalls, VPNs y políticas de seguridad personalizadas.",
+        performanceOptimization:
+          "Optimizamos el rendimiento de la red mediante análisis y ajustes precisos. Implementamos QoS y balanceo de carga para máxima eficiencia.",
+        maintenance:
+          "Realizamos mantenimiento preventivo regular para asegurar el funcionamiento óptimo. Identificamos y resolvemos problemas antes de que afecten las operaciones.",
+        monitoring:
+          "Proporcionamos monitoreo continuo de la red y diagnóstico en tiempo real. Utilizamos herramientas avanzadas para detectar y resolver problemas rápidamente.",
+      },
     },
     support: {
       title: "Soporte Técnico",
@@ -130,6 +166,18 @@ export const esTranslations = {
         dataRecovery: "Recuperación de datos",
         optimization: "Optimización de rendimiento",
         training: "Capacitación y entrenamiento",
+      },
+      serviceDescriptions: {
+        techSupport:
+          "Proporcionamos soporte técnico especializado para resolver problemas de hardware y software. Ofrecemos asistencia remota y presencial según las necesidades.",
+        systemMaintenance:
+          "Realizamos mantenimiento regular de sistemas para prevenir problemas y optimizar el rendimiento. Implementamos actualizaciones y parches de seguridad.",
+        dataRecovery:
+          "Recuperamos datos perdidos o dañados utilizando herramientas y técnicas especializadas. Implementamos soluciones de respaldo para prevenir pérdidas futuras.",
+        optimization:
+          "Optimizamos el rendimiento de sistemas y equipos mediante ajustes y configuraciones avanzadas. Mejoramos la velocidad y eficiencia de los sistemas.",
+        training:
+          "Ofrecemos capacitación personalizada para usuarios y administradores de sistemas. Desarrollamos programas de entrenamiento adaptados a diferentes niveles de experiencia.",
       },
     },
     software: {
@@ -151,9 +199,23 @@ export const esTranslations = {
         systemIntegration: "Integración de sistemas y aplicaciones",
         cloudMigration: "Migración y servicios en la nube",
       },
+      serviceDescriptions: {
+        webApps:
+          "Desarrollamos aplicaciones web modernas y responsivas utilizando las últimas tecnologías y frameworks. Nuestras soluciones son escalables, seguras y optimizadas para un rendimiento excepcional.",
+        mobileApps:
+          "Creamos aplicaciones móviles nativas y multiplataforma que ofrecen una experiencia de usuario excepcional. Utilizamos tecnologías como React Native y Flutter para garantizar la mejor calidad.",
+        apiDevelopment:
+          "Diseñamos y desarrollamos APIs RESTful y microservicios que permiten una integración perfecta entre sistemas. Implementamos las mejores prácticas de seguridad y documentación.",
+        databaseDesign:
+          "Optimizamos el diseño de bases de datos para garantizar un rendimiento óptimo y una gestión eficiente de los datos. Trabajamos con bases de datos SQL y NoSQL.",
+        systemIntegration:
+          "Facilitamos la integración perfecta entre diferentes sistemas y aplicaciones, asegurando una comunicación fluida y eficiente entre todas las partes.",
+        cloudMigration:
+          "Ayudamos en la migración de sistemas a la nube, optimizando costos y mejorando la escalabilidad. Trabajamos con los principales proveedores de servicios cloud.",
+      },
     },
     microcontrollers: {
-      title: "Programación de Microcontroladores",
+      title: "Programación de Micros",
       description:
         "Especializados en el desarrollo de sistemas embebidos y soluciones IoT de alta precisión. Programamos microcontroladores para automatizar procesos, controlar dispositivos y crear productos inteligentes que se integran perfectamente con tu infraestructura existente.",
       features: [
@@ -170,326 +232,345 @@ export const esTranslations = {
         embeddedSystems: "Sistemas embebidos a medida",
         iotDevices: "Dispositivos IoT conectados",
       },
+      serviceDescriptions: {
+        firmwareDevelopment:
+          "Desarrollamos firmware personalizado para microcontroladores, optimizado para un rendimiento eficiente y bajo consumo de energía. Implementamos protocolos de comunicación seguros y confiables.",
+        prototypeDevelopment:
+          "Creamos prototipos electrónicos funcionales que permiten validar conceptos y refinar diseños antes de la producción. Utilizamos técnicas de prototipado rápido y componentes de calidad.",
+        sensorIntegration:
+          "Integramos sensores y actuadores en sistemas embebidos, permitiendo la recolección de datos y control preciso de dispositivos. Trabajamos con una amplia gama de sensores industriales y comerciales.",
+        embeddedSystems:
+          "Diseñamos sistemas embebidos a medida que cumplen con requisitos específicos de rendimiento, tamaño y consumo de energía. Implementamos soluciones robustas y confiables.",
+        iotDevices:
+          "Desarrollamos dispositivos IoT que se conectan de forma segura a la nube, permitiendo monitoreo y control remoto. Implementamos protocolos estándar de IoT y medidas de seguridad avanzadas.",
+      },
     },
     pricingPlans: {
       software: [
         {
-          name: 'Landing Page',
-          price: 'Desde $800',
-          description: 'Ideal para presencia web básica',
+          name: "Landing Page",
+          price: "Desde $800 USD",
+          description: "Ideal para presencia web básica",
           features: [
-            'Diseño Responsive',
-            'SEO Básico',
-            'Hasta 5 secciones',
-            'Formulario de contacto',
-            'Hosting incluido (1 año)'
-          ]
+            "Diseño Responsive",
+            "SEO Básico",
+            "Hasta 5 secciones",
+            "Formulario de contacto",
+            "Hosting incluido (1 año)",
+          ],
         },
         {
-          name: 'Aplicación Web',
-          price: 'Desde $2,500',
+          name: "Aplicación Web",
+          price: "Desde $2,500 USD",
           recommended: true,
           features: [
-            'Panel Administrativo',
-            'Base de datos',
-            'APIs RESTful',
-            'Autenticación de usuarios',
-            'Soporte técnico (6 meses)'
-          ]
+            "Panel Administrativo",
+            "Base de datos",
+            "APIs RESTful",
+            "Autenticación de usuarios",
+            "Soporte técnico (6 meses)",
+          ],
         },
         {
-          name: 'App Móvil',
-          price: 'Desde $5,000',
+          name: "App Móvil",
+          price: "Desde $5,000 USD",
           features: [
-            'Desarrollo Android/iOS',
-            'Backend incluido',
-            'APIs personalizadas',
-            'Panel de administración',
-            'Publicación en stores'
-          ]
-        }
+            "Desarrollo Android/iOS",
+            "Backend incluido",
+            "APIs personalizadas",
+            "Panel de administración",
+            "Publicación en stores",
+          ],
+        },
       ],
       domotics: [
         {
-          name: 'Básico',
-          price: 'Desde $500',
+          name: "Básico",
+          price: "Desde $500 USD",
           features: [
-            'Control de iluminación',
-            '2 sensores de movimiento',
-            'Control por app',
-            'Instalación incluida',
-            'Soporte básico'
-          ]
+            "Control de iluminación",
+            "2 sensores de movimiento",
+            "Control por app",
+            "Instalación incluida",
+            "Soporte básico",
+          ],
         },
         {
-          name: 'Hogar Inteligente',
-          price: 'Desde $1,500',
+          name: "Hogar Inteligente",
+          price: "Desde $1,500 USD",
           recommended: true,
           features: [
-            'Control completo de hogar',
-            'Seguridad inteligente',
-            'Termostato inteligente',
-            'Control por voz',
-            'Soporte 24/7'
-          ]
+            "Control completo de hogar",
+            "Seguridad inteligente",
+            "Termostato inteligente",
+            "Control por voz",
+            "Soporte 24/7",
+          ],
         },
         {
-          name: 'Empresarial',
-          price: 'Desde $3,000',
+          name: "Empresarial",
+          price: "Desde $3,000 USD ",
           features: [
-            'Automatización completa',
-            'Sistema de seguridad',
-            'Control de acceso',
-            'Monitoreo energético',
-            'Mantenimiento mensual'
-          ]
-        }
+            "Automatización completa",
+            "Sistema de seguridad",
+            "Control de acceso",
+            "Monitoreo energético",
+            "Mantenimiento mensual",
+          ],
+        },
       ],
       electronics: [
         {
-          name: 'Diseño PCB',
-          price: 'Desde $300',
-          description: 'Perfecto para proyectos pequeños',
+          name: "Diseño PCB",
+          price: "Desde $300 USD",
+          description: "Perfecto para proyectos pequeños",
           features: [
-            'Diseño esquemático',
-            'Layout de PCB básico',
-            'Lista de materiales',
-            'Archivos de fabricación',
-            'Revisión de diseño'
-          ]
+            "Diseño esquemático",
+            "Layout de PCB básico",
+            "Lista de materiales",
+            "Archivos de fabricación",
+            "Revisión de diseño",
+          ],
         },
         {
-          name: 'Prototipado',
-          price: 'Desde $1,000',
+          name: "Prototipado",
+          price: "Desde $1,000 USD",
           recommended: true,
           features: [
-            'Diseño PCB completo',
-            'Prototipo funcional',
-            'Pruebas y validación',
-            'Documentación técnica',
-            'Soporte de desarrollo'
-          ]
+            "Diseño PCB completo",
+            "Prototipo funcional",
+            "Pruebas y validación",
+            "Documentación técnica",
+            "Soporte de desarrollo",
+          ],
         },
         {
-          name: 'Producción',
-          price: 'Desde $2,500',
+          name: "Producción",
+          price: "Desde $2,500 USD",
           features: [
-            'Optimización para manufactura',
-            'Control de calidad',
-            'Certificaciones',
-            'Soporte de producción',
-            'Documentación completa'
-          ]
-        }
+            "Optimización para manufactura",
+            "Control de calidad",
+            "Certificaciones",
+            "Soporte de producción",
+            "Documentación completa",
+          ],
+        },
       ],
       networks: [
         {
-          name: 'Red Básica',
-          price: 'Desde $400',
-          description: 'Para pequeñas oficinas',
+          name: "Red Básica",
+          price: "Desde $400 USD",
+          description: "Para pequeñas oficinas",
           features: [
-            'Configuración router',
-            'WiFi empresarial',
-            'Firewall básico',
-            'Soporte remoto',
-            'Monitoreo básico'
-          ]
+            "Configuración router",
+            "WiFi empresarial",
+            "Firewall básico",
+            "Soporte remoto",
+            "Monitoreo básico",
+          ],
         },
         {
-          name: 'Red Empresarial',
-          price: 'Desde $1,200',
+          name: "Red Empresarial",
+          price: "Desde $1,200 USD",
           recommended: true,
           features: [
-            'Seguridad avanzada',
-            'VLANs y QoS',
-            'VPN corporativa',
-            'Monitoreo 24/7',
-            'Soporte prioritario'
-          ]
+            "Seguridad avanzada",
+            "VLANs y QoS",
+            "VPN corporativa",
+            "Monitoreo 24/7",
+            "Soporte prioritario",
+          ],
         },
         {
-          name: 'Infraestructura',
-          price: 'Desde $3,500',
+          name: "Infraestructura",
+          price: "Desde $3,500 USD",
           features: [
-            'Diseño de red',
-            'Alta disponibilidad',
-            'Sistema redundante',
-            'Gestión centralizada',
-            'SLA garantizado'
-          ]
-        }
+            "Diseño de red",
+            "Alta disponibilidad",
+            "Sistema redundante",
+            "Gestión centralizada",
+            "SLA garantizado",
+          ],
+        },
       ],
       microcontrollers: [
         {
-          name: 'Firmware Básico',
-          price: 'Desde $200',
-          description: 'Para dispositivos simples',
+          name: "Firmware Básico",
+          price: "Desde $200 USD",
+          description: "Para dispositivos simples",
           features: [
-            'Programación básica',
-            'Un microcontrolador',
-            'Funciones básicas',
-            'Pruebas unitarias',
-            'Documentación básica'
-          ]
+            "Programación básica",
+            "Un microcontrolador",
+            "Funciones básicas",
+            "Pruebas unitarias",
+            "Documentación básica",
+          ],
         },
         {
-          name: 'IoT Avanzado',
-          price: 'Desde $800',
+          name: "IoT Avanzado",
+          price: "Desde $800 USD",
           recommended: true,
           features: [
-            'Conectividad WiFi/BT',
-            'Dashboard web',
-            'APIs REST',
-            'Actualización OTA',
-            'Monitoreo remoto'
-          ]
+            "Conectividad WiFi/BT",
+            "Dashboard web",
+            "APIs REST",
+            "Actualización OTA",
+            "Monitoreo remoto",
+          ],
         },
         {
-          name: 'Sistema Industrial',
-          price: 'Desde $2,000',
+          name: "Sistema Industrial",
+          price: "Desde $2,000 USD",
           features: [
-            'Protocolo industrial',
-            'Sistema redundante',
-            'Interfaz SCADA',
-            'Alta disponibilidad',
-            'Soporte 24/7'
-          ]
-        }
+            "Protocolo industrial",
+            "Sistema redundante",
+            "Interfaz SCADA",
+            "Alta disponibilidad",
+            "Soporte 24/7",
+          ],
+        },
       ],
       support: [
         {
-          name: 'Básico',
-          price: '$50/hora',
-          description: 'Soporte bajo demanda',
+          name: "Básico",
+          price: "$50 USD/hora",
+          description: "Soporte bajo demanda",
           features: [
-            'Soporte remoto',
-            'Horario laboral',
-            'Diagnóstico básico',
-            'Mantenimiento preventivo',
-            'Respuesta en 24h'
-          ]
+            "Soporte remoto",
+            "Horario laboral",
+            "Diagnóstico básico",
+            "Mantenimiento preventivo",
+            "Respuesta en 24h",
+          ],
         },
         {
-          name: 'Empresarial',
-          price: '$500/mes',
+          name: "Empresarial",
+          price: "$500 USD/mes",
           recommended: true,
           features: [
-            'Soporte presencial',
-            'Respuesta en 4h',
-            'Mantenimiento preventivo',
-            'Backups programados',
-            'Horario extendido'
-          ]
+            "Soporte presencial",
+            "Respuesta en 4h",
+            "Mantenimiento preventivo",
+            "Backups programados",
+            "Horario extendido",
+          ],
         },
         {
-          name: 'Premium',
-          price: '$1,200/mes',
+          name: "Premium",
+          price: "$1,200 USD/mes",
           features: [
-            'Soporte 24/7',
-            'Respuesta inmediata',
-            'Técnico dedicado',
-            'Mantenimiento completo',
-            'Garantía total'
-          ]
-        }
-      ]
-    }
+            "Soporte 24/7",
+            "Respuesta inmediata",
+            "Técnico dedicado",
+            "Mantenimiento completo",
+            "Garantía total",
+          ],
+        },
+      ],
+    },
   },
   // Team Section
   team: {
     title: "Conoce a Nuestro Equipo Experto",
     subtitle: "Expertos en tecnología listos para innovar",
-      "member1": {
-        "position": "CEO & Fundador",
-        "description": "Experto en domótica, desarrollo web y móvil."
-      },
-      "member2": {
-        "position": "Desarrollador Android Senior",
-        "description": "Desarrollador nativo de Android con más de 10 años de experiencia."
-      },
-      "member3": {
-        "position": "Diseñador 3D & Desarrollador Android",
-        "description": "Especialista en diseño 3D y desarrollo Android."
-      },
-      "member4": {
-        "position": "Experto en Soporte y Soluciones IT",
-        "description": "Ingeniero de sistemas especializado en soporte técnico y soluciones IT."
-      }
+    member1: {
+      position: "CEO & Fundador",
+      description: "Experto en domótica, desarrollo web y móvil.",
+    },
+    member2: {
+      position: "Desarrollador Android Senior",
+      description:
+        "Desarrollador nativo de Android con más de 10 años de experiencia.",
+    },
+    member3: {
+      position: "Diseñador 3D & Desarrollador Android",
+      description: "Especialista en diseño 3D y desarrollo Android.",
+    },
+    member4: {
+      position: "Experto en Soporte y Soluciones IT",
+      description:
+        "Ingeniero de sistemas especializado en soporte técnico y soluciones IT.",
+    },
   },
   // About Section
   about: {
     title: "Sobre Nosotros",
-    subtitle: "Construyendo el futuro con tecnología",
-    introduction:
-      "Desde nuestra fundación, hemos estado a la vanguardia de la innovación tecnológica, ayudando a empresas e individuos a aprovechar el poder de las soluciones más avanzadas. Nuestro camino está marcado por el crecimiento continuo, el aprendizaje y la adaptación a las tecnologías emergentes.",
-    highlight1: {
-      title: "Innovación Primero",
-      description:
-        "Nos mantenemos adelante de las tendencias tecnológicas para brindarte las últimas soluciones.",
-    },
-    highlight2: {
-      title: "Éxito del Cliente",
-      description:
-        "Tu éxito es nuestra prioridad, con un enfoque en entregar resultados medibles.",
-    },
-    highlight3: {
-      title: "Alcance Global",
-      description:
-        "Servimos a clientes en todo el mundo con soluciones y soporte localizados.",
-    },
-    stats: [
-      {
-        number: "10+",
-        label: "Años de Experiencia",
-      },
-      {
-        number: "50+",
-        label: "Proyectos Completados",
-      },
-      {
-        number: "100+",
-        label: "Clientes Satisfechos",
-      },
-      {
-        number: "3+",
-        label: "Miembros del Equipo",
-      },
-    ],
+    subtitle: "Transformando espacios y negocios con tecnología inteligente",
+    introduction: `Desde 2022, hemos estado a la vanguardia de la innovación tecnológica, 
+    iniciando como expertos en domótica y expandiéndonos hacia soluciones integrales que incluyen 
+    desarrollo de software, electrónica, redes y soporte técnico. Nuestra trayectoria comenzó con la 
+    visión de democratizar el acceso a la tecnología inteligente, y hoy continuamos expandiendo esa 
+    misión a través de múltiples disciplinas tecnológicas.`,
+    
     mission: {
       title: "Nuestra Misión",
-      description:
-        "Proporcionar soluciones tecnológicas innovadoras y sostenibles que transformen vidas y negocios.",
-      image:
-        "https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg",
+      description: `Promover la integración de tecnologías avanzadas en hogares y empresas, 
+      desde sistemas domóticos hasta soluciones de software y redes. Nos esforzamos por transformar 
+      espacios convencionales en entornos inteligentes, desarrollar software innovador, implementar 
+      redes robustas y brindar soporte técnico excepcional.`
     },
+
     vision: {
       title: "Nuestra Visión",
-      description:
-        "Ser el socio tecnológico líder en la creación de un mundo más inteligente y conectado.",
-      image:
-        "https://images.pexels.com/photos/3183153/pexels-photo-3183153.jpeg",
+      description: `Posicionarnos como referentes globales en tecnología integral, definiendo 
+      estándares de excelencia en domótica, desarrollo de software, electrónica y redes. Buscamos 
+      democratizar el acceso a sistemas inteligentes y soluciones tecnológicas avanzadas, 
+      manteniendo un equilibrio entre innovación, calidad y accesibilidad.`
     },
+
+    stats: [
+      { number: "10+", label: "Años de Experiencia" },
+      { number: "50+", label: "Proyectos Exitosos" },
+      { number: "100+", label: "Clientes Satisfechos" },
+      { number: "5+", label: "Áreas de Especialización" }
+    ],
+
+    highlights: {
+      innovation: {
+        title: "Innovación Continua",
+        description: "Inversión del 10% en I+D para nuevas tecnologías y soluciones."
+      },
+      expertise: {
+        title: "Experiencia Multidisciplinaria",
+        description: "Especialistas en domótica, software, redes, electrónica y soporte técnico."
+      },
+      quality: {
+        title: "Calidad Garantizada",
+        description: "90% de satisfacción del cliente y soporte 24/7."
+      }
+    },
+
     values: {
       title: "Nuestros Valores",
       items: [
         {
           icon: "innovation",
           title: "Innovación",
-          description:
-            "Constantemente superando límites y explorando nuevas posibilidades",
+          description: "Desarrollo continuo de soluciones tecnológicas avanzadas"
         },
         {
           icon: "quality",
-          title: "Calidad",
-          description: "Entregando excelencia en cada proyecto y servicio",
+          title: "Excelencia",
+          description: "Compromiso con la calidad en cada proyecto y servicio"
         },
         {
           icon: "integrity",
-          title: "Integridad",
-          description: "Operando con transparencia y estándares éticos",
-        },
-      ],
+          title: "Accesibilidad",
+          description: "Democratización de la tecnología para todos los sectores"
+        }
+      ]
     },
+
+    objectives: {
+      title: "Objetivos Estratégicos",
+      items: [
+        "Expansión de mercado en nuevas regiones",
+        "Desarrollo de soluciones innovadoras",
+        "Establecimiento de alianzas estratégicas",
+        "Educación y concientización tecnológica",
+        "Compromiso con la sustentabilidad"
+      ]
+    }
   },
   // Blog Section
   blog: {
@@ -758,108 +839,217 @@ export const esTranslations = {
     title: "Nuestros Proyectos",
     subtitle: "Explora nuestro portafolio de soluciones robustas.",
     features: {
-      'responsive': 'Diseño responsivo',
-      'cross-browser': 'Compatibilidad multiplataforma',
-      'modern-ui': 'Diseño UI/UX moderno',
-      'user-friendly': 'Interfaz amigable',
-      'performance': 'Alto rendimiento',
-      'api-integration': 'Integración perfecta con APIs',
-      'custom-design': 'Diseño personalizado',
-      'architecture': 'Arquitectura robusta',
-      'cross-platform': 'Funcionalidad multiplataforma',
-      'smart-devices': 'Integración de dispositivos inteligentes',
-      'real-time': 'Monitoreo en tiempo real',
-      'cloud-integration': 'Conectividad en la nube',
-      'payment-gateway': 'Pasarela de pago segura',
-      'inventory': 'Gestión de inventario',
-      'analytics': 'Panel de análisis',
-      'security': 'Seguridad avanzada',
-      'scalability': 'Escalabilidad',
-      'automation': 'Automatización',
-      'monitoring': 'Monitoreo continuo',
-      'optimization': 'Optimización de recursos',
-      'innovation': 'Innovación',
-      'consulting': 'Consultoría de Software',
-      'analysis': 'Análisis',
-      'solution': 'Solución',
+      responsive: "Diseño responsivo",
+      "cross-browser": "Compatibilidad multiplataforma",
+      "modern-ui": "Diseño UI/UX moderno",
+      "user-friendly": "Interfaz amigable",
+      performance: "Alto rendimiento",
+      "api-integration": "Integración perfecta con APIs",
+      "custom-design": "Diseño personalizado",
+      architecture: "Arquitectura robusta",
+      "cross-platform": "Funcionalidad multiplataforma",
+      "smart-devices": "Integración de dispositivos inteligentes",
+      "real-time": "Monitoreo en tiempo real",
+      "cloud-integration": "Conectividad en la nube",
+      "payment-gateway": "Pasarela de pago segura",
+      inventory: "Gestión de inventario",
+      analytics: "Panel de análisis",
+      security: "Seguridad avanzada",
+      scalability: "Escalabilidad",
+      automation: "Automatización",
+      monitoring: "Monitoreo continuo",
+      optimization: "Optimización de recursos",
+      innovation: "Innovación",
+      consulting: "Consultoría de Software",
+      analysis: "Análisis",
+      solution: "Solución",
     },
     consulting: {
       title: "Consultoría de Software",
-      description: "Asesoramiento estratégico y soluciones tecnológicas personalizadas.",
-      overview: "Nuestro servicio de consultoría ayuda a las empresas a navegar el complejo panorama digital y tomar decisiones informadas sobre sus inversiones tecnológicas.",
+      description:
+        "Asesoramiento estratégico y soluciones tecnológicas personalizadas.",
+      overview:
+        "Nuestro servicio de consultoría ayuda a las empresas a navegar el complejo panorama digital y tomar decisiones informadas sobre sus inversiones tecnológicas.",
       techStack: "Áreas de Experiencia",
-      process: "Proceso de Consultoría"
+      process: "Proceso de Consultoría",
     },
     web: {
-      title: "Aplicación Web",
-      description: "Una plataforma web moderna con diseño responsivo para una experiencia de usuario perfecta.",
+      title: "Pagina Web Moderna",
+      description:
+        "Se realizo una pagina web moderna y responsiva para un restaurante en Bogotá.",
       features: [
         "Diseño responsivo",
         "Compatibilidad multiplataforma",
-        "Diseño UI/UX moderno"
+        "Diseño UI/UX moderno",
       ],
-      overview: "Nuestro servicio de desarrollo web se centra en crear soluciones modernas, escalables y eficientes que ayudan a las empresas a prosperar en la era digital.",
+      overview:
+        "Nuestro servicio de desarrollo web se centra en crear soluciones modernas, escalables y eficientes que ayudan a las empresas a prosperar en la era digital.",
       techStack: "Stack Tecnológico",
-      process: "Proceso de Desarrollo"
+      process: "Proceso de Desarrollo",
     },
     mobile: {
       title: "Aplicación Móvil",
-      description: "Soluciones móviles optimizadas para plataformas iOS y Android.",
+      description:
+        "Se desarrollo una aplicacion movil multiplataforma para una Constructora en EE.UU.",
       features: [
         "Interfaz amigable",
         "Alto rendimiento",
-        "Integración perfecta con APIs"
+        "Multiplataforma"
       ],
-      overview: "Nuestro servicio de desarrollo móvil entrega aplicaciones nativas de alta calidad para plataformas iOS y Android.",
+      overview:
+        "Nuestro servicio de desarrollo móvil entrega aplicaciones nativas de alta calidad para plataformas iOS y Android.",
       techStack: "Stack Tecnológico",
-      process: "Proceso de Desarrollo"
+      process: "Proceso de Desarrollo",
     },
     software: {
-      title: "Desarrollo de Software",
-      description: "Soluciones de software personalizadas construidas con tecnología de vanguardia.",
+      title: "Software Domotico",
+      description:
+        "Integramos un sistema domotico con diseño personalizado para un apartamento lujoso en Bogota.",
       features: [
-        "Diseño de software personalizado",
-        "Arquitectura robusta",
-        "Funcionalidad multiplataforma"
+        "Aplicaciones web",
+        "Apps móviles",
+        "Software empresarial",
+        "APIs y microservicios",
+        "Bases de datos",
       ],
-      overview: "Creamos soluciones de software personalizadas que se adaptan perfectamente a las necesidades específicas de tu negocio.",
-      techStack: "Stack Tecnológico",
-      process: "Proceso de Desarrollo"
+      serviceList: {
+        webApps: "Desarrollo de aplicaciones web personalizadas",
+        mobileApps: "Aplicaciones móviles nativas y multiplataforma",
+        apiDevelopment: "Desarrollo de APIs y microservicios",
+        databaseDesign: "Diseño y optimización de bases de datos",
+        systemIntegration: "Integración de sistemas y aplicaciones",
+        cloudMigration: "Migración y servicios en la nube",
+      },
+      serviceDescriptions: {
+        webApps:
+          "Desarrollamos aplicaciones web modernas y responsivas utilizando las últimas tecnologías y frameworks. Nuestras soluciones son escalables, seguras y optimizadas para un rendimiento excepcional.",
+        mobileApps:
+          "Creamos aplicaciones móviles nativas y multiplataforma que ofrecen una experiencia de usuario excepcional. Utilizamos tecnologías como React Native y Flutter para garantizar la mejor calidad.",
+        apiDevelopment:
+          "Diseñamos y desarrollamos APIs RESTful y microservicios que permiten una integración perfecta entre sistemas. Implementamos las mejores prácticas de seguridad y documentación.",
+        databaseDesign:
+          "Optimizamos el diseño de bases de datos para garantizar un rendimiento óptimo y una gestión eficiente de los datos. Trabajamos con bases de datos SQL y NoSQL.",
+        systemIntegration:
+          "Facilitamos la integración perfecta entre diferentes sistemas y aplicaciones, asegurando una comunicación fluida y eficiente entre todas las partes.",
+        cloudMigration:
+          "Ayudamos en la migración de sistemas a la nube, optimizando costos y mejorando la escalabilidad. Trabajamos con los principales proveedores de servicios cloud.",
+      },
     },
     iot: {
       title: "Soluciones IoT",
-      description: "Dispositivos y sistemas inteligentes para monitoreo y control automatizado.",
+      description:
+        "Dispositivos y sistemas inteligentes para monitoreo y control automatizado.",
       features: [
         "Integración de dispositivos inteligentes",
         "Monitoreo en tiempo real",
-        "Conectividad en la nube"
+        "Conectividad en la nube",
       ],
-      overview: "Desarrollamos soluciones IoT innovadoras que conectan y automatizan dispositivos para crear sistemas inteligentes.",
+      overview:
+        "Desarrollamos soluciones IoT innovadoras que conectan y automatizan dispositivos para crear sistemas inteligentes.",
       techStack: "Stack Tecnológico",
-      process: "Proceso de Desarrollo"
+      process: "Proceso de Desarrollo",
     },
     ecommerce: {
       title: "Plataforma E-commerce",
-      description: "Solución completa de tienda en línea con características avanzadas.",
+      description:
+        "Solución completa de tienda en línea con características avanzadas.",
       features: [
         "Pasarela de pago segura",
         "Gestión de inventario",
-        "Panel de análisis"
+        "Panel de análisis",
       ],
-      overview: "Implementamos plataformas de comercio electrónico completas y personalizadas para impulsar tu negocio en línea.",
+      overview:
+        "Implementamos plataformas de comercio electrónico completas y personalizadas para impulsar tu negocio en línea.",
       techStack: "Stack Tecnológico",
-      process: "Proceso de Desarrollo"
+      process: "Proceso de Desarrollo",
     },
     featuresTitle: "Características",
     startProject: "Iniciar Proyecto",
     scheduleConsultation: "Agendar Consulta",
     projectOverview: "Descripción del Proyecto",
     keyFeatures: "Características Principales",
-    developmentProcess: "Proceso de Desarrollo"
+    developmentProcess: "Proceso de Desarrollo",
   },
   partners: {
     title: "Aliados Tecnológicos",
     subtitle: "Trabajamos con las mejores tecnologías y marcas del mercado",
-    description: "Nuestras alianzas estratégicas nos permiten ofrecer soluciones de vanguardia y garantizar la máxima calidad en cada proyecto."
+    description:
+      "Nuestras alianzas estratégicas nos permiten ofrecer soluciones de vanguardia y garantizar la máxima calidad en cada proyecto.",
   },
+  /**
+   * Process Flow Section
+   * Muestra el flujo de trabajo y proceso de la empresa
+   */
+  processFlow: {
+    steps: {
+      consultation: {
+        title: "Consulta",
+        description: "Evaluamos tus necesidades",
+      },
+      planning: {
+        title: "Planificación",
+        description: "Diseñamos la solución",
+      },
+      development: {
+        title: "Desarrollo",
+        description: "Implementamos el proyecto",
+      },
+      delivery: {
+        title: "Entrega",
+        description: "Desplegamos y optimizamos",
+      },
+    },
+  },
+  timeline: {
+    milestones: [
+      {
+        year: '2018',
+        title: 'Primeros Pasos',
+        description: 'Inicio de proyectos independientes en domótica y automatización',
+        icon: '🌱'
+      },
+      {
+        year: '2019',
+        title: 'Especialización Técnica',
+        description: 'Certificaciones en tecnologías IoT y sistemas embebidos',
+        icon: '📚'
+      },
+      {
+        year: '2020',
+        title: 'Proyectos Remotos',
+        description: 'Adaptación a servicios digitales y soporte remoto',
+        icon: '🌐'
+      },
+      {
+        year: '2021',
+        title: 'Expansión Digital',
+        description: 'Desarrollo de primeras aplicaciones móviles y plataformas web',
+        icon: '📱'
+      },
+      {
+        year: '2022',
+        title: 'Fundación Oficial',
+        description: 'Establecimiento formal de DomoCodeTech como empresa',
+        icon: '🚀'
+      },
+      {
+        year: '2023',
+        title: 'Crecimiento Integral',
+        description: 'Incorporación de servicios de redes y desarrollo de software',
+        icon: '💻'
+      },
+      {
+        year: '2024',
+        title: 'Innovación Tecnológica',
+        description: 'Implementación de soluciones avanzadas en IoT y automatización',
+        icon: '⚡'
+      },
+      {
+        year: '2025',
+        title: 'Centro de Innovación',
+        description: 'Inauguración del centro de investigación y desarrollo',
+        icon: '🔬'
+      }
+    ]
+  }
 };
