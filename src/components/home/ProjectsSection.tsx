@@ -55,17 +55,17 @@ const ProjectsSection = () => {
     },
     {
       key: "iot",
-      image: SITE_DATA.projects.images.iot, // Usar una imagen apropiada
+      image: SITE_DATA.projects.images.iot, 
       features: ["smart-devices", "real-time", "cloud-integration"],
     },
     {
       key: "ecommerce",
-      image: SITE_DATA.projects.images.ecommerce, // Usar una imagen apropiada
+      image: SITE_DATA.projects.images.ecommerce, 
       features: ["payment-gateway", "inventory", "analytics"],
     },
     {
       key: "consulting",
-      image: SITE_DATA.projects.images.consulting, // Usar una imagen apropiada
+      image: SITE_DATA.projects.images.consulting, 
       features: ["consulting", "analysis", "solution"],
     },
   ];
@@ -103,20 +103,24 @@ const ProjectsSection = () => {
     return wrappedProjects.slice(start, end);
   };
 
+  // Mejorado el sistema de animación
   const slideVariants = {
     enter: (direction: number) => ({
-      x: direction > 0 ? 500 : -500,
+      x: direction > 0 ? 1000 : -1000,
       opacity: 0,
+      scale: 0.95,
     }),
     center: {
       zIndex: 1,
       x: 0,
       opacity: 1,
+      scale: 1,
     },
     exit: (direction: number) => ({
       zIndex: 0,
-      x: direction < 0 ? 500 : -500,
+      x: direction < 0 ? 1000 : -1000,
       opacity: 0,
+      scale: 0.95,
     }),
   };
 
@@ -197,6 +201,7 @@ const ProjectsSection = () => {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
+              px: { xs: 2, md: 0 }, // Añadido padding en móvil
             }}
           >
             <AnimatePresence initial={false} custom={direction} mode="wait">
@@ -208,8 +213,9 @@ const ProjectsSection = () => {
                 animate="center"
                 exit="exit"
                 transition={{
-                  x: { type: "spring", stiffness: 200, damping: 25 },
-                  opacity: { duration: 0.3 },
+                  x: { type: "spring", stiffness: 300, damping: 30 },
+                  opacity: { duration: 0.5 },
+                  scale: { duration: 0.5 },
                 }}
                 style={{
                   position: "absolute",
@@ -224,7 +230,7 @@ const ProjectsSection = () => {
                   <Card
                     key={`${currentPage}-${index}`}
                     sx={{
-                      width: isMobile ? "100%" : "350px",
+                      width: isMobile ? "85%" : "350px",
                       height: "550px",
                       display: "flex",
                       flexDirection: "column",
@@ -275,7 +281,6 @@ const ProjectsSection = () => {
                               ? "white"
                               : "text.primary",
                           fontWeight: 600,
-                          mb: 2,
                           fontSize: "1.25rem",
                           height: "40px",
                           display: "-webkit-box",
@@ -303,7 +308,7 @@ const ProjectsSection = () => {
                       <Box
                         sx={{
                           mt: "auto",
-                          height: "150px",
+                          height: "130px",
                         }}
                       >
                         <Typography
