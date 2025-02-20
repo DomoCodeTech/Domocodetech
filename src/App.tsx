@@ -3,7 +3,7 @@
  * Componente principal de la aplicación que maneja el enrutamiento y el tema global
  */
 import { useState, useMemo } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter, BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider, CssBaseline } from "@mui/material";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -50,6 +50,8 @@ function App() {
       return newMode;
     });
   };
+
+  const Router = process.env.NODE_ENV === 'production' ? HashRouter : BrowserRouter;
 
   return (
     // ThemeProvider proporciona el tema a todos los componentes hijos
