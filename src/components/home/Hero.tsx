@@ -43,7 +43,9 @@ const Hero = () => {
           theme.palette.mode === "dark"
             ? "linear-gradient(180deg, #0A0A0A 0%, #1A1A1A 100%)"
             : "linear-gradient(180deg, #FFFFFF 0%, #F8FAFF 100%)",
-        pt: { xs: 12, md: 10 },
+        pt: { xs: 12, md: 16 },
+  //      overflow: "hidden",
+
       }}
     >
       <Container maxWidth="lg">

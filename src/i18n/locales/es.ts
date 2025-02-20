@@ -495,77 +495,82 @@ export const esTranslations = {
   // About Section
   about: {
     title: "Sobre Nosotros",
-    subtitle: "Construyendo el futuro con tecnología",
-    introduction:
-      "Desde nuestra fundación, hemos estado a la vanguardia de la innovación tecnológica, ayudando a empresas e individuos a aprovechar el poder de las soluciones más avanzadas. Nuestro camino está marcado por el crecimiento continuo, el aprendizaje y la adaptación a las tecnologías emergentes.",
-    highlight1: {
-      title: "Innovación Primero",
-      description:
-        "Nos mantenemos adelante de las tendencias tecnológicas para brindarte las últimas soluciones.",
-    },
-    highlight2: {
-      title: "Éxito del Cliente",
-      description:
-        "Tu éxito es nuestra prioridad, con un enfoque en entregar resultados medibles.",
-    },
-    highlight3: {
-      title: "Alcance Global",
-      description:
-        "Servimos a clientes en todo el mundo con soluciones y soporte localizados.",
-    },
-    stats: [
-      {
-        number: "10+",
-        label: "Años de Experiencia",
-      },
-      {
-        number: "50+",
-        label: "Proyectos Completados",
-      },
-      {
-        number: "100+",
-        label: "Clientes Satisfechos",
-      },
-      {
-        number: "3+",
-        label: "Miembros del Equipo",
-      },
-    ],
+    subtitle: "Transformando espacios y negocios con tecnología inteligente",
+    introduction: `Desde 2022, hemos estado a la vanguardia de la innovación tecnológica, 
+    iniciando como expertos en domótica y expandiéndonos hacia soluciones integrales que incluyen 
+    desarrollo de software, electrónica, redes y soporte técnico. Nuestra trayectoria comenzó con la 
+    visión de democratizar el acceso a la tecnología inteligente, y hoy continuamos expandiendo esa 
+    misión a través de múltiples disciplinas tecnológicas.`,
+    
     mission: {
       title: "Nuestra Misión",
-      description:
-        "Proporcionar soluciones tecnológicas innovadoras y sostenibles que transformen vidas y negocios.",
-      image:
-        "https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg",
+      description: `Promover la integración de tecnologías avanzadas en hogares y empresas, 
+      desde sistemas domóticos hasta soluciones de software y redes. Nos esforzamos por transformar 
+      espacios convencionales en entornos inteligentes, desarrollar software innovador, implementar 
+      redes robustas y brindar soporte técnico excepcional.`
     },
+
     vision: {
       title: "Nuestra Visión",
-      description:
-        "Ser el socio tecnológico líder en la creación de un mundo más inteligente y conectado.",
-      image:
-        "https://images.pexels.com/photos/3183153/pexels-photo-3183153.jpeg",
+      description: `Posicionarnos como referentes globales en tecnología integral, definiendo 
+      estándares de excelencia en domótica, desarrollo de software, electrónica y redes. Buscamos 
+      democratizar el acceso a sistemas inteligentes y soluciones tecnológicas avanzadas, 
+      manteniendo un equilibrio entre innovación, calidad y accesibilidad.`
     },
+
+    stats: [
+      { number: "10+", label: "Años de Experiencia" },
+      { number: "50+", label: "Proyectos Exitosos" },
+      { number: "100+", label: "Clientes Satisfechos" },
+      { number: "5+", label: "Áreas de Especialización" }
+    ],
+
+    highlights: {
+      innovation: {
+        title: "Innovación Continua",
+        description: "Inversión del 10% en I+D para nuevas tecnologías y soluciones."
+      },
+      expertise: {
+        title: "Experiencia Multidisciplinaria",
+        description: "Especialistas en domótica, software, redes, electrónica y soporte técnico."
+      },
+      quality: {
+        title: "Calidad Garantizada",
+        description: "90% de satisfacción del cliente y soporte 24/7."
+      }
+    },
+
     values: {
       title: "Nuestros Valores",
       items: [
         {
           icon: "innovation",
           title: "Innovación",
-          description:
-            "Constantemente superando límites y explorando nuevas posibilidades",
+          description: "Desarrollo continuo de soluciones tecnológicas avanzadas"
         },
         {
           icon: "quality",
-          title: "Calidad",
-          description: "Entregando excelencia en cada proyecto y servicio",
+          title: "Excelencia",
+          description: "Compromiso con la calidad en cada proyecto y servicio"
         },
         {
           icon: "integrity",
-          title: "Integridad",
-          description: "Operando con transparencia y estándares éticos",
-        },
-      ],
+          title: "Accesibilidad",
+          description: "Democratización de la tecnología para todos los sectores"
+        }
+      ]
     },
+
+    objectives: {
+      title: "Objetivos Estratégicos",
+      items: [
+        "Expansión de mercado en nuevas regiones",
+        "Desarrollo de soluciones innovadoras",
+        "Establecimiento de alianzas estratégicas",
+        "Educación y concientización tecnológica",
+        "Compromiso con la sustentabilidad"
+      ]
+    }
   },
   // Blog Section
   blog: {
@@ -995,4 +1000,56 @@ export const esTranslations = {
       },
     },
   },
+  timeline: {
+    milestones: [
+      {
+        year: '2018',
+        title: 'Primeros Pasos',
+        description: 'Inicio de proyectos independientes en domótica y automatización',
+        icon: '🌱'
+      },
+      {
+        year: '2019',
+        title: 'Especialización Técnica',
+        description: 'Certificaciones en tecnologías IoT y sistemas embebidos',
+        icon: '📚'
+      },
+      {
+        year: '2020',
+        title: 'Proyectos Remotos',
+        description: 'Adaptación a servicios digitales y soporte remoto',
+        icon: '🌐'
+      },
+      {
+        year: '2021',
+        title: 'Expansión Digital',
+        description: 'Desarrollo de primeras aplicaciones móviles y plataformas web',
+        icon: '📱'
+      },
+      {
+        year: '2022',
+        title: 'Fundación Oficial',
+        description: 'Establecimiento formal de DomoCodeTech como empresa',
+        icon: '🚀'
+      },
+      {
+        year: '2023',
+        title: 'Crecimiento Integral',
+        description: 'Incorporación de servicios de redes y desarrollo de software',
+        icon: '💻'
+      },
+      {
+        year: '2024',
+        title: 'Innovación Tecnológica',
+        description: 'Implementación de soluciones avanzadas en IoT y automatización',
+        icon: '⚡'
+      },
+      {
+        year: '2025',
+        title: 'Centro de Innovación',
+        description: 'Inauguración del centro de investigación y desarrollo',
+        icon: '🔬'
+      }
+    ]
+  }
 };

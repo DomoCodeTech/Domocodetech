@@ -20,7 +20,11 @@ import {
   MdDoneAll,
   MdPeople,
   MdGroups,
+  MdTrendingUp,
+  MdStars,
+  MdPublic
 } from "react-icons/md";
+import Timeline from '../components/about/Timeline';
 
 interface StatItem {
   number: string;
@@ -46,6 +50,24 @@ const About: React.FC = () => {
     };
     return icons[iconName] || null;
   };
+
+  const highlights = [
+    {
+      icon: <MdTrendingUp size={40} />,
+      title: t('about.highlight1.title'),
+      description: t('about.highlight1.description')
+    },
+    {
+      icon: <MdStars size={40} />,
+      title: t('about.highlight2.title'),
+      description: t('about.highlight2.description')
+    },
+    {
+      icon: <MdPublic size={40} />,
+      title: t('about.highlight3.title'),
+      description: t('about.highlight3.description')
+    }
+  ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -75,7 +97,7 @@ const About: React.FC = () => {
           theme.palette.mode === "dark"
             ? "linear-gradient(180deg, #1A1A1A 0%, #0A0A0A 100%)"
             : "linear-gradient(180deg, #F0F7FF 0%, #E6FFF6 100%)",
-        pt: { xs: 8, md: 16 },
+        pt: { xs: 12, md: 16 },
         pb: { xs: 8, md: 16 },
         overflowX: "hidden",
       }}
@@ -164,27 +186,37 @@ const About: React.FC = () => {
             </Typography>
 
             <Grid container spacing={2} justifyContent="center" sx={{ mb: 4 }}>
-              {[1, 2, 3].map((num) => (
-                <Grid item xs={12} sm={4} key={num}>
+              {highlights.map((highlight, index) => (
+                <Grid item xs={12} sm={4} key={index}>
                   <Box
                     sx={{
                       p: 2,
-                      textAlign: "center",
-                      color: "text.secondary",
+                      textAlign: 'center',
+                      color: 'text.secondary',
                     }}
                   >
+                    <Box
+                      sx={{
+                        mb: 2,
+                        color: 'primary.main',
+                        display: 'flex',
+                        justifyContent: 'center'
+                      }}
+                    >
+                      {highlight.icon}
+                    </Box>
                     <Typography
                       variant="h6"
                       sx={{
-                        color: "primary.main",
+                        color: 'primary.main',
                         mb: 1,
                         fontWeight: 600,
                       }}
                     >
-                      {t(`about.highlight${num}.title`)}
+                      {highlight.title}
                     </Typography>
                     <Typography variant="body2">
-                      {t(`about.highlight${num}.description`)}
+                      {highlight.description}
                     </Typography>
                   </Box>
                 </Grid>
@@ -192,6 +224,9 @@ const About: React.FC = () => {
             </Grid>
           </Box>
         </motion.div>
+        
+        {/* Add Timeline after hero section */}
+        <Timeline />
 
         {/* Stats Section */}
         <motion.div

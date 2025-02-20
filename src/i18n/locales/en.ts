@@ -645,19 +645,19 @@ export const enTranslations = {
     introduction:
       "Since our founding, we have been at the forefront of technological innovation, helping businesses and individuals harness the power of cutting-edge solutions. Our journey is marked by continuous growth, learning, and adaptation to emerging technologies.",
     highlight1: {
-      title: "Innovation First",
+      title: "Innovación Continua",
       description:
-        "We stay ahead of technological trends to bring you the latest solutions.",
+        "Nos mantenemos a la vanguardia de las tendencias tecnológicas para brindarte las últimas soluciones.",
     },
     highlight2: {
-      title: "Client Success",
+      title: "Éxito del Cliente",
       description:
-        "Your success is our priority, with a focus on delivering measurable results.",
+        "Tu éxito es nuestra prioridad, con un enfoque en entregar resultados medibles.",
     },
     highlight3: {
-      title: "Global Reach",
+      title: "Alcance Global",
       description:
-        "Serving clients worldwide with localized solutions and support.",
+        "Servimos a clientes en todo el mundo con soluciones y soporte localizados.",
     },
     // Key statistics
     stats: [
@@ -669,16 +669,20 @@ export const enTranslations = {
     // Mission statement
     mission: {
       title: "Our Mission",
-      description:
-        "To provide innovative and sustainable technological solutions that transform lives and businesses.",
+      description: `To promote the integration of advanced technologies in homes and businesses, 
+      from home automation systems to software and network solutions. We strive to transform 
+      conventional spaces into intelligent environments, develop innovative software, implement 
+      robust networks, and provide exceptional technical support.`,
       image:
         "https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg",
     },
     // Vision statement
     vision: {
       title: "Our Vision",
-      description:
-        "To be the leading technology partner in creating a smarter, more connected world.",
+      description: `To position ourselves as global leaders in comprehensive technology, setting 
+      standards of excellence in home automation, software development, electronics and networks. 
+      We seek to democratize access to smart systems and advanced technological solutions, 
+      maintaining a balance between innovation, quality and accessibility.`,
       image:
         "https://images.pexels.com/photos/3183153/pexels-photo-3183153.jpeg",
     },
@@ -1028,4 +1032,61 @@ export const enTranslations = {
       },
     },
   },
+
+  /**
+   * Timeline Section
+   * Company milestones and achievements
+   */
+  timeline: {
+    milestones: [
+      {
+        year: '2018',
+        title: 'First Steps',
+        description: 'Beginning of independent projects in home automation',
+        icon: '🌱'
+      },
+      {
+        year: '2019',
+        title: 'Technical Specialization',
+        description: 'Certifications in IoT technologies and embedded systems',
+        icon: '📚'
+      },
+      {
+        year: '2020',
+        title: 'Remote Projects',
+        description: 'Adaptation to digital services and remote support',
+        icon: '🌐'
+      },
+      {
+        year: '2021',
+        title: 'Digital Expansion',
+        description: 'Development of first mobile apps and web platforms',
+        icon: '📱'
+      },
+      {
+        year: '2022',
+        title: 'Official Foundation',
+        description: 'Formal establishment of DomoCodeTech as a company',
+        icon: '🚀'
+      },
+      {
+        year: '2023',
+        title: 'Integral Growth',
+        description: 'Integration of networking and software development services',
+        icon: '💻'
+      },
+      {
+        year: '2024',
+        title: 'Technological Innovation',
+        description: 'Implementation of advanced IoT and automation solutions',
+        icon: '⚡'
+      },
+      {
+        year: '2025',
+        title: 'Innovation Center',
+        description: 'Inauguration of research and development center',
+        icon: '🔬'
+      }
+    ]
+  }
 };
