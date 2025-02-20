@@ -75,8 +75,8 @@ const About: React.FC = () => {
           theme.palette.mode === "dark"
             ? "linear-gradient(180deg, #1A1A1A 0%, #0A0A0A 100%)"
             : "linear-gradient(180deg, #F0F7FF 0%, #E6FFF6 100%)",
-        pt: { xs: 8, md: 12 },
-        pb: { xs: 8, md: 12 },
+        pt: { xs: 8, md: 16 },
+        pb: { xs: 8, md: 16 },
         overflowX: "hidden",
       }}
     >

@@ -95,7 +95,7 @@ const Blog: React.FC = () => {
   return (
     <Box 
       sx={{ 
-        py: 8, 
+        py: 16, 
         minHeight: '100vh',
         background: theme.palette.mode === 'dark'
           ? 'linear-gradient(180deg, #1A1A1A 0%, #0A0A0A 100%)'

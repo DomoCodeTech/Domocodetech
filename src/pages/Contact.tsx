@@ -175,7 +175,7 @@ const Contact: React.FC = () => {
     <Box
       sx={{
         bgcolor: "background.default",
-        py: 8,
+        py: 16,
         position: "relative",
         overflow: "hidden",
         "&::before": {
