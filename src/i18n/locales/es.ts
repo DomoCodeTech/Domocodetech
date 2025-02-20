@@ -27,7 +27,7 @@ export const esTranslations = {
   },
   // Hero Section
   hero: {
-    slogan: "Domótica, Software y Tecnología",
+    slogan: "Domótica, Software & Tecnología",
     subtitle:
       "Proveemos soluciones innovadoras para tus necesidades tecnológicas",
     getQuote: "Cotización Gratis",

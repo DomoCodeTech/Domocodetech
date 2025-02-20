@@ -39,7 +39,7 @@ export const enTranslations = {
    * Main banner section on the homepage
    */
   hero: {
-    slogan: "Home Automation, Software, and Technology",
+    slogan: "Home Automation, Software, & Technology",
     subtitle: "We provide innovative solutions for your technological needs",
     getQuote: "Get Free Quote",
     imageAlt: "Team working on technology",
