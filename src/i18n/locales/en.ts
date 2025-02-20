@@ -533,9 +533,9 @@ export const enTranslations = {
       process: "Consulting Process",
     },
     web: {
-      title: "Web Application",
+      title: "Modern Website",
       description:
-        "A modern web platform with responsive design for seamless user experience.",
+        "A modern and responsive website was developed for a restaurant in Bogotá.",
       features: [
         "Responsive design",
         "Cross-browser compatibility",
@@ -548,7 +548,7 @@ export const enTranslations = {
     },
     mobile: {
       title: "Mobile Application",
-      description: "Optimized mobile solutions for iOS and Android platforms.",
+      description: "A cross-platform mobile application was developed for a construction company in the U.S.",
       features: [
         "User-friendly interface",
         "High performance",
@@ -560,9 +560,9 @@ export const enTranslations = {
       process: "Development Process",
     },
     software: {
-      title: "Software Development",
+      title: "Home Automation",
       description:
-        "Custom software solutions built with cutting-edge technology.",
+        "We integrated a home automation system with a custom design for a luxurious apartment in Bogotá.",
       features: [
         "Custom software design",
         "Robust architecture",

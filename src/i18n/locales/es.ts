@@ -869,9 +869,9 @@ export const esTranslations = {
       process: "Proceso de Consultoría",
     },
     web: {
-      title: "Aplicación Web",
+      title: "Pagina Web Moderna",
       description:
-        "Una plataforma web moderna con diseño responsivo para una experiencia de usuario perfecta.",
+        "Se realizo una pagina web moderna y responsiva para un restaurante en Bogotá.",
       features: [
         "Diseño responsivo",
         "Compatibilidad multiplataforma",
@@ -885,11 +885,11 @@ export const esTranslations = {
     mobile: {
       title: "Aplicación Móvil",
       description:
-        "Soluciones móviles optimizadas para plataformas iOS y Android.",
+        "Se desarrollo una aplicacion movil multiplataforma para una Constructora en EE.UU.",
       features: [
         "Interfaz amigable",
         "Alto rendimiento",
-        "Integración perfecta con APIs",
+        "Multiplataforma"
       ],
       overview:
         "Nuestro servicio de desarrollo móvil entrega aplicaciones nativas de alta calidad para plataformas iOS y Android.",
@@ -897,9 +897,9 @@ export const esTranslations = {
       process: "Proceso de Desarrollo",
     },
     software: {
-      title: "Desarrollo de Software",
+      title: "Software Domotico",
       description:
-        "Creamos soluciones digitales innovadoras y personalizadas que transforman tu visión en realidad. Desde aplicaciones web y móviles hasta sistemas empresariales completos, nuestro equipo experto utiliza las últimas tecnologías para desarrollar software robusto, escalable y fácil de usar.",
+        "Integramos un sistema domotico con diseño personalizado para un apartamento lujoso en Bogota.",
       features: [
         "Aplicaciones web",
         "Apps móviles",

@@ -73,7 +73,7 @@ const ProjectsSection = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       handleNext();
-    }, 6000);
+    }, 60000);
     return () => clearInterval(interval);
   }, [currentPage]);
 

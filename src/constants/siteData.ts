@@ -149,11 +149,11 @@ export const SITE_DATA = {
   },
   projects: {
     images: {
-      web: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuRlQeTYlhOuyQXMrKDsC9ndDZzCjidTJUkw&s",
+      web: "/images/projects/project2.webp",
       mobile:
-        "https://images.pexels.com/photos/147413/twitter-facebook-together-exchange-of-information-147413.jpeg",
+        "/images/projects/project1.webp",
       software:
-        "https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg",
+        "/images/projects/project3.webp",
       iot: "https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg",
       ecommerce:
         "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg",
