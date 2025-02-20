@@ -42,16 +42,15 @@ const ProcessFlow = () => {
           "&::before": {
             content: '""',
             position: "absolute",
-            top: "50%",
+            top: "63%",
             left: 0,
             right: 0,
-            height: 2,
-            background:
-              theme.palette.mode === "dark"
-                ? "rgba(255,255,255,0.1)"
-                : "rgba(0,0,0,0.1)",
-            zIndex: 0,
-            transform: "translateY(-50%)",
+            height: 2,                                    // Grosor de la línea
+            background: theme.palette.mode === "dark"     // Color de la línea
+              ? "rgba(255,255,255,0.1)"                  // Color en modo oscuro
+              : "rgba(0,0,0,0.1)",                       // Color en modo claro
+            zIndex: 0,                                   // Para que esté detrás de los iconos
+            transform: "translateY(-50%)",               // Centra verticalmente
           },
         }}
       >
@@ -107,7 +106,7 @@ const ProcessFlow = () => {
                   alignItems: "center",
                   textAlign: "center",
                   p: { xs: 2, md: 3 },
-                  minWidth: { xs: "180px", md: "0" },
+                  minWidth: { xs: "180px", md: "12" },
                   mt: { md: 2 },
                 }}
               >
