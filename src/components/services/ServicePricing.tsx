@@ -42,7 +42,7 @@ const ServicePricing: React.FC<ServicePricingProps> = ({ serviceKey }) => {
   };
 
   return (
-    <Box sx={{ mt: { xs: 4, md: 8 }, mb: { xs: 4, md: 8 } , px: { xs: 4, md: 16 } }}>
+    <Box sx={{ mt: { xs: 4, md: 8 }, mb: { xs: 4, md: 8 } }}>
       <Typography
         variant="h3"
         align="center"
@@ -69,18 +69,41 @@ const ServicePricing: React.FC<ServicePricingProps> = ({ serviceKey }) => {
         {t("pricing.subtitle")}
       </Typography>
 
-      <Grid container spacing={{ xs: 2, md: 4 }} alignItems="center">
-        {getPricingTiers().map((tier, index) => (
-          <Grid
-            item
-            xs={12}
-            sm={4}
-            key={index}
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-            }}
-          >
+      <Box 
+        sx={{ 
+          overflowX: { xs: 'auto', md: 'visible' },
+          px: { xs: 2, md: 16 },
+          // Hide scrollbar for Chrome, Safari and Opera
+          '&::-webkit-scrollbar': {
+            display: 'none'
+          },
+          // Hide scrollbar for IE, Edge and Firefox
+          msOverflowStyle: 'none',
+          scrollbarWidth: 'none',
+        }}
+      >
+        <Grid 
+          container 
+          spacing={{ xs: 2, md: 4 }} 
+          alignItems="center"
+          sx={{
+            flexWrap: { xs: 'nowrap', md: 'wrap' },
+            width: { xs: 'max-content', md: '100%' },
+            pb: { xs: 2, md: 0 }, // Add padding bottom for mobile scroll
+          }}
+        >
+          {getPricingTiers().map((tier, index) => (
+            <Grid
+              item
+              xs="auto"
+              sm={4}
+              key={index}
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                width: { xs: '300px', md: 'auto' }, // Fixed width for mobile
+              }}
+            >
             <motion.div
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -224,7 +247,8 @@ const ServicePricing: React.FC<ServicePricingProps> = ({ serviceKey }) => {
             </motion.div>
           </Grid>
         ))}
-      </Grid>
+        </Grid>
+      </Box>
     </Box>
   );
 };
