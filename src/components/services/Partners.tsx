@@ -56,12 +56,12 @@ const Partners = () => {
         sx={{
           display: "grid",
           gridTemplateColumns: {
-            xs: "repeat(2, 1fr)",
+            xs: "repeat(3, 1fr)", // Cambiado de 2 a 3 columnas
             sm: "repeat(3, 1fr)",
             md: "repeat(4, 1fr)",
             lg: "repeat(6, 1fr)",
           },
-          gap: 4,
+          gap: { xs: 2, sm: 4 }, // Ajustado el gap para mobile
           alignItems: "center",
           justifyItems: "center",
           py: 8,
@@ -70,26 +70,26 @@ const Partners = () => {
         {Object.values(SITE_DATA.images.services.partners).map(
           (logo, index) => (
             <Box
-              key={index}
-              component="img"
-              src={logo}
-              alt={`Partner ${index + 1}`}
-              sx={{
-                height: "40px",
-                maxWidth: "120px",
-                objectFit: "contain",
-                filter:
-                  theme.palette.mode === "dark"
-                    ? "brightness(0) invert(1) opacity(0.8)"
-                    : "none",
-                transition: "all 0.3s ease",
-                opacity: 0.7,
-                "&:hover": {
-                  opacity: 1,
-                  transform: "scale(1.1)",
-                },
-              }}
-            />
+            key={index}
+            component="img"
+            src={logo}
+            alt={`Partner ${index + 1}`}
+            sx={{
+              height: { xs: "30px", sm: "40px" }, // Más pequeño en mobile
+              maxWidth: { xs: "80px", sm: "120px" }, // Más pequeño en mobile
+              objectFit: "contain",
+              filter:
+                theme.palette.mode === "dark"
+                  ? "brightness(0) invert(1) opacity(0.8)"
+                  : "none",
+              transition: "all 0.3s ease",
+              opacity: 0.7,
+              "&:hover": {
+                opacity: 1,
+                transform: "scale(1.1)",
+              },
+            }}
+          />
           )
         )}
       </Box>
