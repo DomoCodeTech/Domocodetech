@@ -14,13 +14,14 @@ import {
   ListItemIcon,
   ListItemText,
   Paper,
-  Divider,
   Container,
   useMediaQuery,
+  IconButton,
+  Collapse,
 } from "@mui/material";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import { MdCheck, MdChevronRight } from "react-icons/md";
+import { MdCheck, MdAdd, MdRemove } from "react-icons/md";
 import { Service } from "../../constants/siteData";
 
 interface ServiceContentProps {
@@ -31,6 +32,14 @@ const ServiceContent: React.FC<ServiceContentProps> = ({ selectedService }) => {
   const { t } = useTranslation();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const [expandedItems, setExpandedItems] = React.useState<{ [key: string]: boolean }>({});
+
+  const handleExpandClick = (key: string) => {
+    setExpandedItems(prev => ({
+      ...prev,
+      [key]: !prev[key]
+    }));
+  };
 
   // Obtener la lista de servicios específicos
   const serviceList = t(`services.${selectedService.key}.serviceList`, {
@@ -193,7 +202,7 @@ const ServiceContent: React.FC<ServiceContentProps> = ({ selectedService }) => {
                             }}
                           >
                             <Stack spacing={2}>
-                              <Box sx={{ display: "flex", gap: 2 }}>
+                              <Box sx={{ display: "flex", gap: 2, alignItems: 'flex-start' }}>
                                 <Box
                                   sx={{
                                     minWidth: 40,
@@ -212,35 +221,52 @@ const ServiceContent: React.FC<ServiceContentProps> = ({ selectedService }) => {
                                   </Typography>
                                 </Box>
                                 <Box sx={{ flex: 1 }}>
-                                  <Typography
-                                    variant="h6"
-                                    sx={{
-                                      fontSize: { xs: "1.1rem", md: "1.2rem" },
-                                      fontWeight: 600,
-                                      mb: 1,
-                                      color:
-                                        theme.palette.mode === "dark"
-                                          ? "white"
-                                          : "text.primary",
-                                    }}
-                                  >
-                                    {value}
-                                  </Typography>
-                                  <Typography
-                                    variant="body2"
-                                    sx={{
-                                      color:
-                                        theme.palette.mode === "dark"
-                                          ? "rgba(255,255,255,0.7)"
-                                          : "text.secondary",
-                                      fontSize: { xs: "0.9rem", md: "1rem" },
-                                      lineHeight: 1.6,
-                                    }}
-                                  >
-                                    {t(
-                                      `services.${selectedService.key}.serviceDescriptions.${key}`
-                                    )}
-                                  </Typography>
+                                  <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 1 }}>
+                                    <Typography
+                                      variant="h6"
+                                      sx={{
+                                        fontSize: { xs: "1.1rem", md: "1.2rem" },
+                                        fontWeight: 600,
+                                        color:
+                                          theme.palette.mode === "dark"
+                                            ? "white"
+                                            : "text.primary",
+                                      }}
+                                    >
+                                      {value}
+                                    </Typography>
+                                    <IconButton
+                                      onClick={() => handleExpandClick(key)}
+                                      sx={{
+                                        color: theme.palette.primary.main,
+                                        p: 0.5,
+                                        '&:hover': {
+                                          backgroundColor: theme.palette.mode === 'dark'
+                                            ? 'rgba(255,255,255,0.1)'
+                                            : 'rgba(0,0,0,0.05)',
+                                        }
+                                      }}
+                                    >
+                                      {expandedItems[key] ? <MdRemove /> : <MdAdd />}
+                                    </IconButton>
+                                  </Box>
+                                  <Collapse in={expandedItems[key]} timeout="auto">
+                                    <Typography
+                                      variant="body2"
+                                      sx={{
+                                        color: theme.palette.mode === 'dark'
+                                          ? 'rgba(255,255,255,0.7)'
+                                          : 'text.secondary',
+                                        fontSize: { xs: '0.9rem', md: '1rem' },
+                                        lineHeight: 1.6,
+                                        mt: 1
+                                      }}
+                                    >
+                                      {t(
+                                        `services.${selectedService.key}.serviceDescriptions.${key}`
+                                      )}
+                                    </Typography>
+                                  </Collapse>
                                 </Box>
                               </Box>
                             </Stack>
