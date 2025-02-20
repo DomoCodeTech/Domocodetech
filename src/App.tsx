@@ -57,8 +57,8 @@ function App() {
       {/* CssBaseline normaliza los estilos base entre navegadores */}
       <CssBaseline />
       {/* Router maneja la navegación de la aplicación */}
-      <Router>
-        {/* Navbar es persistente en todas las rutas */}
+      <Router basename="/">
+      {/* Navbar es persistente en todas las rutas */}
         <Navbar isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
         {/* Contenedor principal con margen superior para el navbar fijo */}
         <main>
