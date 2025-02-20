@@ -42,7 +42,7 @@ const ServicePricing: React.FC<ServicePricingProps> = ({ serviceKey }) => {
   };
 
   return (
-    <Box sx={{ mt: { xs: 4, md: 8 }, mb: { xs: 4, md: 8 } }}>
+    <Box sx={{ mt: { xs: 4, md: 8 }, mb: { xs: 4, md: 8 } , px: { xs: 4, md: 16 } }}>
       <Typography
         variant="h3"
         align="center"
