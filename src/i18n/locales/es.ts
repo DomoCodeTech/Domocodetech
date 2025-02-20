@@ -215,7 +215,7 @@ export const esTranslations = {
       },
     },
     microcontrollers: {
-      title: "Programación de Microcontroladores",
+      title: "Programación de Micros",
       description:
         "Especializados en el desarrollo de sistemas embebidos y soluciones IoT de alta precisión. Programamos microcontroladores para automatizar procesos, controlar dispositivos y crear productos inteligentes que se integran perfectamente con tu infraestructura existente.",
       features: [
