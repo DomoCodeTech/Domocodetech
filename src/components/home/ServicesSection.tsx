@@ -322,24 +322,22 @@ const ServicesSection = () => {
           viewport={{ once: true }}
         >
           <Typography
-            variant="h2"
-            align="center"
-            sx={{
-              mb: 2,
-              color: theme.palette.mode === "dark" ? "white" : "text.primary",
-            }}
+             variant="h2"
+             component="h2"
+             align="center"
+             sx={{
+               mb: 2,
+               color: theme.palette.mode === "dark" ? "white" : "text.primary",
+             }}
           >
             {t("services.title")}
           </Typography>
           <Typography
-            variant="body1"
+            variant="h5"
+            component="p"
             align="center"
-            sx={{
-              color: "text.secondary",
-              mb: 8,
-              maxWidth: "600px",
-              mx: "auto",
-            }}
+            color="text.secondary"
+            sx={{ mb: { xs: 8, md: 6 } }}
           >
             {t("services.subtitle")}
           </Typography>

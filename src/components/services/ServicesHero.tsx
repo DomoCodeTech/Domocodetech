@@ -24,7 +24,7 @@ const ServicesHero = () => {
           theme.palette.mode === "dark"
             ? "0 8px 32px rgba(0,0,0,0.3)"
             : "0 8px 32px rgba(0,0,0,0.1)",
-        my: { xs: 6, md: 6 },
+        my: { xs: 10, md: 4 },
         "&::before": {
           content: '""',
           position: "absolute",
