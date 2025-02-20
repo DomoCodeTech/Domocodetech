@@ -180,7 +180,8 @@ const Team = () => {
                               : "0 4px 30px rgba(0, 0, 0, 0.1)",
                           transition: "all 0.3s ease-in-out",
                           borderRadius: "16px",
-                          position: "relative",
+                          minHeight: '510px', // Añade esta línea
+                          width: '100%',      // Añade esta línea
                           "&:hover": {
                             transform: "translateY(-8px)",
                             boxShadow:
