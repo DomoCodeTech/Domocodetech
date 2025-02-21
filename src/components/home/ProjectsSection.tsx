@@ -10,7 +10,7 @@
  * - Lista de características (tecnologías, funcionalidades, etc.)
  * - Botón para más información
  */
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import {
@@ -36,39 +36,56 @@ const ProjectsSection = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const [currentPage, setCurrentPage] = useState(0);
   const [direction, setDirection] = useState(0);
+  const [loadedImages, setLoadedImages] = useState<Set<string>>(new Set());
 
-  const projects = [
-    {
-      key: "web",
-      image: SITE_DATA.projects.images.web,
-      features: ["responsive", "cross-browser", "modern-ui"],
-    },
-    {
-      key: "mobile",
-      image: SITE_DATA.projects.images.mobile,
-      features: ["user-friendly", "performance", "api-integration"],
-    },
-    {
-      key: "homeAutomation",
-      image: SITE_DATA.projects.images.homeAutomation,
-      features: ["custom-design", "architecture", "cross-platform"],
-    },
-    {
-      key: "iot",
-      image: SITE_DATA.projects.images.iot,
-      features: ["smart-devices", "real-time", "cloud-integration"],
-    },
-    {
-      key: "networking",
-      image: SITE_DATA.projects.images.networking,
-      features: ["payment-gateway", "inventory", "analytics"],
-    },
-    {
-      key: "electronics",
-      image: SITE_DATA.projects.images.electronics,
-      features: ["consulting", "analysis", "solution"],
-    },
+  // Definir los proyectos usando los datos de las traducciones
+  const projectKeys = [
+    "web",
+    "mobile",
+    "homeAutomation",
+    "iot",
+    "networking",
+    "electronics",
   ];
+
+  const projects = useMemo(
+    () =>
+      projectKeys.map((key) => ({
+        key,
+        image:
+          SITE_DATA.projects.images[
+            key as keyof typeof SITE_DATA.projects.images
+          ],
+        features: t(`projects.${key}.features`, {
+          returnObjects: true,
+        }) as string[],
+      })),
+    [t]
+  );
+
+  const projectsPerPage = isMobile ? 1 : 3;
+  const totalPages = Math.ceil(projects.length / projectsPerPage);
+
+  // Precarga de imágenes
+  useEffect(() => {
+    const preloadImages = () => {
+      const nextPage = (currentPage + 1) % totalPages;
+      const start = nextPage * projectsPerPage;
+      const end = Math.min(start + projectsPerPage, projects.length);
+
+      projects.slice(start, end).forEach((project) => {
+        if (!loadedImages.has(project.image)) {
+          const img = new Image();
+          img.src = project.image;
+          img.onload = () => {
+            setLoadedImages((prev) => new Set([...prev, project.image]));
+          };
+        }
+      });
+    };
+
+    preloadImages();
+  }, [currentPage, projects, projectsPerPage, totalPages, loadedImages]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -76,9 +93,6 @@ const ProjectsSection = () => {
     }, 60000);
     return () => clearInterval(interval);
   }, [currentPage]);
-
-  const projectsPerPage = isMobile ? 1 : 3;
-  const totalPages = Math.ceil(projects.length / projectsPerPage);
 
   const handleNext = () => {
     setDirection(1);
@@ -201,7 +215,7 @@ const ProjectsSection = () => {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              px: { xs: 2, md: 0 }, // Añadido padding en móvil
+              px: { xs: 2, md: 0 },
             }}
           >
             <AnimatePresence initial={false} custom={direction} mode="wait">

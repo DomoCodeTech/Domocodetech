@@ -14,45 +14,42 @@ import {
   Button,
 } from '@mui/material';
 import { motion } from 'framer-motion';
-import { useTranslation } from 'react-i18next';
-import { Link as RouterLink } from 'react-router-dom';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import LightbulbIcon from '@mui/icons-material/Lightbulb';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import GroupsIcon from '@mui/icons-material/Groups';
 import SecurityIcon from '@mui/icons-material/Security';
-import { SITE_DATA } from '../../constants/siteData';
+import { Link as RouterLink } from 'react-router-dom';
 
-const SoftwareConsulting = () => {
+const HomeAutomation = () => {
   const theme = useTheme();
-  const { t } = useTranslation();
 
   const features = [
     {
       icon: <TrendingUpIcon />,
-      title: t('projects.features.optimization'),
-      description: 'Strategic planning and optimization of technology infrastructure'
+      title: 'Strategic Planning',
+      description: 'Develop comprehensive technology strategies aligned with business goals'
     },
     {
       icon: <LightbulbIcon />,
-      title: t('projects.features.innovation'),
-      description: 'Innovative solutions for complex business challenges'
+      title: 'Innovation Solutions',
+      description: 'Identify and implement innovative technologies to drive business growth'
     },
     {
       icon: <BarChartIcon />,
-      title: t('projects.features.analytics'),
-      description: 'Data-driven insights and performance analysis'
+      title: 'Performance Optimization',
+      description: 'Analyze and optimize technology infrastructure for maximum efficiency'
     },
     {
       icon: <GroupsIcon />,
-      title: t('projects.features.scalability'),
-      description: 'Scalable solutions for growing businesses'
+      title: 'Team Development',
+      description: 'Build and train high-performing technology teams'
     },
     {
       icon: <SecurityIcon />,
-      title: t('projects.features.security'),
-      description: 'Comprehensive security and risk assessment'
+      title: 'Risk Management',
+      description: 'Identify and mitigate technology risks and security threats'
     }
   ];
 
@@ -80,64 +77,28 @@ const SoftwareConsulting = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          {/* Hero Section */}
-          <Box
+          <Typography
+            variant="h1"
             sx={{
-              position: 'relative',
-              height: { xs: '200px', md: '400px' },
-              mb: 6,
-              borderRadius: 2,
-              overflow: 'hidden',
+              fontSize: { xs: '2.5rem', md: '3.5rem' },
+              mb: 2,
+              background: theme.palette.mode === 'dark'
+                ? 'linear-gradient(90deg, #FFFFFF 0%, #00FFA3 100%)'
+                : 'linear-gradient(90deg, #1A1A1A 0%, #00805E 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
             }}
           >
-            <Box
-              component="img"
-              src={SITE_DATA.projects.images.consulting}
-              alt={t('projects.consulting.title')}
-              sx={{
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover',
-              }}
-            />
-            <Box
-              sx={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                background: 'linear-gradient(180deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 100%)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                flexDirection: 'column',
-                p: 4,
-              }}
-            >
-              <Typography
-                variant="h1"
-                sx={{
-                  fontSize: { xs: '2.5rem', md: '3.5rem' },
-                  mb: 2,
-                  color: 'white',
-                  textAlign: 'center',
-                }}
-              >
-                {t('projects.consulting.title')}
-              </Typography>
-              <Typography
-                variant="h5"
-                sx={{
-                  color: 'rgba(255,255,255,0.9)',
-                  textAlign: 'center',
-                  maxWidth: '800px',
-                }}
-              >
-                {t('projects.consulting.description')}
-              </Typography>
-            </Box>
-          </Box>
+            Technology Consulting
+          </Typography>
+
+          <Typography
+            variant="h5"
+            color="text.secondary"
+            sx={{ mb: 6 }}
+          >
+            Empowering businesses through strategic technology solutions
+          </Typography>
 
           <Grid container spacing={4}>
             <Grid item xs={12} md={8}>
@@ -151,16 +112,19 @@ const SoftwareConsulting = () => {
               >
                 <CardContent>
                   <Typography variant="h6" gutterBottom>
-                    {t('projects.projectOverview')}
+                    Service Overview
                   </Typography>
                   <Typography variant="body1" paragraph>
-                    {t('projects.consulting.overview')}
+                    Our technology consulting services help businesses navigate the complex digital landscape and make informed decisions about their technology investments. We provide strategic guidance and practical solutions to drive digital transformation and business growth.
+                  </Typography>
+                  <Typography variant="body1" paragraph>
+                    With deep expertise in various technology domains, we help organizations optimize their technology infrastructure, improve operational efficiency, and achieve their business objectives.
                   </Typography>
                 </CardContent>
               </Card>
 
               <Typography variant="h6" gutterBottom>
-                {t('projects.keyFeatures')}
+                Key Services
               </Typography>
               <Grid container spacing={3}>
                 {features.map((feature, index) => (
@@ -201,13 +165,13 @@ const SoftwareConsulting = () => {
               >
                 <CardContent>
                   <Typography variant="h6" gutterBottom>
-                    {t('projects.consulting.techStack')}
+                    Areas of Expertise
                   </Typography>
                   <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
-                    {expertise.map((tech, index) => (
+                    {expertise.map((area, index) => (
                       <Chip
                         key={index}
-                        label={tech}
+                        label={area}
                         sx={{
                           background: theme.palette.mode === 'dark'
                             ? 'rgba(0, 255, 163, 0.1)'
@@ -231,7 +195,7 @@ const SoftwareConsulting = () => {
               >
                 <CardContent>
                   <Typography variant="h6" gutterBottom>
-                    {t('projects.developmentProcess')}
+                    Consulting Process
                   </Typography>
                   <List>
                     {[
@@ -274,7 +238,7 @@ const SoftwareConsulting = () => {
                 },
               }}
             >
-              {t('projects.scheduleConsultation')}
+              Schedule a Consultation
             </Button>
           </Box>
         </motion.div>
@@ -283,4 +247,4 @@ const SoftwareConsulting = () => {
   );
 };
 
-export default SoftwareConsulting; 
+export default HomeAutomation; 

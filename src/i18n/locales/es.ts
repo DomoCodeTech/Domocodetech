@@ -501,13 +501,13 @@ export const esTranslations = {
     desarrollo de software, electrónica, redes y soporte técnico. Nuestra trayectoria comenzó con la 
     visión de democratizar el acceso a la tecnología inteligente, y hoy continuamos expandiendo esa 
     misión a través de múltiples disciplinas tecnológicas.`,
-    
+
     mission: {
       title: "Nuestra Misión",
       description: `Promover la integración de tecnologías avanzadas en hogares y empresas, 
       desde sistemas domóticos hasta soluciones de software y redes. Nos esforzamos por transformar 
       espacios convencionales en entornos inteligentes, desarrollar software innovador, implementar 
-      redes robustas y brindar soporte técnico excepcional.`
+      redes robustas y brindar soporte técnico excepcional.`,
     },
 
     vision: {
@@ -515,29 +515,31 @@ export const esTranslations = {
       description: `Posicionarnos como referentes globales en tecnología integral, definiendo 
       estándares de excelencia en domótica, desarrollo de software, electrónica y redes. Buscamos 
       democratizar el acceso a sistemas inteligentes y soluciones tecnológicas avanzadas, 
-      manteniendo un equilibrio entre innovación, calidad y accesibilidad.`
+      manteniendo un equilibrio entre innovación, calidad y accesibilidad.`,
     },
 
     stats: [
       { number: "10+", label: "Años de Experiencia" },
       { number: "50+", label: "Proyectos Exitosos" },
       { number: "100+", label: "Clientes Satisfechos" },
-      { number: "5+", label: "Áreas de Especialización" }
+      { number: "5+", label: "Áreas de Especialización" },
     ],
 
     highlights: {
       innovation: {
         title: "Innovación Continua",
-        description: "Inversión del 10% en I+D para nuevas tecnologías y soluciones."
+        description:
+          "Inversión del 10% en I+D para nuevas tecnologías y soluciones.",
       },
       expertise: {
         title: "Experiencia Multidisciplinaria",
-        description: "Especialistas en domótica, software, redes, electrónica y soporte técnico."
+        description:
+          "Especialistas en domótica, software, redes, electrónica y soporte técnico.",
       },
       quality: {
         title: "Calidad Garantizada",
-        description: "90% de satisfacción del cliente y soporte 24/7."
-      }
+        description: "90% de satisfacción del cliente y soporte 24/7.",
+      },
     },
 
     values: {
@@ -546,19 +548,21 @@ export const esTranslations = {
         {
           icon: "innovation",
           title: "Innovación",
-          description: "Desarrollo continuo de soluciones tecnológicas avanzadas"
+          description:
+            "Desarrollo continuo de soluciones tecnológicas avanzadas",
         },
         {
           icon: "quality",
           title: "Excelencia",
-          description: "Compromiso con la calidad en cada proyecto y servicio"
+          description: "Compromiso con la calidad en cada proyecto y servicio",
         },
         {
           icon: "integrity",
           title: "Accesibilidad",
-          description: "Democratización de la tecnología para todos los sectores"
-        }
-      ]
+          description:
+            "Democratización de la tecnología para todos los sectores",
+        },
+      ],
     },
 
     objectives: {
@@ -568,9 +572,9 @@ export const esTranslations = {
         "Desarrollo de soluciones innovadoras",
         "Establecimiento de alianzas estratégicas",
         "Educación y concientización tecnológica",
-        "Compromiso con la sustentabilidad"
-      ]
-    }
+        "Compromiso con la sustentabilidad",
+      ],
+    },
   },
   // Blog Section
   blog: {
@@ -837,14 +841,15 @@ export const esTranslations = {
   // Projects Section
   projects: {
     title: "Nuestros Proyectos",
-    subtitle: "Explora nuestro portafolio de soluciones robustas.",
+    subtitle:
+      "Descubre nuestras áreas de especialización y proyectos destacados",
     features: {
       responsive: "Diseño responsivo",
       "cross-browser": "Compatibilidad multiplataforma",
       "modern-ui": "Diseño UI/UX moderno",
       "user-friendly": "Interfaz amigable",
       performance: "Alto rendimiento",
-      "api-integration": "Integración perfecta con APIs",
+      "api-integration": "Integración con APIs",
       "custom-design": "Diseño personalizado",
       architecture: "Arquitectura robusta",
       "cross-platform": "Funcionalidad multiplataforma",
@@ -863,106 +868,95 @@ export const esTranslations = {
       consulting: "Consultoría de Software",
       analysis: "Análisis",
       solution: "Solución",
-    },
-    consulting: {
-      title: "Consultoría de Software",
-      description:
-        "Asesoramiento estratégico y soluciones tecnológicas personalizadas.",
-      overview:
-        "Nuestro servicio de consultoría ayuda a las empresas a navegar el complejo panorama digital y tomar decisiones informadas sobre sus inversiones tecnológicas.",
-      techStack: "Áreas de Experiencia",
-      process: "Proceso de Consultoría",
+      "mobile-first": "Diseño Mobile First",
+      "offline-mode": "Modo sin conexión",
+      "push-notifications": "Notificaciones push",
+      "data-sync": "Sincronización de datos",
+      "voice-control": "Control por voz",
+      "energy-efficient": "Eficiencia energética",
+      "remote-access": "Acceso remoto",
+      "data-security": "Seguridad de datos",
+      "ai-integration": "Integración con IA",
+      blockchain: "Tecnología blockchain",
+      "cloud-backup": "Respaldo en la nube",
+      "multi-protocol": "Múltiples protocolos",
+      "hardware-integration": "Integración de hardware",
+      "custom-firmware": "Firmware personalizado",
+      "quality-control": "Control de calidad",
     },
     web: {
-      title: "Pagina Web Moderna",
+      title: "Desarrollo Web",
       description:
-        "Se realizo una pagina web moderna y responsiva para un restaurante en Bogotá.",
+        "Portafolio de sitios y aplicaciones web innovadoras, desde landing pages hasta plataformas empresariales complejas.",
       features: [
-        "Diseño responsivo",
-        "Compatibilidad multiplataforma",
-        "Diseño UI/UX moderno",
+        "responsive",
+        "cross-browser",
+        "modern-ui",
+        "performance",
+        "security",
       ],
-      overview:
-        "Nuestro servicio de desarrollo web se centra en crear soluciones modernas, escalables y eficientes que ayudan a las empresas a prosperar en la era digital.",
-      techStack: "Stack Tecnológico",
-      process: "Proceso de Desarrollo",
     },
     mobile: {
-      title: "Aplicación Móvil",
+      title: "Desarrollo Móvil",
       description:
-        "Se desarrollo una aplicacion movil multiplataforma para una Constructora en EE.UU.",
+        "Colección de aplicaciones móviles nativas y multiplataforma para diversos sectores empresariales.",
       features: [
-        "Interfaz amigable",
-        "Alto rendimiento",
-        "Multiplataforma"
+        "mobile-first",
+        "offline-mode",
+        "push-notifications",
+        "performance",
+        "data-sync",
       ],
-      overview:
-        "Nuestro servicio de desarrollo móvil entrega aplicaciones nativas de alta calidad para plataformas iOS y Android.",
-      techStack: "Stack Tecnológico",
-      process: "Proceso de Desarrollo",
     },
-    software: {
-      title: "Software Domotico",
+    homeAutomation: {
+      title: "Domótica",
       description:
-        "Integramos un sistema domotico con diseño personalizado para un apartamento lujoso en Bogota.",
+        "Proyectos de automatización inteligente para hogares y edificios, integrando las últimas tecnologías en control y monitoreo.",
       features: [
-        "Aplicaciones web",
-        "Apps móviles",
-        "Software empresarial",
-        "APIs y microservicios",
-        "Bases de datos",
+        "voice-control",
+        "energy-efficient",
+        "remote-access",
+        "smart-devices",
+        "automation",
       ],
-      serviceList: {
-        webApps: "Desarrollo de aplicaciones web personalizadas",
-        mobileApps: "Aplicaciones móviles nativas y multiplataforma",
-        apiDevelopment: "Desarrollo de APIs y microservicios",
-        databaseDesign: "Diseño y optimización de bases de datos",
-        systemIntegration: "Integración de sistemas y aplicaciones",
-        cloudMigration: "Migración y servicios en la nube",
-      },
-      serviceDescriptions: {
-        webApps:
-          "Desarrollamos aplicaciones web modernas y responsivas utilizando las últimas tecnologías y frameworks. Nuestras soluciones son escalables, seguras y optimizadas para un rendimiento excepcional.",
-        mobileApps:
-          "Creamos aplicaciones móviles nativas y multiplataforma que ofrecen una experiencia de usuario excepcional. Utilizamos tecnologías como React Native y Flutter para garantizar la mejor calidad.",
-        apiDevelopment:
-          "Diseñamos y desarrollamos APIs RESTful y microservicios que permiten una integración perfecta entre sistemas. Implementamos las mejores prácticas de seguridad y documentación.",
-        databaseDesign:
-          "Optimizamos el diseño de bases de datos para garantizar un rendimiento óptimo y una gestión eficiente de los datos. Trabajamos con bases de datos SQL y NoSQL.",
-        systemIntegration:
-          "Facilitamos la integración perfecta entre diferentes sistemas y aplicaciones, asegurando una comunicación fluida y eficiente entre todas las partes.",
-        cloudMigration:
-          "Ayudamos en la migración de sistemas a la nube, optimizando costos y mejorando la escalabilidad. Trabajamos con los principales proveedores de servicios cloud.",
-      },
     },
     iot: {
-      title: "Soluciones IoT",
+      title: "Internet de las Cosas",
       description:
-        "Dispositivos y sistemas inteligentes para monitoreo y control automatizado.",
+        "Soluciones IoT innovadoras que conectan dispositivos y sistemas para crear entornos inteligentes y eficientes.",
       features: [
-        "Integración de dispositivos inteligentes",
-        "Monitoreo en tiempo real",
-        "Conectividad en la nube",
+        "real-time",
+        "cloud-integration",
+        "ai-integration",
+        "blockchain",
+        "cloud-backup",
       ],
-      overview:
-        "Desarrollamos soluciones IoT innovadoras que conectan y automatizan dispositivos para crear sistemas inteligentes.",
-      techStack: "Stack Tecnológico",
-      process: "Proceso de Desarrollo",
     },
-    ecommerce: {
-      title: "Plataforma E-commerce",
+    networking: {
+      title: "Redes y Sistemas",
       description:
-        "Solución completa de tienda en línea con características avanzadas.",
+        "Implementaciones de infraestructura de red y sistemas empresariales con énfasis en seguridad y rendimiento.",
       features: [
-        "Pasarela de pago segura",
-        "Gestión de inventario",
-        "Panel de análisis",
+        "security",
+        "performance",
+        "scalability",
+        "monitoring",
+        "optimization",
       ],
-      overview:
-        "Implementamos plataformas de comercio electrónico completas y personalizadas para impulsar tu negocio en línea.",
-      techStack: "Stack Tecnológico",
-      process: "Proceso de Desarrollo",
     },
+    electronics: {
+      title: "Electrónica y Hardware",
+      description:
+        "Desarrollo de soluciones electrónicas personalizadas, desde prototipos hasta productos listos para producción.",
+      features: [
+        "hardware-integration",
+        "custom-firmware",
+        "quality-control",
+        "custom-design",
+        "analysis",
+      ],
+    },
+
     featuresTitle: "Características",
     startProject: "Iniciar Proyecto",
     scheduleConsultation: "Agendar Consulta",
@@ -1003,53 +997,57 @@ export const esTranslations = {
   timeline: {
     milestones: [
       {
-        year: '2018',
-        title: 'Primeros Pasos',
-        description: 'Inicio de proyectos independientes en domótica y automatización',
-        icon: '🌱'
+        year: "2018",
+        title: "Primeros Pasos",
+        description:
+          "Inicio de proyectos independientes en domótica y automatización",
+        icon: "🌱",
       },
       {
-        year: '2019',
-        title: 'Especialización Técnica',
-        description: 'Certificaciones en tecnologías IoT y sistemas embebidos',
-        icon: '📚'
+        year: "2019",
+        title: "Especialización Técnica",
+        description: "Certificaciones en tecnologías IoT y sistemas embebidos",
+        icon: "📚",
       },
       {
-        year: '2020',
-        title: 'Proyectos Remotos',
-        description: 'Adaptación a servicios digitales y soporte remoto',
-        icon: '🌐'
+        year: "2020",
+        title: "Proyectos Remotos",
+        description: "Adaptación a servicios digitales y soporte remoto",
+        icon: "🌐",
       },
       {
-        year: '2021',
-        title: 'Expansión Digital',
-        description: 'Desarrollo de primeras aplicaciones móviles y plataformas web',
-        icon: '📱'
+        year: "2021",
+        title: "Expansión Digital",
+        description:
+          "Desarrollo de primeras aplicaciones móviles y plataformas web",
+        icon: "📱",
       },
       {
-        year: '2022',
-        title: 'Fundación Oficial',
-        description: 'Establecimiento formal de DomoCodeTech como empresa',
-        icon: '🚀'
+        year: "2022",
+        title: "Fundación Oficial",
+        description: "Establecimiento formal de DomoCodeTech como empresa",
+        icon: "🚀",
       },
       {
-        year: '2023',
-        title: 'Crecimiento Integral',
-        description: 'Incorporación de servicios de redes y desarrollo de software',
-        icon: '💻'
+        year: "2023",
+        title: "Crecimiento Integral",
+        description:
+          "Incorporación de servicios de redes y desarrollo de software",
+        icon: "💻",
       },
       {
-        year: '2024',
-        title: 'Innovación Tecnológica',
-        description: 'Implementación de soluciones avanzadas en IoT y automatización',
-        icon: '⚡'
+        year: "2024",
+        title: "Innovación Tecnológica",
+        description:
+          "Implementación de soluciones avanzadas en IoT y automatización",
+        icon: "⚡",
       },
       {
-        year: '2025',
-        title: 'Centro de Innovación',
-        description: 'Inauguración del centro de investigación y desarrollo',
-        icon: '🔬'
-      }
-    ]
-  }
+        year: "2025",
+        title: "Centro de Innovación",
+        description: "Inauguración del centro de investigación y desarrollo",
+        icon: "🔬",
+      },
+    ],
+  },
 };

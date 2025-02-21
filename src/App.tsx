@@ -21,11 +21,12 @@ import MejoresPracticasCiberseguridad from "./pages/blog/MejoresPracticasCiberse
 import WebApplication from "./pages/projects/WebApplication";
 import MobileApplication from "./pages/projects/MobileApplication";
 import IoTSolutions from "./pages/projects/IoTSolutions";
-import EcommercePlatform from "./pages/projects/EcommercePlatform";
-import SoftwareConsulting from "./pages/projects/SoftwareConsulting";
+import Electronics from "./pages/projects/Electronics";
+import Networking from "./pages/projects/Networking";
 import RevolucionIoTIndustria from "./pages/blog/RevolucionIoTIndustria";
 import AutomatizacionRoboticaProcesos from "./pages/blog/AutomatizacionRoboticaProcesos";
 import InnovacionesDesarrolloWeb from "./pages/blog/InnovacionesDesarrolloWeb";
+import HomeAutomation from "./pages/projects/HomeAutomation";
 
 function App() {
   // Estado para controlar el modo oscuro/claro
@@ -51,7 +52,8 @@ function App() {
     });
   };
 
-  const Router = process.env.NODE_ENV === 'production' ? HashRouter : BrowserRouter;
+  const Router =
+    process.env.NODE_ENV === "production" ? HashRouter : BrowserRouter;
 
   return (
     // ThemeProvider proporciona el tema a todos los componentes hijos
@@ -60,7 +62,7 @@ function App() {
       <CssBaseline />
       {/* Router maneja la navegación de la aplicación */}
       <Router basename="/">
-      {/* Navbar es persistente en todas las rutas */}
+        {/* Navbar es persistente en todas las rutas */}
         <Navbar isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
         {/* Contenedor principal con margen superior para el navbar fijo */}
         <main>
@@ -73,10 +75,11 @@ function App() {
             <Route path="/projects/web" element={<WebApplication />} />
             <Route path="/projects/mobile" element={<MobileApplication />} />
             <Route path="/projects/iot" element={<IoTSolutions />} />
-            <Route path="/projects/ecommerce" element={<EcommercePlatform />} />
+            <Route path="/projects/electronics" element={<Electronics />} />
+            <Route path="/projects/networking" element={<Networking />} />
             <Route
-              path="/projects/consulting"
-              element={<SoftwareConsulting />}
+              path="/projects/homeAutomation"
+              element={<HomeAutomation />}
             />
             <Route path="/blog" element={<Blog />} />
             <Route
@@ -91,9 +94,18 @@ function App() {
               path="/blog/mejores-practicas-ciberseguridad"
               element={<MejoresPracticasCiberseguridad />}
             />
-            <Route path="/blog/revolucion-iot-industria" element={<RevolucionIoTIndustria />} />
-            <Route path="/blog/automatizacion-robotica-procesos" element={<AutomatizacionRoboticaProcesos />} />
-            <Route path="/blog/innovaciones-desarrollo-web" element={<InnovacionesDesarrolloWeb />} />
+            <Route
+              path="/blog/revolucion-iot-industria"
+              element={<RevolucionIoTIndustria />}
+            />
+            <Route
+              path="/blog/automatizacion-robotica-procesos"
+              element={<AutomatizacionRoboticaProcesos />}
+            />
+            <Route
+              path="/blog/innovaciones-desarrollo-web"
+              element={<InnovacionesDesarrolloWeb />}
+            />
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>
