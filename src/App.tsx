@@ -14,7 +14,6 @@ import Services from "./pages/Services";
 import Contact from "./pages/Contact";
 import { createAppTheme } from "./theme/theme";
 import "./i18n/i18n";
-import Projects from "./pages/Projects";
 import FuturoIANegocios from "./pages/blog/FuturoIANegocios";
 import TendenciasCloudComputing from "./pages/blog/TendenciasCloudComputing";
 import MejoresPracticasCiberseguridad from "./pages/blog/MejoresPracticasCiberseguridad";
@@ -73,7 +72,6 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
-            <Route path="/projects" element={<Projects />} />
             <Route path="/projects/web" element={<WebApplication />} />
             <Route path="/projects/mobile" element={<MobileApplication />} />
             <Route path="/projects/iot" element={<IoTSolutions />} />
