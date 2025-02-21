@@ -1,3 +1,4 @@
+import React from "react";
 import { Canvas } from "@react-three/fiber";
 import { Sphere, OrbitControls } from "@react-three/drei";
 import * as THREE from "three";
