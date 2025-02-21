@@ -61,6 +61,7 @@ const ServicesHero = () => {
                   mb: 2,
                   display: "block",
                   fontSize: { xs: "0.85rem", md: "1rem" },
+                  textAlign: { xs: "justify", md: "justify" },
                 }}
               >
                 {t("services.subtitle")}
@@ -69,6 +70,8 @@ const ServicesHero = () => {
                 variant="h1"
                 sx={{
                   fontSize: { xs: "2.5rem", sm: "3rem", md: "4rem" },
+                  textAlign: { xs: "justify", md: "justify" },
+
                   fontWeight: 800,
                   mb: 3,
                   background:
@@ -94,6 +97,7 @@ const ServicesHero = () => {
                   maxWidth: "500px",
                   lineHeight: 1.6,
                   fontSize: { xs: "1.1rem", md: "1.25rem" },
+                  textAlign: { xs: "justify", md: "justify" },
                 }}
               >
                 {t("services.introduction")}
