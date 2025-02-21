@@ -22,9 +22,9 @@ import {
   MdGroups,
   MdTrendingUp,
   MdStars,
-  MdPublic
+  MdPublic,
 } from "react-icons/md";
-import Timeline from '../components/about/Timeline';
+import Timeline from "../components/about/Timeline";
 
 interface StatItem {
   number: string;
@@ -54,19 +54,19 @@ const About: React.FC = () => {
   const highlights = [
     {
       icon: <MdTrendingUp size={40} />,
-      title: t('about.highlight1.title'),
-      description: t('about.highlight1.description')
+      title: t("about.highlight1.title"),
+      description: t("about.highlight1.description"),
     },
     {
       icon: <MdStars size={40} />,
-      title: t('about.highlight2.title'),
-      description: t('about.highlight2.description')
+      title: t("about.highlight2.title"),
+      description: t("about.highlight2.description"),
     },
     {
       icon: <MdPublic size={40} />,
-      title: t('about.highlight3.title'),
-      description: t('about.highlight3.description')
-    }
+      title: t("about.highlight3.title"),
+      description: t("about.highlight3.description"),
+    },
   ];
 
   const containerVariants = {
@@ -85,7 +85,7 @@ const About: React.FC = () => {
       y: 0,
       opacity: 1,
       transition: {
-        duration: 0.5,
+        duration: 0.1,
       },
     },
   };
@@ -191,16 +191,16 @@ const About: React.FC = () => {
                   <Box
                     sx={{
                       p: 2,
-                      textAlign: 'center',
-                      color: 'text.secondary',
+                      textAlign: "center",
+                      color: "text.secondary",
                     }}
                   >
                     <Box
                       sx={{
                         mb: 2,
-                        color: 'primary.main',
-                        display: 'flex',
-                        justifyContent: 'center'
+                        color: "primary.main",
+                        display: "flex",
+                        justifyContent: "center",
                       }}
                     >
                       {highlight.icon}
@@ -208,7 +208,7 @@ const About: React.FC = () => {
                     <Typography
                       variant="h6"
                       sx={{
-                        color: 'primary.main',
+                        color: "primary.main",
                         mb: 1,
                         fontWeight: 600,
                       }}
@@ -224,7 +224,7 @@ const About: React.FC = () => {
             </Grid>
           </Box>
         </motion.div>
-        
+
         {/* Add Timeline after hero section */}
         <Timeline />
 
