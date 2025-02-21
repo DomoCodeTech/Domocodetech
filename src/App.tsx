@@ -27,6 +27,7 @@ import RevolucionIoTIndustria from "./pages/blog/RevolucionIoTIndustria";
 import AutomatizacionRoboticaProcesos from "./pages/blog/AutomatizacionRoboticaProcesos";
 import InnovacionesDesarrolloWeb from "./pages/blog/InnovacionesDesarrolloWeb";
 import HomeAutomation from "./pages/projects/HomeAutomation";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   // Estado para controlar el modo oscuro/claro
@@ -62,6 +63,7 @@ function App() {
       <CssBaseline />
       {/* Router maneja la navegación de la aplicación */}
       <Router basename="/">
+        <ScrollToTop />
         {/* Navbar es persistente en todas las rutas */}
         <Navbar isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
         {/* Contenedor principal con margen superior para el navbar fijo */}
