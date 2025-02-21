@@ -241,7 +241,18 @@ const Contact: React.FC = () => {
       <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
         <Grid container spacing={4} alignItems="center">
           {/* Título y descripción */}
-          <Grid item xs={12} md={6} order={{ xs: 1, md: 1 }}>
+          <Grid
+            item
+            xs={12}
+            md={6}
+            order={{ xs: 1, md: 1 }}
+            sx={{
+              width: "100%",
+              // Centramos el texto en móvil cuando no hay modelo 3D
+              textAlign: { xs: "center", md: "left" },
+              px: { xs: 2, md: 3 },
+            }}
+          >
             <motion.div
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
@@ -276,15 +287,19 @@ const Contact: React.FC = () => {
           </Grid>
 
           {/* TechSphere */}
-          <Grid item xs={12} md={6} order={{ xs: 2, md: 2 }}>
+          <Grid
+            item
+            md={6}
+            order={{ xs: 2, md: 2 }}
+            sx={{
+              display: { xs: "none", md: "block" }, // Ocultar en móvil
+            }}
+          >
             <Box
               sx={{
-                height: { xs: "250px", sm: "300px", md: "500px" },
+                height: "500px",
                 width: "100%",
                 position: "relative",
-                opacity: { xs: 0.6, md: 1 }, // Más transparente en móviles
-                filter: { xs: "blur(0.5px)", md: "none" }, // Ligero desenfoque en móviles
-                transform: { xs: "scale(0.9)", md: "scale(1)" }, // Ligeramente más pequeño en móviles
               }}
             >
               <TechSphere height="100%" />
