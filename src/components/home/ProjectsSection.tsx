@@ -49,23 +49,23 @@ const ProjectsSection = () => {
       features: ["user-friendly", "performance", "api-integration"],
     },
     {
-      key: "software",
-      image: SITE_DATA.projects.images.software,
+      key: "homeAutomation",
+      image: SITE_DATA.projects.images.homeAutomation,
       features: ["custom-design", "architecture", "cross-platform"],
     },
     {
       key: "iot",
-      image: SITE_DATA.projects.images.iot, 
+      image: SITE_DATA.projects.images.iot,
       features: ["smart-devices", "real-time", "cloud-integration"],
     },
     {
-      key: "ecommerce",
-      image: SITE_DATA.projects.images.ecommerce, 
+      key: "networking",
+      image: SITE_DATA.projects.images.networking,
       features: ["payment-gateway", "inventory", "analytics"],
     },
     {
-      key: "consulting",
-      image: SITE_DATA.projects.images.consulting, 
+      key: "electronics",
+      image: SITE_DATA.projects.images.electronics,
       features: ["consulting", "analysis", "solution"],
     },
   ];

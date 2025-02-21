@@ -548,7 +548,8 @@ export const enTranslations = {
     },
     mobile: {
       title: "Mobile Application",
-      description: "A cross-platform mobile application was developed for a construction company in the U.S.",
+      description:
+        "A cross-platform mobile application was developed for a construction company in the U.S.",
       features: [
         "User-friendly interface",
         "High performance",
@@ -559,7 +560,7 @@ export const enTranslations = {
       techStack: "Technology Stack",
       process: "Development Process",
     },
-    software: {
+    homeAutomation: {
       title: "Home Automation",
       description:
         "We integrated a home automation system with a custom design for a luxurious apartment in Bogotá.",
@@ -587,7 +588,7 @@ export const enTranslations = {
       techStack: "Technology Stack",
       process: "Development Process",
     },
-    ecommerce: {
+    networking: {
       title: "E-commerce Platform",
       description: "Complete online store solution with advanced features.",
       features: [
@@ -600,6 +601,23 @@ export const enTranslations = {
       techStack: "Technology Stack",
       process: "Development Process",
     },
+    electronics: {
+      title: "Electronics Development",
+      description: "Custom electronics design and development services.",
+      features: [
+        "Circuit design",
+        "Prototype development",
+        "Quality control",
+        "Certifications",
+        "Production support",
+        "Complete documentation",
+      ],
+      overview:
+        "We develop custom electronics solutions that perfectly fit your specific business needs.",
+      techStack: "Technology Stack",
+      process: "Development Process",
+    },
+
     featuresTitle: "Features",
     startProject: "Start Project",
     scheduleConsultation: "Schedule Consultation",
@@ -1040,53 +1058,54 @@ export const enTranslations = {
   timeline: {
     milestones: [
       {
-        year: '2018',
-        title: 'First Steps',
-        description: 'Beginning of independent projects in home automation',
-        icon: '🌱'
+        year: "2018",
+        title: "First Steps",
+        description: "Beginning of independent projects in home automation",
+        icon: "🌱",
       },
       {
-        year: '2019',
-        title: 'Technical Specialization',
-        description: 'Certifications in IoT technologies and embedded systems',
-        icon: '📚'
+        year: "2019",
+        title: "Technical Specialization",
+        description: "Certifications in IoT technologies and embedded systems",
+        icon: "📚",
       },
       {
-        year: '2020',
-        title: 'Remote Projects',
-        description: 'Adaptation to digital services and remote support',
-        icon: '🌐'
+        year: "2020",
+        title: "Remote Projects",
+        description: "Adaptation to digital services and remote support",
+        icon: "🌐",
       },
       {
-        year: '2021',
-        title: 'Digital Expansion',
-        description: 'Development of first mobile apps and web platforms',
-        icon: '📱'
+        year: "2021",
+        title: "Digital Expansion",
+        description: "Development of first mobile apps and web platforms",
+        icon: "📱",
       },
       {
-        year: '2022',
-        title: 'Official Foundation',
-        description: 'Formal establishment of DomoCodeTech as a company',
-        icon: '🚀'
+        year: "2022",
+        title: "Official Foundation",
+        description: "Formal establishment of DomoCodeTech as a company",
+        icon: "🚀",
       },
       {
-        year: '2023',
-        title: 'Integral Growth',
-        description: 'Integration of networking and software development services',
-        icon: '💻'
+        year: "2023",
+        title: "Integral Growth",
+        description:
+          "Integration of networking and software development services",
+        icon: "💻",
       },
       {
-        year: '2024',
-        title: 'Technological Innovation',
-        description: 'Implementation of advanced IoT and automation solutions',
-        icon: '⚡'
+        year: "2024",
+        title: "Technological Innovation",
+        description: "Implementation of advanced IoT and automation solutions",
+        icon: "⚡",
       },
       {
-        year: '2025',
-        title: 'Innovation Center',
-        description: 'Inauguration of research and development center',
-        icon: '🔬'
-      }
-    ]
-  }
+        year: "2025",
+        title: "Innovation Center",
+        description: "Inauguration of research and development center",
+        icon: "🔬",
+      },
+    ],
+  },
 };

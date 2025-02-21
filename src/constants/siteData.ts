@@ -138,14 +138,12 @@ export const SITE_DATA = {
   },
   projects: {
     images: {
-      web: "/images/projects/project2.webp",
-      mobile: "/images/projects/project1.webp",
-      software: "/images/projects/project3.webp",
-      iot: "https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg",
-      ecommerce:
-        "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg",
-      consulting:
-        "https://images.pexels.com/photos/7681091/pexels-photo-7681091.jpeg",
+      web: "/images/projects/project1.webp",
+      mobile: "/images/projects/project2.webp",
+      homeAutomation: "/images/projects/project3.webp",
+      iot: "/images/projects/project4.webp",
+      networking: "/images/projects/project5.webp",
+      electronics: "/images/projects/project6.webp",
     },
   },
   pricing: {
