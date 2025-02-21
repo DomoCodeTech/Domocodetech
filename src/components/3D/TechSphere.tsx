@@ -1,5 +1,4 @@
-import { Canvas, useFrame } from "@react-three/fiber";
-import { useRef, useState } from "react";
+import { Canvas } from "@react-three/fiber";
 import { Sphere, OrbitControls } from "@react-three/drei";
 import * as THREE from "three";
 
@@ -9,12 +8,11 @@ interface TechSphereProps {
 }
 
 const CoreSphere = () => {
-  const sphereRef = useRef<THREE.Mesh>(null);
-  const [hovered, setHovered] = useState(false);
-
   // Crear textura procedural para el planeta
   const planetTexture = new THREE.DataTexture(
-    Float32Array.from(Array(256 * 256).map(() => Math.random() > 0.65 ? 1 : 0)),
+    Float32Array.from(
+      Array(256 * 256).map(() => (Math.random() > 0.65 ? 1 : 0))
+    ),
     256,
     256,
     THREE.RedFormat,
@@ -22,13 +20,7 @@ const CoreSphere = () => {
   );
   planetTexture.needsUpdate = true;
 
-  useFrame((state) => {
-    if (sphereRef.current) {
-      sphereRef.current.rotation.y += 0.001;
-      const pulse = 1 + Math.sin(state.clock.getElapsedTime() * 0.5) * 0.01;
-      sphereRef.current.scale.setScalar(hovered ? pulse : 1);
-    }
-  });
+  
 
   return (
     <group>
@@ -40,27 +32,6 @@ const CoreSphere = () => {
           opacity={0.1}
           side={THREE.BackSide}
           blending={THREE.AdditiveBlending}
-        />
-      </Sphere>
-
-      {/* Planeta principal */}
-      <Sphere
-        args={[2, 64, 64]}
-        ref={sphereRef}
-        onPointerOver={() => setHovered(true)}
-        onPointerOut={() => setHovered(false)}
-      >
-        <meshPhysicalMaterial
-          color="#004d40"
-          metalness={0.4}
-          roughness={0.7}
-          clearcoat={1}
-          clearcoatRoughness={0.1}
-          envMapIntensity={0.4}
-          bumpMap={planetTexture}
-          bumpScale={0.05}
-          emissive="#00FFA3"
-          emissiveIntensity={0.05}
         />
       </Sphere>
 
@@ -102,14 +73,14 @@ const TechSphere: React.FC<TechSphereProps> = ({
     <div style={{ height, width, position: "relative" }}>
       <Canvas
         camera={{ position: [0, 0, 8], fov: 45 }}
-        style={{ background: 'transparent' }}
+        style={{ background: "transparent" }}
       >
         <ambientLight intensity={0.2} />
         <pointLight position={[10, 10, 10]} intensity={2} color="#00FFA3" />
         <pointLight position={[-10, -10, -10]} intensity={1} color="#004d40" />
-        
+
         <CoreSphere />
-        
+
         <OrbitControls
           enableZoom={true}
           enablePan={false}

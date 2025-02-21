@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import {
   Box,
   Container,
@@ -82,8 +82,6 @@ const Contact: React.FC = () => {
   const [captchaValue, setCaptchaValue] = useState<string | null>(null);
   const formRef = useRef<HTMLFormElement>(null);
   const recaptchaRef = useRef<ReCAPTCHA>(null);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [isHovering, setIsHovering] = useState(false);
 
   const contactInfo = [
     {
@@ -166,15 +164,6 @@ const Contact: React.FC = () => {
     setOpenSnackbar(false);
   };
 
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, []);
-
   const handleWhatsAppClick = () => {
     window.open(`https://wa.me/${SITE_DATA.company.phone}`, "_blank");
   };
@@ -229,11 +218,6 @@ const Contact: React.FC = () => {
           pointerEvents: "none",
           zIndex: 9999,
           mixBlendMode: "screen",
-        }}
-        animate={{
-          x: mousePosition.x - 20,
-          y: mousePosition.y - 20,
-          scale: isHovering ? 1.5 : 1,
         }}
         transition={{ type: "spring", damping: 30, stiffness: 200 }}
       />
@@ -313,8 +297,6 @@ const Contact: React.FC = () => {
               ref={formRef}
               onSubmit={handleSubmit}
               className="hover-glow"
-              onMouseEnter={() => setIsHovering(true)}
-              onMouseLeave={() => setIsHovering(false)}
               sx={{
                 height: "100%",
                 bgcolor: alpha(theme.palette.background.paper, 0.1),
@@ -484,8 +466,6 @@ const Contact: React.FC = () => {
           <Grid item xs={12} md={6} order={{ xs: 4, md: 4 }}>
             <Card
               className="hover-glow"
-              onMouseEnter={() => setIsHovering(true)}
-              onMouseLeave={() => setIsHovering(false)}
               sx={{
                 height: "100%",
                 bgcolor: alpha(theme.palette.background.paper, 0.1),
