@@ -266,6 +266,9 @@ export const enTranslations = {
           "We offer personalized training for system users and administrators. We develop training programs adapted to different experience levels.",
       },
     },
+    selector: {
+      title: "Select the service category you want to explore",
+    },
     pricingPlans: {
       software: [
         {

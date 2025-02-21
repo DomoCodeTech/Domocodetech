@@ -251,6 +251,45 @@ const ProcessFlow = () => {
           ))}
         </Box>
       </Box>
+
+      {/* Título añadido al final */}
+      <Box sx={{ mt: 6, textAlign: "center" }}>
+        <Typography
+          variant="h4"
+          align="center"
+          sx={{
+            fontWeight: 700,
+            fontSize: { xs: "1.75rem", md: "2.25rem" },
+            color: (theme) =>
+              theme.palette.mode === "dark" ? "#00FFA3" : "#00805E",
+            textShadow: (theme) =>
+              theme.palette.mode === "dark"
+                ? "0 0 7px #00FFA380, 0 0 10px #00FFA360, 0 0 21px #00FFA340"
+                : "0 0 7px #00805E80, 0 0 10px #00805E60, 0 0 21px #00805E40",
+            letterSpacing: "0.5px",
+            position: "relative",
+            "&::after": {
+              content: '""',
+              position: "absolute",
+              bottom: -10,
+              left: "50%",
+              transform: "translateX(-50%)",
+              width: "60px",
+              height: "3px",
+              background: (theme) =>
+                theme.palette.mode === "dark"
+                  ? "linear-gradient(90deg, transparent, #00FFA3, transparent)"
+                  : "linear-gradient(90deg, transparent, #00805E, transparent)",
+              boxShadow: (theme) =>
+                theme.palette.mode === "dark"
+                  ? "0 0 10px #00FFA380, 0 0 20px #00FFA360"
+                  : "0 0 10px #00805E80, 0 0 20px #00805E60",
+            },
+          }}
+        >
+          {t("services.selector.title")}
+        </Typography>
+      </Box>
     </Container>
   );
 };

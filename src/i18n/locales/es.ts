@@ -56,6 +56,9 @@ export const esTranslations = {
     },
     viewMore: "Ver Más",
     servicesList: "Lista de Servicios",
+    selector: {
+      title: "Selecciona la categoría del servicio que deseas explorar",
+    },
     domotics: {
       title: "Domótica",
       description:
