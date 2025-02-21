@@ -706,6 +706,7 @@ export const esTranslations = {
       emailAddress: "info@DomoCodeTech.com",
       businessHours: "Lunes - Viernes: 9:00 AM - 6:00 PM",
     },
+    whatsapp: "Contáctanos por WhatsApp",
   },
   // Testimonials Section
   testimonials: {

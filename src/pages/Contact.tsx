@@ -14,6 +14,8 @@ import {
   Snackbar,
   Alert,
   CircularProgress,
+  IconButton,
+  Tooltip,
 } from "@mui/material";
 import { motion } from "framer-motion";
 import EmailIcon from "@mui/icons-material/Email";
@@ -26,6 +28,7 @@ import { SITE_DATA } from "../constants/siteData";
 import ReCAPTCHA from "react-google-recaptcha";
 import emailjs from "@emailjs/browser";
 import TechSphere from "../components/3D/TechSphere";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 
 interface FormData {
   from_name: string;
@@ -172,6 +175,10 @@ const Contact: React.FC = () => {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
+  const handleWhatsAppClick = () => {
+    window.open(`https://wa.me/${SITE_DATA.company.phone}`, "_blank");
+  };
+
   return (
     <Box
       sx={{
@@ -272,9 +279,12 @@ const Contact: React.FC = () => {
           <Grid item xs={12} md={6} order={{ xs: 2, md: 2 }}>
             <Box
               sx={{
-                height: { xs: "400px", md: "500px" },
+                height: { xs: "250px", sm: "300px", md: "500px" },
                 width: "100%",
                 position: "relative",
+                opacity: { xs: 0.6, md: 1 }, // Más transparente en móviles
+                filter: { xs: "blur(0.5px)", md: "none" }, // Ligero desenfoque en móviles
+                transform: { xs: "scale(0.9)", md: "scale(1)" }, // Ligeramente más pequeño en móviles
               }}
             >
               <TechSphere height="100%" />
@@ -556,6 +566,42 @@ const Contact: React.FC = () => {
           </Grid>
         </Grid>
       </Container>
+
+      {/* WhatsApp Floating Button */}
+      <Tooltip title={t("contact.whatsapp")} placement="left">
+        <IconButton
+          onClick={handleWhatsAppClick}
+          sx={{
+            position: "fixed",
+            bottom: 32,
+            right: 32,
+            bgcolor: "#25D366",
+            width: 56,
+            height: 56,
+            "&:hover": {
+              bgcolor: "#128C7E",
+              transform: "scale(1.1)",
+            },
+            transition: "all 0.3s ease-in-out",
+            zIndex: 1000,
+            boxShadow: "0 4px 20px rgba(37, 211, 102, 0.4)",
+            animation: "pulse 2s infinite",
+            "@keyframes pulse": {
+              "0%": {
+                boxShadow: "0 0 0 0 rgba(37, 211, 102, 0.4)",
+              },
+              "70%": {
+                boxShadow: "0 0 0 15px rgba(37, 211, 102, 0)",
+              },
+              "100%": {
+                boxShadow: "0 0 0 0 rgba(37, 211, 102, 0)",
+              },
+            },
+          }}
+        >
+          <WhatsAppIcon sx={{ color: "#fff", fontSize: 32 }} />
+        </IconButton>
+      </Tooltip>
 
       <Snackbar
         open={openSnackbar}

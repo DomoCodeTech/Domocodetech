@@ -2,7 +2,7 @@ export const SITE_DATA = {
   company: {
     name: "DomoCodeTech",
     email: "domocodetech@gmail.com",
-    phone: "+57 301 3117452",
+    phone: "+573013117452",
     address: "Autopista Nte. #108-27, Bogotá, Colombia",
     schedule: "7:00 a.m. - 5:00 p.m.",
     serviceArea: "Internacional",

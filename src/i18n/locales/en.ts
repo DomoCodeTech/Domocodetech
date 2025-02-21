@@ -862,6 +862,7 @@ export const enTranslations = {
       emailAddress: "domocodetech@gmail.com",
       businessHours: "Monday - Friday: 9:00 AM - 6:00 PM",
     },
+    whatsapp: "Contact us via WhatsApp",
   },
 
   /**
