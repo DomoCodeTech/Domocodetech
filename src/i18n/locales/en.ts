@@ -1026,6 +1026,9 @@ export const enTranslations = {
    * Shows the company's workflow and process
    */
   processFlow: {
+    title: "Our Work Process",
+    description:
+      "A methodical and transparent approach to ensure your project's success",
     steps: {
       consultation: {
         title: "Consultation",

@@ -35,6 +35,39 @@ const ProcessFlow = () => {
 
   return (
     <Container maxWidth="lg" sx={{ py: { xs: 4, md: 8 } }}>
+      {/* Título y descripción añadidos */}
+      <Box sx={{ textAlign: "center", mb: { xs: 4, md: 6 } }}>
+        <Typography
+          variant="h2"
+          sx={{
+            fontSize: { xs: "2rem", md: "2.5rem" },
+            fontWeight: 700,
+            mb: 2,
+            background:
+              theme.palette.mode === "dark"
+                ? "linear-gradient(135deg, #FFFFFF 0%, #A5A5A5 100%)"
+                : "linear-gradient(135deg, #1A1A1A 0%, #4A4A4A 100%)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+          }}
+        >
+          {t("processFlow.title")}
+        </Typography>
+        <Typography
+          variant="h6"
+          sx={{
+            color: "text.secondary",
+            maxWidth: "800px",
+            mx: "auto",
+            mb: 4,
+            fontSize: { xs: "1rem", md: "1.1rem" },
+            lineHeight: 1.6,
+          }}
+        >
+          {t("processFlow.description")}
+        </Typography>
+      </Box>
+
       <Box
         sx={{
           position: "relative",
@@ -45,12 +78,13 @@ const ProcessFlow = () => {
             top: "63%",
             left: 0,
             right: 0,
-            height: 2,                                    // Grosor de la línea
-            background: theme.palette.mode === "dark"     // Color de la línea
-              ? "rgba(255,255,255,0.1)"                  // Color en modo oscuro
-              : "rgba(0,0,0,0.1)",                       // Color en modo claro
-            zIndex: 0,                                   // Para que esté detrás de los iconos
-            transform: "translateY(-50%)",               // Centra verticalmente
+            height: 2, // Grosor de la línea
+            background:
+              theme.palette.mode === "dark" // Color de la línea
+                ? "rgba(255,255,255,0.1)" // Color en modo oscuro
+                : "rgba(0,0,0,0.1)", // Color en modo claro
+            zIndex: 0, // Para que esté detrás de los iconos
+            transform: "translateY(-50%)", // Centra verticalmente
           },
         }}
       >

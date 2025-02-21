@@ -62,18 +62,12 @@ export const SITE_DATA = {
   images: {
     logo: "/images/domocodetech.svg",
     services: {
-      domotics:
-        "https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg",
-      electronics:
-        "https://images.pexels.com/photos/3912981/pexels-photo-3912981.jpeg",
-      robotics:
-        "https://images.pexels.com/photos/8566472/pexels-photo-8566472.jpeg",
-      software:
-        "https://images.pexels.com/photos/574071/pexels-photo-574071.jpeg",
-      support:
-        "https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg",
-      automation:
-        "https://images.pexels.com/photos/1624895/pexels-photo-1624895.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      domotics: "/images/services/domotics.webp",
+      electronics: "/images/services/electronics.webp",
+      robotics: "/images/services/robotics.webp",
+      software: "/images/services/software.webp",
+      support: "/images/services/support.webp",
+      automation: "/images/services/network2.webp",
 
       showcase: [
         "images/services/domo1.webp",

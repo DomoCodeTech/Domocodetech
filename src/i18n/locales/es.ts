@@ -975,6 +975,9 @@ export const esTranslations = {
    * Muestra el flujo de trabajo y proceso de la empresa
    */
   processFlow: {
+    title: "Nuestro Proceso de Trabajo",
+    description:
+      "Un enfoque metódico y transparente para garantizar el éxito de tu proyecto",
     steps: {
       consultation: {
         title: "Consulta",
