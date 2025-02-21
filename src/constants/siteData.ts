@@ -61,11 +61,6 @@ export const SITE_DATA = {
   ],
   images: {
     logo: "/images/domocodetech.svg",
-    hero: {
-      main: "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg",
-      secondary:
-        "https://images.pexels.com/photos/3183132/pexels-photo-3183132.jpeg",
-    },
     services: {
       domotics:
         "https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg",
@@ -86,12 +81,6 @@ export const SITE_DATA = {
         "https://images.pexels.com/photos/574071/pexels-photo-574071.jpeg",
         "https://images.pexels.com/photos/3912981/pexels-photo-3912981.jpeg",
       ],
-      process: {
-        consultation: "/images/services/process/consultation.svg",
-        planning: "/images/services/process/planning.svg",
-        development: "/images/services/process/development.svg",
-        delivery: "/images/services/process/delivery.svg",
-      },
       partners: {
         google: "https://cdn.worldvectorlogo.com/logos/google-1-1.svg",
         amazon: "https://cdn.worldvectorlogo.com/logos/aws-2.svg",
@@ -121,10 +110,10 @@ export const SITE_DATA = {
       },
     },
     team: {
-      member1: "/images/team/member1.png",
-      member2: "/images/team/member2.png",
-      member3: "/images/team/member3.png",
-      member4: "/images/team/member4.png",
+      member1: "/images/team/member1.webp",
+      member2: "/images/team/member2.webp",
+      member3: "/images/team/member3.webp",
+      member4: "/images/team/member4.webp",
       names: [
         "Daniel Caro",
         "Juan Collantes",
@@ -133,12 +122,12 @@ export const SITE_DATA = {
       ],
     },
     testimonials: {
-      client1: "/images/testimonials/testimonial-1.png",
-      client2: "/images/testimonials/testimonial-2.png",
-      client3: "/images/testimonials/testimonial-3.png",
-      client4: "/images/testimonials/testimonial-4.png",
-      client5: "/images/testimonials/testimonial-5.png",
-      client6: "/images/testimonials/testimonial-6.png",
+      client1: "/images/testimonials/testimonial-1.webp",
+      client2: "/images/testimonials/testimonial-2.webp",
+      client3: "/images/testimonials/testimonial-3.webp",
+      client4: "/images/testimonials/testimonial-4.webp",
+      client5: "/images/testimonials/testimonial-5.webp",
+      client6: "/images/testimonials/testimonial-6.webp",
     },
   },
   icons: {
@@ -150,10 +139,8 @@ export const SITE_DATA = {
   projects: {
     images: {
       web: "/images/projects/project2.webp",
-      mobile:
-        "/images/projects/project1.webp",
-      software:
-        "/images/projects/project3.webp",
+      mobile: "/images/projects/project1.webp",
+      software: "/images/projects/project3.webp",
       iot: "https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg",
       ecommerce:
         "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg",
