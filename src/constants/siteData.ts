@@ -76,10 +76,10 @@ export const SITE_DATA = {
         "https://images.pexels.com/photos/1624895/pexels-photo-1624895.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
 
       showcase: [
-        "https://images.pexels.com/photos/8566472/pexels-photo-8566472.jpeg", // Electronics/IoT
-        "https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg", // Software Dev
-        "https://images.pexels.com/photos/574071/pexels-photo-574071.jpeg",
-        "https://images.pexels.com/photos/3912981/pexels-photo-3912981.jpeg",
+        "images/services/domo1.webp",
+        "images/services/verdes.webp",
+        "images/services/robo1.webp",
+        "images/services/sas.webp",
       ],
       partners: {
         google: "https://cdn.worldvectorlogo.com/logos/google-1-1.svg",
