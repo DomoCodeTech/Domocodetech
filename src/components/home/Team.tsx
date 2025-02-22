@@ -99,10 +99,7 @@ const Team = () => {
     <Box
       sx={{
         py: { xs: 8, md: 12 },
-        background:
-          theme.palette.mode === "dark"
-            ? "linear-gradient(180deg, #1A1A1A 0%,rgba(46, 47, 46, 0.64) 100%)"
-            : "linear-gradient(180deg, #F8FAFF 0%, #FFFFFF 100%)",
+        background: "transparent", // Cambiado a transparente
       }}
     >
       <Container maxWidth="lg">
@@ -180,8 +177,8 @@ const Team = () => {
                               : "0 4px 30px rgba(0, 0, 0, 0.1)",
                           transition: "all 0.3s ease-in-out",
                           borderRadius: "16px",
-                          minHeight: '510px', // Añade esta línea
-                          width: '100%',      // Añade esta línea
+                          minHeight: "510px", // Añade esta línea
+                          width: "100%", // Añade esta línea
                           "&:hover": {
                             transform: "translateY(-8px)",
                             boxShadow:

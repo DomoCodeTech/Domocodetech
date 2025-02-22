@@ -46,8 +46,8 @@ const Stats = () => {
   return (
     <Box
       sx={{
-        background: theme.palette.mode === "dark" ? "#1A1A1A" : "#F8FAFF",
         py: { xs: 8, md: 12 },
+        background: "transparent", // Cambiado a transparente
       }}
     >
       <Container maxWidth="lg">

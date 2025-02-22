@@ -308,10 +308,7 @@ const ServicesSection = () => {
     <Box
       sx={{
         py: { xs: 8, md: 12 },
-        background:
-          theme.palette.mode === "dark"
-            ? "linear-gradient(180deg,rgb(10, 10, 10) 0%,rgb(26, 26, 26) 100%)"
-            : "linear-gradient(180deg, #FFFFFF 0%, #F8FAFF 100%)",
+        background: "transparent", // Cambiado a transparente
       }}
     >
       <Container maxWidth="lg">
@@ -322,13 +319,13 @@ const ServicesSection = () => {
           viewport={{ once: true }}
         >
           <Typography
-             variant="h2"
-             component="h2"
-             align="center"
-             sx={{
-               mb: 2,
-               color: theme.palette.mode === "dark" ? "white" : "text.primary",
-             }}
+            variant="h2"
+            component="h2"
+            align="center"
+            sx={{
+              mb: 2,
+              color: theme.palette.mode === "dark" ? "white" : "text.primary",
+            }}
           >
             {t("services.title")}
           </Typography>

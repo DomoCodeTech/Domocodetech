@@ -87,10 +87,7 @@ const Testimonials = () => {
   return (
     <Box
       sx={{
-        background:
-          theme.palette.mode === "dark"
-            ? "linear-gradient(180deg, #0A0A0A 0%, #1A1A1A 100%)"
-            : "linear-gradient(180deg, #F8FAFF 0%, #FFFFFF 100%)",
+        background: "transparent", // Cambiado a transparente
         py: { xs: 10, md: 15 },
         position: "relative",
         overflow: "hidden",

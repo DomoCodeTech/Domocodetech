@@ -143,10 +143,7 @@ const ProjectsSection = () => {
       component="section"
       sx={{
         py: { xs: 8, md: 12 },
-        background:
-          theme.palette.mode === "dark"
-            ? "linear-gradient(180deg, #1A1A1A 0%, #0A0A0A 100%)"
-            : "linear-gradient(180deg, #F0F7FF 0%, #E6FFF6 100%)",
+        background: "transparent", // Cambiado a transparente
         overflow: "hidden", // Prevenir scroll horizontal durante animaciones
       }}
     >
