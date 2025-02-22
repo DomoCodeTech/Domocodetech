@@ -215,7 +215,7 @@ const Team = () => {
                                   : "rgba(0,0,0,0.15)"
                               }`,
                               transition: "all 0.3s ease-in-out",
-                              background: theme.palette.background.paper,
+                              background: "transparent", // Cambiado de background.paper a transparent
                             }}
                           />
                         </Box>

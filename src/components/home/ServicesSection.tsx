@@ -319,13 +319,13 @@ const ServicesSection = () => {
           viewport={{ once: true }}
         >
           <Typography
-            variant="h2"
-            component="h2"
-            align="center"
-            sx={{
-              mb: 2,
-              color: theme.palette.mode === "dark" ? "white" : "text.primary",
-            }}
+             variant="h2"
+             component="h2"
+             align="center"
+             sx={{
+               mb: 2,
+               color: theme.palette.mode === "dark" ? "white" : "text.primary",
+             }}
           >
             {t("services.title")}
           </Typography>

@@ -165,7 +165,7 @@ const ProjectsSection = () => {
             component="p"
             align="center"
             color="text.secondary"
-            sx={{ mb: { xs: 8, md: 6 } }}
+            sx={{ mb: { xs: 8, md: 6 }, pb: { xs: 2, md: 2 } }}
           >
             {t("projects.subtitle")}
           </Typography>

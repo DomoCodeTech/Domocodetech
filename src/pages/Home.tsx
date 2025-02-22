@@ -27,8 +27,36 @@ const Home = () => {
         minHeight: "100vh",
         background:
           theme.palette.mode === "dark"
-            ? "linear-gradient(180deg, #0A0A0A 0%, #1A1A1A 100%)"
-            : "linear-gradient(180deg, #FFFFFF 0%, #F8FAFF 100%)",
+            ? // Modo oscuro - capas de degradado más oscuras
+              `linear-gradient(180deg, 
+              rgba(5, 5, 5, 1) 0%, 
+              rgba(0, 20, 19, 0.98) 20%,
+              rgba(0, 25, 23, 0.95) 40%,
+              rgba(0, 30, 28, 0.98) 60%,
+              rgba(0, 35, 32, 0.95) 80%,
+              rgba(5, 5, 5, 1) 100%),
+            linear-gradient(135deg,
+              rgba(0, 255, 163, 0.05) 0%,
+              rgba(0, 198, 255, 0.05) 50%,
+              rgba(0, 149, 255, 0.05) 100%),
+            linear-gradient(45deg,
+              rgba(0, 0, 0, 1) 0%,
+              rgba(0, 20, 19, 0.9) 100%)`
+            : // Modo claro - capas de degradado
+              `linear-gradient(180deg,
+              rgba(255, 255, 255, 1) 0%,
+              rgba(230, 255, 249, 0.95) 20%,
+              rgba(208, 255, 245, 0.9) 40%,
+              rgba(184, 255, 225, 0.95) 60%,
+              rgba(160, 255, 233, 0.9) 80%,
+              rgba(255, 255, 255, 1) 100%),
+            linear-gradient(135deg,
+              rgba(0, 128, 94, 0.05) 0%,
+              rgba(0, 149, 255, 0.05) 50%,
+              rgba(0, 198, 255, 0.05) 100%),
+            linear-gradient(45deg,
+              rgba(255, 255, 255, 1) 0%,
+              rgba(230, 255, 249, 0.8) 100%)`,
         "&::before": {
           content: '""',
           position: "fixed",
@@ -38,14 +66,17 @@ const Home = () => {
           bottom: 0,
           background:
             theme.palette.mode === "dark"
-              ? `radial-gradient(circle at 20% 20%, rgba(0, 255, 163, 0.15) 0%, transparent 40%),
-               radial-gradient(circle at 80% 80%, rgba(0, 255, 163, 0.1) 0%, transparent 40%),
-               radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.5) 0%, transparent 100%)`
+              ? `radial-gradient(circle at 20% 20%, rgba(0, 255, 163, 0.08) 0%, transparent 40%),
+               radial-gradient(circle at 80% 80%, rgba(0, 198, 255, 0.05) 0%, transparent 40%),
+               radial-gradient(circle at 50% 50%, rgba(0, 149, 255, 0.03) 0%, transparent 100%),
+               radial-gradient(circle at 30% 70%, rgba(0, 255, 200, 0.05) 0%, transparent 50%)`
               : `radial-gradient(circle at 20% 20%, rgba(0, 128, 94, 0.1) 0%, transparent 40%),
-               radial-gradient(circle at 80% 80%, rgba(0, 128, 94, 0.05) 0%, transparent 40%),
-               radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.9) 0%, transparent 100%)`,
+               radial-gradient(circle at 80% 80%, rgba(0, 149, 255, 0.05) 0%, transparent 40%),
+               radial-gradient(circle at 50% 50%, rgba(0, 198, 255, 0.05) 0%, transparent 100%),
+               radial-gradient(circle at 30% 70%, rgba(0, 255, 200, 0.05) 0%, transparent 50%)`,
           zIndex: 0,
           pointerEvents: "none",
+          mixBlendMode: theme.palette.mode === "dark" ? "screen" : "multiply",
         },
         "&::after": {
           content: '""',
