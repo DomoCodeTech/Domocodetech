@@ -55,8 +55,8 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
         transition: "all 0.3s ease-in-out",
         background:
           theme.palette.mode === "dark"
-            ? "linear-gradient(145deg, #1f1f1f 0%, #151515 100%)"
-            : "#FFFFFF",
+            ? "linear-gradient(145deg, rgba(31,31,31,0.6) 0%, rgba(21,21,21,0.8) 100%)"
+            : "linear-gradient(145deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.95) 100%)",
         boxShadow:
           theme.palette.mode === "dark"
             ? "0 4px 30px rgba(0, 255, 163, 0.1)"
@@ -65,8 +65,8 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
           transform: "translateY(-8px)",
           boxShadow:
             theme.palette.mode === "dark"
-              ? "0 12px 40px rgba(0, 0, 0, 0.7)"
-              : "0 12px 40px rgba(0, 0, 0, 0.12)",
+              ? "0 4px 30px rgba(0, 255, 163, 0.1)"
+              : "0 4px 30px rgba(0, 0, 0, 0.1)",
           background:
             theme.palette.mode === "dark"
               ? "linear-gradient(145deg, #1f1f1f 0%, #151515 100%), linear-gradient(to right, rgba(0, 255, 163, 0.1), transparent)"

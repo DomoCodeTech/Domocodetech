@@ -76,8 +76,8 @@ const CTA = () => {
                 height: "120%",
                 background:
                   theme.palette.mode === "dark"
-                    ? "radial-gradient(ellipse at center, rgba(0, 255, 163, 0.05) 0%, rgba(0, 255, 163, 0) 70%)"
-                    : "radial-gradient(ellipse at center, rgba(0, 128, 94, 0.05) 0%, rgba(0, 128, 94, 0) 70%)",
+                    ? "linear-gradient(145deg, rgba(31,31,31,0.6) 0%, rgba(21,21,21,0.8) 100%)"
+                    : "linear-gradient(145deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.95) 100%)",
                 filter: "blur(40px)",
                 zIndex: -1,
               },
