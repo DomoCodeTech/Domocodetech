@@ -565,6 +565,12 @@ export const esTranslations = {
           description:
             "Democratización de la tecnología para todos los sectores",
         },
+        {
+          icon: "excellence",
+          title: "Sostenibilidad",
+          description:
+            "Enfoque en soluciones tecnológicas sostenibles y eficientes",
+        },
       ],
     },
 
