@@ -33,9 +33,9 @@ const PrismaticBackground = ({ children }: PrismaticBackgroundProps) => {
             : // Modo claro - efecto prisma suave
               `linear-gradient(120deg,
               rgba(250, 250, 250, 1) 0%,
-              rgba(255, 225, 210, 0.95) 25%,
-              rgba(255, 215, 220, 0.9) 50%,
-              rgba(252, 233, 242, 0.66) 75%,
+              rgba(215, 255, 210, 0.95) 25%,
+              rgba(215, 250, 255, 0.9) 50%,
+              rgba(241, 252, 233, 0.66) 75%,
               rgba(250, 250, 250, 1) 100%),
             linear-gradient(240deg,
               rgba(255, 0, 92, 0.03) 0%,
@@ -44,7 +44,7 @@ const PrismaticBackground = ({ children }: PrismaticBackgroundProps) => {
               rgba(255, 0, 92, 0.03) 100%),
             radial-gradient(circle at 50% 50%,
               rgba(255, 255, 255, 0.9) 0%,
-              rgba(255, 235, 236, 0.95) 100%)`,
+              rgba(235, 255, 241, 0.95) 100%)`,
         "&::before": {
           content: '""',
           position: "fixed",
