@@ -39,13 +39,8 @@ const Hero = () => {
   return (
     <Box
       sx={{
-        background:
-          theme.palette.mode === "dark"
-            ? "linear-gradient(180deg, #0A0A0A 0%, #1A1A1A 100%)"
-            : "linear-gradient(180deg, #FFFFFF 0%, #F8FAFF 100%)",
         pt: { xs: 12, md: 16 },
-  //      overflow: "hidden",
-
+        background: "transparent", // Cambiado a transparente
       }}
     >
       <Container maxWidth="lg">
@@ -119,8 +114,8 @@ const Hero = () => {
                     height: "120%",
                     background:
                       theme.palette.mode === "dark"
-                        ? "radial-gradient(circle, #00FFA333 0%, transparent 70%)"
-                        : "radial-gradient(circle, #00FFA322 0%, transparent 70%)",
+                        ? "linear-gradient(145deg, rgba(31,31,31,0.6) 0%, rgba(21,21,21,0.8) 100%)"
+                        : "linear-gradient(145deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.95) 100%)",
                     filter: "blur(60px)",
                     zIndex: 0,
                   },

@@ -26,37 +26,7 @@ const CTA = () => {
         position: "relative",
         py: { xs: 10, md: 15 },
         overflow: "hidden",
-        background:
-          theme.palette.mode === "dark"
-            ? "linear-gradient(180deg, #1A1A1A 0%, #0A0A0A 100%)"
-            : "linear-gradient(180deg, #F8FAFF 0%, #FFFFFF 100%)",
-        "&::before": {
-          content: '""',
-          position: "absolute",
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          background:
-            theme.palette.mode === "dark"
-              ? "radial-gradient(circle at 20% 150%, rgba(0, 255, 163, 0.15) 0%, rgba(0, 255, 163, 0) 50%)"
-              : "radial-gradient(circle at 20% 150%, rgba(0, 128, 94, 0.15) 0%, rgba(0, 128, 94, 0) 50%)",
-        },
-        "&::after": {
-          content: '""',
-          position: "absolute",
-          top: "50%",
-          right: "0",
-          width: { xs: "300px", md: "600px" },
-          height: { xs: "300px", md: "600px" },
-          background:
-            theme.palette.mode === "dark"
-              ? "radial-gradient(circle, rgba(0, 255, 163, 0.1) 0%, rgba(0, 255, 163, 0) 70%)"
-              : "radial-gradient(circle, rgba(0, 128, 94, 0.1) 0%, rgba(0, 128, 94, 0) 70%)",
-          transform: "translateY(-50%)",
-          filter: "blur(60px)",
-          zIndex: 0,
-        },
+        background: "transparent", // Cambiado a transparente
       }}
     >
       <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
@@ -104,10 +74,6 @@ const CTA = () => {
                 transform: "translate(-50%, -50%)",
                 width: "100%",
                 height: "120%",
-                background:
-                  theme.palette.mode === "dark"
-                    ? "radial-gradient(ellipse at center, rgba(0, 255, 163, 0.05) 0%, rgba(0, 255, 163, 0) 70%)"
-                    : "radial-gradient(ellipse at center, rgba(0, 128, 94, 0.05) 0%, rgba(0, 128, 94, 0) 70%)",
                 filter: "blur(40px)",
                 zIndex: -1,
               },

@@ -7,6 +7,7 @@
  * - Testimonios de clientes
  * - Llamada a la acción (CTA)
  */
+import PrismaticBackground from "../components/layout/PrismaticBackground";
 import Testimonials from "../components/home/Testimonials";
 import Team from "../components/home/Team";
 import Hero from "../components/home/Hero";
@@ -17,8 +18,7 @@ import ServicesSection from "../components/home/ServicesSection";
 
 const Home = () => {
   return (
-    //<Container maxWidth="lg" sx={{ px: { xs: 1, sm: 1, md: 1 } }}>
-    <>
+    <PrismaticBackground>
       <Hero />
       <Stats />
       <ServicesSection />
@@ -26,8 +26,7 @@ const Home = () => {
       <Testimonials />
       <CTA />
       <Team />
-      </>
-   // </Container>
+    </PrismaticBackground>
   );
 };
 

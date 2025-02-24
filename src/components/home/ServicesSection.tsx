@@ -8,14 +8,7 @@ import {
   Button,
   Stack,
   Collapse,
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
 } from "@mui/material";
-import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { Link as RouterLink } from "react-router-dom";
@@ -26,9 +19,6 @@ interface ServiceCardProps {
   service: {
     key: string;
     icon: string;
-    features: string[];
-    techStack: string[];
-    serviceList: string[];
   };
   index: number;
   expanded: boolean;
@@ -46,138 +36,130 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
 
   return (
     <Card
+      onClick={onExpand}
       sx={{
-        height: "100%",
-        display: "flex",
-        flexDirection: "column",
-        p: { xs: 2.5, sm: 3.5 },
-        borderRadius: 2,
-        transition: "all 0.3s ease-in-out",
+        position: "relative",
+        borderRadius: 3,
+        cursor: "pointer",
         background:
           theme.palette.mode === "dark"
-            ? "linear-gradient(145deg, #1f1f1f 0%, #151515 100%)"
-            : "#FFFFFF",
-        boxShadow:
+            ? "linear-gradient(145deg, rgba(31,31,31,0.8) 0%, rgba(21,21,21,0.9) 100%)"
+            : "linear-gradient(145deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.9) 100%)",
+        backdropFilter: "blur(10px)",
+        transition: "all 0.3s ease-in-out",
+        height: expanded ? "auto" : { xs: "100px", sm: "120px" },
+        border: `1px solid ${
           theme.palette.mode === "dark"
-            ? "0 4px 30px rgba(0, 255, 163, 0.1)"
-            : "0 4px 30px rgba(0, 0, 0, 0.1)",
+            ? "rgba(255,255,255,0.1)"
+            : "rgba(0,0,0,0.1)"
+        }`,
         "&:hover": {
-          transform: "translateY(-8px)",
+          transform: "translateY(-5px)",
           boxShadow:
             theme.palette.mode === "dark"
-              ? "0 12px 40px rgba(0, 0, 0, 0.7)"
-              : "0 12px 40px rgba(0, 0, 0, 0.12)",
-          background:
-            theme.palette.mode === "dark"
-              ? "linear-gradient(145deg, #1f1f1f 0%, #151515 100%), linear-gradient(to right, rgba(0, 255, 163, 0.1), transparent)"
-              : "linear-gradient(145deg, #FFFFFF 0%, #F8FAFF 100%), linear-gradient(to right, rgba(0, 128, 94, 0.1), transparent)",
+              ? "0 8px 30px rgba(0, 255, 163, 0.15)"
+              : "0 8px 30px rgba(0, 128, 94, 0.15)",
           "& .service-icon": {
-            transform: "scale(1.1) rotate(5deg)",
+            transform: "scale(1.1)",
             color: theme.palette.mode === "dark" ? "#00FFA3" : "#00805E",
-          },
-          "& .service-title": {
-            background:
-              theme.palette.mode === "dark"
-                ? "linear-gradient(90deg, #FFFFFF 30%, #00FFA3 100%)"
-                : "linear-gradient(90deg, #1A1A1A 30%, #00805E 100%)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
           },
         },
       }}
     >
-      <Stack direction="row" spacing={2} alignItems="center" sx={{ mb: 2 }}>
-        <Box
-          className="service-icon"
-          sx={{
-            transition: "all 0.3s ease-in-out",
-            color: "text.primary",
-          }}
+      <Box sx={{ p: 2, height: "100%" }}>
+        <Stack
+          direction="row"
+          spacing={2}
+          alignItems="center"
+          sx={{ mb: expanded ? 2 : 0 }}
         >
-          <ServiceIcon
-            name={service.icon}
-            sx={{ fontSize: { xs: 36, sm: 44 } }}
-          />
-        </Box>
-        <Typography
-          className="service-title"
-          variant="h5"
-          sx={{
-            fontWeight: 600,
-            color: theme.palette.mode === "dark" ? "white" : "text.primary",
-            fontSize: { xs: "1.25rem", sm: "1.5rem" },
-            transition: "all 0.3s ease-in-out",
-          }}
-        >
-          {t(`services.${service.key}.title`)}
-        </Typography>
-      </Stack>
+          <Box
+            className="service-icon"
+            sx={{
+              p: 1.5,
+              borderRadius: 2,
+              background:
+                theme.palette.mode === "dark"
+                  ? "rgba(0, 255, 163, 0.1)"
+                  : "rgba(0, 128, 94, 0.1)",
+              transition: "all 0.3s ease-in-out",
+            }}
+          >
+            <ServiceIcon
+              name={service.icon}
+              sx={{
+                fontSize: { xs: 24, sm: 32 },
+                color: theme.palette.mode === "dark" ? "#00FFA3" : "#00805E",
+              }}
+            />
+          </Box>
 
-      <Typography
-        variant="body1"
-        sx={{
-          color: "text.secondary",
-          mb: 0,
-          fontSize: { xs: "0.95rem", sm: "1.1rem" },
-          lineHeight: 1.7,
-        }}
-      >
-        {t(`services.${service.key}.description`)}
-      </Typography>
-
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <Box sx={{ mt: 3, mb: 2 }}>
-          <Typography variant="subtitle2" sx={{ mb: 1.5, fontWeight: 600 }}>
-            {t("services.servicesList")}:
+          <Typography
+            variant="h5"
+            sx={{
+              fontWeight: 600,
+              fontSize: { xs: "1rem", sm: "1.25rem" },
+              background:
+                theme.palette.mode === "dark"
+                  ? "linear-gradient(90deg, #FFFFFF 30%, #00FFA3 100%)"
+                  : "linear-gradient(90deg, #1A1A1A 30%, #00805E 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
+          >
+            {t(`services.${service.key}.title`)}
           </Typography>
-          <List dense sx={{ pt: 0 }}>
-            {Object.keys(
-              t(`services.${service.key}.serviceList`, { returnObjects: true })
-            ).map((item, idx) => (
-              <ListItem key={idx} sx={{ py: 0.5 }}>
-                <ListItemIcon sx={{ minWidth: 36 }}>
-                  <CheckCircleOutlineIcon
-                    color="primary"
-                    sx={{ fontSize: 20 }}
-                  />
-                </ListItemIcon>
-                <ListItemText
-                  primary={t(`services.${service.key}.serviceList.${item}`)}
-                  sx={{
-                    "& .MuiListItemText-primary": {
-                      fontSize: "1rem",
-                      color: theme.palette.text.secondary,
-                    },
-                  }}
-                />
-              </ListItem>
-            ))}
-          </List>
-        </Box>
-      </Collapse>
+        </Stack>
 
-      <Stack direction="row" spacing={1} sx={{ mt: "auto", pt: 2 }}>
-        <Button
-          onClick={onExpand}
-          size="small"
-          startIcon={expanded ? <ExpandLessIcon /> : <ExpandMoreIcon />}
-          sx={{ flex: 1 }}
-        >
-          {expanded ? t("common.showLess") : t("common.readMore")}
-        </Button>
-        <Button
-          component={RouterLink}
-          to={`/services?tab=${index}`}
-          variant="contained"
-          size="small"
-          sx={{ flex: 1 }}
-        >
-          {t("services.viewMore")}
-        </Button>
-      </Stack>
+        <Collapse in={expanded}>
+          <Typography
+            variant="body1"
+            sx={{
+              color: "text.secondary",
+              mb: 3,
+              fontSize: "0.95rem",
+              lineHeight: 1.6,
+            }}
+          >
+            {t(`services.${service.key}.description`)}
+          </Typography>
+
+          <Button
+            component={RouterLink}
+            to={`/services?tab=${index}`}
+            variant="contained"
+            size="small"
+            fullWidth
+            sx={{
+              background:
+                theme.palette.mode === "dark"
+                  ? "linear-gradient(90deg, #00FFA3 0%, #00805E 100%)"
+                  : "linear-gradient(90deg, #00805E 0%, #006B4F 100%)",
+              color: theme.palette.mode === "dark" ? "#000" : "#fff",
+              "&:hover": {
+                background:
+                  theme.palette.mode === "dark"
+                    ? "linear-gradient(90deg, #00E693 0%, #00734E 100%)"
+                    : "linear-gradient(90deg, #00734E 0%, #005A40 100%)",
+              },
+            }}
+          >
+            {t("services.viewMore")}
+          </Button>
+        </Collapse>
+      </Box>
     </Card>
   );
 };
+
+const services = [
+  { key: "software", icon: "Code" },
+  { key: "microcontrollers", icon: "Chip" },
+  { key: "domotics", icon: "Smart" },
+  { key: "electronics", icon: "Robot" },
+  { key: "networks", icon: "Network" },
+  { key: "support", icon: "Support" },
+];
 
 const ServicesSection = () => {
   const { t } = useTranslation();
@@ -216,102 +198,11 @@ const ServicesSection = () => {
     return expandedCards[key] || false;
   };
 
-  const services = [
-    {
-      key: "software",
-      icon: "Code",
-      features: ["web", "mobile", "business", "apis", "databases"],
-      techStack: ["React", "Node.js", "Python", "MongoDB", "Firebase"],
-      serviceList: [
-        "webApps",
-        "mobileApps",
-        "apiDevelopment",
-        "databaseDesign",
-        "systemIntegration",
-        "cloudMigration",
-      ],
-    },
-    {
-      key: "microcontrollers",
-      icon: "Chip",
-      features: ["iot", "automation", "control", "firmware", "embedded"],
-      techStack: ["Arduino", "Raspberry Pi", "ESP32", "PIC", "STM32"],
-      serviceList: [
-        "firmwareDevelopment",
-        "prototypeDevelopment",
-        "sensorIntegration",
-        "embeddedSystems",
-        "iotDevices",
-      ],
-    },
-    {
-      key: "domotics",
-      icon: "Smart",
-      features: ["voice", "lighting", "climate", "security", "energy"],
-      techStack: ["Home Assistant", "Zigbee", "Z-Wave", "MQTT", "KNX"],
-      serviceList: [
-        "smartHomeSetup",
-        "automationConfig",
-        "securityIntegration",
-        "energyOptimization",
-        "deviceIntegration",
-      ],
-    },
-    {
-      key: "electronics",
-      icon: "Robot",
-      features: ["pcb", "prototyping", "embedded", "iot", "sensors"],
-      techStack: ["Altium", "KiCad", "Eagle", "Proteus", "Fusion 360"],
-      serviceList: [
-        "pcbDesign",
-        "circuitPrototyping",
-        "componentSelection",
-        "hardwareTesting",
-        "productDevelopment",
-      ],
-    },
-    {
-      key: "networks",
-      icon: "Network",
-      features: ["setup", "config", "security", "performance", "maintenance"],
-      techStack: ["Cisco", "Ubiquiti", "pfSense", "MikroTik", "OpenWrt"],
-      serviceList: [
-        "networkSetup",
-        "securityConfig",
-        "performanceOptimization",
-        "maintenance",
-        "monitoring",
-      ],
-    },
-    {
-      key: "support",
-      icon: "Support",
-      features: [
-        "hardware",
-        "software",
-        "optimization",
-        "recovery",
-        "maintenance",
-      ],
-      techStack: ["Windows", "Linux", "macOS", "Android", "iOS"],
-      serviceList: [
-        "techSupport",
-        "systemMaintenance",
-        "dataRecovery",
-        "optimization",
-        "training",
-      ],
-    },
-  ];
-
   return (
     <Box
       sx={{
         py: { xs: 8, md: 12 },
-        background:
-          theme.palette.mode === "dark"
-            ? "linear-gradient(180deg,rgb(10, 10, 10) 0%,rgb(26, 26, 26) 100%)"
-            : "linear-gradient(180deg, #FFFFFF 0%, #F8FAFF 100%)",
+        background: "transparent", // Cambiado a transparente
       }}
     >
       <Container maxWidth="lg">
@@ -322,13 +213,13 @@ const ServicesSection = () => {
           viewport={{ once: true }}
         >
           <Typography
-             variant="h2"
-             component="h2"
-             align="center"
-             sx={{
-               mb: 2,
-               color: theme.palette.mode === "dark" ? "white" : "text.primary",
-             }}
+            variant="h2"
+            component="h2"
+            align="center"
+            sx={{
+              mb: 2,
+              color: theme.palette.mode === "dark" ? "white" : "text.primary",
+            }}
           >
             {t("services.title")}
           </Typography>
@@ -343,9 +234,22 @@ const ServicesSection = () => {
           </Typography>
         </motion.div>
 
-        <Grid container spacing={3} alignItems="stretch">
+        <Grid
+          container
+          spacing={{ xs: 1, sm: 2, md: 3 }} // Reducido el espaciado en mobile
+          alignItems="stretch"
+        >
           {services.map((service, index) => (
-            <Grid item xs={12} sm={6} md={4} key={service.key}>
+            <Grid
+              item
+              xs={12}
+              sm={6}
+              md={4}
+              key={service.key}
+              sx={{
+                mb: { xs: 1, sm: 2, md: 3 }, // Añadido margin bottom específico
+              }}
+            >
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}

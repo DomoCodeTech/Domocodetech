@@ -722,6 +722,11 @@ export const enTranslations = {
           title: "Integrity",
           description: "Operating with transparency and ethical standards",
         },
+        {
+          icon: "excellence",
+          title: "Excellence",
+          description: "Striving for the highest standards of performance",
+        },
       ],
     },
   },

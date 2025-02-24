@@ -13,34 +13,9 @@ const ServicesHero = () => {
         position: "relative",
         minHeight: { xs: "85vh", md: "90vh" },
         overflow: "hidden",
-        background:
-          theme.palette.mode === "dark"
-            ? "linear-gradient(135deg, #0A0A0A 0%, #1A1A1A 100%)"
-            : "linear-gradient(135deg, #FFFFFF 0%, #F8FAFF 100%)",
         display: "flex",
         alignItems: "center",
         borderRadius: { xs: "24px", md: "32px" },
-        boxShadow:
-          theme.palette.mode === "dark"
-            ? "0 8px 32px rgba(0,0,0,0.3)"
-            : "0 8px 32px rgba(0,0,0,0.1)",
-        my: { xs: 10, md: 4 },
-        "&::before": {
-          content: '""',
-          position: "absolute",
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          backgroundImage: `url(${SITE_DATA.images.services.showcase[0]})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          zIndex: -1,
-          filter: "blur(12px)",
-          opacity: 0.4,
-          transform: "scale(1.1)",
-          borderRadius: "inherit",
-        },
       }}
     >
       <Container maxWidth="lg">

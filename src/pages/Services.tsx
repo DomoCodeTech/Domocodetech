@@ -8,12 +8,12 @@ import ServiceTabs from "../components/services/ServiceTabs";
 import ServiceContent from "../components/services/ServiceContent";
 import { SERVICES_DATA } from "../constants/siteData";
 import { useServiceTab } from "../hooks/useServiceTab";
+import PrismaticBackground from "../components/layout/PrismaticBackground";
 
 const Services: React.FC = () => {
   const { selectedTab, handleTabChange } = useServiceTab();
   return (
-    //<Container maxWidth="lg" sx={{ px: { xs: 1, sm: 1, md: 1 } }}>
-    <>
+    <PrismaticBackground>
       <ServicesHero />
       <ProcessFlow />
       <ServiceTabs selectedTab={selectedTab} onTabChange={handleTabChange} />
@@ -22,8 +22,7 @@ const Services: React.FC = () => {
       </AnimatePresence>
       <ServicePricing serviceKey={SERVICES_DATA[selectedTab].key} />
       <Partners />
-    </>
-  //  </Container>
+    </PrismaticBackground>
   );
 };
 

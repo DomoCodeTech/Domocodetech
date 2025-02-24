@@ -46,8 +46,8 @@ const Stats = () => {
   return (
     <Box
       sx={{
-        background: theme.palette.mode === "dark" ? "#1A1A1A" : "#F8FAFF",
         py: { xs: 8, md: 12 },
+        background: "transparent", // Cambiado a transparente
       }}
     >
       <Container maxWidth="lg">
@@ -71,8 +71,8 @@ const Stats = () => {
                       borderRadius: 2,
                       background:
                         theme.palette.mode === "dark"
-                          ? "linear-gradient(145deg, #1f1f1f 0%, #151515 100%)"
-                          : "linear-gradient(145deg, #FFFFFF 0%, #F8FAFF 100%)",
+                          ? "linear-gradient(145deg, rgba(31,31,31,0.6) 0%, rgba(21,21,21,0.8) 100%)"
+                          : "linear-gradient(145deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.95) 100%)",
                       boxShadow:
                         theme.palette.mode === "dark"
                           ? "0 4px 30px rgba(0, 255, 163, 0.1)"

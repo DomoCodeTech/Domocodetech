@@ -99,10 +99,7 @@ const Team = () => {
     <Box
       sx={{
         py: { xs: 8, md: 12 },
-        background:
-          theme.palette.mode === "dark"
-            ? "linear-gradient(180deg, #1A1A1A 0%,rgba(46, 47, 46, 0.64) 100%)"
-            : "linear-gradient(180deg, #F8FAFF 0%, #FFFFFF 100%)",
+        background: "transparent", // Cambiado a transparente
       }}
     >
       <Container maxWidth="lg">
@@ -172,16 +169,16 @@ const Team = () => {
                           flexDirection: "column",
                           background:
                             theme.palette.mode === "dark"
-                              ? "linear-gradient(145deg, #1f1f1f 0%, #151515 100%)"
-                              : "#FFFFFF",
+                              ? "linear-gradient(145deg, rgba(31,31,31,0.6) 0%, rgba(21,21,21,0.8) 100%)"
+                              : "linear-gradient(145deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.95) 100%)",
                           boxShadow:
                             theme.palette.mode === "dark"
                               ? "0 4px 30px rgba(0, 255, 163, 0.1)"
                               : "0 4px 30px rgba(0, 0, 0, 0.1)",
                           transition: "all 0.3s ease-in-out",
                           borderRadius: "16px",
-                          minHeight: '510px', // Añade esta línea
-                          width: '100%',      // Añade esta línea
+                          minHeight: "510px", // Añade esta línea
+                          width: "100%", // Añade esta línea
                           "&:hover": {
                             transform: "translateY(-8px)",
                             boxShadow:
@@ -218,7 +215,7 @@ const Team = () => {
                                   : "rgba(0,0,0,0.15)"
                               }`,
                               transition: "all 0.3s ease-in-out",
-                              background: theme.palette.background.paper,
+                              background: "transparent", // Cambiado de background.paper a transparent
                             }}
                           />
                         </Box>
