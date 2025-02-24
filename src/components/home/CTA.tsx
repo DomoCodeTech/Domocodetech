@@ -74,10 +74,6 @@ const CTA = () => {
                 transform: "translate(-50%, -50%)",
                 width: "100%",
                 height: "120%",
-                background:
-                  theme.palette.mode === "dark"
-                    ? "linear-gradient(145deg, rgba(31,31,31,0.6) 0%, rgba(21,21,21,0.8) 100%)"
-                    : "linear-gradient(145deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.95) 100%)",
                 filter: "blur(40px)",
                 zIndex: -1,
               },
