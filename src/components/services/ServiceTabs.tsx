@@ -3,6 +3,7 @@ import { Box, Tabs, Tab, Container, useScrollTrigger } from "@mui/material";
 import { ServiceIcon } from "../icons/ServiceIcons";
 import { useTranslation } from "react-i18next";
 import { SERVICES_DATA } from "../../constants/siteData";
+import { useTheme } from "@mui/material/styles";
 
 interface ServiceTabsProps {
   selectedTab: number;
@@ -14,115 +15,122 @@ const ServiceTabs: React.FC<ServiceTabsProps> = ({
   onTabChange,
 }) => {
   const { t } = useTranslation();
+  const theme = useTheme();
   const trigger = useScrollTrigger({
     disableHysteresis: true,
-    threshold: 80, // Reducido para que aparezca antes la sombra
+    threshold: 300, // Ajustado para que se active después del hero section
   });
 
   return (
     <Box
       sx={{
         position: "sticky",
-        top: 0,
+        top: 24,
         left: 0,
         right: 0,
         width: "100%",
-        zIndex: 1200, // Aumentar para asegurar que está por encima del Navbar
-        bgcolor: (theme) =>
-          theme.palette.mode === "dark"
-            ? "rgba(18, 18, 18, 0.95)"
-            : "rgba(255, 255, 255, 0.95)",
-        backdropFilter: "blur(10px)",
+        zIndex: 1200,
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        background: "transparent",
+        backdropFilter: trigger ? "blur(10px)" : "none",
         transition: "all 0.3s ease",
-        boxShadow: trigger
-          ? (theme) =>
-              theme.palette.mode === "dark"
-                ? "0 4px 20px rgba(0,0,0,0.4)"
-                : "0 4px 20px rgba(0,0,0,0.1)"
-          : "none",
-        py: { xs: 1, md: 1.2 }, // Padding vertical añadido
       }}
     >
-      <Container maxWidth={false} sx={{ maxWidth: 1400 }}>
-        {" "}
-        {/* Contenedor más ancho */}
-        <Tabs
-          value={selectedTab}
-          onChange={onTabChange}
-          variant="scrollable"
-          scrollButtons="auto"
-          allowScrollButtonsMobile
-          sx={{
-            minHeight: { xs: 60, md: 80 }, // Altura aumentada
-            "& .MuiTabs-flexContainer": {
-              gap: { xs: 1, md: 2 }, // Más espacio entre tabs
-            },
-            "& .MuiTabs-indicator": {
-              backgroundColor: "primary.main",
-              height: 3,
-              borderRadius: "3px",
-            },
-            "& .MuiTab-root": {
-              minHeight: { xs: 60, md: 68 },
-              minWidth: { xs: 160, md: 200 }, // Tabs más anchas
-              padding: { xs: "8px 16px", md: "12px 24px" }, // Más padding
-              fontSize: { xs: "0.85rem", md: "0.95rem" },
-              fontWeight: 500,
-              textTransform: "none",
-              color: "text.secondary",
-              display: "flex",
-              flexDirection: "row",
-              alignItems: "center",
-              gap: 1.5, // Más espacio entre icono y texto
-              borderRadius: 2,
-              transition: "all 0.2s ease",
-              whiteSpace: "nowrap", // Evita saltos de línea
-              lineHeight: 1.2, // Mejor espaciado de texto
-              "&:hover": {
-                backgroundColor: (theme) =>
-                  theme.palette.mode === "dark"
-                    ? "rgba(255,255,255,0.05)"
-                    : "rgba(0,0,0,0.04)",
-                color: "primary.main",
+      <Box
+        sx={{
+          width: { xs: "calc(100% - 32px)", md: "90%" },
+          maxWidth: "1200px",
+          borderRadius: "16px",
+          background:
+            theme.palette.mode === "dark"
+              ? "rgba(10, 10, 10, 0.8)"
+              : "rgba(255, 255, 255, 0.8)",
+          backdropFilter: "blur(10px)",
+          boxShadow: trigger
+            ? theme.palette.mode === "dark"
+              ? "0 4px 30px rgba(0, 0, 0, 0.25)"
+              : "0 4px 30px rgba(42, 67, 101, 0.15)"
+            : "none",
+          border: "1px solid",
+          borderColor:
+            theme.palette.mode === "dark"
+              ? "rgba(255, 255, 255, 0.05)"
+              : "rgba(255, 255, 255, 0.5)",
+        }}
+      >
+        <Container maxWidth="lg">
+          <Tabs
+            value={selectedTab}
+            onChange={onTabChange}
+            variant="scrollable"
+            scrollButtons="auto"
+            allowScrollButtonsMobile
+            sx={{
+              minHeight: { xs: 56, md: 64 },
+              "& .MuiTabs-flexContainer": {
+                gap: { xs: 1, md: 1.5 },
               },
-              "&.Mui-selected": {
-                color: "primary.main",
-                fontWeight: 600,
-                backgroundColor: (theme) =>
-                  theme.palette.mode === "dark"
-                    ? "rgba(255,255,255,0.05)"
-                    : "rgba(0,0,0,0.04)",
-                "& .MuiSvgIcon-root": {
+              "& .MuiTabs-indicator": {
+                backgroundColor: "primary.main",
+                height: 3,
+                borderRadius: "3px",
+              },
+              "& .MuiTab-root": {
+                minHeight: { xs: 48, md: 56 },
+                minWidth: "auto",
+                padding: { xs: "6px 16px", md: "8px 20px" },
+                fontSize: { xs: "0.85rem", md: "0.9rem" },
+                fontWeight: 500,
+                textTransform: "none",
+                color: "text.secondary",
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                gap: 1,
+                borderRadius: "12px",
+                transition: "all 0.2s ease",
+                mx: 0.5,
+                "&:hover": {
+                  backgroundColor:
+                    theme.palette.mode === "dark"
+                      ? "rgba(255,255,255,0.05)"
+                      : "rgba(0,0,0,0.04)",
                   color: "primary.main",
-                  transform: "scale(1.1)",
+                },
+                "&.Mui-selected": {
+                  color: "primary.main",
+                  fontWeight: 600,
+                  backgroundColor:
+                    theme.palette.mode === "dark"
+                      ? "rgba(255,255,255,0.05)"
+                      : "rgba(0,0,0,0.04)",
+                },
+                "& .MuiSvgIcon-root": {
+                  fontSize: { xs: 20, md: 22 },
                 },
               },
-              "& .MuiSvgIcon-root": {
-                fontSize: { xs: 22, md: 24 },
-                transition: "transform 0.2s ease",
+              "& .MuiTabs-scrollButtons": {
+                width: 40,
+                "&.Mui-disabled": { opacity: 0.3 },
+                "&:hover": {
+                  backgroundColor: "rgba(0,0,0,0.04)",
+                },
               },
-            },
-            "& .MuiTabs-scrollButtons": {
-              width: { xs: 32, md: 44 }, // Botones más grandes
-              "&.Mui-disabled": {
-                opacity: 0.3,
-              },
-              "& svg": {
-                fontSize: { xs: 22, md: 26 },
-              },
-            },
-          }}
-        >
-          {SERVICES_DATA.map((service) => (
-            <Tab
-              key={service.key}
-              label={t(`services.${service.key}.title`)}
-              icon={<ServiceIcon name={service.icon} />}
-              iconPosition="start"
-            />
-          ))}
-        </Tabs>
-      </Container>
+            }}
+          >
+            {SERVICES_DATA.map((service) => (
+              <Tab
+                key={service.key}
+                label={t(`services.${service.key}.title`)}
+                icon={<ServiceIcon name={service.icon} />}
+                iconPosition="start"
+              />
+            ))}
+          </Tabs>
+        </Container>
+      </Box>
     </Box>
   );
 };
