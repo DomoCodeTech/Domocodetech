@@ -10,7 +10,7 @@
  * - Lista de características (tecnologías, funcionalidades, etc.)
  * - Botón para más información
  */
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import {
@@ -22,21 +22,17 @@ import {
   Button,
   CardMedia,
   Container,
-  IconButton,
   useMediaQuery,
 } from "@mui/material";
-import { motion, AnimatePresence } from "framer-motion";
 import { SITE_DATA } from "../../constants/siteData";
 import { useTheme } from "@mui/material/styles";
-import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 
 const ProjectsSection = () => {
   const { t } = useTranslation();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-  const [currentPage, setCurrentPage] = useState(0);
-  const [direction, setDirection] = useState(0);
-  const [loadedImages, setLoadedImages] = useState<Set<string>>(new Set());
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const scrollRef = useRef<HTMLDivElement>(null);
 
   // Definir los proyectos usando los datos de las traducciones
   const projectKeys = [
@@ -63,88 +59,37 @@ const ProjectsSection = () => {
     [t]
   );
 
-  const projectsPerPage = isMobile ? 1 : 3;
-  const totalPages = Math.ceil(projects.length / projectsPerPage);
-
-  // Precarga de imágenes
+  // Modificar el useEffect para que solo funcione en desktop
   useEffect(() => {
-    const preloadImages = () => {
-      const nextPage = (currentPage + 1) % totalPages;
-      const start = nextPage * projectsPerPage;
-      const end = Math.min(start + projectsPerPage, projects.length);
+    if (isMobile) return; // No ejecutar en mobile
 
-      projects.slice(start, end).forEach((project) => {
-        if (!loadedImages.has(project.image)) {
-          const img = new Image();
-          img.src = project.image;
-          img.onload = () => {
-            setLoadedImages((prev) => new Set([...prev, project.image]));
-          };
-        }
+    const scrollContainer = scrollRef.current;
+    if (!scrollContainer) return;
+
+    const scroll = () => {
+      const maxScroll =
+        scrollContainer.scrollWidth - scrollContainer.clientWidth;
+      const newPosition = (scrollPosition + 1) % maxScroll;
+
+      scrollContainer.scrollTo({
+        left: newPosition,
+        behavior: "smooth",
       });
+      setScrollPosition(newPosition);
     };
 
-    preloadImages();
-  }, [currentPage, projects, projectsPerPage, totalPages, loadedImages]);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      handleNext();
-    }, 60000);
+    const interval = setInterval(scroll, 50);
     return () => clearInterval(interval);
-  }, [currentPage]);
-
-  const handleNext = () => {
-    setDirection(1);
-    setCurrentPage((prev) => (prev + 1) % totalPages);
-  };
-
-  const handlePrev = () => {
-    setDirection(-1);
-    setCurrentPage((prev) => (prev - 1 + totalPages) % totalPages);
-  };
-
-  const getVisibleProjects = () => {
-    const start = currentPage * projectsPerPage;
-    const end = start + projectsPerPage;
-
-    // Crear un array circular para transición suave
-    const wrappedProjects = [...projects];
-    if (end > projects.length) {
-      wrappedProjects.push(...projects.slice(0, end - projects.length));
-    }
-
-    return wrappedProjects.slice(start, end);
-  };
-
-  // Mejorado el sistema de animación
-  const slideVariants = {
-    enter: (direction: number) => ({
-      x: direction > 0 ? 1000 : -1000,
-      opacity: 0,
-      scale: 0.95,
-    }),
-    center: {
-      zIndex: 1,
-      x: 0,
-      opacity: 1,
-      scale: 1,
-    },
-    exit: (direction: number) => ({
-      zIndex: 0,
-      x: direction < 0 ? 1000 : -1000,
-      opacity: 0,
-      scale: 0.95,
-    }),
-  };
+  }, [scrollPosition, isMobile]);
 
   return (
     <Box
       component="section"
       sx={{
-        py: { xs: 8, md: 12 },
-        background: "transparent", // Cambiado a transparente
-        overflow: "hidden", // Prevenir scroll horizontal durante animaciones
+        py: { xs: 6, md: 8 },
+        background: "transparent",
+        position: "relative",
+        overflow: "hidden", // Asegurar que los bordes no se desborden
       }}
     >
       <Container maxWidth="lg">
@@ -175,228 +120,210 @@ const ProjectsSection = () => {
           sx={{
             position: "relative",
             width: "100%",
-            height: { xs: "450px", md: "400px" },
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            mt: { xs: 2, md: 4 },
+            borderRadius: "16px", // Añadir bordes redondeados al contenedor
+            overflow: "hidden", // Importante para los gradientes
+            "&::before, &::after": {
+              content: '""',
+              position: "absolute",
+              top: 0,
+              bottom: 0,
+              width: { xs: "15%", md: "20%" },
+              zIndex: 2,
+              pointerEvents: "none",
+              transition: "opacity 0.3s ease",
+            },
+            "&::before": {
+              left: 0,
+              background:
+                theme.palette.mode === "dark"
+                  ? `linear-gradient(90deg, 
+                    ${theme.palette.background.default} 0%,
+                    rgba(18, 18, 18, 0.9) 30%,
+                    rgba(18, 18, 18, 0.3) 70%,
+                    transparent 100%)`
+                  : `linear-gradient(90deg, 
+                    ${theme.palette.background.default} 0%,
+                    rgba(255, 255, 255, 0.9) 30%,
+                    rgba(255, 255, 255, 0.3) 70%,
+                    transparent 100%)`,
+            },
+            "&::after": {
+              right: 0,
+              background:
+                theme.palette.mode === "dark"
+                  ? `linear-gradient(-90deg, 
+                    ${theme.palette.background.default} 0%,
+                    rgba(18, 18, 18, 0.9) 30%,
+                    rgba(18, 18, 18, 0.3) 70%,
+                    transparent 100%)`
+                  : `linear-gradient(-90deg, 
+                    ${theme.palette.background.default} 0%,
+                    rgba(255, 255, 255, 0.9) 30%,
+                    rgba(255, 255, 255, 0.3) 70%,
+                    transparent 100%)`,
+            },
           }}
         >
-          <IconButton
-            onClick={handlePrev}
-            sx={{
-              position: "absolute",
-              left: { xs: -20, md: -40 },
-              zIndex: 2,
-              color: "primary.main",
-              bgcolor:
-                theme.palette.mode === "dark"
-                  ? "rgba(0,0,0,0.3)"
-                  : "rgba(255,255,255,0.3)",
-              backdropFilter: "blur(4px)",
-              "&:hover": {
-                bgcolor:
-                  theme.palette.mode === "dark"
-                    ? "rgba(0,0,0,0.5)"
-                    : "rgba(255,255,255,0.5)",
-              },
-            }}
-          >
-            <MdChevronLeft size={32} />
-          </IconButton>
-
           <Box
+            ref={scrollRef}
             sx={{
-              position: "relative",
-              width: "100%",
               display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              px: { xs: 2, md: 0 },
+              gap: 2,
+              overflowX: "auto",
+              overflowY: "hidden",
+              px: 4,
+              py: 2,
+              scrollBehavior: "smooth",
+              borderRadius: "16px", // Coincide con el contenedor padre
+              "&::-webkit-scrollbar": {
+                display: "none",
+              },
+              msOverflowStyle: "none",
+              scrollbarWidth: "none",
+              // Ajustar scroll snap solo en mobile
+              ...(isMobile && {
+                scrollSnapType: "x mandatory",
+                "& > *": {
+                  scrollSnapAlign: "center",
+                },
+              }),
             }}
           >
-            <AnimatePresence initial={false} custom={direction} mode="wait">
-              <motion.div
-                key={currentPage}
-                custom={direction}
-                variants={slideVariants}
-                initial="enter"
-                animate="center"
-                exit="exit"
-                transition={{
-                  x: { type: "spring", stiffness: 300, damping: 30 },
-                  opacity: { duration: 0.5 },
-                  scale: { duration: 0.5 },
-                }}
-                style={{
-                  position: "absolute",
+            {projects.map((project) => (
+              <Card
+                key={project.key}
+                sx={{
+                  width: isMobile ? "280px" : "300px",
+                  height: "500px",
                   display: "flex",
-                  gap: "24px",
-                  width: "100%",
-                  justifyContent: "center",
-                  willChange: "transform",
+                  flexDirection: "column",
+                  flexShrink: 0,
+                  borderRadius: 2,
+                  background:
+                    theme.palette.mode === "dark"
+                      ? "linear-gradient(145deg, rgba(31,31,31,0.6) 0%, rgba(21,21,21,0.8) 100%)"
+                      : "linear-gradient(145deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.95) 100%)",
+                  boxShadow:
+                    theme.palette.mode === "dark"
+                      ? "0 4px 30px rgba(0, 255, 163, 0.1)"
+                      : "0 4px 30px rgba(0, 0, 0, 0.1)",
+                  transition: "all 0.3s ease-in-out",
+                  "&:hover": {
+                    transform: "translateY(-8px)",
+                    boxShadow:
+                      theme.palette.mode === "dark"
+                        ? "0 12px 40px rgba(0, 0, 0, 0.7)"
+                        : "0 12px 40px rgba(0, 0, 0, 0.12)",
+                  },
                 }}
               >
-                {getVisibleProjects().map((project, index) => (
-                  <Card
-                    key={`${currentPage}-${index}`}
+                <CardMedia
+                  component="img"
+                  height="160"
+                  image={project.image}
+                  alt={t(`projects.${project.key}.title`)}
+                  sx={{
+                    objectFit: "cover",
+                  }}
+                />
+                <CardContent
+                  sx={{
+                    flexGrow: 1,
+                    p: 2,
+                    display: "flex",
+                    flexDirection: "column",
+                  }}
+                >
+                  <Typography
+                    variant="h6"
+                    gutterBottom
                     sx={{
-                      width: isMobile ? "85%" : "350px",
-                      height: "550px",
-                      display: "flex",
-                      flexDirection: "column",
-                      borderRadius: 2,
-                      background:
+                      color:
                         theme.palette.mode === "dark"
-                          ? "linear-gradient(145deg, rgba(31,31,31,0.6) 0%, rgba(21,21,21,0.8) 100%)"
-                          : "linear-gradient(145deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.95) 100%)",
-                      boxShadow:
-                        theme.palette.mode === "dark"
-                          ? "0 4px 30px rgba(0, 255, 163, 0.1)"
-                          : "0 4px 30px rgba(0, 0, 0, 0.1)",
-                      transition: "all 0.3s ease-in-out",
-                      "&:hover": {
-                        transform: "translateY(-8px)",
-                        boxShadow:
-                          theme.palette.mode === "dark"
-                            ? "0 12px 40px rgba(0, 0, 0, 0.7)"
-                            : "0 12px 40px rgba(0, 0, 0, 0.12)",
-                      },
+                          ? "white"
+                          : "text.primary",
+                      fontWeight: 600,
+                      fontSize: "1.1rem",
+                      height: "40px",
+                      display: "-webkit-box",
+                      WebkitLineClamp: 2,
+                      WebkitBoxOrient: "vertical",
+                      overflow: "hidden",
                     }}
                   >
-                    <CardMedia
-                      component="img"
-                      height="200"
-                      image={project.image}
-                      alt={t(`projects.${project.key}.title`)}
+                    {t(`projects.${project.key}.title`)}
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    color="text.secondary"
+                    sx={{
+                      mb: 2,
+                      height: "60px",
+                      display: "-webkit-box",
+                      WebkitLineClamp: 3,
+                      WebkitBoxOrient: "vertical",
+                      overflow: "hidden",
+                    }}
+                  >
+                    {t(`projects.${project.key}.description`)}
+                  </Typography>
+                  <Box
+                    sx={{
+                      mt: "auto",
+                      height: "130px",
+                    }}
+                  >
+                    <Typography
+                      variant="subtitle2"
                       sx={{
-                        objectFit: "cover",
-                        height: "200px",
-                      }}
-                    />
-                    <CardContent
-                      sx={{
-                        flexGrow: 1,
-                        p: 3,
-                        display: "flex",
-                        flexDirection: "column",
-                        height: "300px",
+                        color:
+                          theme.palette.mode === "dark"
+                            ? "white"
+                            : "text.primary",
+                        mb: 1,
                       }}
                     >
+                      {t("projects.featuresTitle")}:
+                    </Typography>
+                    {project.features.map((feature, idx) => (
                       <Typography
-                        variant="h5"
-                        gutterBottom
-                        sx={{
-                          color:
-                            theme.palette.mode === "dark"
-                              ? "white"
-                              : "text.primary",
-                          fontWeight: 600,
-                          fontSize: "1.25rem",
-                          height: "40px",
-                          display: "-webkit-box",
-                          WebkitLineClamp: 2,
-                          WebkitBoxOrient: "vertical",
-                          overflow: "hidden",
-                        }}
-                      >
-                        {t(`projects.${project.key}.title`)}
-                      </Typography>
-                      <Typography
+                        key={idx}
                         variant="body2"
                         color="text.secondary"
                         sx={{
-                          mb: 2,
-                          height: "60px",
-                          display: "-webkit-box",
-                          WebkitLineClamp: 3,
-                          WebkitBoxOrient: "vertical",
-                          overflow: "hidden",
+                          display: "flex",
+                          alignItems: "center",
+                          "&:before": {
+                            content: '""',
+                            width: 6,
+                            height: 6,
+                            borderRadius: "50%",
+                            bgcolor: "primary.main",
+                            mr: 1,
+                            display: "inline-block",
+                          },
                         }}
                       >
-                        {t(`projects.${project.key}.description`)}
+                        {t(`projects.features.${feature}`)}
                       </Typography>
-                      <Box
-                        sx={{
-                          mt: "auto",
-                          height: "130px",
-                        }}
-                      >
-                        <Typography
-                          variant="subtitle2"
-                          sx={{
-                            color:
-                              theme.palette.mode === "dark"
-                                ? "white"
-                                : "text.primary",
-                            mb: 1,
-                          }}
-                        >
-                          {t("projects.featuresTitle")}:
-                        </Typography>
-                        {project.features.map((feature, idx) => (
-                          <Typography
-                            key={idx}
-                            variant="body2"
-                            color="text.secondary"
-                            sx={{
-                              display: "flex",
-                              alignItems: "center",
-                              "&:before": {
-                                content: '""',
-                                width: 6,
-                                height: 6,
-                                borderRadius: "50%",
-                                bgcolor: "primary.main",
-                                mr: 1,
-                                display: "inline-block",
-                              },
-                            }}
-                          >
-                            {t(`projects.features.${feature}`)}
-                          </Typography>
-                        ))}
-                      </Box>
-                    </CardContent>
-                    <CardActions sx={{ p: 3, pt: 0, height: "50px" }}>
-                      <Button
-                        component={Link}
-                        to={`/projects/${project.key}`}
-                        variant="outlined"
-                        color="primary"
-                        fullWidth
-                      >
-                        {t("common.readMore")}
-                      </Button>
-                    </CardActions>
-                  </Card>
-                ))}
-              </motion.div>
-            </AnimatePresence>
+                    ))}
+                  </Box>
+                </CardContent>
+                <CardActions sx={{ p: 2, pt: 0 }}>
+                  <Button
+                    component={Link}
+                    to={`/projects/${project.key}`}
+                    variant="outlined"
+                    color="primary"
+                    fullWidth
+                    size="small"
+                  >
+                    {t("common.readMore")}
+                  </Button>
+                </CardActions>
+              </Card>
+            ))}
           </Box>
-
-          <IconButton
-            onClick={handleNext}
-            sx={{
-              position: "absolute",
-              right: { xs: -20, md: -40 },
-              zIndex: 2,
-              color: "primary.main",
-              bgcolor:
-                theme.palette.mode === "dark"
-                  ? "rgba(0,0,0,0.3)"
-                  : "rgba(255,255,255,0.3)",
-              backdropFilter: "blur(4px)",
-              "&:hover": {
-                bgcolor:
-                  theme.palette.mode === "dark"
-                    ? "rgba(0,0,0,0.5)"
-                    : "rgba(255,255,255,0.5)",
-              },
-            }}
-          >
-            <MdChevronRight size={32} />
-          </IconButton>
         </Box>
       </Container>
     </Box>
