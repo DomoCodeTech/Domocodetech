@@ -15,8 +15,6 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { Link as RouterLink } from "react-router-dom";
@@ -48,12 +46,12 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
 
   return (
     <Card
-      onClick={() => isMobile && onExpand()} // Hacer toda la tarjeta clickeable en mobile
+      onClick={onExpand} // Ahora toda la tarjeta es clickeable siempre
       sx={{
         position: "relative",
         borderRadius: { xs: 4, sm: 3 },
         overflow: "visible",
-        cursor: isMobile ? "pointer" : "default",
+        cursor: "pointer", // Cursor pointer siempre para indicar que es clickeable
         background:
           theme.palette.mode === "dark"
             ? "linear-gradient(145deg, rgba(31,31,31,0.8) 0%, rgba(21,21,21,0.9) 100%)"
@@ -191,29 +189,17 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
               {t(`services.${service.key}.title`)}
             </Typography>
           </Box>
-
-          {/* Indicador de expansión tanto para mobile como desktop */}
-          <ExpandMoreIcon
-            onClick={(e) => {
-              if (!isMobile) {
-                e.stopPropagation();
-                onExpand();
-              }
-            }}
-            sx={{
-              transform: expanded ? "rotate(180deg)" : "none",
-              transition: "transform 0.3s ease",
-              color: theme.palette.mode === "dark" ? "#00FFA3" : "#00805E",
-              cursor: "pointer",
-              fontSize: isMobile ? 24 : 28,
-            }}
-          />
         </Stack>
 
         <Collapse
           in={expanded}
           timeout="auto"
-          sx={{ display: "flex", flexDirection: "column", flexGrow: 1 }}
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            flexGrow: 1,
+            minHeight: expanded ? (isMobile ? "auto" : "400px") : 0, // Altura mínima en desktop
+          }}
         >
           <Box
             sx={{
@@ -231,7 +217,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
               height: "100%",
             }}
           >
-            <Box sx={{ flexGrow: 1 }}>
+            <Box sx={{ flex: 1 }}>
               <Typography
                 variant="body1"
                 sx={{
@@ -304,29 +290,46 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
               </Box>
             </Box>
 
-            <Button
-              component={RouterLink}
-              to={`/services?tab=${index}`}
-              variant="contained"
-              size="small"
-              fullWidth
+            {/* Contenedor para mantener el botón al final */}
+            <Box
               sx={{
                 mt: "auto",
-                background:
-                  theme.palette.mode === "dark"
-                    ? "linear-gradient(90deg, #00FFA3 0%, #00805E 100%)"
-                    : "linear-gradient(90deg, #00805E 0%, #006B4F 100%)",
-                color: theme.palette.mode === "dark" ? "#000" : "#fff",
-                "&:hover": {
-                  background:
-                    theme.palette.mode === "dark"
-                      ? "linear-gradient(90deg, #00E693 0%, #00734E 100%)"
-                      : "linear-gradient(90deg, #00734E 0%, #005A40 100%)",
-                },
+                pt: 2,
+                ...(expanded &&
+                  !isMobile && {
+                    position: "sticky",
+                    bottom: 0,
+                    background:
+                      theme.palette.mode === "dark"
+                        ? "linear-gradient(to top, rgba(31,31,31,1) 0%, rgba(31,31,31,0) 100%)"
+                        : "linear-gradient(to top, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%)",
+                    pb: 2,
+                  }),
               }}
             >
-              {t("services.viewMore")}
-            </Button>
+              <Button
+                component={RouterLink}
+                to={`/services?tab=${index}`}
+                variant="contained"
+                size="small"
+                fullWidth
+                sx={{
+                  background:
+                    theme.palette.mode === "dark"
+                      ? "linear-gradient(90deg, #00FFA3 0%, #00805E 100%)"
+                      : "linear-gradient(90deg, #00805E 0%, #006B4F 100%)",
+                  color: theme.palette.mode === "dark" ? "#000" : "#fff",
+                  "&:hover": {
+                    background:
+                      theme.palette.mode === "dark"
+                        ? "linear-gradient(90deg, #00E693 0%, #00734E 100%)"
+                        : "linear-gradient(90deg, #00734E 0%, #005A40 100%)",
+                  },
+                }}
+              >
+                {t("services.viewMore")}
+              </Button>
+            </Box>
           </Box>
         </Collapse>
       </Box>
