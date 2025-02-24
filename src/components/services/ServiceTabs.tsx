@@ -1,5 +1,12 @@
 import React from "react";
-import { Box, Tabs, Tab, Container, useScrollTrigger } from "@mui/material";
+import {
+  Box,
+  Tabs,
+  Tab,
+  Container,
+  useScrollTrigger,
+  useMediaQuery,
+} from "@mui/material";
 import { ServiceIcon } from "../icons/ServiceIcons";
 import { useTranslation } from "react-i18next";
 import { SERVICES_DATA } from "../../constants/siteData";
@@ -16,9 +23,10 @@ const ServiceTabs: React.FC<ServiceTabsProps> = ({
 }) => {
   const { t } = useTranslation();
   const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const trigger = useScrollTrigger({
     disableHysteresis: true,
-    threshold: 300, // Ajustado para que se active después del hero section
+    threshold: 300,
   });
 
   return (
@@ -40,9 +48,9 @@ const ServiceTabs: React.FC<ServiceTabsProps> = ({
     >
       <Box
         sx={{
-          width: { xs: "calc(100% - 32px)", md: "90%" },
+          width: { xs: "100%", sm: "calc(100% - 32px)", md: "90%" },
           maxWidth: "1200px",
-          borderRadius: "16px",
+          borderRadius: { xs: 0, sm: "16px" },
           background:
             theme.palette.mode === "dark"
               ? "rgba(10, 10, 10, 0.8)"
@@ -53,14 +61,14 @@ const ServiceTabs: React.FC<ServiceTabsProps> = ({
               ? "0 4px 30px rgba(0, 0, 0, 0.25)"
               : "0 4px 30px rgba(42, 67, 101, 0.15)"
             : "none",
-          border: "1px solid",
+          border: { xs: "none", sm: "1px solid" },
           borderColor:
             theme.palette.mode === "dark"
               ? "rgba(255, 255, 255, 0.05)"
               : "rgba(255, 255, 255, 0.5)",
         }}
       >
-        <Container maxWidth="lg">
+        <Container maxWidth="lg" disableGutters={isMobile}>
           <Tabs
             value={selectedTab}
             onChange={onTabChange}
@@ -70,7 +78,7 @@ const ServiceTabs: React.FC<ServiceTabsProps> = ({
             sx={{
               minHeight: { xs: 56, md: 64 },
               "& .MuiTabs-flexContainer": {
-                gap: { xs: 1, md: 1.5 },
+                gap: { xs: 0.5, md: 1.5 },
               },
               "& .MuiTabs-indicator": {
                 backgroundColor: "primary.main",
@@ -80,7 +88,7 @@ const ServiceTabs: React.FC<ServiceTabsProps> = ({
               "& .MuiTab-root": {
                 minHeight: { xs: 48, md: 56 },
                 minWidth: "auto",
-                padding: { xs: "6px 16px", md: "8px 20px" },
+                padding: { xs: "6px 12px", md: "8px 20px" },
                 fontSize: { xs: "0.85rem", md: "0.9rem" },
                 fontWeight: 500,
                 textTransform: "none",
