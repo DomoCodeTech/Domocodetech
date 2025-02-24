@@ -33,7 +33,7 @@ const ServiceTabs: React.FC<ServiceTabsProps> = ({
     <Box
       sx={{
         position: "sticky",
-        top: 24,
+        top: 22,
         left: 0,
         right: 0,
         width: "100%",
@@ -42,7 +42,6 @@ const ServiceTabs: React.FC<ServiceTabsProps> = ({
         justifyContent: "center",
         alignItems: "center",
         background: "transparent",
-        backdropFilter: trigger ? "blur(10px)" : "none",
         transition: "all 0.3s ease",
       }}
     >
@@ -50,6 +49,8 @@ const ServiceTabs: React.FC<ServiceTabsProps> = ({
         sx={{
           width: { xs: "100%", sm: "calc(100% - 32px)", md: "90%" },
           maxWidth: "1200px",
+          pt: { xs: 1, sm: 1 },
+          pb: { xs: 1, sm: 1 },
           borderRadius: { xs: 0, sm: "16px" },
           background:
             theme.palette.mode === "dark"
@@ -61,11 +62,7 @@ const ServiceTabs: React.FC<ServiceTabsProps> = ({
               ? "0 4px 30px rgba(0, 0, 0, 0.25)"
               : "0 4px 30px rgba(42, 67, 101, 0.15)"
             : "none",
-          border: { xs: "none", sm: "1px solid" },
-          borderColor:
-            theme.palette.mode === "dark"
-              ? "rgba(255, 255, 255, 0.05)"
-              : "rgba(255, 255, 255, 0.5)",
+        
         }}
       >
         <Container maxWidth="lg" disableGutters={isMobile}>
