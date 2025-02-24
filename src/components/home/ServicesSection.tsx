@@ -12,6 +12,7 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
+  useMediaQuery,
 } from "@mui/material";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
@@ -43,138 +44,292 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
 }) => {
   const { t } = useTranslation();
   const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
     <Card
+      onClick={() => isMobile && onExpand()} // Hacer toda la tarjeta clickeable en mobile
       sx={{
-        height: "100%",
-        display: "flex",
-        flexDirection: "column",
-        p: { xs: 2.5, sm: 3.5 },
-        borderRadius: 2,
-        transition: "all 0.3s ease-in-out",
+        position: "relative",
+        borderRadius: { xs: 4, sm: 3 },
+        overflow: "visible",
+        cursor: isMobile ? "pointer" : "default",
         background:
           theme.palette.mode === "dark"
-            ? "linear-gradient(145deg, rgba(31,31,31,0.6) 0%, rgba(21,21,21,0.8) 100%)"
-            : "linear-gradient(145deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.95) 100%)",
-        boxShadow:
-          theme.palette.mode === "dark"
-            ? "0 4px 30px rgba(0, 255, 163, 0.1)"
-            : "0 4px 30px rgba(0, 0, 0, 0.1)",
-        "&:hover": {
-          transform: "translateY(-8px)",
-          boxShadow:
+            ? "linear-gradient(145deg, rgba(31,31,31,0.8) 0%, rgba(21,21,21,0.9) 100%)"
+            : "linear-gradient(145deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.9) 100%)",
+        backdropFilter: "blur(10px)",
+        transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
+        // Diseño específico para mobile
+        ...(isMobile && {
+          minHeight: expanded ? "auto" : "100px",
+          margin: "0.25rem 0", // Reducido de 0.5rem a 0.25rem
+          boxShadow: expanded
+            ? theme.palette.mode === "dark"
+              ? "0 12px 40px rgba(0, 255, 163, 0.15)"
+              : "0 12px 40px rgba(0, 128, 94, 0.15)"
+            : "none",
+          border: `1px solid ${
             theme.palette.mode === "dark"
-              ? "0 4px 30px rgba(0, 255, 163, 0.1)"
-              : "0 4px 30px rgba(0, 0, 0, 0.1)",
-          background:
-            theme.palette.mode === "dark"
-              ? "linear-gradient(145deg, #1f1f1f 0%, #151515 100%), linear-gradient(to right, rgba(0, 255, 163, 0.1), transparent)"
-              : "linear-gradient(145deg, #FFFFFF 0%, #F8FAFF 100%), linear-gradient(to right, rgba(0, 128, 94, 0.1), transparent)",
-          "& .service-icon": {
-            transform: "scale(1.1) rotate(5deg)",
-            color: theme.palette.mode === "dark" ? "#00FFA3" : "#00805E",
-          },
-          "& .service-title": {
+              ? "rgba(255,255,255,0.1)"
+              : "rgba(0,0,0,0.1)"
+          }`,
+          "&::after": {
+            content: '""',
+            position: "absolute",
+            left: -2,
+            top: "50%",
+            transform: "translateY(-50%)",
+            width: 4,
+            height: expanded ? "80%" : "40%",
             background:
               theme.palette.mode === "dark"
-                ? "linear-gradient(90deg, #FFFFFF 30%, #00FFA3 100%)"
-                : "linear-gradient(90deg, #1A1A1A 30%, #00805E 100%)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
+                ? "linear-gradient(180deg, #00FFA3 0%, #00805E 100%)"
+                : "linear-gradient(180deg, #00805E 0%, #006B4F 100%)",
+            borderRadius: 8,
+            transition: "height 0.3s ease",
           },
-        },
+        }),
+        // Diseño para desktop se mantiene igual
+        ...(!isMobile && {
+          height: "100%",
+          display: "flex",
+          flexDirection: "column",
+          p: { xs: 2, sm: 3.5 },
+          borderRadius: 3,
+          position: "relative",
+          overflow: "hidden",
+          transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
+          background:
+            theme.palette.mode === "dark"
+              ? "linear-gradient(145deg, rgba(31,31,31,0.8) 0%, rgba(21,21,21,0.9) 100%)"
+              : "linear-gradient(145deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.9) 100%)",
+          backdropFilter: "blur(10px)",
+          "&::before": {
+            content: '""',
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            height: "100%",
+            background: `linear-gradient(90deg, 
+              ${theme.palette.primary.main}15 0%, 
+              ${theme.palette.primary.main}05 100%)`,
+            opacity: 0,
+            transition: "opacity 0.3s ease-in-out",
+          },
+          "&:hover": {
+            transform: "translateY(-8px)",
+            boxShadow:
+              theme.palette.mode === "dark"
+                ? "0 12px 40px rgba(0, 255, 163, 0.15)"
+                : "0 12px 40px rgba(0, 128, 94, 0.15)",
+            "&::before": {
+              opacity: 1,
+            },
+            "& .service-icon": {
+              transform: "scale(1.1) rotate(5deg)",
+              color: theme.palette.mode === "dark" ? "#00FFA3" : "#00805E",
+            },
+          },
+        }),
       }}
     >
-      <Stack direction="row" spacing={2} alignItems="center" sx={{ mb: 2 }}>
-        <Box
-          className="service-icon"
-          sx={{
-            transition: "all 0.3s ease-in-out",
-            color: "text.primary",
-          }}
-        >
-          <ServiceIcon
-            name={service.icon}
-            sx={{ fontSize: { xs: 36, sm: 44 } }}
-          />
-        </Box>
-        <Typography
-          className="service-title"
-          variant="h5"
-          sx={{
-            fontWeight: 600,
-            color: theme.palette.mode === "dark" ? "white" : "text.primary",
-            fontSize: { xs: "1.25rem", sm: "1.5rem" },
-            transition: "all 0.3s ease-in-out",
-          }}
-        >
-          {t(`services.${service.key}.title`)}
-        </Typography>
-      </Stack>
-
-      <Typography
-        variant="body1"
+      <Box
         sx={{
-          color: "text.secondary",
-          mb: 0,
-          fontSize: { xs: "0.95rem", sm: "1.1rem" },
-          lineHeight: 1.7,
+          p: isMobile ? 2 : { xs: 2, sm: 3.5 },
+          height: "100%",
+          display: "flex",
+          flexDirection: "column",
         }}
       >
-        {t(`services.${service.key}.description`)}
-      </Typography>
+        <Stack
+          direction="row"
+          spacing={2}
+          alignItems="center"
+          sx={{
+            mb: expanded ? 2 : 0,
+            position: "relative",
+            zIndex: 1,
+          }}
+        >
+          <Box
+            className="service-icon"
+            sx={{
+              p: isMobile ? 1 : 1.5,
+              borderRadius: 2,
+              background:
+                theme.palette.mode === "dark"
+                  ? "rgba(0, 255, 163, 0.1)"
+                  : "rgba(0, 128, 94, 0.1)",
+              transition: "all 0.3s ease-in-out",
+            }}
+          >
+            <ServiceIcon
+              name={service.icon}
+              sx={{
+                fontSize: { xs: 24, sm: 44 },
+                color: theme.palette.mode === "dark" ? "#00FFA3" : "#00805E",
+              }}
+            />
+          </Box>
 
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <Box sx={{ mt: 3, mb: 2 }}>
-          <Typography variant="subtitle2" sx={{ mb: 1.5, fontWeight: 600 }}>
-            {t("services.servicesList")}:
-          </Typography>
-          <List dense sx={{ pt: 0 }}>
-            {Object.keys(
-              t(`services.${service.key}.serviceList`, { returnObjects: true })
-            ).map((item, idx) => (
-              <ListItem key={idx} sx={{ py: 0.5 }}>
-                <ListItemIcon sx={{ minWidth: 36 }}>
-                  <CheckCircleOutlineIcon
-                    color="primary"
-                    sx={{ fontSize: 20 }}
-                  />
-                </ListItemIcon>
-                <ListItemText
-                  primary={t(`services.${service.key}.serviceList.${item}`)}
+          <Box sx={{ flex: 1 }}>
+            <Typography
+              variant="h5"
+              sx={{
+                fontWeight: 600,
+                fontSize: { xs: "1rem", sm: "1.5rem" },
+                background:
+                  theme.palette.mode === "dark"
+                    ? "linear-gradient(90deg, #FFFFFF 30%, #00FFA3 100%)"
+                    : "linear-gradient(90deg, #1A1A1A 30%, #00805E 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+              }}
+            >
+              {t(`services.${service.key}.title`)}
+            </Typography>
+          </Box>
+
+          {/* Indicador de expansión tanto para mobile como desktop */}
+          <ExpandMoreIcon
+            onClick={(e) => {
+              if (!isMobile) {
+                e.stopPropagation();
+                onExpand();
+              }
+            }}
+            sx={{
+              transform: expanded ? "rotate(180deg)" : "none",
+              transition: "transform 0.3s ease",
+              color: theme.palette.mode === "dark" ? "#00FFA3" : "#00805E",
+              cursor: "pointer",
+              fontSize: isMobile ? 24 : 28,
+            }}
+          />
+        </Stack>
+
+        <Collapse
+          in={expanded}
+          timeout="auto"
+          sx={{ display: "flex", flexDirection: "column", flexGrow: 1 }}
+        >
+          <Box
+            sx={{
+              mt: 2,
+              px: isMobile ? 1 : 0,
+              py: isMobile ? 2 : 0,
+              background: isMobile
+                ? theme.palette.mode === "dark"
+                  ? "rgba(0,0,0,0.2)"
+                  : "rgba(0,0,0,0.02)"
+                : "transparent",
+              borderRadius: 2,
+              display: "flex",
+              flexDirection: "column",
+              height: "100%",
+            }}
+          >
+            <Box sx={{ flexGrow: 1 }}>
+              <Typography
+                variant="body1"
+                sx={{
+                  color: "text.secondary",
+                  mb: 2,
+                  fontSize: { xs: "0.9rem", sm: "1.1rem" },
+                  lineHeight: 1.6,
+                }}
+              >
+                {t(`services.${service.key}.description`)}
+              </Typography>
+
+              <Box sx={{ mt: 2, mb: 2 }}>
+                <Typography
+                  variant="subtitle2"
                   sx={{
-                    "& .MuiListItemText-primary": {
-                      fontSize: "1rem",
-                      color: theme.palette.text.secondary,
-                    },
+                    mb: 1.5,
+                    fontWeight: 600,
+                    color:
+                      theme.palette.mode === "dark" ? "#00FFA3" : "#00805E",
                   }}
-                />
-              </ListItem>
-            ))}
-          </List>
-        </Box>
-      </Collapse>
+                >
+                  {t("services.servicesList")}:
+                </Typography>
+                <List dense sx={{ pt: 0 }}>
+                  {Object.keys(
+                    t(`services.${service.key}.serviceList`, {
+                      returnObjects: true,
+                    })
+                  ).map((item, idx) => (
+                    <ListItem
+                      key={idx}
+                      sx={{
+                        py: 0.5,
+                        transition: "all 0.2s ease",
+                        "&:hover": {
+                          background:
+                            theme.palette.mode === "dark"
+                              ? "rgba(0, 255, 163, 0.05)"
+                              : "rgba(0, 128, 94, 0.05)",
+                          borderRadius: 1,
+                        },
+                      }}
+                    >
+                      <ListItemIcon sx={{ minWidth: 36 }}>
+                        <CheckCircleOutlineIcon
+                          sx={{
+                            fontSize: 20,
+                            color:
+                              theme.palette.mode === "dark"
+                                ? "#00FFA3"
+                                : "#00805E",
+                          }}
+                        />
+                      </ListItemIcon>
+                      <ListItemText
+                        primary={t(
+                          `services.${service.key}.serviceList.${item}`
+                        )}
+                        sx={{
+                          "& .MuiListItemText-primary": {
+                            fontSize: "0.95rem",
+                            color: theme.palette.text.secondary,
+                          },
+                        }}
+                      />
+                    </ListItem>
+                  ))}
+                </List>
+              </Box>
+            </Box>
 
-      <Stack direction="row" spacing={1} sx={{ mt: "auto", pt: 2 }}>
-        <Button
-          onClick={onExpand}
-          size="small"
-          startIcon={expanded ? <ExpandLessIcon /> : <ExpandMoreIcon />}
-          sx={{ flex: 1 }}
-        >
-          {expanded ? t("common.showLess") : t("common.readMore")}
-        </Button>
-        <Button
-          component={RouterLink}
-          to={`/services?tab=${index}`}
-          variant="contained"
-          size="small"
-          sx={{ flex: 1 }}
-        >
-          {t("services.viewMore")}
-        </Button>
-      </Stack>
+            <Button
+              component={RouterLink}
+              to={`/services?tab=${index}`}
+              variant="contained"
+              size="small"
+              fullWidth
+              sx={{
+                mt: "auto",
+                background:
+                  theme.palette.mode === "dark"
+                    ? "linear-gradient(90deg, #00FFA3 0%, #00805E 100%)"
+                    : "linear-gradient(90deg, #00805E 0%, #006B4F 100%)",
+                color: theme.palette.mode === "dark" ? "#000" : "#fff",
+                "&:hover": {
+                  background:
+                    theme.palette.mode === "dark"
+                      ? "linear-gradient(90deg, #00E693 0%, #00734E 100%)"
+                      : "linear-gradient(90deg, #00734E 0%, #005A40 100%)",
+                },
+              }}
+            >
+              {t("services.viewMore")}
+            </Button>
+          </Box>
+        </Collapse>
+      </Box>
     </Card>
   );
 };
@@ -319,13 +474,13 @@ const ServicesSection = () => {
           viewport={{ once: true }}
         >
           <Typography
-             variant="h2"
-             component="h2"
-             align="center"
-             sx={{
-               mb: 2,
-               color: theme.palette.mode === "dark" ? "white" : "text.primary",
-             }}
+            variant="h2"
+            component="h2"
+            align="center"
+            sx={{
+              mb: 2,
+              color: theme.palette.mode === "dark" ? "white" : "text.primary",
+            }}
           >
             {t("services.title")}
           </Typography>
@@ -340,9 +495,22 @@ const ServicesSection = () => {
           </Typography>
         </motion.div>
 
-        <Grid container spacing={3} alignItems="stretch">
+        <Grid
+          container
+          spacing={{ xs: 1, sm: 2, md: 3 }} // Reducido el espaciado en mobile
+          alignItems="stretch"
+        >
           {services.map((service, index) => (
-            <Grid item xs={12} sm={6} md={4} key={service.key}>
+            <Grid
+              item
+              xs={12}
+              sm={6}
+              md={4}
+              key={service.key}
+              sx={{
+                mb: { xs: 1, sm: 2, md: 3 }, // Añadido margin bottom específico
+              }}
+            >
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
