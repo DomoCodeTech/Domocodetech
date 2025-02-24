@@ -26,13 +26,36 @@ import {
 } from "@mui/material";
 import { SITE_DATA } from "../../constants/siteData";
 import { useTheme } from "@mui/material/styles";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 
 const ProjectsSection = () => {
   const { t } = useTranslation();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-  const [scrollPosition, setScrollPosition] = useState(0);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const [showLeftArrow, setShowLeftArrow] = useState(false);
+  const [showRightArrow, setShowRightArrow] = useState(true);
+
+  const handleScroll = () => {
+    const container = scrollRef.current;
+    if (container) {
+      setShowLeftArrow(container.scrollLeft > 0);
+      setShowRightArrow(
+        container.scrollLeft <
+          container.scrollWidth - container.clientWidth - 10
+      );
+    }
+  };
+
+  useEffect(() => {
+    const container = scrollRef.current;
+    if (container) {
+      container.addEventListener("scroll", handleScroll);
+      handleScroll(); // Verificar estado inicial
+      return () => container.removeEventListener("scroll", handleScroll);
+    }
+  }, []);
 
   // Definir los proyectos usando los datos de las traducciones
   const projectKeys = [
@@ -59,39 +82,8 @@ const ProjectsSection = () => {
     [t]
   );
 
-  // Modificar el useEffect para que solo funcione en desktop
-  useEffect(() => {
-    if (isMobile) return; // No ejecutar en mobile
-
-    const scrollContainer = scrollRef.current;
-    if (!scrollContainer) return;
-
-    const scroll = () => {
-      const maxScroll =
-        scrollContainer.scrollWidth - scrollContainer.clientWidth;
-      const newPosition = (scrollPosition + 1) % maxScroll;
-
-      scrollContainer.scrollTo({
-        left: newPosition,
-        behavior: "smooth",
-      });
-      setScrollPosition(newPosition);
-    };
-
-    const interval = setInterval(scroll, 50);
-    return () => clearInterval(interval);
-  }, [scrollPosition, isMobile]);
-
   return (
-    <Box
-      component="section"
-      sx={{
-        py: { xs: 6, md: 8 },
-        background: "transparent",
-        position: "relative",
-        overflow: "hidden", // Asegurar que los bordes no se desborden
-      }}
-    >
+    <Box component="section" sx={{ py: { xs: 6, md: 8 } }}>
       <Container maxWidth="lg">
         <Box sx={{ mb: { xs: 6, md: 12 } }}>
           <Typography
@@ -120,50 +112,79 @@ const ProjectsSection = () => {
           sx={{
             position: "relative",
             width: "100%",
-            borderRadius: "16px", // Añadir bordes redondeados al contenedor
-            overflow: "hidden", // Importante para los gradientes
-            "&::before, &::after": {
-              content: '""',
-              position: "absolute",
-              top: 0,
-              bottom: 0,
-              width: { xs: "15%", md: "20%" },
-              zIndex: 2,
-              pointerEvents: "none",
-              transition: "opacity 0.3s ease",
-            },
-            "&::before": {
-              left: 0,
-              background:
-                theme.palette.mode === "dark"
-                  ? `linear-gradient(90deg, 
-                    ${theme.palette.background.default} 0%,
-                    rgba(18, 18, 18, 0.9) 30%,
-                    rgba(18, 18, 18, 0.3) 70%,
-                    transparent 100%)`
-                  : `linear-gradient(90deg, 
-                    ${theme.palette.background.default} 0%,
-                    rgba(255, 255, 255, 0.9) 30%,
-                    rgba(255, 255, 255, 0.3) 70%,
-                    transparent 100%)`,
-            },
-            "&::after": {
-              right: 0,
-              background:
-                theme.palette.mode === "dark"
-                  ? `linear-gradient(-90deg, 
-                    ${theme.palette.background.default} 0%,
-                    rgba(18, 18, 18, 0.9) 30%,
-                    rgba(18, 18, 18, 0.3) 70%,
-                    transparent 100%)`
-                  : `linear-gradient(-90deg, 
-                    ${theme.palette.background.default} 0%,
-                    rgba(255, 255, 255, 0.9) 30%,
-                    rgba(255, 255, 255, 0.3) 70%,
-                    transparent 100%)`,
-            },
+            borderRadius: 4, // Agregamos bordes redondeados al contenedor
+            overflow: "hidden", // Importante para que respete el border radius
+            bgcolor:
+              theme.palette.mode === "dark"
+                ? "rgba(0,0,0,0.2)"
+                : "rgba(255,255,255,0.05)", // Fondo sutil
+            backdropFilter: "blur(10px)", // Efecto de cristal
           }}
         >
+          <>
+            {showLeftArrow && (
+              <Box
+                sx={{
+                  position: "absolute",
+                  left: 0,
+                  top: "50%",
+                  transform: "translateY(-50%)",
+                  zIndex: 2,
+                  bgcolor: "background.paper",
+                  borderRadius: "50%",
+                  p: { xs: 0.5, md: 1 }, // Ajustamos el padding según el tamaño de pantalla
+                  cursor: "pointer",
+                  boxShadow: 3,
+                  "&:hover": { bgcolor: "action.hover" },
+                  // Ajustamos el tamaño del contenedor en mobile
+                  width: { xs: 32, md: 40 },
+                  height: { xs: 32, md: 40 },
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+                onClick={() => {
+                  scrollRef.current?.scrollBy({
+                    left: isMobile ? -280 : -300,
+                    behavior: "smooth",
+                  });
+                }}
+              >
+                <ArrowBackIosIcon sx={{ fontSize: { xs: 20, md: 24 } }} />
+              </Box>
+            )}
+            {showRightArrow && (
+              <Box
+                sx={{
+                  position: "absolute",
+                  right: 0,
+                  top: "50%",
+                  transform: "translateY(-50%)",
+                  zIndex: 2,
+                  bgcolor: "background.paper",
+                  borderRadius: "50%",
+                  p: { xs: 0.5, md: 1 },
+                  cursor: "pointer",
+                  boxShadow: 3,
+                  "&:hover": { bgcolor: "action.hover" },
+                  width: { xs: 32, md: 40 },
+                  height: { xs: 32, md: 40 },
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+                onClick={() => {
+                  scrollRef.current?.scrollBy({
+                    left: isMobile ? 280 : 300,
+                    behavior: "smooth",
+                  });
+                }}
+              >
+                <ArrowForwardIosIcon sx={{ fontSize: { xs: 20, md: 24 } }} />
+              </Box>
+            )}
+          </>
+
           <Box
             ref={scrollRef}
             sx={{
@@ -174,7 +195,6 @@ const ProjectsSection = () => {
               px: 4,
               py: 2,
               scrollBehavior: "smooth",
-              borderRadius: "16px", // Coincide con el contenedor padre
               "&::-webkit-scrollbar": {
                 display: "none",
               },
