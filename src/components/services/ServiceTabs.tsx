@@ -27,7 +27,7 @@ const ServiceTabs: React.FC<ServiceTabsProps> = ({
         left: 0,
         right: 0,
         width: "100%",
-        zIndex: 1100,
+        zIndex: 110000,
         transition: "all 0.3s ease",
         boxShadow: trigger
           ? (theme) =>
