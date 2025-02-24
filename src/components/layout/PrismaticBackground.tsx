@@ -62,7 +62,6 @@ const PrismaticBackground = ({ children }: PrismaticBackgroundProps) => {
                radial-gradient(circle at 100% 0%, rgba(255, 57, 0, 0.05) 0%, transparent 50%),
                radial-gradient(circle at 100% 100%, rgba(92, 255, 0, 0.05) 0%, transparent 50%),
                radial-gradient(circle at 0% 100%, rgba(0, 57, 255, 0.05) 0%, transparent 50%)`,
-          zIndex: -2, // Cambiar a -2 para que esté detrás de todo
           pointerEvents: "none",
           mixBlendMode: "soft-light",
           animation: "prismaticShift 15s ease-in-out infinite",
@@ -86,7 +85,6 @@ const PrismaticBackground = ({ children }: PrismaticBackgroundProps) => {
             theme.palette.mode === "dark" ? "%23ffffff" : "%23000000"
           }' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
           opacity: 0.5,
-          zIndex: -1, // Cambiar a -1 para que esté detrás de todo pero encima del efecto anterior
           pointerEvents: "none",
         },
       }}
