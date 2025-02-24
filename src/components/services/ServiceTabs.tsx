@@ -27,7 +27,12 @@ const ServiceTabs: React.FC<ServiceTabsProps> = ({
         left: 0,
         right: 0,
         width: "100%",
-        zIndex: 110000,
+        zIndex: 1200, // Aumentar para asegurar que está por encima del Navbar
+        bgcolor: (theme) =>
+          theme.palette.mode === "dark"
+            ? "rgba(18, 18, 18, 0.95)"
+            : "rgba(255, 255, 255, 0.95)",
+        backdropFilter: "blur(10px)",
         transition: "all 0.3s ease",
         boxShadow: trigger
           ? (theme) =>
@@ -35,7 +40,7 @@ const ServiceTabs: React.FC<ServiceTabsProps> = ({
                 ? "0 4px 20px rgba(0,0,0,0.4)"
                 : "0 4px 20px rgba(0,0,0,0.1)"
           : "none",
-        py: { xs: 1, md: 1.5 }, // Padding vertical añadido
+        py: { xs: 1, md: 1.2 }, // Padding vertical añadido
       }}
     >
       <Container maxWidth={false} sx={{ maxWidth: 1400 }}>
