@@ -52,6 +52,8 @@ export const enTranslations = {
   services: {
     title: "Our Services",
     subtitle: "Professional technology solutions for your business",
+    mainDescription:
+      "We offer a comprehensive range of technology services spanning from software development and home automation to electronics and networking. Our expert team is committed to excellence and innovation in every project.",
     introduction:
       "We specialize in delivering cutting-edge technological solutions that help businesses thrive in the digital age. Our comprehensive range of services is designed to meet all your tech needs under one roof.",
     highlight1: {

@@ -37,6 +37,8 @@ export const esTranslations = {
   services: {
     title: "Nuestros Servicios",
     subtitle: "Soluciones tecnológicas profesionales para tu negocio",
+    mainDescription:
+      "Ofrecemos una gama completa de servicios tecnológicos que abarcan desde el desarrollo de software y domótica hasta electrónica y redes. Nuestro equipo experto está comprometido con la excelencia y la innovación en cada proyecto.",
     introduction:
       "Nos especializamos en ofrecer soluciones tecnológicas de vanguardia que ayudan a las empresas a prosperar en la era digital. Nuestra amplia gama de servicios está diseñada para satisfacer todas tus necesidades tecnológicas en un solo lugar.",
     highlight1: {
