@@ -9,6 +9,7 @@ export const useServiceTab = () => {
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
     const tabParam = searchParams.get("tab");
+
     if (tabParam !== null) {
       const tabIndex = parseInt(tabParam);
       if (

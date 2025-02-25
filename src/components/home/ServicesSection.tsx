@@ -70,7 +70,7 @@ const ServicesSection = () => {
           </Typography>
           <Button
             component={RouterLink}
-            to={`/services?service=${currentService.key}`}
+            to={`/services?tab=${activeService}`}
             variant="contained"
             sx={{
               background: "linear-gradient(90deg, #00FFA3, #00805E)",
