@@ -83,9 +83,9 @@ const ProjectsSection = () => {
   );
 
   return (
-    <Box component="section" sx={{ py: { xs: 6, md: 0 } }}>
+    <Box component="section" sx={{ py: { xs: 4, md: 0 } }}>
       <Container maxWidth="lg">
-        <Box sx={{ mb: { xs: 6, md: 12 } }}>
+        <Box sx={{ mb: { xs: 4, md: 6 } }}>
           <Typography
             variant="h2"
             component="h2"
