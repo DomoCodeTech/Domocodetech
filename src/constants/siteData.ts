@@ -174,6 +174,15 @@ export const SITE_DATA = {
       },
     },
   },
+  about:{
+    images:{
+      mission:
+        "/images/about/mision.webp",
+   
+    vision:
+    "/images/about/vision.webp",
+    }
+  }
 };
 
 export interface Service {

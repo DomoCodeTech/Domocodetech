@@ -690,9 +690,7 @@ export const enTranslations = {
       description: `To promote the integration of advanced technologies in homes and businesses, 
       from home automation systems to software and network solutions. We strive to transform 
       conventional spaces into intelligent environments, develop innovative software, implement 
-      robust networks, and provide exceptional technical support.`,
-      image:
-        "https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg",
+      robust networks, and provide exceptional technical support.`
     },
     // Vision statement
     vision: {
@@ -700,9 +698,7 @@ export const enTranslations = {
       description: `To position ourselves as global leaders in comprehensive technology, setting 
       standards of excellence in home automation, software development, electronics and networks. 
       We seek to democratize access to smart systems and advanced technological solutions, 
-      maintaining a balance between innovation, quality and accessibility.`,
-      image:
-        "https://images.pexels.com/photos/3183153/pexels-photo-3183153.jpeg",
+      maintaining a balance between innovation, quality and accessibility.`
     },
     // Company values
     values: {

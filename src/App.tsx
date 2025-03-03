@@ -27,10 +27,10 @@ import AutomatizacionRoboticaProcesos from "./pages/blog/AutomatizacionRoboticaP
 import InnovacionesDesarrolloWeb from "./pages/blog/InnovacionesDesarrolloWeb";
 import HomeAutomation from "./pages/projects/HomeAutomation";
 import ScrollToTop from "./components/ScrollToTop";
-import Docs from "./pages/Docs";
-import Privacy from "./pages/Privacy";
-import Help from "./pages/Help";
-import Terms from "./pages/Terms";
+import Docs from "./pages/terms/Docs";
+import Privacy from "./pages/terms/Privacy";
+import Help from "./pages/terms/Help";
+import Terms from "./pages/terms/Terms";
 
 function App() {
   // Estado para controlar el modo oscuro/claro
