@@ -90,19 +90,19 @@ const Footer: React.FC = () => {
         links: [
           {
             name: t("footer.sections.services.automation"),
-            path: "/services#automation",
+            path: "/services?tab=2",
           },
           {
             name: t("footer.sections.services.electronics"),
-            path: "/services#electronics",
+            path: "/services?tab=3",
           },
           {
             name: t("footer.sections.services.robotics"),
-            path: "/services#robotics",
+            path: "/services?tab=4",
           },
           {
             name: t("footer.sections.services.software"),
-            path: "/services#software",
+            path: "/services?tab=5",
           },
         ],
       },

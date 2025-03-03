@@ -1117,4 +1117,64 @@ export const enTranslations = {
       },
     ],
   },
+
+  terms: {
+    title: "Terms and Conditions",
+    acceptance: "Acceptance of Terms",
+    acceptanceContent:
+      "By accessing and using this website, you agree to be bound by these terms and conditions of use. If you disagree with any part of these terms, we recommend not using our services.",
+    services: "Services",
+    servicesContent:
+      "We are committed to providing high-quality services in home automation, software development, electronics, and technical support. We reserve the right to modify or discontinue any aspect of our services at any time.",
+    intellectual: "Intellectual Property",
+    intellectualContent:
+      "All content present on this website, including but not limited to text, graphics, logos, images, and software, is protected by copyright and other intellectual property laws.",
+    liability: "Limitation of Liability",
+    liabilityContent:
+      "We shall not be liable for any indirect, special, or consequential damages arising from the use or inability to use our services.",
+  },
+
+  privacy: {
+    title: "Privacy Policy",
+    dataCollection: "Data Collection",
+    dataCollectionContent:
+      "We collect personal information when you register on our site, make a purchase, or subscribe to our newsletter. This information may include your name, email address, and contact details.",
+    dataSecurity: "Data Security",
+    dataSecurityContent:
+      "We implement technical and organizational security measures to protect your personal information against unauthorized access, alteration, or destruction.",
+    cookies: "Use of Cookies",
+    cookiesContent:
+      "We use cookies to improve your browsing experience and analyze how our website is used. You can configure your browser to reject all cookies.",
+    rights: "Your Rights",
+    rightsContent:
+      "You have the right to access, correct, or delete your personal information. You can also object to the processing of your data or request its portability.",
+  },
+
+  help: {
+    title: "Help Center",
+    faq: {
+      general: "General Questions",
+      generalContent:
+        "Find answers to the most common questions about our services and how we can help you.",
+      services: "Technical Services",
+      servicesContent:
+        "Detailed information about our technical services, including home automation, software development, and support.",
+      support: "Technical Support",
+      supportContent:
+        "Access our specialized technical support to resolve any issues or questions you may have.",
+    },
+  },
+
+  documentation: {
+    title: "Documentation",
+    apiSection: "API Documentation",
+    apiDescription:
+      "Comprehensive guides and technical documentation for integrating our APIs and services into your application.",
+    servicesSection: "Services and Products",
+    servicesDescription:
+      "Detailed information about our services, technical specifications, and implementation guides.",
+    integrationsSection: "Integrations",
+    integrationsDescription:
+      "Documentation on how to integrate our solutions with different platforms and services.",
+  },
 };
