@@ -96,7 +96,10 @@ const ServicesSection = () => {
             onClick={() => setActiveService(index)}
             sx={{
               p: 2,
+              height: { xs: '100px', md: 'auto' }, // Altura fija en móvil
               cursor: "pointer",
+              display: 'flex',
+              alignItems: 'center',
               background:
                 activeService === index
                   ? theme.palette.mode === "dark"
@@ -122,9 +125,15 @@ const ServicesSection = () => {
               },
             }}
           >
-            <Stack direction="row" spacing={2} alignItems="center">
+            <Stack 
+              direction="row" 
+              spacing={2} 
+              alignItems="center"
+              sx={{ width: '100%' }}
+            >
               <Box
                 sx={{
+                  flexShrink: 0, // Evita que el ícono se encoja
                   width: 40,
                   height: 36,
                   borderRadius: 2,
@@ -150,6 +159,12 @@ const ServicesSection = () => {
                 variant="subtitle2"
                 sx={{
                   fontWeight: 600,
+                  fontSize: { xs: '0.8rem', md: '0.875rem' },
+                  lineHeight: { xs: 1.2, md: 1.5 },
+                  overflow: 'hidden',
+                  display: '-webkit-box',
+                  WebkitLineClamp: { xs: 2, md: 1 },
+                  WebkitBoxOrient: 'vertical',
                   color:
                     activeService === index
                       ? theme.palette.mode === "dark"
