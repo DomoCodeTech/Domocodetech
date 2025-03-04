@@ -12,6 +12,7 @@ export const SITE_DATA = {
     tiktok: "https://tiktok.com/@domocodetech",
     facebook: "https://facebook.com/domocodetech",
     youtube: "https://youtube.com/domocodetech",
+    whatsapp: `https://wa.me/573013117452`,
   },
   services: {
     software: {
@@ -174,6 +175,23 @@ export const SITE_DATA = {
       },
     },
   },
+  about:{
+    images:{
+      mission:
+        "/images/about/mision.webp",
+   
+    vision:
+    "/images/about/vision.webp",
+    }
+  },
+  emailjs: {
+    serviceId: "service_kdn8927",
+    templateId: "template_ua79n8j",
+    publicKey: "otjRpe6GXf8YpbFmq",
+  },
+  recaptcha: {
+    siteKey: "6LfZltgqAAAAAHbdAAFIkDlHrMb2NeLV3nVMz_oM",
+  }
 };
 
 export interface Service {

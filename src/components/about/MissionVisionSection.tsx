@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
-
+import { SITE_DATA } from "../../constants/siteData";
 const MissionVisionSection: React.FC = () => {
   const { t } = useTranslation();
   const theme = useTheme();
@@ -83,7 +83,7 @@ const MissionVisionSection: React.FC = () => {
               <Box sx={imageBoxStyles}>
                 <CardMedia
                   component="img"
-                  image={t("about.mission.image")}
+                  image={SITE_DATA.about.images.mission}
                   alt={t("about.mission.title")}
                   className="card-image"
                   sx={imageStyles}
@@ -119,7 +119,7 @@ const MissionVisionSection: React.FC = () => {
               <Box sx={imageBoxStyles}>
                 <CardMedia
                   component="img"
-                  image={t("about.vision.image")}
+                  image={SITE_DATA.about.images.vision}
                   alt={t("about.vision.title")}
                   className="card-image"
                   sx={imageStyles}

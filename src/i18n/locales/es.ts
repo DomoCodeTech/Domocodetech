@@ -37,6 +37,8 @@ export const esTranslations = {
   services: {
     title: "Nuestros Servicios",
     subtitle: "Soluciones tecnológicas profesionales para tu negocio",
+    mainDescription:
+      "Ofrecemos una gama completa de servicios tecnológicos que abarcan desde el desarrollo de software y domótica hasta electrónica y redes. Nuestro equipo experto está comprometido con la excelencia y la innovación en cada proyecto.",
     introduction:
       "Nos especializamos en ofrecer soluciones tecnológicas de vanguardia que ayudan a las empresas a prosperar en la era digital. Nuestra amplia gama de servicios está diseñada para satisfacer todas tus necesidades tecnológicas en un solo lugar.",
     highlight1: {
@@ -1062,5 +1064,64 @@ export const esTranslations = {
         icon: "🔬",
       },
     ],
+  },
+  terms: {
+    title: "Términos y Condiciones",
+    acceptance: "Aceptación de los Términos",
+    acceptanceContent:
+      "Al acceder y utilizar este sitio web, aceptas estar sujeto a estos términos y condiciones de uso. Si no estás de acuerdo con alguno de estos términos, te recomendamos no utilizar nuestros servicios.",
+    services: "Servicios",
+    servicesContent:
+      "Nos comprometemos a proporcionar servicios de alta calidad en las áreas de domótica, desarrollo de software, electrónica y soporte técnico. Nos reservamos el derecho de modificar o descontinuar cualquier aspecto de nuestros servicios en cualquier momento.",
+    intellectual: "Propiedad Intelectual",
+    intellectualContent:
+      "Todo el contenido presente en este sitio web, incluyendo pero no limitado a textos, gráficos, logotipos, imágenes y software, está protegido por derechos de autor y otras leyes de propiedad intelectual.",
+    liability: "Limitación de Responsabilidad",
+    liabilityContent:
+      "No seremos responsables por daños indirectos, especiales o consecuentes que surjan del uso o la imposibilidad de usar nuestros servicios.",
+  },
+
+  privacy: {
+    title: "Política de Privacidad",
+    dataCollection: "Recolección de Datos",
+    dataCollectionContent:
+      "Recopilamos información personal cuando te registras en nuestro sitio, realizas una compra o te suscribes a nuestro boletín. Esta información puede incluir tu nombre, dirección de correo electrónico y detalles de contacto.",
+    dataSecurity: "Seguridad de Datos",
+    dataSecurityContent:
+      "Implementamos medidas de seguridad técnicas y organizativas para proteger tu información personal contra acceso no autorizado, alteración o destrucción.",
+    cookies: "Uso de Cookies",
+    cookiesContent:
+      "Utilizamos cookies para mejorar tu experiencia de navegación y analizar cómo se utiliza nuestro sitio web. Puedes configurar tu navegador para rechazar todas las cookies.",
+    rights: "Tus Derechos",
+    rightsContent:
+      "Tienes derecho a acceder, corregir o eliminar tu información personal. También puedes oponerte al procesamiento de tus datos o solicitar su portabilidad.",
+  },
+
+  help: {
+    title: "Centro de Ayuda",
+    faq: {
+      general: "Preguntas Generales",
+      generalContent:
+        "Encuentra respuestas a las preguntas más comunes sobre nuestros servicios y cómo podemos ayudarte.",
+      services: "Servicios Técnicos",
+      servicesContent:
+        "Información detallada sobre nuestros servicios técnicos, incluyendo domótica, desarrollo de software y soporte.",
+      support: "Soporte Técnico",
+      supportContent:
+        "Accede a nuestro soporte técnico especializado para resolver cualquier problema o duda que tengas.",
+    },
+  },
+
+  documentation: {
+    title: "Documentación",
+    apiSection: "Documentación de API",
+    apiDescription:
+      "Guías completas y documentación técnica para integrar nuestras APIs y servicios en tu aplicación.",
+    servicesSection: "Servicios y Productos",
+    servicesDescription:
+      "Información detallada sobre nuestros servicios, especificaciones técnicas y guías de implementación.",
+    integrationsSection: "Integraciones",
+    integrationsDescription:
+      "Documentación sobre cómo integrar nuestras soluciones con diferentes plataformas y servicios.",
   },
 };

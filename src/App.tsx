@@ -27,6 +27,10 @@ import AutomatizacionRoboticaProcesos from "./pages/blog/AutomatizacionRoboticaP
 import InnovacionesDesarrolloWeb from "./pages/blog/InnovacionesDesarrolloWeb";
 import HomeAutomation from "./pages/projects/HomeAutomation";
 import ScrollToTop from "./components/ScrollToTop";
+import Docs from "./pages/terms/Docs";
+import Privacy from "./pages/terms/Privacy";
+import Help from "./pages/terms/Help";
+import Terms from "./pages/terms/Terms";
 
 function App() {
   // Estado para controlar el modo oscuro/claro
@@ -106,6 +110,10 @@ function App() {
               path="/blog/innovaciones-desarrollo-web"
               element={<InnovacionesDesarrolloWeb />}
             />
+            <Route path="/docs" element={<Docs />} />
+            <Route path="/privacy" element={<Privacy />} />
+            <Route path="/help" element={<Help />} />
+            <Route path="/terms" element={<Terms />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>

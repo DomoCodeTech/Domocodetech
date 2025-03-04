@@ -52,6 +52,8 @@ export const enTranslations = {
   services: {
     title: "Our Services",
     subtitle: "Professional technology solutions for your business",
+    mainDescription:
+      "We offer a comprehensive range of technology services spanning from software development and home automation to electronics and networking. Our expert team is committed to excellence and innovation in every project.",
     introduction:
       "We specialize in delivering cutting-edge technological solutions that help businesses thrive in the digital age. Our comprehensive range of services is designed to meet all your tech needs under one roof.",
     highlight1: {
@@ -688,9 +690,7 @@ export const enTranslations = {
       description: `To promote the integration of advanced technologies in homes and businesses, 
       from home automation systems to software and network solutions. We strive to transform 
       conventional spaces into intelligent environments, develop innovative software, implement 
-      robust networks, and provide exceptional technical support.`,
-      image:
-        "https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg",
+      robust networks, and provide exceptional technical support.`
     },
     // Vision statement
     vision: {
@@ -698,9 +698,7 @@ export const enTranslations = {
       description: `To position ourselves as global leaders in comprehensive technology, setting 
       standards of excellence in home automation, software development, electronics and networks. 
       We seek to democratize access to smart systems and advanced technological solutions, 
-      maintaining a balance between innovation, quality and accessibility.`,
-      image:
-        "https://images.pexels.com/photos/3183153/pexels-photo-3183153.jpeg",
+      maintaining a balance between innovation, quality and accessibility.`
     },
     // Company values
     values: {
@@ -1114,5 +1112,65 @@ export const enTranslations = {
         icon: "🔬",
       },
     ],
+  },
+
+  terms: {
+    title: "Terms and Conditions",
+    acceptance: "Acceptance of Terms",
+    acceptanceContent:
+      "By accessing and using this website, you agree to be bound by these terms and conditions of use. If you disagree with any part of these terms, we recommend not using our services.",
+    services: "Services",
+    servicesContent:
+      "We are committed to providing high-quality services in home automation, software development, electronics, and technical support. We reserve the right to modify or discontinue any aspect of our services at any time.",
+    intellectual: "Intellectual Property",
+    intellectualContent:
+      "All content present on this website, including but not limited to text, graphics, logos, images, and software, is protected by copyright and other intellectual property laws.",
+    liability: "Limitation of Liability",
+    liabilityContent:
+      "We shall not be liable for any indirect, special, or consequential damages arising from the use or inability to use our services.",
+  },
+
+  privacy: {
+    title: "Privacy Policy",
+    dataCollection: "Data Collection",
+    dataCollectionContent:
+      "We collect personal information when you register on our site, make a purchase, or subscribe to our newsletter. This information may include your name, email address, and contact details.",
+    dataSecurity: "Data Security",
+    dataSecurityContent:
+      "We implement technical and organizational security measures to protect your personal information against unauthorized access, alteration, or destruction.",
+    cookies: "Use of Cookies",
+    cookiesContent:
+      "We use cookies to improve your browsing experience and analyze how our website is used. You can configure your browser to reject all cookies.",
+    rights: "Your Rights",
+    rightsContent:
+      "You have the right to access, correct, or delete your personal information. You can also object to the processing of your data or request its portability.",
+  },
+
+  help: {
+    title: "Help Center",
+    faq: {
+      general: "General Questions",
+      generalContent:
+        "Find answers to the most common questions about our services and how we can help you.",
+      services: "Technical Services",
+      servicesContent:
+        "Detailed information about our technical services, including home automation, software development, and support.",
+      support: "Technical Support",
+      supportContent:
+        "Access our specialized technical support to resolve any issues or questions you may have.",
+    },
+  },
+
+  documentation: {
+    title: "Documentation",
+    apiSection: "API Documentation",
+    apiDescription:
+      "Comprehensive guides and technical documentation for integrating our APIs and services into your application.",
+    servicesSection: "Services and Products",
+    servicesDescription:
+      "Detailed information about our services, technical specifications, and implementation guides.",
+    integrationsSection: "Integrations",
+    integrationsDescription:
+      "Documentation on how to integrate our solutions with different platforms and services.",
   },
 };

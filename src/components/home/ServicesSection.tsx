@@ -2,271 +2,266 @@ import { useState } from "react";
 import {
   Box,
   Container,
-  Grid,
   Typography,
-  Card,
   Button,
+  Grid,
+  useTheme,
+  Card,
+  useMediaQuery,
   Stack,
-  Collapse,
 } from "@mui/material";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { Link as RouterLink } from "react-router-dom";
-import { useTheme } from "@mui/material/styles";
 import { ServiceIcon } from "../icons/ServiceIcons";
+import { SERVICES_DATA } from "../../constants/siteData";
 
-interface ServiceCardProps {
-  service: {
-    key: string;
-    icon: string;
-  };
-  index: number;
-  expanded: boolean;
-  onExpand: () => void;
-}
-
-const ServiceCard: React.FC<ServiceCardProps> = ({
-  service,
-  index,
-  expanded,
-  onExpand,
-}) => {
+const ServicesSection = () => {
   const { t } = useTranslation();
   const theme = useTheme();
+  const [activeService, setActiveService] = useState(0);
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
-  return (
-    <Card
-      onClick={onExpand}
-      sx={{
-        position: "relative",
-        borderRadius: 3,
-        cursor: "pointer",
-        background:
-          theme.palette.mode === "dark"
-            ? "linear-gradient(145deg, rgba(31,31,31,0.8) 0%, rgba(21,21,21,0.9) 100%)"
-            : "linear-gradient(145deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.9) 100%)",
-        backdropFilter: "blur(10px)",
-        transition: "all 0.3s ease-in-out",
-        height: expanded ? "auto" : { xs: "100px", sm: "120px" },
-        border: `1px solid ${
-          theme.palette.mode === "dark"
-            ? "rgba(255,255,255,0.1)"
-            : "rgba(0,0,0,0.1)"
-        }`,
-        "&:hover": {
-          transform: "translateY(-5px)",
-          boxShadow:
-            theme.palette.mode === "dark"
-              ? "0 8px 30px rgba(0, 255, 163, 0.15)"
-              : "0 8px 30px rgba(0, 128, 94, 0.15)",
-          "& .service-icon": {
-            transform: "scale(1.1)",
-            color: theme.palette.mode === "dark" ? "#00FFA3" : "#00805E",
-          },
-        },
-      }}
-    >
-      <Box sx={{ p: 2, height: "100%" }}>
-        <Stack
-          direction="row"
-          spacing={2}
-          alignItems="center"
-          sx={{ mb: expanded ? 2 : 0 }}
+  const renderServicePreview = () => {
+    const currentService = SERVICES_DATA[activeService];
+
+    return (
+      <Box
+        sx={{
+          position: "relative",
+          height: { xs: "350px", md: "500px" },
+          width: "100%",
+          borderRadius: 4,
+          overflow: "hidden",
+        }}
+      >
+        <Box
+          component="img"
+          src={currentService.image}
+          alt={t(`services.${currentService.key}.title`)}
+          sx={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            transition: "transform 0.3s ease",
+            "&:hover": {
+              transform: "scale(1.05)",
+            },
+          }}
+        />
+        <Box
+          sx={{
+            position: "absolute",
+            bottom: 0,
+            left: 0,
+            right: 0,
+            background:
+              "linear-gradient(to top, rgba(0,0,0,0.95), rgba(0,0,0,0.5), transparent)",
+            p: 3,
+            color: "white",
+            textShadow: "0 2px 4px rgba(0,0,0,0.5)",
+          }}
         >
-          <Box
-            className="service-icon"
-            sx={{
-              p: 1.5,
-              borderRadius: 2,
-              background:
-                theme.palette.mode === "dark"
-                  ? "rgba(0, 255, 163, 0.1)"
-                  : "rgba(0, 128, 94, 0.1)",
-              transition: "all 0.3s ease-in-out",
-            }}
-          >
-            <ServiceIcon
-              name={service.icon}
-              sx={{
-                fontSize: { xs: 24, sm: 32 },
-                color: theme.palette.mode === "dark" ? "#00FFA3" : "#00805E",
-              }}
-            />
-          </Box>
-
-          <Typography
-            variant="h5"
-            sx={{
-              fontWeight: 600,
-              fontSize: { xs: "1rem", sm: "1.25rem" },
-              background:
-                theme.palette.mode === "dark"
-                  ? "linear-gradient(90deg, #FFFFFF 30%, #00FFA3 100%)"
-                  : "linear-gradient(90deg, #1A1A1A 30%, #00805E 100%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-            }}
-          >
-            {t(`services.${service.key}.title`)}
+          <Typography variant="h4" sx={{ mb: 1, fontWeight: 700 }}>
+            {t(`services.${currentService.key}.title`)}
           </Typography>
-        </Stack>
-
-        <Collapse in={expanded}>
-          <Typography
-            variant="body1"
-            sx={{
-              color: "text.secondary",
-              mb: 3,
-              fontSize: "0.95rem",
-              lineHeight: 1.6,
-            }}
-          >
-            {t(`services.${service.key}.description`)}
+          <Typography variant="body1" sx={{ opacity: 0.95, mb: 2 }}>
+            {t(`services.${currentService.key}.description`)}
           </Typography>
-
           <Button
             component={RouterLink}
-            to={`/services?tab=${index}`}
+            to={`/services?tab=${activeService}`}
             variant="contained"
-            size="small"
-            fullWidth
             sx={{
-              background:
-                theme.palette.mode === "dark"
-                  ? "linear-gradient(90deg, #00FFA3 0%, #00805E 100%)"
-                  : "linear-gradient(90deg, #00805E 0%, #006B4F 100%)",
-              color: theme.palette.mode === "dark" ? "#000" : "#fff",
+              background: "linear-gradient(90deg, #00FFA3, #00805E)",
+              color: "black",
+              fontWeight: 600,
               "&:hover": {
-                background:
-                  theme.palette.mode === "dark"
-                    ? "linear-gradient(90deg, #00E693 0%, #00734E 100%)"
-                    : "linear-gradient(90deg, #00734E 0%, #005A40 100%)",
+                background: "linear-gradient(90deg, #00E693, #00734E)",
               },
             }}
           >
             {t("services.viewMore")}
           </Button>
-        </Collapse>
+        </Box>
       </Box>
-    </Card>
-  );
-};
-
-const services = [
-  { key: "software", icon: "Code" },
-  { key: "microcontrollers", icon: "Chip" },
-  { key: "domotics", icon: "Smart" },
-  { key: "electronics", icon: "Robot" },
-  { key: "networks", icon: "Network" },
-  { key: "support", icon: "Support" },
-];
-
-const ServicesSection = () => {
-  const { t } = useTranslation();
-  const theme = useTheme();
-  const [expandedRows, setExpandedRows] = useState<{ [key: number]: boolean }>(
-    {}
-  );
-  const [expandedCards, setExpandedCards] = useState<{
-    [key: string]: boolean;
-  }>({});
-
-  const getRowIndex = (index: number) => Math.floor(index / 3);
-
-  const handleExpand = (index: number, key: string) => {
-    if (window.innerWidth >= theme.breakpoints.values.md) {
-      // Desktop behavior - expand row
-      const rowIndex = getRowIndex(index);
-      setExpandedRows((prev) => ({
-        ...prev,
-        [rowIndex]: !prev[rowIndex],
-      }));
-    } else {
-      // Mobile/tablet behavior - expand single card
-      setExpandedCards((prev) => ({
-        ...prev,
-        [key]: !prev[key],
-      }));
-    }
+    );
   };
 
-  const isCardExpanded = (index: number, key: string) => {
-    if (window.innerWidth >= theme.breakpoints.values.md) {
-      const rowIndex = getRowIndex(index);
-      return expandedRows[rowIndex] || false;
-    }
-    return expandedCards[key] || false;
-  };
+  const renderServiceCards = () => (
+    <Grid container spacing={2}>
+      {SERVICES_DATA.map((service, index) => (
+        <Grid item xs={6} md={12} key={service.key}>
+          <Card
+            onClick={() => setActiveService(index)}
+            sx={{
+              p: 2,
+              height: { xs: '100px', md: 'auto' }, // Altura fija en móvil
+              cursor: "pointer",
+              display: 'flex',
+              alignItems: 'center',
+              background:
+                activeService === index
+                  ? theme.palette.mode === "dark"
+                    ? "rgba(0, 255, 163, 0.1)"
+                    : "rgba(0, 128, 94, 0.1)"
+                  : theme.palette.mode === "dark"
+                  ? "rgba(255, 255, 255, 0.03)"
+                  : "rgba(0, 0, 0, 0.02)",
+              border: `1px solid ${
+                activeService === index
+                  ? theme.palette.mode === "dark"
+                    ? "rgba(0, 255, 163, 0.2)"
+                    : "rgba(0, 128, 94, 0.2)"
+                  : "transparent"
+              }`,
+              transition: "all 0.2s ease",
+              "&:hover": {
+                background:
+                  theme.palette.mode === "dark"
+                    ? "rgba(0, 255, 163, 0.15)"
+                    : "rgba(0, 128, 94, 0.15)",
+                transform: "translateY(-2px)",
+              },
+            }}
+          >
+            <Stack 
+              direction="row" 
+              spacing={2} 
+              alignItems="center"
+              sx={{ width: '100%' }}
+            >
+              <Box
+                sx={{
+                  flexShrink: 0, // Evita que el ícono se encoja
+                  width: 40,
+                  height: 36,
+                  borderRadius: 2,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  background:
+                    theme.palette.mode === "dark"
+                      ? "linear-gradient(135deg, rgba(0, 255, 163, 0.15), rgba(0, 128, 94, 0.25))"
+                      : "linear-gradient(135deg, rgba(0, 128, 94, 0.15), rgba(0, 80, 59, 0.25))",
+                }}
+              >
+                <ServiceIcon
+                  name={service.icon}
+                  sx={{
+                    fontSize: 20,
+                    color:
+                      theme.palette.mode === "dark" ? "#00FFA3" : "#00805E",
+                  }}
+                />
+              </Box>
+              <Typography
+                variant="subtitle2"
+                sx={{
+                  fontWeight: 600,
+                  fontSize: { xs: '0.8rem', md: '0.875rem' },
+                  lineHeight: { xs: 1.2, md: 1.5 },
+                  overflow: 'hidden',
+                  display: '-webkit-box',
+                  WebkitLineClamp: { xs: 2, md: 1 },
+                  WebkitBoxOrient: 'vertical',
+                  color:
+                    activeService === index
+                      ? theme.palette.mode === "dark"
+                        ? "#00FFA3"
+                        : "#00805E"
+                      : "text.primary",
+                }}
+              >
+                {t(`services.${service.key}.title`)}
+              </Typography>
+            </Stack>
+          </Card>
+        </Grid>
+      ))}
+    </Grid>
+  );
+
+  const renderMobileContent = () => (
+    <Box>
+      <Box sx={{ mb: 4 }}>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeService}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            transition={{ duration: 0.2 }}
+          >
+            {renderServicePreview()}
+          </motion.div>
+        </AnimatePresence>
+      </Box>
+
+      {renderServiceCards()}
+    </Box>
+  );
+
+  const renderDesktopContent = () => (
+    <Grid container spacing={4}>
+      <Grid item xs={12} md={4}>
+        {renderServiceCards()}
+      </Grid>
+      <Grid item xs={12} md={8}>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeService}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            transition={{ duration: 0.2 }}
+          >
+            {renderServicePreview()}
+          </motion.div>
+        </AnimatePresence>
+      </Grid>
+    </Grid>
+  );
 
   return (
     <Box
+      component="section"
       sx={{
-        py: { xs: 8, md: 12 },
-        background: "transparent", // Cambiado a transparente
+        py: { xs: 4, md: 2 },
+        minHeight: { xs: "auto", md: "100vh" },
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
       }}
     >
-      <Container maxWidth="lg">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+      {/* Título y descripción centrados fuera del contenedor */}
+      <Box sx={{ textAlign: "center", mb: 6, px: 2, maxWidth: "800px" }}>
+        <Typography
+          variant="h3"
+          sx={{
+            fontWeight: 700,
+            mb: 2,
+            WebkitBackgroundClip: "text",
+            fontSize: { xs: "1.75rem", md: "2.5rem" },
+            lineHeight: 1.2,
+          }}
         >
-          <Typography
-            variant="h2"
-            component="h2"
-            align="center"
-            sx={{
-              mb: 2,
-              color: theme.palette.mode === "dark" ? "white" : "text.primary",
-            }}
-          >
-            {t("services.title")}
-          </Typography>
-          <Typography
-            variant="h5"
-            component="p"
-            align="center"
-            color="text.secondary"
-            sx={{ mb: { xs: 8, md: 6 } }}
-          >
-            {t("services.subtitle")}
-          </Typography>
-        </motion.div>
+          {t("services.title")}
+        </Typography>
+        <Typography
+          variant="body1"
+          sx={{
+            color: "text.secondary",
+            fontSize: { xs: "0.95rem", md: "1rem" },
+            lineHeight: 1.6,
+          }}
+        >
+          {t("services.mainDescription")}
+        </Typography>
+      </Box>
 
-        <Grid
-          container
-          spacing={{ xs: 1, sm: 2, md: 3 }} // Reducido el espaciado en mobile
-          alignItems="stretch"
-        >
-          {services.map((service, index) => (
-            <Grid
-              item
-              xs={12}
-              sm={6}
-              md={4}
-              key={service.key}
-              sx={{
-                mb: { xs: 1, sm: 2, md: 3 }, // Añadido margin bottom específico
-              }}
-            >
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                style={{ height: "100%" }}
-              >
-                <ServiceCard
-                  service={service}
-                  index={index}
-                  expanded={isCardExpanded(index, service.key)}
-                  onExpand={() => handleExpand(index, service.key)}
-                />
-              </motion.div>
-            </Grid>
-          ))}
-        </Grid>
+      <Container maxWidth="lg">
+        {isMobile ? renderMobileContent() : renderDesktopContent()}
       </Container>
     </Box>
   );
