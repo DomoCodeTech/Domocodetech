@@ -34,13 +34,8 @@ import Terms from "./pages/terms/Terms";
 
 function App() {
   // Estado para controlar el modo oscuro/claro
-  // Inicializa el tema basado en la preferencia guardada o la preferencia del sistema
-  const [isDarkMode, setIsDarkMode] = useState<boolean>(() => {
-    const savedMode = localStorage.getItem("darkMode");
-    return savedMode
-      ? JSON.parse(savedMode)
-      : window.matchMedia("(prefers-color-scheme: dark)").matches;
-  });
+  // Siempre inicia en modo oscuro
+  const [isDarkMode, setIsDarkMode] = useState<boolean>(true);
 
   // Crea el tema de Material-UI basado en el modo actual
   // useMemo evita recálculos innecesarios del tema
