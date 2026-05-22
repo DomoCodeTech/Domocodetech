@@ -639,8 +639,9 @@ export const enTranslations = {
       description: "Expert in home automation, web, and mobile development.",
     },
     member2: {
-      position: "Senior Android Developer",
-      description: "Native Android developer with over 10 years of experience.",
+      position: "Commercial Manager",
+      description:
+        "Expert in sales and business development in the technology sector, with extensive experience in the industry.",
     },
     member3: {
       position: "3D Designer & Android Developer",
@@ -690,7 +691,7 @@ export const enTranslations = {
       description: `To promote the integration of advanced technologies in homes and businesses, 
       from home automation systems to software and network solutions. We strive to transform 
       conventional spaces into intelligent environments, develop innovative software, implement 
-      robust networks, and provide exceptional technical support.`
+      robust networks, and provide exceptional technical support.`,
     },
     // Vision statement
     vision: {
@@ -698,7 +699,7 @@ export const enTranslations = {
       description: `To position ourselves as global leaders in comprehensive technology, setting 
       standards of excellence in home automation, software development, electronics and networks. 
       We seek to democratize access to smart systems and advanced technological solutions, 
-      maintaining a balance between innovation, quality and accessibility.`
+      maintaining a balance between innovation, quality and accessibility.`,
     },
     // Company values
     values: {

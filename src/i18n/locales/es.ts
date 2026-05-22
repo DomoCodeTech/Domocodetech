@@ -483,9 +483,9 @@ export const esTranslations = {
       description: "Experto en domótica, desarrollo web y móvil.",
     },
     member2: {
-      position: "Desarrollador Android Senior",
+      position: "Gerente Comercial",
       description:
-        "Desarrollador nativo de Android con más de 10 años de experiencia.",
+        "Experto en ventas y desarrollo de negocios tecnológicos, con amplia experiencia en el sector.",
     },
     member3: {
       position: "Diseñador 3D & Desarrollador Android",
