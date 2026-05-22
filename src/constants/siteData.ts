@@ -106,7 +106,7 @@ export const SITE_DATA = {
     },
     team: {
       member1: "/images/team/member1.webp",
-      member2: "/images/team/member2.webp",
+      member2: "/images/team/member2.png",
       member3: "/images/team/member3.webp",
       member4: "/images/team/member4.webp",
       names: [
