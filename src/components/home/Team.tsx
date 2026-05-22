@@ -31,10 +31,10 @@ const Team = () => {
       image: SITE_DATA.images.team.member1,
       description: t("team.member1.description"),
       social: {
-        github: "https://github.com/juancamilo96code",
+        github: "https://github.com/MiguelAngelCorrea",
         linkedin:
-          "https://www.linkedin.com/in/juan-camilo-collantes-tovar-461797216/",
-        facebook: "https://www.facebook.com/juancamilo.collantestovar",
+          "https://www.linkedin.com/in/miguel-angel-correa-9a1b3a184/",
+        facebook: "https://www.facebook.com/MiguelAngelCorrea",
       },
     },
     {

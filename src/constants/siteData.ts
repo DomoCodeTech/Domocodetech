@@ -111,7 +111,7 @@ export const SITE_DATA = {
       member4: "/images/team/member4.webp",
       names: [
         "Daniel Caro",
-        "Juan Collantes",
+        "Miguel Correa",
         "Alejandro Acevedo",
         "Ivan Tapia",
       ],
@@ -175,14 +175,12 @@ export const SITE_DATA = {
       },
     },
   },
-  about:{
-    images:{
-      mission:
-        "/images/about/mision.webp",
-   
-    vision:
-    "/images/about/vision.webp",
-    }
+  about: {
+    images: {
+      mission: "/images/about/mision.webp",
+
+      vision: "/images/about/vision.webp",
+    },
   },
   emailjs: {
     serviceId: "service_kdn8927",
@@ -191,7 +189,7 @@ export const SITE_DATA = {
   },
   recaptcha: {
     siteKey: "6LfZltgqAAAAAHbdAAFIkDlHrMb2NeLV3nVMz_oM",
-  }
+  },
 };
 
 export interface Service {
