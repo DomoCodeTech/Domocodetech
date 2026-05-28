@@ -2,7 +2,7 @@
  * App.tsx
  * Componente principal de la aplicación que maneja el enrutamiento y el tema global
  */
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { HashRouter, BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider, CssBaseline } from "@mui/material";
 import Navbar from "./components/Navbar";
@@ -35,21 +35,20 @@ import Terms from "./pages/terms/Terms";
 function App() {
   // Estado para controlar el modo oscuro/claro
   // Siempre inicia en modo oscuro
-  const [isDarkMode, setIsDarkMode] = useState<boolean>(true);
+  const [isDarkMode] = useState<boolean>(true);
 
   // Crea el tema de Material-UI basado en el modo actual
   // useMemo evita recálculos innecesarios del tema
   const theme = useMemo(() => createAppTheme(isDarkMode), [isDarkMode]);
 
-  // Función para alternar entre modo oscuro y claro
-  // Guarda la preferencia en localStorage para persistencia
-  const toggleDarkMode = () => {
-    setIsDarkMode((prev: boolean) => {
-      const newMode = !prev;
-      localStorage.setItem("darkMode", JSON.stringify(newMode));
-      return newMode;
-    });
-  };
+  useEffect(() => {
+    const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+    const themeColor = isDarkMode ? "#0A0A0A" : "#DCE6F0";
+
+    if (themeColorMeta) {
+      themeColorMeta.setAttribute("content", themeColor);
+    }
+  }, [isDarkMode]);
 
   const Router =
     process.env.NODE_ENV === "production" ? HashRouter : BrowserRouter;
@@ -63,7 +62,7 @@ function App() {
       <Router basename="/">
         <ScrollToTop />
         {/* Navbar es persistente en todas las rutas */}
-        <Navbar isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
+        <Navbar isDarkMode={isDarkMode} />
         {/* Contenedor principal con margen superior para el navbar fijo */}
         <main>
           {/* Definición de rutas de la aplicación */}

@@ -9,6 +9,7 @@ import {
   Stack,
   useTheme,
   Avatar,
+  useMediaQuery,
 } from "@mui/material";
 import { motion, AnimatePresence } from "framer-motion";
 import FacebookIcon from "@mui/icons-material/Facebook";
@@ -21,8 +22,9 @@ import { useState, useEffect } from "react";
 const Team = () => {
   const { t } = useTranslation();
   const theme = useTheme();
+  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
   const [currentPage, setCurrentPage] = useState(0);
-  const itemsPerPage = { xs: 1, md: 4 }; // 1 en móvil, 4 en desktop
+  const perPage = isDesktop ? 4 : 1;
 
   const teamMembers = [
     {
@@ -72,10 +74,7 @@ const Team = () => {
     },
   ];
 
-  const totalPages = Math.ceil(
-    teamMembers.length /
-      (window.innerWidth > 900 ? itemsPerPage.md : itemsPerPage.xs)
-  );
+  const totalPages = Math.ceil(teamMembers.length / perPage);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -85,20 +84,19 @@ const Team = () => {
     return () => clearInterval(timer);
   }, [totalPages]);
 
-  const getCurrentMembers = () => {
-    const perPage = window.innerWidth > 900 ? itemsPerPage.md : itemsPerPage.xs;
-    return teamMembers.slice(
-      currentPage * perPage,
-      (currentPage + 1) * perPage
-    );
-  };
+  useEffect(() => {
+    setCurrentPage(0);
+  }, [perPage]);
+
+  const getCurrentMembers = () =>
+    teamMembers.slice(currentPage * perPage, (currentPage + 1) * perPage);
 
   const currentMembers = getCurrentMembers();
 
   return (
     <Box
       sx={{
-        py: { xs: 8, md: 12 },
+        py: { xs: 7, md: 10 },
         background: "transparent", // Cambiado a transparente
       }}
     >
@@ -124,7 +122,7 @@ const Team = () => {
             align="center"
             sx={{
               color: "text.secondary",
-              mb: 8,
+              mb: { xs: 5, md: 7 },
               maxWidth: "600px",
               mx: "auto",
             }}
@@ -173,8 +171,8 @@ const Team = () => {
                               : "linear-gradient(145deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.95) 100%)",
                           boxShadow:
                             theme.palette.mode === "dark"
-                              ? "0 4px 30px rgba(0, 255, 163, 0.1)"
-                              : "0 4px 30px rgba(0, 0, 0, 0.1)",
+                              ? "0 4px 24px rgba(0, 255, 163, 0.08)"
+                              : "0 4px 24px rgba(0, 0, 0, 0.08)",
                           transition: "all 0.3s ease-in-out",
                           borderRadius: "16px",
                           minHeight: "510px", // Añade esta línea
@@ -183,8 +181,8 @@ const Team = () => {
                             transform: "translateY(-8px)",
                             boxShadow:
                               theme.palette.mode === "dark"
-                                ? "0 12px 40px rgba(0, 0, 0, 0.7)"
-                                : "0 12px 40px rgba(0, 0, 0, 0.12)",
+                                ? "0 10px 28px rgba(0, 0, 0, 0.5)"
+                                : "0 10px 28px rgba(0, 0, 0, 0.12)",
                             "& .member-image": {
                               transform: "scale(1.05)",
                               borderColor: "primary.main",

@@ -9,7 +9,7 @@ export const enTranslations = {
    */
   company: {
     slogan: "DomoCodeTech",
-    address: "Autopista Nte. #108-27, Bogotá, Colombia",
+    address: "14-16 Ramsgate St, Botany NSW 2019",
     workingHours: "7:00 a.m. - 5:00 p.m.",
   },
 
@@ -275,7 +275,7 @@ export const enTranslations = {
       software: [
         {
           name: "Landing Page",
-          price: "From $800",
+          price: "From A$800",
           description: "Ideal for basic web presence",
           features: [
             "Responsive Design",
@@ -287,7 +287,7 @@ export const enTranslations = {
         },
         {
           name: "Web Application",
-          price: "From $2,500",
+          price: "From A$2,500",
           recommended: true,
           features: [
             "Admin Panel",
@@ -299,7 +299,7 @@ export const enTranslations = {
         },
         {
           name: "Mobile App",
-          price: "From $5,000",
+          price: "From A$5,000",
           features: [
             "Android/iOS Development",
             "Backend included",
@@ -312,7 +312,7 @@ export const enTranslations = {
       domotics: [
         {
           name: "Basic",
-          price: "From $500",
+          price: "From A$500",
           features: [
             "Lighting control",
             "2 motion sensors",
@@ -323,7 +323,7 @@ export const enTranslations = {
         },
         {
           name: "Smart Home",
-          price: "From $1,500",
+          price: "From A$1,500",
           recommended: true,
           features: [
             "Complete home control",
@@ -335,7 +335,7 @@ export const enTranslations = {
         },
         {
           name: "Enterprise",
-          price: "From $3,000",
+          price: "From A$3,000",
           features: [
             "Complete automation",
             "Security system",
@@ -348,7 +348,7 @@ export const enTranslations = {
       microcontrollers: [
         {
           name: "Basic Firmware",
-          price: "From $200",
+          price: "From A$200",
           description: "For simple devices",
           features: [
             "Basic programming",
@@ -360,7 +360,7 @@ export const enTranslations = {
         },
         {
           name: "IoT Advanced",
-          price: "From $800",
+          price: "From A$800",
           recommended: true,
           features: [
             "WiFi/BT connectivity",
@@ -372,7 +372,7 @@ export const enTranslations = {
         },
         {
           name: "Industrial System",
-          price: "From $2,000",
+          price: "From A$2,000",
           features: [
             "Industrial protocol",
             "Redundant system",
@@ -385,7 +385,7 @@ export const enTranslations = {
       electronics: [
         {
           name: "PCB Design",
-          price: "From $300",
+          price: "From A$300",
           description: "Perfect for small projects",
           features: [
             "Schematic design",
@@ -397,7 +397,7 @@ export const enTranslations = {
         },
         {
           name: "Prototyping",
-          price: "From $1,000",
+          price: "From A$1,000",
           recommended: true,
           features: [
             "Complete PCB design",
@@ -409,7 +409,7 @@ export const enTranslations = {
         },
         {
           name: "Production",
-          price: "From $2,500",
+          price: "From A$2,500",
           features: [
             "Manufacturing optimization",
             "Quality control",
@@ -422,7 +422,7 @@ export const enTranslations = {
       networks: [
         {
           name: "Basic Network",
-          price: "From $400",
+          price: "From A$400",
           description: "For small offices",
           features: [
             "Router setup",
@@ -434,7 +434,7 @@ export const enTranslations = {
         },
         {
           name: "Enterprise Network",
-          price: "From $1,200",
+          price: "From A$1,200",
           recommended: true,
           features: [
             "Advanced security",
@@ -446,7 +446,7 @@ export const enTranslations = {
         },
         {
           name: "Infrastructure",
-          price: "From $3,500",
+          price: "From A$3,500",
           features: [
             "Network design",
             "High availability",
@@ -459,7 +459,7 @@ export const enTranslations = {
       support: [
         {
           name: "Basic",
-          price: "$50/hour",
+          price: "A$50/hour",
           description: "On-demand support",
           features: [
             "Remote support",
@@ -471,7 +471,7 @@ export const enTranslations = {
         },
         {
           name: "Business",
-          price: "$500/month",
+          price: "A$500/month",
           recommended: true,
           features: [
             "On-site support",
@@ -483,7 +483,7 @@ export const enTranslations = {
         },
         {
           name: "Premium",
-          price: "$1,200/month",
+          price: "A$1,200/month",
           features: [
             "24/7 support",
             "Immediate response",
@@ -664,19 +664,19 @@ export const enTranslations = {
     introduction:
       "Since our founding, we have been at the forefront of technological innovation, helping businesses and individuals harness the power of cutting-edge solutions. Our journey is marked by continuous growth, learning, and adaptation to emerging technologies.",
     highlight1: {
-      title: "Innovación Continua",
+      title: "Continuous Innovation",
       description:
-        "Nos mantenemos a la vanguardia de las tendencias tecnológicas para brindarte las últimas soluciones.",
+        "We stay at the forefront of technology trends to deliver the latest solutions.",
     },
     highlight2: {
-      title: "Éxito del Cliente",
+      title: "Client Success",
       description:
-        "Tu éxito es nuestra prioridad, con un enfoque en entregar resultados medibles.",
+        "Your success is our priority, with a focus on delivering measurable results.",
     },
     highlight3: {
-      title: "Alcance Global",
+      title: "Global Reach",
       description:
-        "Servimos a clientes en todo el mundo con soluciones y soporte localizados.",
+        "We serve clients worldwide with localized solutions and support.",
     },
     // Key statistics
     stats: [
@@ -861,8 +861,8 @@ export const enTranslations = {
       phone: "Phone",
       email: "Email",
       hours: "Business Hours",
-      location: "Autopista Nte. #108-27, Bogotá, Colombia",
-      phoneNumber: "+1 (555) 123-4567",
+      location: "14-16 Ramsgate St, Botany NSW 2019",
+      phoneNumber: "+61410747452",
       emailAddress: "domocodetech@gmail.com",
       businessHours: "Monday - Friday: 9:00 AM - 6:00 PM",
     },

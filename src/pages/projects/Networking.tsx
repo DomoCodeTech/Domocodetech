@@ -13,6 +13,7 @@ import {
   useTheme,
   Button,
 } from "@mui/material";
+import { alpha } from "@mui/material/styles";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { Link as RouterLink } from "react-router-dom";
@@ -30,32 +31,39 @@ const Networking = () => {
 
   const features = [
     {
-      icon: <TrendingUpIcon />,
       title: t("projects.features.optimization"),
       description:
         "Strategic planning and optimization of technology infrastructure",
     },
     {
-      icon: <LightbulbIcon />,
       title: t("projects.features.innovation"),
       description: "Innovative solutions for complex business challenges",
     },
     {
-      icon: <BarChartIcon />,
       title: t("projects.features.analytics"),
       description: "Data-driven insights and performance analysis",
     },
     {
-      icon: <GroupsIcon />,
       title: t("projects.features.scalability"),
       description: "Scalable solutions for growing businesses",
     },
     {
-      icon: <SecurityIcon />,
       title: t("projects.features.security"),
       description: "Comprehensive security and risk assessment",
     },
   ];
+
+  const getFeatureIcon = (title: string, description: string) => {
+    const text = `${title} ${description}`.toLowerCase();
+
+    if (text.includes("optimization") || text.includes("performance")) return TrendingUpIcon;
+    if (text.includes("innovation") || text.includes("solution")) return LightbulbIcon;
+    if (text.includes("analytics") || text.includes("data")) return BarChartIcon;
+    if (text.includes("scalability") || text.includes("growing")) return GroupsIcon;
+    if (text.includes("security") || text.includes("risk")) return SecurityIcon;
+
+    return TrendingUpIcon;
+  };
 
   const expertise = [
     "Digital Transformation",
@@ -69,6 +77,7 @@ const Networking = () => {
     "Project Management",
     "Technology Assessment",
   ];
+  const featureAccentColors = ["#00A3FF", "#00C389", "#7C4DFF", "#FF9800", "#FF5C8A"];
 
   return (
     <Box
@@ -173,7 +182,10 @@ const Networking = () => {
                 {t("projects.keyFeatures")}
               </Typography>
               <Grid container spacing={3}>
-                {features.map((feature, index) => (
+                {features.map((feature, index) => {
+                  const FeatureIcon = getFeatureIcon(feature.title, feature.description);
+                  const accent = featureAccentColors[index % featureAccentColors.length];
+                  return (
                   <Grid item xs={12} sm={6} key={index}>
                     <Card
                       sx={{
@@ -185,8 +197,21 @@ const Networking = () => {
                       }}
                     >
                       <CardContent>
-                        <Box sx={{ color: "primary.main", mb: 2 }}>
-                          {feature.icon}
+                        <Box
+                          sx={{
+                            width: 36,
+                            height: 36,
+                            borderRadius: "50%",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            mb: 2,
+                            bgcolor: alpha(accent, 0.14),
+                            border: `1px solid ${alpha(accent, 0.28)}`,
+                            color: alpha(accent, 0.92),
+                          }}
+                        >
+                          <FeatureIcon fontSize="small" />
                         </Box>
                         <Typography variant="h6" gutterBottom>
                           {feature.title}
@@ -197,7 +222,8 @@ const Networking = () => {
                       </CardContent>
                     </Card>
                   </Grid>
-                ))}
+                  );
+                })}
               </Grid>
             </Grid>
 

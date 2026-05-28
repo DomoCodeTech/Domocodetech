@@ -83,9 +83,9 @@ const ProjectsSection = () => {
   );
 
   return (
-    <Box component="section" sx={{ py: { xs: 4, md: 0 } }}>
+    <Box component="section" sx={{ py: { xs: 7, md: 10 } }}>
       <Container maxWidth="lg">
-        <Box sx={{ mb: { xs: 4, md: 6 } }}>
+        <Box sx={{ mb: { xs: 5, md: 7 } }}>
           <Typography
             variant="h2"
             component="h2"
@@ -102,7 +102,7 @@ const ProjectsSection = () => {
             component="p"
             align="center"
             color="text.secondary"
-            sx={{ mb: { xs: 8, md: 6 }, pb: { xs: 2, md: 2 } }}
+            sx={{ mb: { xs: 6, md: 6 }, pb: { xs: 2, md: 2 }, maxWidth: "720px", mx: "auto" }}
           >
             {t("projects.subtitle")}
           </Typography>
@@ -225,15 +225,15 @@ const ProjectsSection = () => {
                       : "linear-gradient(145deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.95) 100%)",
                   boxShadow:
                     theme.palette.mode === "dark"
-                      ? "0 4px 30px rgba(0, 255, 163, 0.1)"
-                      : "0 4px 30px rgba(0, 0, 0, 0.1)",
+                      ? "0 4px 24px rgba(0, 255, 163, 0.08)"
+                      : "0 4px 24px rgba(0, 0, 0, 0.08)",
                   transition: "all 0.3s ease-in-out",
                   "&:hover": {
                     transform: "translateY(-8px)",
                     boxShadow:
                       theme.palette.mode === "dark"
-                        ? "0 12px 40px rgba(0, 0, 0, 0.7)"
-                        : "0 12px 40px rgba(0, 0, 0, 0.12)",
+                        ? "0 10px 28px rgba(0, 0, 0, 0.5)"
+                        : "0 10px 28px rgba(0, 0, 0, 0.12)",
                   },
                 }}
               >

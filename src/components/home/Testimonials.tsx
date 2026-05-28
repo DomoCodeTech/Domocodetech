@@ -9,7 +9,15 @@
  * - Controles de navegación manual
  * - Responsive para todos los dispositivos
  */
-import { Box, Container, Typography, Card, Avatar, Grid } from "@mui/material";
+import {
+  Box,
+  Container,
+  Typography,
+  Card,
+  Avatar,
+  Grid,
+  useMediaQuery,
+} from "@mui/material";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { useTheme } from "@mui/material/styles";
@@ -19,8 +27,9 @@ import { useState, useEffect } from "react";
 const Testimonials = () => {
   const { t } = useTranslation();
   const theme = useTheme();
+  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
   const [currentPage, setCurrentPage] = useState(0);
-  const itemsPerPage = { xs: 1, md: 3 }; // 1 en móvil, 3 en desktop
+  const perPage = isDesktop ? 3 : 1;
 
   const testimonials = [
     {
@@ -61,10 +70,7 @@ const Testimonials = () => {
     },
   ];
 
-  const totalPages = Math.ceil(
-    testimonials.length /
-      (window.innerWidth > 900 ? itemsPerPage.md : itemsPerPage.xs)
-  );
+  const totalPages = Math.ceil(testimonials.length / perPage);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -74,13 +80,12 @@ const Testimonials = () => {
     return () => clearInterval(timer);
   }, [totalPages]);
 
-  const getCurrentTestimonials = () => {
-    const perPage = window.innerWidth > 900 ? itemsPerPage.md : itemsPerPage.xs;
-    return testimonials.slice(
-      currentPage * perPage,
-      (currentPage + 1) * perPage
-    );
-  };
+  useEffect(() => {
+    setCurrentPage(0);
+  }, [perPage]);
+
+  const getCurrentTestimonials = () =>
+    testimonials.slice(currentPage * perPage, (currentPage + 1) * perPage);
 
   const currentTestimonials = getCurrentTestimonials();
 
@@ -88,7 +93,7 @@ const Testimonials = () => {
     <Box
       sx={{
         background: "transparent", // Cambiado a transparente
-        py: { xs: 10, md: 15 },
+        py: { xs: 7, md: 10 },
         position: "relative",
         overflow: "hidden",
       }}
@@ -133,8 +138,7 @@ const Testimonials = () => {
               sx={{
                 mb: 2,
                 color: theme.palette.mode === "dark" ? "white" : "text.primary",
-                fontFamily: "'Playfair Display', serif",
-                fontSize: { xs: "2rem", md: "3rem" },
+                fontSize: { xs: "2rem", md: "2.8rem" },
               }}
             >
               {t("testimonials.title")}
@@ -147,7 +151,6 @@ const Testimonials = () => {
                 mb: { xs: 6, md: 8 },
                 maxWidth: "600px",
                 mx: "auto",
-                fontFamily: "'Roboto', sans-serif",
                 fontSize: { xs: "1rem", md: "1.1rem" },
               }}
             >
@@ -175,8 +178,8 @@ const Testimonials = () => {
                           backdropFilter: "blur(10px)",
                           boxShadow:
                             theme.palette.mode === "dark"
-                              ? "0 4px 30px rgba(0, 255, 163, 0.1)"
-                              : "0 4px 30px rgba(0, 0, 0, 0.1)",
+                              ? "0 4px 24px rgba(0, 255, 163, 0.08)"
+                              : "0 4px 24px rgba(0, 0, 0, 0.08)",
                           borderRadius: 4,
                           p: { xs: 4, md: 4 },
                           height: "100%",

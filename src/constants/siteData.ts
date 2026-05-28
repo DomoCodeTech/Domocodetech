@@ -2,8 +2,8 @@ export const SITE_DATA = {
   company: {
     name: "DomoCodeTech",
     email: "domocodetech@gmail.com",
-    phone: "+573013117452",
-    address: "Autopista Nte. #108-27, Bogotá, Colombia",
+    phone: "+61410747452",
+    address: "A14-16 Ramsgate St, Botany NSW 2019",
     schedule: "7:00 a.m. - 5:00 p.m.",
     serviceArea: "Internacional",
   },
@@ -81,8 +81,8 @@ export const SITE_DATA = {
         amazon: "https://cdn.worldvectorlogo.com/logos/aws-2.svg",
         homeAssistant:
           "https://brands.home-assistant.io/_/homeassistant/logo.png",
-        arduino: "https://cdn.worldvectorlogo.com/logos/arduino-1.svg",
-        raspberry: "https://cdn.worldvectorlogo.com/logos/raspberry-pi.svg",
+        arduino: "https://cdn.simpleicons.org/arduino",
+        raspberry: "https://cdn.simpleicons.org/raspberrypi",
         microsoft: "https://cdn.worldvectorlogo.com/logos/microsoft-5.svg",
         cisco: "https://cdn.worldvectorlogo.com/logos/cisco-2.svg",
         ibm: "https://cdn.worldvectorlogo.com/logos/ibm.svg",
@@ -97,11 +97,11 @@ export const SITE_DATA = {
         honeywell: "https://cdn.worldvectorlogo.com/logos/honeywell-1.svg",
         tplink: "https://cdn.worldvectorlogo.com/logos/tplink-logo-2.svg",
         android: "https://cdn.worldvectorlogo.com/logos/android-logomark.svg",
-        react: "https://cdn.worldvectorlogo.com/logos/react-2.svg",
+        react: "https://cdn.simpleicons.org/react",
         angular: "https://cdn.worldvectorlogo.com/logos/angular-3.svg",
         fortinet: "https://cdn.worldvectorlogo.com/logos/fortinet-logo.svg",
-        apple: "https://cdn.worldvectorlogo.com/logos/apple-14.svg",
-        zigbee: "https://cdn.worldvectorlogo.com/logos/zigbee.svg",
+        apple: "https://cdn.simpleicons.org/apple",
+        zigbee: "https://cdn.simpleicons.org/zigbee",
       },
     },
     team: {
@@ -183,9 +183,9 @@ export const SITE_DATA = {
     },
   },
   emailjs: {
-    serviceId: "service_kdn8927",
+    serviceId: "service_8zfuwyv",
     templateId: "template_ua79n8j",
-    publicKey: "otjRpe6GXf8YpbFmq",
+    publicKey: "g7ja_zs4bYfgRWXGa",
   },
   recaptcha: {
     siteKey: "6LfZltgqAAAAAHbdAAFIkDlHrMb2NeLV3nVMz_oM",

@@ -12,8 +12,28 @@ import {
   useTheme,
   Grid,
 } from "@mui/material";
+import { alpha } from "@mui/material/styles";
 import { motion } from "framer-motion";
-import { MdCheck } from "react-icons/md";
+import {
+  MdApi,
+  MdBackup,
+  MdBuild,
+  MdCloud,
+  MdCode,
+  MdDataObject,
+  MdDesignServices,
+  MdDevices,
+  MdHub,
+  MdMonitor,
+  MdOutlineSupportAgent,
+  MdPhoneAndroid,
+  MdSecurity,
+  MdSpeed,
+  MdStar,
+  MdStorage,
+  MdTune,
+  MdWifi,
+} from "react-icons/md";
 import { useTranslation } from "react-i18next";
 import { Link as RouterLink } from "react-router-dom";
 
@@ -32,6 +52,13 @@ interface ServicePricingProps {
 const ServicePricing: React.FC<ServicePricingProps> = ({ serviceKey }) => {
   const { t } = useTranslation();
   const theme = useTheme();
+  const featureAccentColors = [
+    "#00A3FF",
+    "#00C389",
+    "#7C4DFF",
+    "#FF9800",
+    "#FF5C8A",
+  ];
 
   const getPricingTiers = (): PricingTier[] => {
     return (
@@ -39,6 +66,63 @@ const ServicePricing: React.FC<ServicePricingProps> = ({ serviceKey }) => {
         returnObjects: true,
       }) as PricingTier[]) || []
     );
+  };
+
+  const getFeatureIcon = (feature: string) => {
+    const text = feature.toLowerCase();
+
+    if (text.includes("api")) return MdApi;
+    if (text.includes("seo")) return MdSpeed;
+    if (text.includes("database") || text.includes("base de datos"))
+      return MdStorage;
+    if (text.includes("admin")) return MdDataObject;
+    if (
+      text.includes("android") ||
+      text.includes("ios") ||
+      text.includes("móvil") ||
+      text.includes("mobile")
+    )
+      return MdPhoneAndroid;
+    if (
+      text.includes("design") ||
+      text.includes("diseño") ||
+      text.includes("layout")
+    )
+      return MdDesignServices;
+    if (text.includes("hosting") || text.includes("cloud")) return MdCloud;
+    if (text.includes("wifi") || text.includes("vpn")) return MdWifi;
+    if (
+      text.includes("security") ||
+      text.includes("seguridad") ||
+      text.includes("firewall")
+    )
+      return MdSecurity;
+    if (text.includes("monitor")) return MdMonitor;
+    if (
+      text.includes("support") ||
+      text.includes("soporte") ||
+      text.includes("response")
+    )
+      return MdOutlineSupportAgent;
+    if (
+      text.includes("maintenance") ||
+      text.includes("mantenimiento") ||
+      text.includes("diagn")
+    )
+      return MdBuild;
+    if (text.includes("backup") || text.includes("respaldo")) return MdBackup;
+    if (
+      text.includes("automation") ||
+      text.includes("automatización") ||
+      text.includes("control")
+    )
+      return MdTune;
+    if (text.includes("iot") || text.includes("protocol")) return MdHub;
+    if (text.includes("development") || text.includes("desarrollo"))
+      return MdCode;
+    if (text.includes("device") || text.includes("dispositivo")) return MdDevices;
+
+    return MdStar;
   };
 
   return (
@@ -195,7 +279,10 @@ const ServicePricing: React.FC<ServicePricingProps> = ({ serviceKey }) => {
                     </Box>
 
                     <List sx={{ mb: { xs: 1, md: 2 } }}>
-                      {tier.features.map((feature, idx) => (
+                      {tier.features.map((feature, idx) => {
+                        const FeatureIcon = getFeatureIcon(feature);
+                        const accent = featureAccentColors[idx % featureAccentColors.length];
+                        return (
                         <ListItem
                           key={idx}
                           sx={{
@@ -213,12 +300,19 @@ const ServicePricing: React.FC<ServicePricingProps> = ({ serviceKey }) => {
                                 alignItems: "center",
                                 justifyContent: "center",
                                 bgcolor: tier.recommended
-                                  ? "primary.main"
-                                  : "primary.light",
-                                color: "white",
+                                  ? alpha(accent, 0.18)
+                                  : alpha(accent, 0.12),
+                                color: tier.recommended
+                                  ? alpha(accent, 0.98)
+                                  : alpha(accent, 0.9),
+                                border: `1px solid ${
+                                  tier.recommended
+                                    ? alpha(accent, 0.34)
+                                    : alpha(accent, 0.24)
+                                }`,
                               }}
                             >
-                              <MdCheck size={14} />
+                              <FeatureIcon size={14} />
                             </Box>
                           </ListItemIcon>
                           <ListItemText
@@ -228,7 +322,8 @@ const ServicePricing: React.FC<ServicePricingProps> = ({ serviceKey }) => {
                             }}
                           />
                         </ListItem>
-                      ))}
+                        );
+                      })}
                     </List>
                   </CardContent>
 
