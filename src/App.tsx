@@ -2,7 +2,7 @@
  * App.tsx
  * Componente principal de la aplicación que maneja el enrutamiento y el tema global
  */
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { HashRouter, BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider, CssBaseline } from "@mui/material";
 import Navbar from "./components/Navbar";
@@ -40,6 +40,15 @@ function App() {
   // Crea el tema de Material-UI basado en el modo actual
   // useMemo evita recálculos innecesarios del tema
   const theme = useMemo(() => createAppTheme(isDarkMode), [isDarkMode]);
+
+  useEffect(() => {
+    const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+    const themeColor = isDarkMode ? "#0A0A0A" : "#DCE6F0";
+
+    if (themeColorMeta) {
+      themeColorMeta.setAttribute("content", themeColor);
+    }
+  }, [isDarkMode]);
 
   // Función para alternar entre modo oscuro y claro
   // Guarda la preferencia en localStorage para persistencia

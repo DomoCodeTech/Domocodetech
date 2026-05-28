@@ -1,31 +1,27 @@
 /**
  * Stats.tsx
- * Componente que muestra las estadísticas clave de la empresa:
- * - Años de experiencia
- * - Proyectos completados
- * - Clientes satisfechos
- * - Miembros del equipo
- *
- * Características:
- * - Animación de contador al hacer scroll
- * - Diseño responsive
- * - Iconos ilustrativos
- * - Traducciones en múltiples idiomas
+ * Componente que muestra las estadísticas clave de la empresa.
+ * * Mejoras UI/UX:
+ * - Diseño Glassmorphism con bordes sutiles
+ * - Hover con glow dinámico basado en el color del icono
+ * - Animaciones fluidas tipo "spring" con Framer Motion
+ * - Iconos encapsulados para mayor impacto visual
  */
 import { Box, Container, Grid, Typography } from "@mui/material";
+import { alpha, useTheme } from "@mui/material/styles";
 import { motion } from "framer-motion";
 import CountUp from "react-countup";
 import { useTranslation } from "react-i18next";
-import { useTheme } from "@mui/material/styles";
 import { MdWorkHistory, MdDoneAll, MdPeople, MdGroups } from "react-icons/md";
 
 const Stats = () => {
   const { t } = useTranslation();
   const theme = useTheme();
+  const isDark = theme.palette.mode === "dark";
 
-  // Extraer el número y el sufijo del string (ejemplo: "10+" -> { value: 10, suffix: "+" })
+  // Extraer el número y el sufijo del string
   const parseNumberString = (str: string) => {
-    const value = parseInt(str);
+    const value = parseInt(str) || 0;
     const suffix = str.replace(/[0-9]/g, "");
     return { value, suffix };
   };
@@ -35,19 +31,20 @@ const Stats = () => {
     label: string;
   }>;
 
-  // Iconos para cada estadística
+  // Paleta de colores vibrantes para cada métrica
   const statIcons = [
-    { Icon: MdWorkHistory, color: "#00FFA3" }, // Años de experiencia
-    { Icon: MdDoneAll, color: "#FF6B6B" }, // Proyectos completados
-    { Icon: MdPeople, color: "#4DABF7" }, // Clientes satisfechos
-    { Icon: MdGroups, color: "#FFD93D" }, // Miembros del equipo
+    { Icon: MdWorkHistory, color: "#00FFA3" }, 
+    { Icon: MdDoneAll, color: "#FF6B6B" }, 
+    { Icon: MdPeople, color: "#4DABF7" }, 
+    { Icon: MdGroups, color: "#FFD93D" }, 
   ];
 
   return (
     <Box
       sx={{
-        py: { xs: 7, md: 10 },
-        background: "transparent", // Cambiado a transparente
+        py: { xs: 8, md: 12 },
+        position: "relative",
+        background: "transparent",
       }}
     >
       <Container maxWidth="lg">
@@ -57,74 +54,117 @@ const Stats = () => {
             const { Icon, color } = statIcons[index];
 
             return (
-              <Grid item xs={6} md={3} key={index}>
+              <Grid item xs={12} sm={6} md={3} key={index}>
                 <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: index * 0.1 }}
-                  viewport={{ once: true }}
+                  initial={{ opacity: 0, y: 30, scale: 0.9 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  transition={{ 
+                    duration: 0.6, 
+                    delay: index * 0.1,
+                    type: "spring",
+                    stiffness: 100,
+                    damping: 10
+                  }}
+                  viewport={{ once: true, margin: "-50px" }}
                 >
                   <Box
                     sx={{
+                      position: "relative",
+                      overflow: "hidden",
                       textAlign: "center",
-                      p: 3,
-                      borderRadius: 2,
-                      background:
-                        theme.palette.mode === "dark"
-                          ? "linear-gradient(145deg, rgba(31,31,31,0.6) 0%, rgba(21,21,21,0.8) 100%)"
-                          : "linear-gradient(145deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.95) 100%)",
-                      boxShadow:
-                        theme.palette.mode === "dark"
-                          ? "0 4px 24px rgba(0, 255, 163, 0.08)"
-                          : "0 4px 24px rgba(0, 0, 0, 0.08)",
+                      p: 4,
+                      borderRadius: 4,
+                      // Efecto Glassmorphism
+                      background: isDark
+                        ? "linear-gradient(145deg, rgba(30,30,30,0.4) 0%, rgba(20,20,20,0.6) 100%)"
+                        : "linear-gradient(145deg, rgba(226,236,246,0.86) 0%, rgba(214,226,238,0.95) 100%)",
+                      backdropFilter: "blur(12px)",
+                      border: `1px solid ${isDark ? alpha("#ffffff", 0.05) : alpha("#000000", 0.05)}`,
+                      boxShadow: isDark
+                        ? `0 8px 32px ${alpha("#000000", 0.4)}`
+                        : `0 8px 24px ${alpha("#1E2A36", 0.12)}`,
+                      transition: "all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+                      
                       "&:hover": {
-                        transform: "translateY(-5px)",
-                        transition: "transform 0.3s ease-in-out",
-                        "& .stat-icon": {
-                          transform: "scale(1.1)",
-                          color: color,
+                        transform: "translateY(-10px)",
+                        border: `1px solid ${alpha(color, 0.5)}`,
+                        // Glow dinámico basado en el color del icono
+                        boxShadow: `0 15px 35px ${alpha(color, 0.2)}`,
+                        
+                        "& .icon-container": {
+                          transform: "scale(1.15) rotate(5deg)",
+                          background: color,
+                          color: isDark ? "#121212" : "#ffffff",
                         },
                       },
                     }}
                   >
+                    {/* Borde superior de acento */}
+                    <Box 
+                      sx={{ 
+                        position: "absolute", 
+                        top: 0, left: 0, right: 0, 
+                        height: 4, 
+                        background: color,
+                        opacity: 0.8
+                      }} 
+                    />
+
+                    {/* Contenedor del Icono */}
                     <Box
-                      className="stat-icon"
+                      className="icon-container"
                       sx={{
-                        mb: 2,
+                        width: 72,
+                        height: 72,
+                        margin: "0 auto",
+                        mb: 3,
+                        borderRadius: "50%",
                         display: "flex",
+                        alignItems: "center",
                         justifyContent: "center",
+                        background: alpha(color, 0.15),
+                        color: color,
+                        transition: "all 0.4s ease-in-out",
                         "& > svg": {
-                          fontSize: "2.5rem",
-                          color:
-                            theme.palette.mode === "dark"
-                              ? "rgba(255, 255, 255, 0.7)"
-                              : "rgba(0, 0, 0, 0.7)",
-                          transition: "all 0.3s ease-in-out",
+                          fontSize: "2rem",
                         },
                       }}
                     >
                       <Icon />
                     </Box>
+
+                    {/* Número y Sufijo */}
                     <Typography
                       variant="h2"
                       sx={{
-                        fontSize: { xs: "2rem", md: "2.5rem" },
-                        fontWeight: 700,
+                        fontSize: { xs: "2.5rem", md: "3rem" },
+                        fontWeight: 800,
                         mb: 1,
-                        color:
-                          theme.palette.mode === "dark"
-                            ? "white"
-                            : "text.primary",
+                        // Texto con degradado
+                        background: `linear-gradient(135deg, ${isDark ? '#fff' : '#111'} 0%, ${color} 100%)`,
+                        WebkitBackgroundClip: "text",
+                        WebkitTextFillColor: "transparent",
+                        display: "inline-flex",
+                        alignItems: "center"
                       }}
                     >
-                      <CountUp end={value} duration={2.5} />
-                      {suffix}
+                      <CountUp end={value} duration={2.5} separator="," />
+                      {suffix && (
+                        <Box component="span" sx={{ color: color, ml: 0.5 }}>
+                          {suffix}
+                        </Box>
+                      )}
                     </Typography>
+
+                    {/* Etiqueta */}
                     <Typography
                       variant="body1"
                       sx={{
                         color: "text.secondary",
-                        fontWeight: 500,
+                        fontWeight: 600,
+                        textTransform: "uppercase",
+                        letterSpacing: "1px",
+                        fontSize: "0.875rem"
                       }}
                     >
                       {stat.label}
