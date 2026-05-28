@@ -21,7 +21,18 @@ import {
 } from "@mui/material";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import { MdCheck, MdAdd, MdRemove } from "react-icons/md";
+import {
+  MdAdd,
+  MdApi,
+  MdCloud,
+  MdCode,
+  MdDevices,
+  MdRemove,
+  MdSecurity,
+  MdSettingsSuggest,
+  MdSpeed,
+  MdStar,
+} from "react-icons/md";
 import { Service } from "../../constants/siteData";
 
 interface ServiceContentProps {
@@ -408,8 +419,57 @@ const FeaturesCard = ({
   features: string[];
   theme: any;
   t: any;
-}) => (
-  <Card
+}) => {
+  const featureAccentColors = [
+    "#00A3FF",
+    "#00C389",
+    "#7C4DFF",
+    "#FF9800",
+    "#FF5C8A",
+  ];
+
+  const getFeatureIcon = (feature: string) => {
+    const text = feature.toLowerCase();
+
+    if (text.includes("api") || text.includes("microservice")) return MdApi;
+    if (text.includes("cloud") || text.includes("nube")) return MdCloud;
+    if (
+      text.includes("security") ||
+      text.includes("seguridad") ||
+      text.includes("surveillance")
+    )
+      return MdSecurity;
+    if (
+      text.includes("automation") ||
+      text.includes("automatización") ||
+      text.includes("control")
+    )
+      return MdSettingsSuggest;
+    if (
+      text.includes("device") ||
+      text.includes("dispositivo") ||
+      text.includes("iot")
+    )
+      return MdDevices;
+    if (
+      text.includes("performance") ||
+      text.includes("optimización") ||
+      text.includes("eficien")
+    )
+      return MdSpeed;
+    if (
+      text.includes("software") ||
+      text.includes("web") ||
+      text.includes("mobile") ||
+      text.includes("móvil")
+    )
+      return MdCode;
+
+    return MdStar;
+  };
+
+  return (
+    <Card
     elevation={2}
     sx={{
       background:
@@ -434,6 +494,10 @@ const FeaturesCard = ({
       </Typography>
       <List>
         {features.map((feature, index) => (
+          (() => {
+            const FeatureIcon = getFeatureIcon(feature);
+            const accent = featureAccentColors[index % featureAccentColors.length];
+            return (
           <motion.div
             key={index}
             initial={{ opacity: 0, x: -20 }}
@@ -455,12 +519,12 @@ const FeaturesCard = ({
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    background: `linear-gradient(135deg, ${theme.palette.primary.main}, ${theme.palette.primary.dark})`,
-                    color: "white",
-                    boxShadow: `0 2px 8px ${theme.palette.primary.main}40`,
+                    backgroundColor: `${accent}24`,
+                    border: `1px solid ${accent}4A`,
+                    color: `${accent}EB`,
                   }}
                 >
-                  <MdCheck size={16} />
+                  <FeatureIcon size={14} />
                 </Box>
               </ListItemIcon>
               <ListItemText
@@ -475,10 +539,13 @@ const FeaturesCard = ({
               />
             </ListItem>
           </motion.div>
+            );
+          })()
         ))}
       </List>
     </CardContent>
   </Card>
-);
+  );
+};
 
 export default ServiceContent;

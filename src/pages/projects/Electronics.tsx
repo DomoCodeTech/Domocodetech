@@ -13,6 +13,7 @@ import {
   useTheme,
   Button,
 } from "@mui/material";
+import { alpha } from "@mui/material/styles";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { Link as RouterLink } from "react-router-dom";
@@ -30,32 +31,40 @@ const electronicsPlatform = () => {
 
   const features = [
     {
-      icon: <PaymentIcon />,
       title: t("projects.features.payment-gateway"),
       description:
         "Multiple payment methods with secure transaction processing",
     },
     {
-      icon: <InventoryIcon />,
       title: t("projects.features.inventory"),
       description: "Real-time inventory tracking and management",
     },
     {
-      icon: <AnalyticsIcon />,
       title: t("projects.features.analytics"),
       description: "Comprehensive analytics and reporting dashboard",
     },
     {
-      icon: <ShoppingCartIcon />,
       title: t("projects.features.user-friendly"),
       description: "Intuitive shopping experience and cart management",
     },
     {
-      icon: <SecurityIcon />,
       title: t("projects.features.security"),
       description: "Advanced security measures for customer data protection",
     },
   ];
+
+  const getFeatureIcon = (title: string, description: string) => {
+    const text = `${title} ${description}`.toLowerCase();
+
+    if (text.includes("payment") || text.includes("pago")) return PaymentIcon;
+    if (text.includes("inventory") || text.includes("inventario")) return InventoryIcon;
+    if (text.includes("analytics") || text.includes("analysis")) return AnalyticsIcon;
+    if (text.includes("shopping") || text.includes("cart") || text.includes("user-friendly"))
+      return ShoppingCartIcon;
+    if (text.includes("security") || text.includes("protection")) return SecurityIcon;
+
+    return AnalyticsIcon;
+  };
 
   const techStack = [
     "React",
@@ -69,6 +78,7 @@ const electronicsPlatform = () => {
     "Next.js",
     "GraphQL",
   ];
+  const featureAccentColors = ["#00A3FF", "#00C389", "#7C4DFF", "#FF9800", "#FF5C8A"];
 
   return (
     <Box
@@ -173,7 +183,10 @@ const electronicsPlatform = () => {
                 {t("projects.keyFeatures")}
               </Typography>
               <Grid container spacing={3}>
-                {features.map((feature, index) => (
+                {features.map((feature, index) => {
+                  const FeatureIcon = getFeatureIcon(feature.title, feature.description);
+                  const accent = featureAccentColors[index % featureAccentColors.length];
+                  return (
                   <Grid item xs={12} sm={6} key={index}>
                     <Card
                       sx={{
@@ -185,8 +198,21 @@ const electronicsPlatform = () => {
                       }}
                     >
                       <CardContent>
-                        <Box sx={{ color: "primary.main", mb: 2 }}>
-                          {feature.icon}
+                        <Box
+                          sx={{
+                            width: 36,
+                            height: 36,
+                            borderRadius: "50%",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            mb: 2,
+                            bgcolor: alpha(accent, 0.14),
+                            border: `1px solid ${alpha(accent, 0.28)}`,
+                            color: alpha(accent, 0.92),
+                          }}
+                        >
+                          <FeatureIcon fontSize="small" />
                         </Box>
                         <Typography variant="h6" gutterBottom>
                           {feature.title}
@@ -197,7 +223,8 @@ const electronicsPlatform = () => {
                       </CardContent>
                     </Card>
                   </Grid>
-                ))}
+                  );
+                })}
               </Grid>
             </Grid>
 

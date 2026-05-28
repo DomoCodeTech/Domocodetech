@@ -9,7 +9,7 @@ export const esTranslations = {
    */
   company: {
     slogan: "DomoCodeTech",
-    address: "Autopista Nte. #108-27, Bogotá, Colombia",
+    address: "14-16 Ramsgate St, Botany NSW 2019",  
     workingHours: "7:00 a.m. - 5:00 p.m.",
   },
   // Navigation
@@ -254,7 +254,7 @@ export const esTranslations = {
       software: [
         {
           name: "Landing Page",
-          price: "Desde $800 USD",
+          price: "Desde A$800 AUD",
           description: "Ideal para presencia web básica",
           features: [
             "Diseño Responsive",
@@ -266,7 +266,7 @@ export const esTranslations = {
         },
         {
           name: "Aplicación Web",
-          price: "Desde $2,500 USD",
+          price: "Desde A$2,500 AUD",
           recommended: true,
           features: [
             "Panel Administrativo",
@@ -278,7 +278,7 @@ export const esTranslations = {
         },
         {
           name: "App Móvil",
-          price: "Desde $5,000 USD",
+          price: "Desde A$5,000 AUD",
           features: [
             "Desarrollo Android/iOS",
             "Backend incluido",
@@ -291,7 +291,7 @@ export const esTranslations = {
       domotics: [
         {
           name: "Básico",
-          price: "Desde $500 USD",
+          price: "Desde A$500 AUD",
           features: [
             "Control de iluminación",
             "2 sensores de movimiento",
@@ -302,7 +302,7 @@ export const esTranslations = {
         },
         {
           name: "Hogar Inteligente",
-          price: "Desde $1,500 USD",
+          price: "Desde A$1,500 AUD",
           recommended: true,
           features: [
             "Control completo de hogar",
@@ -314,7 +314,7 @@ export const esTranslations = {
         },
         {
           name: "Empresarial",
-          price: "Desde $3,000 USD ",
+          price: "Desde A$3,000 AUD",
           features: [
             "Automatización completa",
             "Sistema de seguridad",
@@ -327,7 +327,7 @@ export const esTranslations = {
       electronics: [
         {
           name: "Diseño PCB",
-          price: "Desde $300 USD",
+          price: "Desde A$300 AUD",
           description: "Perfecto para proyectos pequeños",
           features: [
             "Diseño esquemático",
@@ -339,7 +339,7 @@ export const esTranslations = {
         },
         {
           name: "Prototipado",
-          price: "Desde $1,000 USD",
+          price: "Desde A$1,000 AUD",
           recommended: true,
           features: [
             "Diseño PCB completo",
@@ -351,7 +351,7 @@ export const esTranslations = {
         },
         {
           name: "Producción",
-          price: "Desde $2,500 USD",
+          price: "Desde A$2,500 AUD",
           features: [
             "Optimización para manufactura",
             "Control de calidad",
@@ -364,7 +364,7 @@ export const esTranslations = {
       networks: [
         {
           name: "Red Básica",
-          price: "Desde $400 USD",
+          price: "Desde A$400 AUD",
           description: "Para pequeñas oficinas",
           features: [
             "Configuración router",
@@ -376,7 +376,7 @@ export const esTranslations = {
         },
         {
           name: "Red Empresarial",
-          price: "Desde $1,200 USD",
+          price: "Desde A$1,200 AUD",
           recommended: true,
           features: [
             "Seguridad avanzada",
@@ -388,7 +388,7 @@ export const esTranslations = {
         },
         {
           name: "Infraestructura",
-          price: "Desde $3,500 USD",
+          price: "Desde A$3,500 AUD",
           features: [
             "Diseño de red",
             "Alta disponibilidad",
@@ -401,7 +401,7 @@ export const esTranslations = {
       microcontrollers: [
         {
           name: "Firmware Básico",
-          price: "Desde $200 USD",
+          price: "Desde A$200 AUD",
           description: "Para dispositivos simples",
           features: [
             "Programación básica",
@@ -413,7 +413,7 @@ export const esTranslations = {
         },
         {
           name: "IoT Avanzado",
-          price: "Desde $800 USD",
+          price: "Desde A$800 AUD",
           recommended: true,
           features: [
             "Conectividad WiFi/BT",
@@ -425,7 +425,7 @@ export const esTranslations = {
         },
         {
           name: "Sistema Industrial",
-          price: "Desde $2,000 USD",
+          price: "Desde A$2,000 AUD",
           features: [
             "Protocolo industrial",
             "Sistema redundante",
@@ -438,7 +438,7 @@ export const esTranslations = {
       support: [
         {
           name: "Básico",
-          price: "$50 USD/hora",
+          price: "A$50 AUD/hora",
           description: "Soporte bajo demanda",
           features: [
             "Soporte remoto",
@@ -450,7 +450,7 @@ export const esTranslations = {
         },
         {
           name: "Empresarial",
-          price: "$500 USD/mes",
+          price: "A$500 AUD/mes",
           recommended: true,
           features: [
             "Soporte presencial",
@@ -462,7 +462,7 @@ export const esTranslations = {
         },
         {
           name: "Premium",
-          price: "$1,200 USD/mes",
+          price: "A$1,200 AUD/mes",
           features: [
             "Soporte 24/7",
             "Respuesta inmediata",
@@ -709,8 +709,8 @@ export const esTranslations = {
       phone: "Teléfono",
       email: "Correo",
       hours: "Horario de Atención",
-      location: "Autopista Nte. #108-27, Bogotá, Colombia",
-      phoneNumber: "+1 (555) 123-4567",
+      location: "14-16 Ramsgate St, Botany NSW 2019",
+      phoneNumber: "+61410747452",
       emailAddress: "info@DomoCodeTech.com",
       businessHours: "Lunes - Viernes: 9:00 AM - 6:00 PM",
     },

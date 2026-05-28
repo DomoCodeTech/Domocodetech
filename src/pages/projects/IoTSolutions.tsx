@@ -13,6 +13,7 @@ import {
   useTheme,
   Button,
 } from '@mui/material';
+import { alpha } from '@mui/material/styles';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { Link as RouterLink } from 'react-router-dom';
@@ -30,36 +31,44 @@ const IoTSolutions = () => {
 
   const features = [
     {
-      icon: <DevicesOtherIcon />,
       title: t('projects.features.smart-devices'),
       description: 'Connect and control multiple IoT devices seamlessly'
     },
     {
-      icon: <SpeedIcon />,
       title: t('projects.features.real-time'),
       description: 'Real-time data monitoring and analytics'
     },
     {
-      icon: <CloudIcon />,
       title: t('projects.features.cloud-integration'),
       description: 'Secure cloud connectivity and data storage'
     },
     {
-      icon: <AutomationIcon />,
       title: t('projects.features.automation'),
       description: 'Advanced automation and device orchestration'
     },
     {
-      icon: <SecurityIcon />,
       title: t('projects.features.security'),
       description: 'Enterprise-grade security and encryption'
     }
   ];
 
+  const getFeatureIcon = (title: string, description: string) => {
+    const text = `${title} ${description}`.toLowerCase();
+
+    if (text.includes('device') || text.includes('iot')) return DevicesOtherIcon;
+    if (text.includes('real-time') || text.includes('monitor') || text.includes('analytics')) return SpeedIcon;
+    if (text.includes('cloud') || text.includes('storage')) return CloudIcon;
+    if (text.includes('automation') || text.includes('orchestration')) return AutomationIcon;
+    if (text.includes('security') || text.includes('encryption')) return SecurityIcon;
+
+    return DevicesOtherIcon;
+  };
+
   const techStack = [
     'Arduino', 'Raspberry Pi', 'ESP32', 'MQTT', 'AWS IoT',
     'Node.js', 'Python', 'Docker', 'Kubernetes', 'TensorFlow'
   ];
+  const featureAccentColors = ['#00A3FF', '#00C389', '#7C4DFF', '#FF9800', '#FF5C8A'];
 
   return (
     <Box
@@ -161,7 +170,10 @@ const IoTSolutions = () => {
                 {t('projects.keyFeatures')}
               </Typography>
               <Grid container spacing={3}>
-                {features.map((feature, index) => (
+                {features.map((feature, index) => {
+                  const FeatureIcon = getFeatureIcon(feature.title, feature.description);
+                  const accent = featureAccentColors[index % featureAccentColors.length];
+                  return (
                   <Grid item xs={12} sm={6} key={index}>
                     <Card
                       sx={{
@@ -172,8 +184,21 @@ const IoTSolutions = () => {
                       }}
                     >
                       <CardContent>
-                        <Box sx={{ color: 'primary.main', mb: 2 }}>
-                          {feature.icon}
+                        <Box
+                          sx={{
+                            width: 36,
+                            height: 36,
+                            borderRadius: '50%',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            mb: 2,
+                            bgcolor: alpha(accent, 0.14),
+                            border: `1px solid ${alpha(accent, 0.28)}`,
+                            color: alpha(accent, 0.92),
+                          }}
+                        >
+                          <FeatureIcon fontSize="small" />
                         </Box>
                         <Typography variant="h6" gutterBottom>
                           {feature.title}
@@ -184,7 +209,8 @@ const IoTSolutions = () => {
                       </CardContent>
                     </Card>
                   </Grid>
-                ))}
+                  );
+                })}
               </Grid>
             </Grid>
 
