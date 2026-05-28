@@ -35,7 +35,7 @@ import Terms from "./pages/terms/Terms";
 function App() {
   // Estado para controlar el modo oscuro/claro
   // Siempre inicia en modo oscuro
-  const [isDarkMode, setIsDarkMode] = useState<boolean>(true);
+  const [isDarkMode] = useState<boolean>(true);
 
   // Crea el tema de Material-UI basado en el modo actual
   // useMemo evita recálculos innecesarios del tema
@@ -50,16 +50,6 @@ function App() {
     }
   }, [isDarkMode]);
 
-  // Función para alternar entre modo oscuro y claro
-  // Guarda la preferencia en localStorage para persistencia
-  const toggleDarkMode = () => {
-    setIsDarkMode((prev: boolean) => {
-      const newMode = !prev;
-      localStorage.setItem("darkMode", JSON.stringify(newMode));
-      return newMode;
-    });
-  };
-
   const Router =
     process.env.NODE_ENV === "production" ? HashRouter : BrowserRouter;
 
@@ -72,7 +62,7 @@ function App() {
       <Router basename="/">
         <ScrollToTop />
         {/* Navbar es persistente en todas las rutas */}
-        <Navbar isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
+        <Navbar isDarkMode={isDarkMode} />
         {/* Contenedor principal con margen superior para el navbar fijo */}
         <main>
           {/* Definición de rutas de la aplicación */}

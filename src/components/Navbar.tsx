@@ -23,18 +23,15 @@ import {
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Link as RouterLink, useLocation } from "react-router-dom";
-import Brightness4Icon from "@mui/icons-material/Brightness4";
-import Brightness7Icon from "@mui/icons-material/Brightness7";
 import { useTranslation } from "react-i18next";
 import LanguageIcon from "@mui/icons-material/Language";
 import Logo from "./Logo";
 
 interface NavbarProps {
   isDarkMode: boolean;
-  toggleDarkMode: () => void;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ isDarkMode, toggleDarkMode }) => {
+const Navbar: React.FC<NavbarProps> = ({ isDarkMode }) => {
   const theme = useTheme();
   const { t, i18n } = useTranslation();
   const location = useLocation();
@@ -323,12 +320,6 @@ const Navbar: React.FC<NavbarProps> = ({ isDarkMode, toggleDarkMode }) => {
               <MenuItem onClick={() => changeLanguage("es")}>Español</MenuItem>
             </Menu>
 
-            <IconButton
-              onClick={toggleDarkMode}
-              sx={{ color: theme.palette.text.primary }}
-            >
-              {isDarkMode ? <Brightness7Icon /> : <Brightness4Icon />}
-            </IconButton>
           </Box>
         </Toolbar>
       </Container>
