@@ -12,7 +12,7 @@ export const SITE_DATA = {
     tiktok: "https://tiktok.com/@domocodetech",
     facebook: "https://facebook.com/domocodetech",
     youtube: "https://youtube.com/domocodetech",
-    whatsapp: `https://wa.me/573013117452`,
+    whatsapp: `https://wa.me/61410747452`,
   },
   services: {
     software: {
