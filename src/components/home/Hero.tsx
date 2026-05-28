@@ -39,7 +39,8 @@ const Hero = () => {
   return (
     <Box
       sx={{
-        pt: { xs: 12, md: 16 },
+        pt: { xs: 11, md: 14 },
+        pb: { xs: 6, md: 8 },
         background: "transparent", // Cambiado a transparente
       }}
     >
@@ -50,10 +51,12 @@ const Hero = () => {
               <Typography
                 variant="h1"
                 sx={{
-                  fontSize: { xs: "2.5rem", md: "3.5rem" },
+                  fontSize: { xs: "2.3rem", md: "3.4rem" },
                   mb: 3,
                   color:
                     theme.palette.mode === "dark" ? "white" : "text.primary",
+                  maxWidth: "12ch",
+                  lineHeight: 1.15,
                 }}
               >
                 {t("hero.slogan")}
@@ -69,14 +72,18 @@ const Hero = () => {
               >
                 {t("hero.subtitle")}
               </Typography>
-              <Stack direction="row" spacing={2}>
+              <Stack
+                direction={{ xs: "column", sm: "row" }}
+                spacing={2}
+                sx={{ alignItems: { xs: "stretch", sm: "center" } }}
+              >
                 <Button
                   component={Link}
                   to="/contact"
                   variant="contained"
                   size="large"
                   sx={{
-                    minWidth: "160px",
+                    minWidth: { xs: "100%", sm: "160px" },
                     fontSize: "1.1rem",
                   }}
                 >
@@ -88,7 +95,7 @@ const Hero = () => {
                   variant="outlined"
                   size="large"
                   sx={{
-                    minWidth: "160px",
+                    minWidth: { xs: "100%", sm: "160px" },
                     fontSize: "1.1rem",
                   }}
                 >

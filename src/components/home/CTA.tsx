@@ -24,7 +24,7 @@ const CTA = () => {
     <Box
       sx={{
         position: "relative",
-        py: { xs: 10, md: 15 },
+        py: { xs: 7, md: 10 },
         overflow: "hidden",
         background: "transparent", // Cambiado a transparente
       }}
@@ -91,7 +91,7 @@ const CTA = () => {
                     variant="h2"
                     sx={{
                       mb: { xs: 2, md: 3 },
-                      fontSize: { xs: "2rem", md: "3.5rem" },
+                      fontSize: { xs: "2rem", md: "3rem" },
                       lineHeight: 1.2,
                       background:
                         theme.palette.mode === "dark"
@@ -103,8 +103,8 @@ const CTA = () => {
                       textAlign: "center",
                       textShadow:
                         theme.palette.mode === "dark"
-                          ? "0 0 20px rgba(0, 255, 163, 0.1)"
-                          : "0 0 20px rgba(0, 128, 94, 0.1)",
+                          ? "0 0 14px rgba(0, 255, 163, 0.08)"
+                          : "0 0 14px rgba(0, 128, 94, 0.08)",
                     }}
                   >
                     {t("cta.title")}

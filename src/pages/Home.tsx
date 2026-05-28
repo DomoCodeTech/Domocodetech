@@ -24,8 +24,8 @@ const Home = () => {
       <ServicesSection />
       <ProjectsSection />
       <Testimonials />
-      <CTA />
       <Team />
+      <CTA />
     </PrismaticBackground>
   );
 };

@@ -274,6 +274,23 @@ const Navbar: React.FC<NavbarProps> = ({ isDarkMode, toggleDarkMode }) => {
             ))}
           </Box>
 
+          <Button
+            component={RouterLink}
+            to="/contact"
+            variant="contained"
+            size="small"
+            sx={{
+              display: { xs: "none", md: "inline-flex" },
+              ml: 1,
+              mr: 0.5,
+              py: 0.75,
+              px: 2,
+              fontSize: "0.875rem",
+            }}
+          >
+            {t("hero.getQuote")}
+          </Button>
+
           {/* Selector de idioma y tema */}
           <Box sx={{ flexGrow: 0, display: "flex", alignItems: "center" }}>
             <IconButton

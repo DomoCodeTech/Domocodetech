@@ -46,7 +46,7 @@ const Stats = () => {
   return (
     <Box
       sx={{
-        py: { xs: 8, md: 12 },
+        py: { xs: 7, md: 10 },
         background: "transparent", // Cambiado a transparente
       }}
     >
@@ -75,8 +75,8 @@ const Stats = () => {
                           : "linear-gradient(145deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.95) 100%)",
                       boxShadow:
                         theme.palette.mode === "dark"
-                          ? "0 4px 30px rgba(0, 255, 163, 0.1)"
-                          : "0 4px 30px rgba(0, 0, 0, 0.1)",
+                          ? "0 4px 24px rgba(0, 255, 163, 0.08)"
+                          : "0 4px 24px rgba(0, 0, 0, 0.08)",
                       "&:hover": {
                         transform: "translateY(-5px)",
                         transition: "transform 0.3s ease-in-out",

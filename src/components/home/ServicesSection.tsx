@@ -121,7 +121,7 @@ const ServicesSection = () => {
                   theme.palette.mode === "dark"
                     ? "rgba(0, 255, 163, 0.15)"
                     : "rgba(0, 128, 94, 0.15)",
-                transform: "translateY(-2px)",
+                transform: "translateY(-1px)",
               },
             }}
           >
@@ -227,7 +227,7 @@ const ServicesSection = () => {
     <Box
       component="section"
       sx={{
-        py: { xs: 4, md: 2 },
+        py: { xs: 7, md: 10 },
         minHeight: { xs: "auto", md: "100vh" },
         display: "flex",
         flexDirection: "column",
@@ -235,14 +235,14 @@ const ServicesSection = () => {
       }}
     >
       {/* Título y descripción centrados fuera del contenedor */}
-      <Box sx={{ textAlign: "center", mb: 6, px: 2, maxWidth: "800px" }}>
+      <Box sx={{ textAlign: "center", mb: { xs: 5, md: 7 }, px: 2, maxWidth: "720px" }}>
         <Typography
-          variant="h3"
+          variant="h2"
           sx={{
             fontWeight: 700,
             mb: 2,
             WebkitBackgroundClip: "text",
-            fontSize: { xs: "1.75rem", md: "2.5rem" },
+            fontSize: { xs: "2rem", md: "2.8rem" },
             lineHeight: 1.2,
           }}
         >
